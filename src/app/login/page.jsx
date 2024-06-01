@@ -1,7 +1,7 @@
   "use client";
-  import React, { useState, useRef, useContext, useEffect, useLayoutEffect } from 'react'; 
+  import React, { useState, useRef} from 'react'; 
   import {
-    Avatar,
+    
     Box,
     Button,
     Checkbox,
@@ -13,7 +13,7 @@
     Paper,
     Typography,
   } from "@mui/material";
-  import { useDispatch } from "react-redux";
+
   import TextField from "@mui/material/TextField";
   import { Formik, Form, Field, ErrorMessage } from "formik";
   import * as Yup from "yup";
@@ -51,7 +51,7 @@
   
   const login = ({ handleChange }) => {
     const theme = useTheme();
-    const { dispatch } = useAuth();
+   
   
     
     const [loading, setLoading] = useState(false);
