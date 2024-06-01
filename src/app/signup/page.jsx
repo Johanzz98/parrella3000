@@ -172,14 +172,9 @@ const SignUp = () => {
             <Image
               src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
               alt="Nike Logo"
-              style={{
-                width: "60px",
-                aspectRatio: "auto 60 / 28.8",
-                height: "24px",
-                
-                cursor: "pointer",
-             
-              }} // Ajusta el tamaño según sea necesario
+              width={60}
+              height={32}
+              style={{ cursor: "pointer", maxWidth: '100%' }} // Added maxWidth to ensure responsiveness
             />
           </Box>
           <Grid item>
