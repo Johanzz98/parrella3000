@@ -14,6 +14,7 @@ import FooterDown from '@/components/Footer/FooterDown';
 import Footer from '@/components/Footer/Footer';
 import ShoppingCart from '@/components/Cart/ShoppingCart';
 import { AuthProvider } from '@/context/AuthProvider';
+import Image from 'next/image';
 
 
 const paperStyle = {
@@ -203,7 +204,7 @@ const SignInOutContainer = () => {
               margin: '40px 0 20px'
             }}
           >
-            <img
+            <Image
               src={`../../assets/logoNike.png`}
               alt="Nike Logo"
               style={{

@@ -4,6 +4,7 @@ import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import Image from 'next/image';
 
 const StaticProduct = ({ productData, productDataSm }) => {
  const theme = useTheme();
@@ -21,7 +22,7 @@ const StaticProduct = ({ productData, productDataSm }) => {
       <ImageList variant="woven" cols={isXsScreen ? 1 : isSmScreen ? 2 : 6} gap={12}>
         {productDataToDisplay.map((product) => (
           <ImageListItem key={product.id}>
-            <img          
+            <Image          
               srcSet={`${product.imageurl}?w=${imageSize}&fit=crop&auto=format&dpr=2 2x`}
               src={`${product.imageurl}?w=${imageSize}&fit=crop&auto=format`}
               alt={product.name}

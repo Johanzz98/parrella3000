@@ -27,6 +27,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import IconButton from '@mui/material/IconButton';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import Image from 'next/image';
 
 const REGISTER_URL = '/user'
 
@@ -168,7 +169,7 @@ const SignUp = () => {
       <Paper style={isSmallScreen ? SmallpaperStyle : paperStyle}>
         <Grid align="center">
         <Box >
-            <img
+            <Image
               src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
               alt="Nike Logo"
               style={{

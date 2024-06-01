@@ -15,6 +15,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvider
 import "./App.css"
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
 
 
 const RedDivider = () => {
@@ -105,7 +106,7 @@ const App = () => {
       <Box sx={{ marginBottom: '-14px', display: 'flex', marginLeft: 'auto', position: 'relative', zIndex: '2' }}>
         <Typography sx={{ ...Relleno, color: 'black' }} onClick={handleOpenModal}>Cerrar Sesión</Typography>
       </Box>
-      <img
+      <Image
         src={`../../assets/Foto.png`}
         alt="logo"
         style={{

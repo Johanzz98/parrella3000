@@ -24,6 +24,7 @@
   // Importaciones locales
   import { useAuth  } from "@/context/AuthProvider";
   import axios from '@/api/axios';
+import Image from 'next/image';
   
   // Constantes y configuraciones
   const LOGIN_URL = '/auth/login';
@@ -194,7 +195,7 @@ theme: "colored",
           
           <Grid align="center">
           <Box>
-              <img
+              <Image
                 src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
                 alt="Nike Logo"
                 style={{
@@ -303,7 +304,7 @@ theme: "colored",
                 justifyContent: "center",
               }}
             >
-              <img
+              <Image
                 src={`../../assets/googleLogo.svg`}
                 alt="Google Logo"
                 style={{
@@ -317,7 +318,7 @@ theme: "colored",
                 }}
               />
 
-              <img
+              <Image
                 src={`../../assets/facebookLogo.svg`}
                 alt="Facebook Logo"
                 style={{
@@ -331,7 +332,7 @@ theme: "colored",
                 }}
               />
 
-              <img
+              <Image
                 src={`../../assets/appleLogo.svg`}
                 alt="Apple Logo"
                 style={{

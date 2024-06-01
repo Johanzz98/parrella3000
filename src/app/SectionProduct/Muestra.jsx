@@ -12,6 +12,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Image from 'next/image';
 
 const NombreProducto = {
   fontSize: "24px",
@@ -175,7 +176,7 @@ function Muestra() {
               </Grid>
               <Grid item xs={12} sm={5.2}>
                 {productWithIdThree && (
-                  <img src={productWithIdThree.imageurl} alt={productWithIdThree.name} style={{ width: '360px', height: '369px',paddingLeft:'64px' }} />
+                  <Image src={productWithIdThree.imageurl} alt={productWithIdThree.name} style={{ width: '360px', height: '369px',paddingLeft:'64px' }} />
                 )}
               </Grid>
             </Grid>
@@ -294,27 +295,27 @@ paddingBottom: '24px',
 lineHeight: '24px',}}>
   <div style={{ display: 'flex', alignItems: 'center' }}>
     <ul style={{ margin: 0, padding: 0 }}>
-      <li style={{ marginBottom: '5px' }}>No usar blanqueador <img src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/B1.svg "  alt=""
+      <li style={{ marginBottom: '5px' }}>No usar blanqueador <Image src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/B1.svg "  alt=""
     width="24"
     height="24"
     style={{ marginLeft: '5px', marginTop: '-5px', verticalAlign: 'middle' }} /></li>
-      <li style={{ marginBottom: '5px' }}>No lavar en seco <img src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/E1.svg "  alt=""
+      <li style={{ marginBottom: '5px' }}>No lavar en seco <Image src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/E1.svg "  alt=""
     width="24"
     height="24"
     style={{ marginLeft: '5px', marginTop: '-5px', verticalAlign: 'middle' }}  /></li>
-      <li style={{ marginBottom: '5px' }}>Lavado a máquina agua tibia <img src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/A5.svg"   alt=""
+      <li style={{ marginBottom: '5px' }}>Lavado a máquina agua tibia <Image src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/A5.svg"   alt=""
     width="24"
     height="24"
     style={{ marginLeft: '5px', marginTop: '-5px', verticalAlign: 'middle' }}/></li>
 
 
-      <li style={{ marginBottom: '5px' }}>Secar a potencia baja <img src=" https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/C2.svg"  alt=""
+      <li style={{ marginBottom: '5px' }}>Secar a potencia baja <Image src=" https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/C2.svg"  alt=""
     width="24"
     height="24"
     style={{ marginLeft: '5px', marginTop: '-5px', verticalAlign: 'middle'  }} /></li>
       <li style={{ marginBottom: '5px'}}>
   Retoque con plancha fría
-  <img
+  <Image
     src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/D2.svg"
     alt=""
     width="24"
@@ -394,7 +395,7 @@ lineHeight: '24px',}}>
       {/* Producto de fondo */}
       <Grid item xs={12} sm={4} style={{  textAlign: 'center', marginTop: '20px',width:'60%', marginLeft:'35%',position: 'relative', zIndex: 1 }}>
         {productWithIdThree && (
-          <img src={productWithIdThree.imageurl} alt={productWithIdThree.name} style={{ width: '360px', height: '369px' }} />
+          <Image src={productWithIdThree.imageurl} alt={productWithIdThree.name} style={{ width: '360px', height: '369px' }} />
         )}
         <div style={{ position: 'absolute', top: 20, left: 38, zIndex: 1 }}>
           <InstagramIcon />
@@ -402,7 +403,7 @@ lineHeight: '24px',}}>
         {/* Producto encima */}
         <div style={{ position: 'absolute', top: '75%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, border: '1px solid #eceff1' }}>
           {productWithIdThree && (
-            <img src={productWithIdThree.imageurl} alt={productWithIdThree.name} style={{ width: '120px', height: '123px', border:'1px solid grey' }} />
+            <Image src={productWithIdThree.imageurl} alt={productWithIdThree.name} style={{ width: '120px', height: '123px', border:'1px solid grey' }} />
           )}
         </div>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

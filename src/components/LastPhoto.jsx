@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, CardContent, Grid, Hidden, Typography } from '@mui/material';
+import Image from 'next/image';
 
 const setMidIz = {
   fontFamily: "Nunito Sans, sans-serif",
@@ -20,7 +21,7 @@ export default function LastPhoto() {
       <Grid item xs={12} sm={4}>
         <Box>
           <CardContent>
-            <img
+            <Image
             src= "../../assets/frans.jpg"
               
               loading="lazy"
@@ -39,7 +40,7 @@ export default function LastPhoto() {
         {/* Segunda imagen */}
         <Grid item xs={12} sm={4}>
           <CardContent>
-            <img
+            <Image
               src="https://i.pinimg.com/564x/0f/62/04/0f62046004c2efecd1aec5757c0e43f8.jpg"
               loading="lazy"
               alt="Image 2"
@@ -51,7 +52,7 @@ export default function LastPhoto() {
         {/* Tercera imagen */}
         <Grid item xs={12} sm={4}>
           <CardContent>
-            <img
+            <Image
           
               srcSet="https://i.pinimg.com/564x/17/59/7c/17597c853770adab40fe91d790ff0219.jpg"
               loading="lazy"
@@ -67,7 +68,7 @@ export default function LastPhoto() {
 
         <Box>
           <CardContent>
-            <img
+            <Image
               
               srcSet="https://i.pinimg.com/564x/ec/22/20/ec222045c284341b560d6a1a740c2266.jpg"
               
@@ -81,7 +82,7 @@ export default function LastPhoto() {
         </Box>
           <Box>
             <CardContent>
-              <img
+              <Image
               
                 srcSet="https://i.pinimg.com/564x/9c/45/9b/9c459b4e11dee487885c2ae182fb8f4b.jpg"
                 loading="lazy"
