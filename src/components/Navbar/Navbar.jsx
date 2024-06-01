@@ -37,15 +37,11 @@ const navLinks = [
         icon: <InboxIcon />
     },
     {
-        title: "Login",
-        path: "/login",
+        title: "Producto2",
+        path: "/SectionProduct",
         icon: <DraftsIcon />
     },
-    {
-        title: "Register",
-        path: "SignInOutContainer",
-        icon: <MenuIcon />,
-    }
+ 
 ];
 /*titulo,imagen, price*/
 const rightNavLinks = [
@@ -249,7 +245,7 @@ export default function Navbar() {
                     onClose={() => setOpen(false)}
                     sx={{ display: { xs: "flex", sm: "none" } }}
                 >
-                    <NavListDrawers navLinks={navLinks} />
+                    <NavListDrawers navLinks={navLinks} isAuthenticated={isAuthenticated} />
                 </Drawer>
             </>
         </ThemeProvider>

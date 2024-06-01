@@ -49,7 +49,7 @@
     margin: "8px 0",
   };
   
-  const Login = ({ handleChange }) => {
+  const login = ({ handleChange }) => {
     const theme = useTheme();
     const { dispatch } = useAuth();
   
@@ -429,4 +429,4 @@ theme: "colored",
     );
   };
 
-  export default Login;
+  export default login;
