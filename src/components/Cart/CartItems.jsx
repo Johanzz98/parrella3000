@@ -160,7 +160,7 @@ const CartItems = ({ data, delFromCart }) => {
     <Box  style={isSmallScreen ? SmallStylebox : styleBox} > 
     <Grid >
       <Grid item xs={12} md={4.5}  >
-        <Image src={imageurl} alt={name} style={isSmallScreen ? Smallcart : cart} />
+        <img src={imageurl} alt={name} style={isSmallScreen ? Smallcart : cart} />
       </Grid>
       
       

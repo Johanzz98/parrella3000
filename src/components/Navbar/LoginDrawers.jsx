@@ -6,7 +6,6 @@ import axios from '@/api/axios';
 import { useSelector } from "react-redux";
 import ClearIcon from '@mui/icons-material/Clear';
 import AbcIcon from '@mui/icons-material/Abc';
-import Image from "next/image";
 
 
 
@@ -182,7 +181,7 @@ const LoginDrawers = () => {
               paddingBottom:'12px'
             }}
           >
-            <Image
+            <img
               src={`../../assets/adi.svg`}
               alt="logo"
               style={{
@@ -306,7 +305,7 @@ const LoginDrawers = () => {
             textAlign: 'left',
           }}
         >
-          <Image
+          <img
             src={`../../assets/Foto.png`}
             alt="logo"
             style={{

@@ -18,7 +18,6 @@ import CartDrawersMax from "./CartDrawers.jsx";
 import CartDrawers from "./CartDrawersMax";
 import { useAuth } from "@/context/AuthProvider";
 import { useDispatch } from 'react-redux';
-import Image from "next/image";
 const theme = createTheme({
     palette: {
       primary: {
@@ -202,11 +201,11 @@ export default function Navbar() {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" sx={{ width: '60px', height: '28.8px', marginLeft: '42px', cursor: 'pointer' }}>
-    <NextLink href="/">
-        <Image src={imgPath} alt="Swoosh Icon" width={60} height={28.8} />
-    </NextLink>
-</Typography>
+                        <Typography variant="h6" sx={{ width: '60px', aspectRatio: 'auto 60 / 28.8', height: '28.8px', marginLeft: '42px', cursor: 'pointer' }}>
+                            <NextLink href="/">
+                                <img src={imgPath} alt="Swoosh Icon" />
+                            </NextLink>
+                        </Typography>
                         <Box sx={{ flexGrow: 1 }} />
                         {windowWidth > 800 ? (
                             <SearchContainer >

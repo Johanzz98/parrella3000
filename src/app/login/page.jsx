@@ -1,7 +1,7 @@
   "use client";
-  import React, { useState, useRef} from 'react'; 
+  import React, { useState, useRef, useContext, useEffect, useLayoutEffect } from 'react'; 
   import {
-    
+    Avatar,
     Box,
     Button,
     Checkbox,
@@ -13,7 +13,7 @@
     Paper,
     Typography,
   } from "@mui/material";
-
+  import { useDispatch } from "react-redux";
   import TextField from "@mui/material/TextField";
   import { Formik, Form, Field, ErrorMessage } from "formik";
   import * as Yup from "yup";
@@ -24,7 +24,6 @@
   // Importaciones locales
   import { useAuth  } from "@/context/AuthProvider";
   import axios from '@/api/axios';
-import Image from 'next/image';
   
   // Constantes y configuraciones
   const LOGIN_URL = '/auth/login';
@@ -50,9 +49,9 @@ import Image from 'next/image';
     margin: "8px 0",
   };
   
-  const login = ({ handleChange }) => {
+  const Login = ({ handleChange }) => {
     const theme = useTheme();
-   
+    const { dispatch } = useAuth();
   
     
     const [loading, setLoading] = useState(false);
@@ -195,13 +194,17 @@ theme: "colored",
           
           <Grid align="center">
           <Box>
-          <Image
-  src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
-  alt="Nike Logo"
-  width={60}
-  height={32}
-  style={{ cursor: "pointer", maxWidth: '100%' }}
-/>
+              <img
+                src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
+                alt="Nike Logo"
+                style={{
+                  width: "60px",
+                  aspectRatio: "auto 60 / 28.8",
+                  height: "32px",
+
+                  cursor: "pointer",
+                }} // Ajusta el tamaño según sea necesario
+              />
             </Box>
 
             <Typography
@@ -300,7 +303,7 @@ theme: "colored",
                 justifyContent: "center",
               }}
             >
-              <Image
+              <img
                 src={`../../assets/googleLogo.svg`}
                 alt="Google Logo"
                 style={{
@@ -314,7 +317,7 @@ theme: "colored",
                 }}
               />
 
-              <Image
+              <img
                 src={`../../assets/facebookLogo.svg`}
                 alt="Facebook Logo"
                 style={{
@@ -328,7 +331,7 @@ theme: "colored",
                 }}
               />
 
-              <Image
+              <img
                 src={`../../assets/appleLogo.svg`}
                 alt="Apple Logo"
                 style={{
@@ -426,4 +429,4 @@ theme: "colored",
     );
   };
 
-  export default login;
+  export default Login;

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Box, Button, Card, CardMedia, Paper, ThemeProvider } from '@mui/material';
 import SignUp from '../signup/page';
 import Login from '../login/page';
-import "./app.css"
+import "./App.css"
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Navbar from '@/components/Navbar/Navbar';
@@ -14,7 +14,6 @@ import FooterDown from '@/components/Footer/FooterDown';
 import Footer from '@/components/Footer/Footer';
 import ShoppingCart from '@/components/Cart/ShoppingCart';
 import { AuthProvider } from '@/context/AuthProvider';
-import Image from 'next/image';
 
 
 const paperStyle = {
@@ -204,7 +203,7 @@ const SignInOutContainer = () => {
               margin: '40px 0 20px'
             }}
           >
-            <Image
+            <img
               src={`../../assets/logoNike.png`}
               alt="Nike Logo"
               style={{
