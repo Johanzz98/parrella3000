@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Box, Button, Card, CardMedia, Paper, ThemeProvider } from '@mui/material';
 import SignUp from '../signup/page';
 import Login from '../login/page';
-import "./App.css"
+import "./app.css"
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Navbar from '@/components/Navbar/Navbar';
