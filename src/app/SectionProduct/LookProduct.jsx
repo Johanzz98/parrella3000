@@ -18,11 +18,11 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "140px",
+  width: "100px",
   margin: "0 auto 12px ",
   cursor: "pointer",
   fontFamily: "arial",
-  border: "1 px blue",
+ 
   borderShadow: "none",
   position: "relative", // Añadido
   textAlign: "left",
@@ -69,7 +69,7 @@ const smallMediaStyle = {
 
 const priceStyle = {
   color: "#111",
-  fontSize: "13px",
+  fontSize: "10px",
   margin: "0 8px",
   fontWeight: "500",
   display: "flex",
@@ -148,8 +148,8 @@ export default function LookProduct(props) {
           <Box
             style={{
               position: "absolute",
-              top: 122,
-              right: 80,
+              top: 86,
+              right: 50,
               backgroundColor: "white",
               height: "%20",
               transition: "transform 0.3s ease",
