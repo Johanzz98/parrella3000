@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Drawer, Box, Typography, IconButton, Paper, Link } from "@mui/material";
+import React, {useState } from "react";
+import { Drawer, Box, Typography, IconButton,} from "@mui/material";
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CasesIcon from '@mui/icons-material/Cases';
 import CartItems from "../Cart/CartItems";
 import { TYPES } from '@/actions/ShoppingActions';

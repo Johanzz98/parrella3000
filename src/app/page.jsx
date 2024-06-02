@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'; // Importa BrowserRouter como Router
 import Navbar from '@/components/Navbar/Navbar';
 import Carousel from '@/components/Carousel/Carousel';
 import Box from '@mui/material/Box';
@@ -21,7 +20,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvider
 import "./App.css";
 import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
-import Token from '@/services/redurcers/Token';
+
 
 const theme = createTheme({
   palette: {

@@ -11,10 +11,6 @@ import {
   Button,
   Collapse,
   List,
-  ListItem,
-  ListItemIcon,
-  Checkbox,
-  ListItemText,
   Divider,
 } from "@mui/material"; // Añade Collapse
 import FacebookIcon from "@mui/icons-material/Facebook";

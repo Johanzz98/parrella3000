@@ -1,14 +1,10 @@
 "use client";
-import { Box, Button, Divider, Typography, CircularProgress } from '@mui/material';
+import { Box, Button, Divider, Typography} from '@mui/material';
 import React, { useState } from 'react';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeliveryDiningOutlinedIcon from '@mui/icons-material/DeliveryDiningOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
-import StarIcon from '@mui/icons-material/Star';
-import { useDispatch } from "react-redux";
-import { TYPES } from "@/actions/ShoppingActions";
+
 
 const Titulo = {
   fontSize: "20px",
