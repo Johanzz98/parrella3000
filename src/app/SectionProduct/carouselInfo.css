@@ -27,13 +27,13 @@
 
 /* Posicionamiento específico para los botones de flecha izquierda y derecha */
 .look-carousel .react-multiple-carousel__arrow--left {
-  left: 4px;
+  left: 20px;
   top: 30%;
  
 }
 
 .look-carousel .react-multiple-carousel__arrow--right {
-  right: 4px;
+  right: 20px;
   top: 30%;
 }
 
