@@ -18,12 +18,12 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "130px",
-  margin: "0 auto 12px ",
+  width: "100px",
+ 
   cursor: "pointer",
   fontFamily: "arial",
- 
-  borderShadow: "none",
+  margin: "0 auto",
+  boxShadow: "none", // Se corrigió el nombre de la propiedad boxShadow
   position: "relative", // Añadido
   textAlign: "left",
 };
