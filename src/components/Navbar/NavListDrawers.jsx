@@ -113,7 +113,7 @@ const detalles = {
                                     style={{
                                         width: '40%',
                                         height:'100%',
-                                       marginLeft:'55px',
+                                       marginLeft:'70px',
                                        marginBottom:'4px'
                                     }}
                                 />
@@ -121,7 +121,7 @@ const detalles = {
                               
                             </Box>
                             <ListItemIcon>
-                                    <CloseIcon sx={{color:'black', marginLeft:'auto',fontSize:'32px',marginBottom:'4px'}} />
+                                    <CloseIcon sx={{color:'black', marginLeft:'40px',fontSize:'32px',marginBottom:'4px'}} />
                                 </ListItemIcon>
                         </ListItemButton>
                     </ListItem>
