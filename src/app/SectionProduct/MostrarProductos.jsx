@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Box, Grid } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-
-
 
 const cardStyle = {
   maxWidth: "580px",
@@ -21,6 +17,7 @@ const cardStyle2 = {
   borderRadius: "12px",
   transition: "transform 0.6s ease",
   position: "relative",
+  cursor: "pointer",
 };
 
 const mediaStyle = {
@@ -40,47 +37,58 @@ const productContainerStyle = {
 };
 
 export default function MostrarProductos(props) {
+  const [zoomScale, setZoomScale] = useState({});
+  const [zoomPosition, setZoomPosition] = useState({});
   const [selectedItem, setSelectedItem] = useState(null);
-  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
 
-  const handleClick = (itemId, e) => {
+  const handleZoomClick = (id, e) => {
+    if (selectedItem === id) {
+      setZoomScale({ ...zoomScale, [id]: 1 });
+      setSelectedItem(null);
+    } else {
+      const rect = e.target.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width * 100;
+      const y = (e.clientY - rect.top) / rect.height * 100;
+      setZoomPosition({ ...zoomPosition, [id]: { x, y } });
+      setZoomScale({ ...zoomScale, [id]: 4 });
+      setSelectedItem(id);
+    }
+  };
+
+  const handleMouseLeave = (id) => {
+    setZoomScale({ ...zoomScale, [id]: 1 });
+  };
+
+  const handleMouseMove = (id, e) => {
+    if (zoomScale[id] !== 4) return;
     const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setZoomPosition({ x, y });
-    setSelectedItem(itemId === selectedItem ? null : itemId);
-  };
-
-  const resetZoom = () => {
-    setZoomPosition({ x: 0, y: 0 });
-  };
-
-  const getTransformOrigin = () => {
-    return selectedItem ? `${zoomPosition.x}px ${zoomPosition.y}px` : 'center';
+    const x = (e.clientX - rect.left) / rect.width * 100;
+    const y = (e.clientY - rect.top) / rect.height * 100;
+    setZoomPosition({ ...zoomPosition, [id]: { x, y } });
   };
 
   return (
     <Grid container spacing={1} justifyContent="flex-start">
       {props.items.map(item => (
         <Grid item key={item.id}>
-          <Box
-            style={productContainerStyle}
-            onClick={(e) => handleClick(item.id, e)}
-          >
+          <Box style={productContainerStyle}>
             <Card sx={item.isSmallScreen ? cardStyle2 : cardStyle}>
-              <div>
-              <CardMedia
-  component="img"
-  image={item.imageurl}
-  alt="product image"
-  sx={{
-   ...item.isSmallScreen? smallMediaStyle : mediaStyle,
-    transform: selectedItem === item.id? 'scale(2.6)' : 'scale(1)',
-    transformOrigin: getTransformOrigin(),
-    cursor: selectedItem ? `url('../../../assets/remove.svg'), auto` : `url('../../../assets/plus.svg'), auto`,
-  }}
-  onAnimationEnd={resetZoom}
-/>
+              <div
+                onClick={(e) => handleZoomClick(item.id, e)}
+                onMouseLeave={() => handleMouseLeave(item.id)}
+                onMouseMove={(e) => handleMouseMove(item.id, e)}
+                style={{ cursor: selectedItem === item.id ? `url('../../../assets/menos.svg'), auto` : `url('../../../assets/plus.svg'), auto` }}
+              >
+                <CardMedia
+                  component="img"
+                  image={item.imageurl}
+                  alt="product image"
+                  sx={{
+                    ...item.isSmallScreen ? smallMediaStyle : mediaStyle,
+                    transform: `scale(${zoomScale[item.id] || 1})`,
+                    transformOrigin: zoomPosition[item.id] ? `${zoomPosition[item.id].x}% ${zoomPosition[item.id].y}%` : 'center',
+                  }}
+                />
               </div>
             </Card>
           </Box>

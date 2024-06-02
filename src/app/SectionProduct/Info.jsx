@@ -113,8 +113,8 @@ const Info = () => {
 
   return (
     
-    <Box style={{ position: 'fixed', marginRight:'24px', zIndex: '1000' }}>
-      <Divider orientation="vertical" flexItem sx={{ position: 'absolute', top: 0, bottom: 0, left: -30,height:'2000%', borderLeft: '1px solid grey' }} />
+    <Box style={{ position: 'fixed', marginLeft:'-28px', zIndex: '1000' }}>
+      <Divider orientation="vertical" flexItem sx={{ position: 'absolute', top: 0, bottom: 0, left: -10,height:'2000%', borderLeft: '1px solid grey' }} />
         
     <Typography sx={Titulo}>Nombre del Producto</Typography>
       <Box>
