@@ -397,7 +397,7 @@ const SignUp = () => {
                   sx={{
                     fontSize: "0.6rem",
                     color: "#f44336",
-                    
+                    textAlign: "center" 
                   }} // Reducir tamaño y cambiar color del texto de ayuda
                 >
                   <ErrorMessage name="termsAndConditions" />
@@ -406,7 +406,7 @@ const SignUp = () => {
                   type="submit"
                   variant="contained"
                   disabled={props.isSubmitting}
-                  sx={{ marginTop: "4px" }}
+                  sx={{ marginTop: "4px"}}
                 >
                   {props.isSubmitting ? "Loading" : "Sign Up"}
                 </Button>
