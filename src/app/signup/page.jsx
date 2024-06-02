@@ -40,10 +40,10 @@ const paperStyle = {
 };
 
 const SmallpaperStyle = {
-  padding:18,
+  padding:10,
   maxHeight: "73vh",
   width: 230,
-  margin: "0 auto 80px",
+  margin: "0 auto 46px",
   boxShadow: "none",
   borderRadius: "24px",
 };
