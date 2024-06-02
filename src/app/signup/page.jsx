@@ -40,9 +40,9 @@ const paperStyle = {
 };
 
 const SmallpaperStyle = {
-  padding: 16,
+  padding:42,
   maxHeight: "72vh",
-  width: 294,
+  width: 230,
   margin: "0 auto 64px",
   boxShadow: "none",
   borderRadius: "24px",
