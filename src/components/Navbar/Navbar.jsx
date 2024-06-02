@@ -18,6 +18,8 @@ import CartDrawersMax from "./CartDrawers.jsx";
 import CartDrawers from "./CartDrawersMax";
 import { useAuth } from "@/context/AuthProvider";
 import { useDispatch } from 'react-redux';
+
+
 const theme = createTheme({
     palette: {
       primary: {
@@ -31,17 +33,29 @@ const theme = createTheme({
   
 
 const navLinks = [
+  
     {
-        title: "Home",
-        path: "/home",
-        icon: <InboxIcon />
-    },
-    {
-        title: "Producto2",
+        title: "Producto",
         path: "/SectionProduct",
-        icon: <DraftsIcon />
+       
     },
  
+    {
+        title: "Lanzamientos",
+        path: "#",
+      
+    },
+    {
+        title: "Hombre",
+        path: "/SectionProduct",
+       
+    },
+    {
+        title: "Mujer",
+        path: "#",
+        
+    },
+   
 ];
 /*titulo,imagen, price*/
 const rightNavLinks = [
@@ -239,14 +253,16 @@ export default function Navbar() {
                         )}
                     </Toolbar>
                 </FirstAppBar>
+             
                 <Drawer
                     open={open}
                     anchor="left"
                     onClose={() => setOpen(false)}
                     sx={{ display: { xs: "flex", sm: "none" } }}
                 >
-                    <NavListDrawers navLinks={navLinks} isAuthenticated={isAuthenticated} />
+                    <NavListDrawers navLinks={navLinks} isAuthenticated={isAuthenticated} setOpen={setOpen} />
                 </Drawer>
+               
             </>
         </ThemeProvider>
     );
