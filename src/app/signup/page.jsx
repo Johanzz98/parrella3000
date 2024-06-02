@@ -40,10 +40,10 @@ const paperStyle = {
 };
 
 const SmallpaperStyle = {
-  padding:42,
-  maxHeight: "72vh",
+  padding:18,
+  maxHeight: "73vh",
   width: 230,
-  margin: "0 auto 64px",
+  margin: "0 auto 80px",
   boxShadow: "none",
   borderRadius: "24px",
 };
@@ -165,9 +165,9 @@ const SignUp = () => {
             <Image
               src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
               alt="Nike Logo"
-              width={60}
+              width={54}
               height={32}
-              style={{ cursor: "pointer", maxWidth: "100%" }} // Added maxWidth to ensure responsiveness
+              style={{ cursor: "pointer", maxWidth: "100%",marginBottom:'2px', marginTop:'-32px' }} // Added maxWidth to ensure responsiveness
             />
           </Box>
           <Grid item>
@@ -380,14 +380,14 @@ const SignUp = () => {
                     <Field
                       as={Checkbox}
                       name="termsAndConditions"
-                      sx={{ transform: "scale(0.8)", marginBottom: "-14px" }} // Reducir escala del checkbox
+                      sx={{ transform: "scale(0.8)", marginTop: "-4px" }} // Reducir escala del checkbox
                       color="primary"
                     />
                   }
                   label={
                     <Typography
                       variant="body1"
-                      sx={{ fontSize: "0.8rem", marginBottom: "-14px" }}
+                      sx={{ fontSize: "0.8rem", marginTop: "16px" }}
                     >
                       I accept the terms and conditions
                     </Typography> // Reducir tamaño del texto
@@ -397,7 +397,7 @@ const SignUp = () => {
                   sx={{
                     fontSize: "0.6rem",
                     color: "#f44336",
-                    marginBottom: "-4px",
+                    
                   }} // Reducir tamaño y cambiar color del texto de ayuda
                 >
                   <ErrorMessage name="termsAndConditions" />
