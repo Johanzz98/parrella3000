@@ -21,7 +21,9 @@ const cardStyle = {
 
 const cardStyle2 = {
   width: "400px",
-  margin: "0 auto 12px",
+  margin: "0 auto 6px",
+  paddingRight:'12px',
+  paddingLeft:'12px',
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: "12px",

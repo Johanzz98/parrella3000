@@ -38,13 +38,15 @@ function SectionProduct() {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div style={{ display: 'flex'}}>
       <div style={{ flex: '4' }}>
-        <Muestra style={{ justifyContent: 'flex-start' }} />
+        <Muestra />
+        
       </div>
       <div style={{ flex: '1' }}>
         <Info />
       </div>
+     
     </div>
   );
 }
