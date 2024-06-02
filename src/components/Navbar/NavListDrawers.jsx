@@ -2,19 +2,24 @@ import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from 
 import { useAuth } from "@/context/AuthProvider";
 import { useEffect, useState } from 'react';
 import MenuIcon from "@mui/icons-material/Menu";
+import { useDispatch } from 'react-redux';
+
+
 export default function NavListDrawers({ navLinks }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const { authState } = useAuth(); // Obtén el estado de autenticación del contexto
-
+    const dispatch = useDispatch();
     useEffect(() => {
-        setIsAuthenticated(authState.isAuthenticated); // Establece isAuthenticated según el estado actual de autenticación
-    }, [authState.isAuthenticated]);
+        setIsAuthenticated(authState.isAuthenticated); // Correctly set isAuthenticated based on authState
+      }, [authState.isAuthenticated])
 
+    // Función modificada para manejar el cierre de sesión
     const handleLogout = () => {
         // Suponiendo que hay una manera de limpiar el estado de autenticación, por ejemplo, estableciéndolo en null o un objeto vacío
         dispatch({ type: 'LOGOUT' }); // Despacha una acción LOGOUT si es necesario
         window.location.reload();
     };
+      
 
     return (
         <Box sx={{ width: 259 }}>
