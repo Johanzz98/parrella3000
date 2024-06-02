@@ -20,8 +20,8 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "400px",
-  margin: "0 auto 6px",
+  width: "360px",
+  
   paddingRight:'12px',
   paddingLeft:'12px',
   textAlign: "center",
