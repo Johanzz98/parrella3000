@@ -18,7 +18,7 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "400px",
+  width: "130px",
   margin: "0 auto 12px ",
   cursor: "pointer",
   fontFamily: "arial",
