@@ -1,4 +1,4 @@
-import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon,Typography } from "@mui/material";
 import { useAuth } from "@/context/AuthProvider";
 import { useEffect, useState } from 'react';
 
@@ -276,6 +276,7 @@ const detalles = {
                                 onClick={(event) => {
                                     event.preventDefault();
                                     handleLogout();
+                                    window.location.href = "/"; // Redirect the user to the home page
                                 }}
                                 sx={{
                                     textAlign: 'center',

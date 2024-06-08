@@ -14,13 +14,11 @@ const AUTH_ME = '/auth/me';
 const helloName = {
   fontSize: "18px",
   fontWeight: "1000",
-  
-  flexGrow:2,
   color: "#111",
   marginLeft:'36px',
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: 'center', /* Centra horizontalmente */
+  alignItems: 'center', /* Centra verticalmente */
   fontFamily: "Helvetica,sans-serif",
   fontOpticalSizing: 'auto',
 }
@@ -159,8 +157,8 @@ const LoginDrawers = () => {
         }}
         PaperProps={{ style: { width: 375 } }} // Modificar el ancho aquí
       >
-        <Box p={2} textAlign="center" role="presentation" sx={{ backgroundColor: "#eeeeee" }}>
-          <Box display="flex" alignItems="center" justifyContent="space-between" >
+         <Box p={2} textAlign="center" role="presentation" sx={{ backgroundColor: "#eeeeee" }}>
+          <Box display="flex" alignItems="center" justifyContent="center" >
 
             <Box >
               <Typography sx={helloName}>
@@ -168,9 +166,14 @@ const LoginDrawers = () => {
               </Typography>
             </Box>
 
-            <IconButton onClick={handleDrawerClose} style={{ color: 'black' }} >
-              <ClearIcon />
-            </IconButton>
+            <IconButton 
+  onClick={handleDrawerClose}   
+  sx={{ '&:hover': { backgroundColor: 'transparent' } }} // Agrega este estilo para evitar que el color de fondo cambie al pasar el ratón
+>
+  <ClearIcon 
+    sx={{ color: 'black', marginRight:'-80px', boxShadow: 'none' }} // Establece boxShadow en none
+  />
+</IconButton>
           </Box>
           <Box
             sx={{
@@ -194,7 +197,7 @@ const LoginDrawers = () => {
   <Typography sx={{...helloName, fontSize:'16px',marginTop:'12px'}}>
     ¡BIENVENIDO!
   </Typography>
-  <Typography sx={{ ...detalles, marginLeft: '34px' }}>
+  <Typography sx={{ ...detalles, marginLeft: '34px', cursor:'default' }}>
   
     Parrella Clubs
   </Typography>
@@ -212,7 +215,7 @@ const LoginDrawers = () => {
           </Box>
          
           <Box sx={cuadros}>
-            <Typography sx={detalles} >
+            <Typography sx={detalles} onClick={() => window.location.href = "/account"}>
               IR A TU CUENTA
             </Typography>
             <IconButton onClick={handleDrawerClose}>
@@ -310,7 +313,7 @@ const LoginDrawers = () => {
             alt="logo"
             style={{
               
-              width:"358px"
+              width:"357px"
             }}
           />
         </Box>

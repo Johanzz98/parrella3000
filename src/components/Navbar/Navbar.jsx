@@ -29,6 +29,7 @@ const theme = createTheme({
         main: '#212121', // Color del texto del navbar
       },
     },
+   
   });
   
 
@@ -201,7 +202,7 @@ export default function Navbar() {
                     </Toolbar>
                 </SecondAppBar>
 
-                <FirstAppBar position="fixed" sx={{ top: '42px' }}> {/* Ajusta la posición para que esté debajo del segundo navbar */}
+                <FirstAppBar position="fixed" sx={{ top: '42px', boxShadow: '0 2px 4px rgba(12, 12, 255, 0.12)'}}> {/* Ajusta la posición para que esté debajo del segundo navbar */}
                     <Toolbar>
                         <IconButton
                             color="inherit"

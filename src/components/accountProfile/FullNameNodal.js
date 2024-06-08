@@ -1,63 +1,125 @@
 import React, { useState } from 'react';
-import { Modal, Box, Button, TextField, IconButton } from '@mui/material';
+import { Modal, Box, Button, TextField, IconButton, CircularProgress, Typography } from '@mui/material';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import * as Yup from 'yup'; 
+import axios from '@/api/axios';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useSelector } from 'react-redux';
 
-const FullNameModal = ({ open, handleClose }) => {
-  const [showPassword, setShowPassword] = useState(false);
+const SAVE_USER = '/user'; 
 
-  // Define los valores iniciales y el esquema de validación con Yup
+
+
+const helloName = {
+  fontSize: "20px",
+  fontWeight: "1000",
+  color: "#111",
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  fontFamily: "Helvetica,sans-serif",
+  fontOpticalSizing: 'auto',
+  marginBottom: '12px',
+};
+
+const buttonStyle = {
+  border: "none",
+  outline: "0",
+  marginTop: '14px',
+  color: "white",
+  backgroundColor: "#000",
+  textAlign: "center",
+  cursor: "pointer",
+  fontFamily: "Helvetica,sans-serif",
+  fontSize: "18px",
+  marginBottom: '12px',
+  width:'100%'
+};
+
+
+const FullNameModal = ({ open, handleClose, setFullName }) => {
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(null); 
+  const token = useSelector((state) => state.auth.token);
+
   const initialValues = {
     person: {
-      fullName: '',
-      email: '',
-      gender: '',
-      phoneNumber: '',
-      password: '',
-      confirmPassword: '' // Nuevo campo para la confirmación de contraseña
-    }
+      fullName: "",
+    },
   };
 
-  const validationSchema = Yup.object({
+  const validationSchema = Yup.object().shape({
     person: Yup.object().shape({
-      fullName: Yup.string().required('Required'),
-      email: Yup.string().email('Invalid email address').required('Required'),
-      gender: Yup.string().required('Required'),
-      phoneNumber: Yup.string().required('Required'),
-      password: Yup.string().required('Required'),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref('person.password'), null], 'Passwords must match') // Valida que coincida con la contraseña
-        .required('Required')
+      fullName: Yup.string()
+      .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
+      .min(3, "It's too short")
+      .required("Required"),
     })
   });
-
-  const onSubmit = (values, { setSubmitting }) => {
-    // Aquí maneja la lógica de envío del formulario
-    console.log(values);
-    setSubmitting(false);
+  
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      setLoading(true);
+  
+      // Preparar los datos para la solicitud, incluyendo campos vacíos según lo esperado por el servidor
+      const requestData = {
+        person: {
+          fullName: values.person.fullName,
+          codePostal: "6101", // Campo requerido por el servidor, pero no utilizado en la actualización
+          country: "Venezuela", // Campo requerido por el servidor, pero no utilizado en la actualización
+        },
+      };
+  
+      const response = await axios.patch(SAVE_USER, requestData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.status === 202 || response.status === 201) {
+        handleClose();
+        window.location.reload();
+        setFullName(values.person.fullName); // Actualiza el nombre completo en el estado global/local
+      } else {
+        setError('Ocurrió un error al actualizar el Nombre.');
+      }
+    } catch (error) {
+      console.error('Error updating Name:', error);
+      setError('Ocurrió un error al actualizar el Nombre.');
+    } finally {
+      setLoading(false);
+      setSubmitting(false);
+    }
   };
+  
 
   return (
-    <Modal open={open} onClose={handleClose} sx={{ '& .MuiPaper-root': { border: 'none' }}}>
-      
-      <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '500px', height: '500px', bgcolor: 'background.paper',border: 'none' , p: 4 }}>
-      <IconButton
+    <Modal open={open} onClose={handleClose} sx={{ '&.MuiPaper-root': { border: 'none' }}}>
+    
+      <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '460px', height: '460px', bgcolor: 'background.paper',border: 'none', p: 4 }}>
+        <IconButton
           onClick={handleClose}
           style={{
             position: 'absolute',
             top: '-15px',
             right: '-16px',
-            backgroundColor:"white",border:'1px solid black',
+            backgroundColor:"white",
+            border:'1px solid black',
             borderRadius:'0'
           }}
         >
           <ClearIcon sx={{fontSize:'1rem', color:'black'}} />
         </IconButton>
+        <Box>
+        <Typography sx={helloName}>
+        EDITAR TUS DATOS FISCALES
+        </Typography>
+      </Box>
         <Formik
-          initialValues={initialValues}
+           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
         >
           {({ values, handleChange, handleSubmit, isSubmitting }) => (
             <Form>
@@ -65,61 +127,29 @@ const FullNameModal = ({ open, handleClose }) => {
                 as={TextField}
                 fullWidth
                 name="person.fullName"
-                label="Name"
-                placeholder="Enter your Name"
+                label="Nombre"
+                placeholder="Colaca su Nombre"
                 helperText={<ErrorMessage name="person.fullName" />}
+                sx={{marginTop:'12px',marginBottom:'24px'}}
+                FormHelperTextProps={{ sx: { color: "#f44336" } }} // Aquí aplicamos el estilo al componente FormHelperText
               />
-             
-              <Field
-                as={TextField}
-                fullWidth
-                name="person.email"
-                label="Apellido"
-                placeholder="Enter your Email"
-                helperText={<ErrorMessage name="person.email" />}
-              />
-                <Field
-                as={TextField}
-                fullWidth
-                name="person.fullName"
-                label=" Correo Electronico"
-                placeholder="Enter your Correo Electronico"
-                helperText={<ErrorMessage name="person.fullName" />}
-              />
-              {/* Otros campos de formulario similares */}
-              <Field
-                as={TextField}
-                fullWidth
-                name="person.password"
-                label="Vieja contraseña"
-                type={showPassword ? 'text' : 'password'}
-                helperText={<ErrorMessage name="person.password" />}
-              />
-              <Field
-                as={TextField}
-                fullWidth
-                name="person.confirmPassword"
-                label="Nueva contraseña"
-                type={showPassword ? 'text' : 'password'}
-                helperText={<ErrorMessage name="person.confirmPassword" />}
-              />
-              <IconButton
-                onClick={() => setShowPassword(!showPassword)}
-                size="small"
-                style={{
-                  position: 'absolute',
-                  right: '10px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                }}
-              >
-                {/* Ícono para alternar la visibilidad de la contraseña */}
-              </IconButton>
-              {/* Botón de envío */}
-              <Button type="submit" variant="contained" color="primary" disabled={isSubmitting} sx={{width:"100%"}}>
-                Actualizar Datos
+
+              <Button type="submit" variant="contained" color="primary"  disabled={isSubmitting}  sx={buttonStyle}>
+                {loading? <CircularProgress size={24} /> : 'Actualizar Datos '}
               </Button>
-              <Button type="button" variant="contained" color="secondary" onClick={handleClose} sx={{ marginTop:'12px', width:"100%" }}>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
+              <Button type="button" variant="contained" color="primary" onClick={handleClose} sx={{ marginTop:'12px', width:"50%",  border: "none",
+  outline: "0",
+  marginTop: '14px',
+  color: "white",
+  backgroundColor: "#000",
+ marginLeft:'96px',
+  cursor: "pointer",
+  fontFamily: "Helvetica,sans-serif",
+  fontSize: "18px",
+  marginBottom: '12px',
+ 
+}}>
                 Cancelar
               </Button>
             </Form>

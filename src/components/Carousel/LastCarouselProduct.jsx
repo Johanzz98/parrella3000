@@ -19,7 +19,7 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "400px",
+  width: "300px",
   margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",

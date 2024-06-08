@@ -15,12 +15,13 @@
 
   export const productDataSm =[
 
-    {
-      id: 2,
-        imageurl:
-          "https://i.pinimg.com/564x/54/a2/27/54a22752f5c9a39932456241ba7625fd.jpg",
+   
+      {
+        id: 3,
+        imageurl: "../../assets/franvertical.jpg", // Corrected URL format
         name: "Movie Jackets",
-       
-      },
+         
+        },
+      
     
   ]

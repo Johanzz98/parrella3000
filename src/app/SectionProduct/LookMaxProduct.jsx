@@ -7,9 +7,8 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import { TYPES } from "@/actions/ShoppingActions";
 const cardStyle = {
-  maxWidth: "600px",
+  width: "260px",
   margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",
@@ -19,7 +18,7 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "116px",
+  width: "80px",
  margin:"0 auto",
   cursor: "pointer",
   fontFamily: "arial",
@@ -43,13 +42,13 @@ const detalles = {
 };
 
 const NombreProducto = {
-  fontSize: "12px",
+  fontSize: "18px",
   fontWeight: "550",
-  color: "#111",
+  color: "orange",
   paddingTop: "8px",
   display: "flex",
-  justifyContent: "flex-start", // Ajustado para alinear el texto a la izquierda cuando sea largo
-  alignItems: "flex-start", // Ajustado para alinear el texto a la izquierda cuando sea largo
+  justifyContent: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
+  alignItems: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
   fontFamily: "Helvetica, sans-serif",
   fontOpticalSizing: "auto",
   // Añadido para asegurar que el texto no se desborde
@@ -58,8 +57,9 @@ const NombreProducto = {
 };
 
 const mediaStyle = {
+  height: "400px",
   width: "100%",
-  objectFit: "contain",
+  objectFit: "cover",
 };
 
 const smallMediaStyle = {
@@ -70,7 +70,7 @@ const smallMediaStyle = {
 
 const priceStyle = {
   color: "#111",
-  fontSize: "10px",
+  fontSize: "14px",
   margin: "0 8px",
   fontWeight: "500",
   display: "flex",
@@ -114,14 +114,13 @@ const productContainerStyle = {
 
 // Estilos definidos previamente...
 
-export default function LookProduct(props) {
+export default function LookMaxProduct(props) {
   const isSmallScreen = useMediaQuery("(max-width:800px)");
   const [isHovered, setIsHovered] = useState(false);
 
   const addToCart = () => {
     dispatch({ type: TYPES.ADD_TO_CART, payload: props.item });
     dispatch({ type: TYPES.TOTAL });
- 
   };
 
   const handleMouseEnter = () => {
@@ -150,8 +149,8 @@ export default function LookProduct(props) {
           <Box
             style={{
               position: "absolute",
-              top: 96,
-              left: 8,
+              bottom: 12,
+              left: 13,
               backgroundColor: "white",
               height: "%20",
               borderRadius:'12px',
@@ -164,8 +163,8 @@ export default function LookProduct(props) {
           <Box
             style={{
               position: "absolute",
-              top: 0,
-              right: 0,
+              top: 12,
+              right: 12,
             }}
           >
             <FavoriteBorderOutlinedIcon
@@ -190,6 +189,7 @@ export default function LookProduct(props) {
                 left: 0,
                 right: 0,
                 bottom: 0,
+                cursor:'pointer',
                 margin: "auto",
                 background: "rgba(255, 255, 255, 0.9)",
                 transition: "opacity 0.3s ease",
@@ -197,10 +197,10 @@ export default function LookProduct(props) {
                 pointerEvents: isHovered ? "auto" : "none",
               }}
             >
-              <Typography variant="h5" component="h2">
+              <Typography sx={NombreProducto}>
                 {props.item.name}
               </Typography>
-              <Typography sx={priceStyle}>ss${props.item.price}</Typography>
+            
               <Typography
                 sx={descriptionStyle}
                 variant="body2"

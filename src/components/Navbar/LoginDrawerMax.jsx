@@ -109,6 +109,8 @@ const LoginDrawersMax = () => {
     setIsDrawerOpen(false);
   };
 
+  
+
   const obtenerMiData = async () => {
     try {
       if (!token) {
@@ -160,7 +162,7 @@ const LoginDrawersMax = () => {
         PaperProps={{ style: { width: 376} }} // Modificar el ancho aquí
       >
         <Box p={2} textAlign="center" role="presentation" sx={{ backgroundColor: "#eeeeee" }}>
-          <Box display="flex" alignItems="center" justifyContent="space-between" >
+          <Box display="flex" alignItems="center" justifyContent="center" >
 
             <Box >
               <Typography sx={helloName}>
@@ -168,8 +170,11 @@ const LoginDrawersMax = () => {
               </Typography>
             </Box>
 
-            <IconButton onClick={handleDrawerClose} style={{ color: 'black' }} >
-              <ClearIcon />
+            <IconButton 
+  onClick={handleDrawerClose}   
+  sx={{ '&:hover': { backgroundColor: 'transparent' } }} // Agrega este estilo para evitar que el color de fondo cambie al pasar el ratón
+>
+              <ClearIcon sx={{ color: 'black',marginRight:'-80px', boxShadow:'none' }} />
             </IconButton>
           </Box>
           <Box
@@ -212,10 +217,10 @@ const LoginDrawersMax = () => {
           </Box>
          
           <Box sx={cuadros}>
-            <Typography sx={detalles} >
+            <Typography sx={detalles} onClick={() => window.location.href = "/account"} >
               IR A TU CUENTA
             </Typography>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={() => window.location.href = "/account"}>
               <ArrowRightAltOutlinedIcon style={{ color: 'black' }} />
             </IconButton>
           </Box>

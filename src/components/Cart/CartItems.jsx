@@ -111,18 +111,20 @@ const SmallpriceStyle = {
   marginBottom: "-4rem",
 };
 
-const CartItems = ({ data, delFromCart }) => {
+const CartItems = ({ data, delFromCart}) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { id, name, price, quantity, imageurl, description } = data;
+  const { id, name, price, quantity, imageurl, description, talla} = data;
 
   const dispatch = useDispatch();
   const [cantidadSeleccionada, setCantidadSeleccionada] = useState(quantity);
 
+
   useEffect(() => {
     setCantidadSeleccionada(quantity);
   }, [quantity]);
+
 
   const handleIncrement = () => {
     setCantidadSeleccionada((prevCantidad) => prevCantidad + 1);
@@ -142,6 +144,11 @@ const CartItems = ({ data, delFromCart }) => {
       });
       dispatch({ type: TYPES.TOTAL });
     }
+
+    useEffect(() => {
+      dispatch({ type: TYPES.ADD_TALLA, payload: talla });
+    }, [talla]);
+
   };
 
   return (
@@ -158,6 +165,7 @@ const CartItems = ({ data, delFromCart }) => {
       <Box style={isSmallScreen ? SmallColumn : column}>
         <Typography sx={fontName}>{name}</Typography>
         <Typography sx={fontDescription}>{description}</Typography>
+        <Typography sx={fontDescription}> {talla}</Typography>
         <Grid
           item
           xs={12}

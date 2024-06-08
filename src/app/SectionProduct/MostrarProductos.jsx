@@ -4,9 +4,13 @@ import CardMedia from '@mui/material/CardMedia';
 import { Box, Grid } from "@mui/material";
 
 const cardStyle = {
-  maxWidth: "580px",
+  maxWidth: "560px",
   textAlign: "center",
   fontFamily: "arial",
+  borderRadius: "0",
+  boxShadow:'none',
+  marginBottom:'-20px',
+  marginRight:'-18px'
 };
 
 const cardStyle2 = {
@@ -68,7 +72,8 @@ export default function MostrarProductos(props) {
   };
 
   return (
-    <Grid container spacing={1} justifyContent="flex-start">
+    
+    <Grid container spacing={3} justifyContent="flex-start">
       {props.items.map(item => (
         <Grid item key={item.id}>
           <Box style={productContainerStyle}>
@@ -85,6 +90,7 @@ export default function MostrarProductos(props) {
                   alt="product image"
                   sx={{
                     ...item.isSmallScreen ? smallMediaStyle : mediaStyle,
+                   
                     transform: `scale(${zoomScale[item.id] || 1})`,
                     transformOrigin: zoomPosition[item.id] ? `${zoomPosition[item.id].x}% ${zoomPosition[item.id].y}%` : 'center',
                   }}
@@ -94,6 +100,8 @@ export default function MostrarProductos(props) {
           </Box>
         </Grid>
       ))}
+      
     </Grid>
+    
   );
 }

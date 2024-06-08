@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Box, IconButton, Typography } from '@mui/material';
+import { Box, IconButton, Typography, useMediaQuery } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // Estilos definidos previamente...
@@ -54,8 +54,14 @@ const Perfil = () => {
   const [isHoveredPreferencias, setIsHoveredPreferencias] = useState(false);
   const [isHoveredListaDeDesoes, setIsHoveredListaDeDesoes] = useState(false);
 
+  const isMobile = useMediaQuery('(max-width:800px)');
+
+  if (isMobile) {
+    return null; // Si es móvil, no renderizar el componente Perfil
+  }
+
   return (
-    <Box sx={{ backgroundColor:'white',width:'82%' }}>
+    <Box sx={{ backgroundColor:'white',width:'82%'}}>
      
      <Box sx={cuadros}>
         <Typography sx={helloName}>

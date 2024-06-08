@@ -167,7 +167,7 @@ const SignUp = () => {
               alt="Nike Logo"
               width={54}
               height={32}
-              style={{ cursor: "pointer", maxWidth: "100%",marginBottom:'2px', marginTop:'-32px' }} // Added maxWidth to ensure responsiveness
+              style={{ cursor: "pointer", maxWidth: "100%", marginTop:'-10px' }} // Added maxWidth to ensure responsiveness
             />
           </Box>
           <Grid item>
@@ -406,7 +406,7 @@ const SignUp = () => {
                   type="submit"
                   variant="contained"
                   disabled={props.isSubmitting}
-                  sx={{ marginTop: "4px"}}
+                
                 >
                   {props.isSubmitting ? "Loading" : "Sign Up"}
                 </Button>

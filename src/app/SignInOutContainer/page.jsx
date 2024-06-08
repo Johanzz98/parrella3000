@@ -1,6 +1,6 @@
 /* @jsxRuntime classic */
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Card, CardMedia, Paper, ThemeProvider } from '@mui/material';
 import SignUp from '../signup/page';
 import Login from '../login/page';
@@ -169,6 +169,35 @@ const SignInOutContainer = () => {
     setValue(newValue);
   };
 
+
+
+  useEffect(() => {
+    // Obtener la ruta actual
+    const currentPath = window.location.pathname;
+
+    // Verifica si el usuario ya está en la página raíz ('/')
+    if (currentPath === '/') {
+      return; // No hace nada y sale del useEffect
+    }
+
+    // Primero verifica en el almacenamiento de sesión
+    const sessionToken = sessionStorage.getItem('token');
+    if (sessionToken) {
+      // Si hay un token en sessionStorage, redirige a la página raíz ('/')
+      window.location.href = '/account';
+      console.log("Token encontrado en sessionStorage. Redireccionando a la página raíz.");
+    } else {
+      // Luego verifica en el almacenamiento local
+      const localToken = localStorage.getItem('token');
+      if (localToken) {
+        // Si hay un token en localStorage, redirige a la página raíz ('/')
+        window.location.href = '/account';
+        console.log("Token encontrado en localStorage. Redireccionando a la página raíz.");
+      } 
+      
+    }
+  }, []);
+  
   return (
     
     <ThemeProvider theme={theme}>

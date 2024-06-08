@@ -5,6 +5,15 @@ import DeliveryDiningOutlinedIcon from '@mui/icons-material/DeliveryDiningOutlin
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
 
+const SidebarStyle = {
+  position: 'sticky',
+  top: 0,
+  right: 0,
+  height: 'calc(100% - 2000px)', // Ajusta la altura para dejar espacio para el contenido debajo
+  backgroundColor: 'white',
+  zIndex: 1,
+  boxSizing: 'border-box', // Asegura que el padding y border sean incluidos en el cálculo de la altura
+};
 
 const Titulo = {
   fontSize: "20px",
@@ -15,7 +24,7 @@ const Titulo = {
   alignItems: 'center',
   fontFamily: "Helvetica,sans-serif",
   fontOpticalSizing: 'auto',
-  marginBottom:'12px'
+  marginBottom:'6px'
 };
 
 const NombreProducto = {
@@ -23,6 +32,7 @@ const NombreProducto = {
   fontWeight: "600",
   color: "#111",
   display: 'flex',
+ 
   justifyContent: 'flex-start',
   alignItems: 'center',
   fontFamily: "Helvetica,sans-serif",
@@ -30,11 +40,12 @@ const NombreProducto = {
   
 };
 const getDescription= {
-  fontSize: "18px",
+  fontSize: "16px",
   fontWeight: "500",
   color: "#111",
   display: 'flex',
   marginLeft:'12px',
+ 
  paddingTop:'8px',
   justifyContent: 'flex-start',
   alignItems: 'center',
@@ -48,7 +59,7 @@ const detalles = {
   fontWeight: "200",
   color: "grey",
   display: 'flex',
-  marginTop: '12px',
+ 
   justifyContent: 'flex-start',
   alignItems: 'center',
   fontFamily: "Helvetica, sans-serif",
@@ -75,6 +86,9 @@ const buttonStyle = {
   
   fontSize: "18px",
   marginBottom:'12px',
+  '&:hover': {
+            backgroundColor: 'black', color:'grey',boxShadow:'none' // Define el color de fondo para el hover
+          }
 };
 const horizontal ={
   display: 'flex',
@@ -109,9 +123,11 @@ const Info = () => {
 
   return (
     
-    <Box style={{ position: 'fixed', marginLeft:'-28px', zIndex: '1000' }}>
-      <Divider orientation="vertical" flexItem sx={{ position: 'absolute', top: 0, bottom: 0, left: -10,height:'2000%', borderLeft: '1px solid grey' }} />
-        
+    <Box sx={SidebarStyle}>
+    
+        <Box sx={{backgroundColor:'white', height:"24px"}}>
+        <Divider orientation="vertical" flexItem sx={{ position: 'absolute', top: 0, bottom: 0, left: -12,height:'104.8%', borderLeft: '1px solid #e0e0e0' }} />
+        </Box>
     <Typography sx={Titulo}>Nombre del Producto</Typography>
       <Box>
       
@@ -125,31 +141,44 @@ const Info = () => {
   <Button variant="contained" sx={buttonStyle}>
     Agregar al Carrito
   </Button>
-  <Button variant="contained" sx={buttonStyle}>
+  <Button variant="contained" sx={{...buttonStyle, width:'52%', marginLeft:'100px', '&:hover': {
+            backgroundColor: 'black', color:'grey',boxShadow:'none' // Define el color de fondo para el hover
+          }}}>
     Favorito ♡
   </Button>
 </Box>
 
-<Box sx={{ backgroundColor: '#f5f5f5',
-  
-  borderRadius: '12px'}}>
-        <Box sx={horizontal}>
-        <DeliveryDiningOutlinedIcon/>
+
+<Box sx={horizontal}>
+        <DeliveryDiningOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
         <Typography sx={getDescription}>Delivery Coordinado (por estos momentos)</Typography>
         </Box>
         <Box sx={horizontal}>
-        <LocalMallOutlinedIcon/>
+        <LocalMallOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
         <Typography sx={getDescription}>Entrega a coordinación</Typography>
         </Box>
         <Box sx={horizontal}>
-        <BrandingWatermarkOutlinedIcon/>
+        <BrandingWatermarkOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
         <Typography sx={getDescription}> Efectivo o Transferencias</Typography>
         </Box>
-        </Box>
+      
        
        
       </Box>
-   
+      <Box sx={{marginTop:'64px',marginRight:'24px'}}>
+            <img
+              src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_553,c_limit/262fc583-6160-4703-9d72-1918b8a4ebac/sitio-web-oficial-de-nike.png"
+              alt="Nike Logo"
+              style={{
+                width: "109%",
+                
+                height: "100%",
+
+                cursor: "pointer",
+              }} // Ajusta el tamaño según sea necesario
+            />
+          </Box>
+         
     </Box>
   );
 };

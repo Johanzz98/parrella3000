@@ -106,6 +106,16 @@ function Mobile() {
   const [selectedSize, setSelectedSize] = useState(null);
   const sizes = [...new Set(productData.map(product => product.talla).flat())];
 
+
+    // Función para determinar si una talla está disponible
+    const isTallaDisponible = (talla) => {
+      // Simulamos que solo las tallas "M" y "L" están disponibles
+      const tallasDisponibles = ['M', 'L'];
+      return tallasDisponibles.includes(talla);
+    };
+  
+
+
   return (
     <>
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '18px' }}>
@@ -130,35 +140,43 @@ function Mobile() {
       {/* Grid de tallas */}
       <Grid container spacing={2} justifyContent="center" sx={{ paddingBottom:'12px',paddingTop:'12px',  }}>
         {sizes.map((size, index) => (
-          <Grid item xs={5} sm={2} md={1} key={index}>
-            <Paper
-              elevation={3}
-              style={{
-                textAlign: 'center',
-                padding: '5px',
-                
-                boxShadow: 'none',
-                borderRadius: '7px',
-                border: selectedSize === size ? '1px solid #111' : '1px solid #eeeeee'
-              }}
-              onClick={() => setSelectedSize(selectedSize === size ? null : size)}
-            >
-              <Typography sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                paddingTop: '4px',
-                fontSize: "14px",
-                fontWeight: "500",
-                color: "black",
-                cursor:"pointer",
-                fontFamily: "Helvetica, sans-serif",
-                fontOpticalSizing: 'auto'
-              }}>
-                {size}
-              </Typography>
-            </Paper>
-          </Grid>
+         <Grid item xs={5} sm={2} md={1} key={index}>
+        <Paper
+  elevation={3}
+  style={{
+    textAlign: 'center',
+    padding: '5px',
+    boxShadow: 'none',
+    borderRadius: '7px',
+    border: selectedSize === size? '1px solid #111' : '1px solid #eeeeee',
+    backgroundColor:!isTallaDisponible(size)? '#ccc' : 'transparent',
+    pointerEvents:!isTallaDisponible(size)? 'not-allowed' : 'auto',
+    cursor: isTallaDisponible(size)? 'pointer' : 'not-allowed', // Cambia el cursor a 'not-allowed' cuando la talla no está disponible
+  }}
+  onClick={() => {
+    if (!isTallaDisponible(size)) {
+      console.log("Esta talla no está disponible");
+      return;
+    }
+    setSelectedSize(selectedSize === size? null : size);
+  }}
+>
+           <Typography sx={{
+             display: 'flex',
+             justifyContent: 'center',
+             alignItems: 'center',
+             paddingTop: '4px',
+             fontSize: "14px",
+             fontWeight: "500",
+             color: "black",
+             
+             fontFamily: "Helvetica, sans-serif",
+             fontOpticalSizing: 'auto'
+           }}>
+             {size}
+           </Typography>
+         </Paper>
+       </Grid>
         ))}
       </Grid>
 
