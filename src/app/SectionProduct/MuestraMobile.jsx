@@ -368,7 +368,7 @@ const MuestraMobile = () => {
             alignItems: "center",
           }}
         >
-          <Box sx={{ flex: 0, paddingLeft: "32px" }}>
+          <Box sx={{ flex: 0, paddingLeft: "4px" }}>
             <Typography
               sx={{
                 ...NombreProducto,
@@ -383,7 +383,7 @@ const MuestraMobile = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "14px",
+                fontSize: "12px",
                 fontWeight: "500",
                 color: "#111",
                 display: "flex",
