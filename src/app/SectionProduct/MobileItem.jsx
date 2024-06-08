@@ -22,7 +22,7 @@ export const responsive = {
     {
       id: 1,
       imageurl:[
-        "../../assets/fran2.jpg",
+        "../../assets/adidas/1.jpeg",
       "../../assets/adidas/2.jpeg",
       "../../assets/adidas/3.jpeg",
       "../../assets/adidas/4.jpeg",
