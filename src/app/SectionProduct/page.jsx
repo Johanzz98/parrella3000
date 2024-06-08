@@ -5,7 +5,7 @@ import Muestra from './Muestra';
 import Mobile from './Mobile';
 import MuestraMobile from './MuestraMobile';
 import Look from './Look';
-import LookMax from './LookMax';
+import "./App.css";
 import Navbar from '@/components/Navbar/Navbar';
 import { Box, Grid } from '@mui/material';
 import { Provider as ReduxProvider } from "react-redux";
@@ -41,6 +41,7 @@ function SectionProduct() {
       <>
        <ReduxProvider store={store()}>
        <AuthProvider>
+       <Box sx={{mt:12}}>
        <Navbar />
         <Mobile />
         <MuestraMobile />
@@ -52,6 +53,7 @@ function SectionProduct() {
               <InfoFinal/>
               <Footer />
               <FooterDown/>
+              </Box>
               </AuthProvider>
               </ReduxProvider>
       </>

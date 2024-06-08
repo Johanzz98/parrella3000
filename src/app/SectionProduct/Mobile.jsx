@@ -11,6 +11,9 @@ import DeliveryDiningOutlinedIcon from '@mui/icons-material/DeliveryDiningOutlin
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 
 const Titulo = {
   fontSize: "20px",
@@ -96,16 +99,10 @@ const horizontal ={
   
  }
 function Mobile() {
-  const product = productData.map((item, index) => (
-    <MobileProduct
-      item={item}
-      key={index}
-    />
-  ));
+
 
   const [selectedSize, setSelectedSize] = useState(null);
   const sizes = [...new Set(productData.map(product => product.talla).flat())];
-
 
     // Función para determinar si una talla está disponible
     const isTallaDisponible = (talla) => {
@@ -124,115 +121,19 @@ function Mobile() {
   <Typography sx={detalles}>Polerón para Mujeres</Typography>
   <Typography sx={priceStyle}>$59.990</Typography>
 </Box>
+<>
 
-      <Box>
-        <Carousel responsive={responsive}>
-          {product}
-        </Carousel>
-      </Box>
-
-      <Box sx={{ alignItems: 'center', justifyContent:"center", marginLeft: '20px',paddingTop:'12px', }}>
-        <Typography sx={{...NombreProducto}}>
-          Selecciona Tu talla
-        </Typography>
-      </Box>
-
-      {/* Grid de tallas */}
-      <Grid container spacing={2} justifyContent="center" sx={{ paddingBottom:'12px',paddingTop:'12px',  }}>
-        {sizes.map((size, index) => (
-         <Grid item xs={5} sm={2} md={1} key={index}>
-        <Paper
-  elevation={3}
-  style={{
-    textAlign: 'center',
-    padding: '5px',
-    boxShadow: 'none',
-    borderRadius: '7px',
-    border: selectedSize === size? '1px solid #111' : '1px solid #eeeeee',
-    backgroundColor:!isTallaDisponible(size)? '#ccc' : 'transparent',
-    pointerEvents:!isTallaDisponible(size)? 'not-allowed' : 'auto',
-    cursor: isTallaDisponible(size)? 'pointer' : 'not-allowed', // Cambia el cursor a 'not-allowed' cuando la talla no está disponible
-  }}
-  onClick={() => {
-    if (!isTallaDisponible(size)) {
-      console.log("Esta talla no está disponible");
-      return;
-    }
-    setSelectedSize(selectedSize === size? null : size);
-  }}
->
-           <Typography sx={{
-             display: 'flex',
-             justifyContent: 'center',
-             alignItems: 'center',
-             paddingTop: '4px',
-             fontSize: "14px",
-             fontWeight: "500",
-             color: "black",
-             
-             fontFamily: "Helvetica, sans-serif",
-             fontOpticalSizing: 'auto'
-           }}>
-             {size}
-           </Typography>
-         </Paper>
-       </Grid>
-        ))}
-      </Grid>
-
-      {/* Botón "Señala tu talla" o "Agregar al Carrito" */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center', }}>
-        <Button
-          variant="contained"
-          sx={{...buttonStyle, backgroundColor: 'black',
-          color: 'white',
-          borderRadius: '16px',
-          fontFamily: "Helvetica, sans-serif",
-          width: '95%',
-          borderShadow:'none',
-          '&:focus': {
-            outline: 'none',
-            boxShadow: 'none',
-            
-          },
-          '&:active': {
-            boxShadow: 'none',
-           
-          }
-        }}
-          onClick={() => {
-            if (selectedSize) {
-              // Agregar al carrito
-            }
-          }}
-        >
-          {selectedSize ? "Agregar al Carrito" : "Señala tu talla"}
-        </Button>
-        <Button 
-  variant="contained"
-  sx={{
-    ...buttonStyle,
-    backgroundColor: 'white',
-    color: 'black',
-    borderRadius: '16px',
-    width: '80%',
-    height:'20%',
-    '&:focus': {
-      outline: 'none',
-      boxShadow: 'none',
-      
-    },
-    '&:active': {
-      boxShadow: 'none',
-     
-    }
-  }}
->
-          Favorito ♡
-        </Button>
-      </Box>
+      {productData.map((product, index) => (
+        <MobileProduct
+          key={index}
+          product={product}
+          selectedSize={selectedSize}
+          setSelectedSize={setSelectedSize}
+          sizes={sizes}
+        />
+      ))}
+    </>
+    
 
   
         <Box sx={horizontal}>
