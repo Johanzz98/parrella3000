@@ -14,6 +14,7 @@ import { store } from "@/services/store";
 import InfoFinal from '@/components/InfoFinal';
 import Footer from '@/components/Footer/Footer';
 import FooterDown from '@/components/Footer/FooterDown';
+import ShoppingCart from '@/components/Cart/ShoppingCart';
 
 
 function SectionProduct() {
