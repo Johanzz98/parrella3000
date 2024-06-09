@@ -82,7 +82,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         margin: '0 12px',
                         fontFamily: "Helvetica,sans-serif",
                         fontOpticalSizing: 'auto',
-                        fontSize: '.85rem',
+                        fontSize: '.75rem',
                         fontWeight: 650,
                         marginTop:'6px',
                         fontStyle: 'normal',
@@ -90,7 +90,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         color: "#111",
                        
                         textTransform: "capitalize",
-                    }}>Parrella Clubs32</Typography>
+                    }}>Parrella Clubs2</Typography>
                     <Divider
                         orientation="vertical"
                         sx={{
@@ -166,7 +166,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
             <Box >
             <Typography sx={{
                marginLeft:'-32px',
-                marginRight: '14px',
+                marginRight: '6px',
                 fontFamily: "Helvetica, sans-serif",
                 fontOpticalSizing: 'auto',
                 fontSize: '.75rem',
