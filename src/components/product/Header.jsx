@@ -117,7 +117,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                              {isSmallScreen && (
                 <TuneIcon  sx={{fontSize:'20px', marginLeft:'-2px'}}/>
             )}
-            <Box sx={{marginLeft:'5px',marginRight:'12px'}}>
+            <Box >
                             <Typography sx={{
                                 marginRight:'1px',
                                 fontFamily: "Helvetica,sans-serif",
@@ -165,8 +165,8 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
 >
             <Box sx={{ textAlign: 'center' }}>
             <Typography sx={{
-                marginLeft: '10px',
-                marginRight: '20px',
+               marginLeft:'4px',
+                marginRight: '14px',
                 fontFamily: "Helvetica, sans-serif",
                 fontOpticalSizing: 'auto',
                 fontSize: '.75rem',
