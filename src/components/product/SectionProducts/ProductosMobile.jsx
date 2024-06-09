@@ -19,8 +19,8 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "162px",
-
+  width: "170px",
+marginRight:'4px',
   cursor: "pointer",
   fontFamily: "arial",
   boxShadow: "none", // Se corrigió el nombre de la propiedad boxShadow
