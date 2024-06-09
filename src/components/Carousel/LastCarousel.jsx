@@ -16,7 +16,7 @@ const setMid = {
   fontFamily: "Nunito Sans, sans-serif",
   fontOpticalSizing: 'auto',
   fontWeight: 1000,
-  fontSize: "36px",
+  fontSize: "24px",
   fontStyle: 'normal',
   fontVariationSettings: '"wdth" 125, "YTLC" 540'
   

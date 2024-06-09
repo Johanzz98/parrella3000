@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 
 import Navbar from "@/components/Navbar/Navbar";
 import { AuthProvider } from "@/context/AuthProvider";
+import TopMobile from "@/components/product/TopMobile";
 
 const theme = createTheme({
   palette: {
@@ -30,7 +31,7 @@ const Page = () => {
       <AuthProvider>
         <Provider store={store()}>
           <Navbar />
-
+          <TopMobile/>
           <CardList />
 
           {/* <Grid container spacing={3}>

@@ -136,7 +136,7 @@ function Muestra() {
       </CSSTransition>
 
       <Box style={ShowContainer}>
-        <Button style={Show} onClick={toggleShowAllProducts}>
+        <Button style={{...Show,marginLeft:'200px'}} onClick={toggleShowAllProducts}>
           {showAllProducts ? "Mostrar menos" : "Mostrar más"}
         </Button>
       </Box>
@@ -146,13 +146,13 @@ function Muestra() {
           display: "flex",
           flexDirection: "center",
           alignItems: "center",
-          justifyContent: "flex-start",
-          marginLeft:'95px',
+          justifyContent: "center",
+          marginLeft:'42px',
         }}
       >
         <Divider
           sx={{
-            width: "76%",
+            width: "72%",
             bgcolor: "#eceff1",
             textAlign: "center",
           }}
@@ -160,16 +160,16 @@ function Muestra() {
       </Box>
 
       <Button sx={zeldas} onClick={() => setShowDescription(!showDescription)}>
-        <Typography sx={{ ...detalles, marginLeft: "6px" }}>
+        <Typography sx={{ ...detalles, marginLeft: "126px" }}>
           Descripción
         </Typography>
         {showDescription ? (
           <KeyboardArrowUpIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "14%" }}
+            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
           />
         ) : (
           <KeyboardArrowDownIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "14%" }}
+            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
           />
         )}
       </Button>
@@ -204,7 +204,7 @@ function Muestra() {
                   pasará desapercibido.
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={6.8}>
+              <Grid item xs={12} sm={4.2}>
                 {productWithIdThree && (
                   <img
                     src={productWithIdThree.imageurl}
@@ -222,18 +222,19 @@ function Muestra() {
         </Box>
       </CSSTransition>
 
+     
       <Box
         sx={{
           display: "flex",
           flexDirection: "center",
           alignItems: "center",
-          justifyContent: "flex-start",
-          marginLeft:'95px',
+          justifyContent: "center",
+          marginLeft:'42px',
         }}
       >
         <Divider
           sx={{
-            width: "76%",
+            width: "72%",
             bgcolor: "#eceff1",
             textAlign: "center",
           }}
@@ -244,13 +245,13 @@ function Muestra() {
         sx={zeldas}
         onClick={() => setShowDetalles(!showDetalles)}
       >
-        <Typography sx={detalles}>Detalles</Typography>
+        <Typography sx={{ ...detalles, marginLeft: "122px" }}>Detalles</Typography>
         {showDetalles? (
           <KeyboardArrowUpIcon
             style={{
               color: "black",
               marginLeft: "auto",
-              marginRight: "14%",
+              marginRight: "4%" 
             }}
           />
         ) : (
@@ -258,7 +259,7 @@ function Muestra() {
             style={{
               color: "black",
               marginLeft: "auto",
-              marginRight: "14%",
+              marginRight: "4%" 
             }}
           />
         )}
@@ -274,9 +275,9 @@ function Muestra() {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "flex-start",
+                justifyContent: "center",
                 alignItems: "center",
-                marginLeft:'-90px'
+                marginLeft:'-54px'
               }}
             >
               <Box sx={{ flex: "0.5" }}>
@@ -343,13 +344,13 @@ function Muestra() {
           display: "flex",
           flexDirection: "center",
           alignItems: "center",
-          justifyContent: "flex-start",
-          marginLeft:'95px',
+          justifyContent: "center",
+          marginLeft:'42px',
         }}
       >
         <Divider
           sx={{
-            width: "76%",
+            width: "72%",
             bgcolor: "#eceff1",
             textAlign: "center",
           }}
@@ -357,14 +358,14 @@ function Muestra() {
       </Box>
      
       <Button sx={zeldas} onClick={() => setShowCuidados(!showCuidados)}>
-        <Typography sx={detalles}>Cuidados</Typography>
+        <Typography sx={{ ...detalles, marginLeft: "126px" }}>Cuidados</Typography>
         {showCuidados ? (
           <KeyboardArrowUpIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "14%" }}
+            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
           />
         ) : (
           <KeyboardArrowDownIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "14%" }}
+            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
           />
         )}
       </Button>
@@ -389,14 +390,15 @@ function Muestra() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  marginLeft: "-40px",
+                  marginLeft: "124px",
+                  fontSize:"18px",
                 }}
               >
                 INSTRUCCIONES DE LAVADO
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "16px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   color: "#111",
                   display: "flex",
@@ -406,7 +408,7 @@ function Muestra() {
                   fontOpticalSizing: "auto",
                   paddingBottom: "24px",
                   lineHeight: "24px",
-                  marginLeft: "-110px",
+                  marginLeft: "136px",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center" }}>
@@ -494,14 +496,15 @@ function Muestra() {
                   justifyContent: "center",
                   alignItems: "center",
                   width: "55%",
-                  marginLeft: "-30px",
+                  marginLeft: "30px",
+                  fontSize:"18px",
                 }}
               >
                 INFORMACIÓN ADICIONAL SOBRE EL CUIDADO
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "16px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   color: "#111",
                   marginLeft: "-50%",
@@ -512,7 +515,7 @@ function Muestra() {
                   fontOpticalSizing: "auto",
                   paddingBottom: "24px",
                   lineHeight: "24px",
-                  marginRight: "64px",
+                  marginRight: "-32px",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center" }}>
@@ -537,35 +540,35 @@ function Muestra() {
           </Box>
         </CSSTransition>
    
-<Box
+
+        <Box
         sx={{
           display: "flex",
           flexDirection: "center",
           alignItems: "center",
-          justifyContent: "flex-start",
-          marginLeft:'95px',
+          justifyContent: "center",
+          marginLeft:'42px',
         }}
       >
         <Divider
           sx={{
-            width: "76%",
+            width: "72%",
             bgcolor: "#eceff1",
             textAlign: "center",
           }}
         />
       </Box>
-
       <Button sx={zeldas} onClick={() => setShowLook(!showLook)}>
-        <Typography sx={{ ...detalles, marginLeft: "12px" }}>
+        <Typography sx={{ ...detalles, marginLeft: "142px"}}>
           Presume Tu Look
         </Typography>
         {showLook ? (
           <KeyboardArrowUpIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "14%" }}
+            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
           />
         ) : (
           <KeyboardArrowDownIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "14%" }}
+            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
           />
         )}
       </Button>
@@ -669,18 +672,19 @@ function Muestra() {
     </CSSTransition>
 
    
+    
     <Box
         sx={{
           display: "flex",
           flexDirection: "center",
           alignItems: "center",
-          justifyContent: "flex-start",
-          marginLeft:'92px',
+          justifyContent: "center",
+          marginLeft:'42px',
         }}
       >
         <Divider
           sx={{
-            width: "76%",
+            width: "72%",
             bgcolor: "#eceff1",
             textAlign: "center",
           }}

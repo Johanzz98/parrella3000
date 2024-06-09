@@ -49,12 +49,12 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
     };
 
     return (
-        <Box sx={{ marginTop: '200px' }}>
-            <AppBar position="relative" sx={{ marginTop: '12px', boxShadow: { xs: 1, sm: 0 }, backgroundColor: 'inherit' }}>
+        <Box sx={{ marginTop: '160px',marginBottom:'24px' }}>
+            <AppBar position="relative" sx={{ marginTop: '12px', boxShadow: '0 2px 4px rgba(12, 12, 255, 0.12)', backgroundColor: 'inherit' }}>
                 <Toolbar
                     sx={{
                         height: '48px',
-                        boxShadow: { xs: 1, sm: 0 },
+                        boxShadow: '{ xs: 1, sm: 0 }',
                         backgroundColor: 'inherit',
                         justifyContent: { xs: 'space-between', sm: 'flex-end' }
                     }}
@@ -78,51 +78,62 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             Todo Parrella
                         </Typography>
                     )}
-                    <Typography variant="h6" sx={{
-                        margin: '0 24px',
+                    <Typography sx={{
+                        margin: '0 12px',
                         fontFamily: "Helvetica,sans-serif",
                         fontOpticalSizing: 'auto',
-                        fontSize: '.75rem',
-                        fontWeight: 600,
+                        fontSize: '.85rem',
+                        fontWeight: 650,
+                        marginTop:'6px',
                         fontStyle: 'normal',
                         textAlign: 'center',
                         color: "#111",
-                        marginBottom: '4px',
+                       
                         textTransform: "capitalize",
-                    }}>Ropa </Typography>
+                    }}>Parrella Clubs</Typography>
                     <Divider
                         orientation="vertical"
                         sx={{
-                            margin: '12px 30px',
-                            backgroundColor: 'black',
+                           
+                            marginLeft:'42px',
+                            backgroundColor: '#f5f5f5',
                             display: { xs: 'block', sm: 'none' }
                         }}
                     />
-                    <Stack direction="row" spacing={1}>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            onClick={handleToggleFilters}
-                            sx={{ borderRadius: 0 }}
-                        >
+                    <Stack direction="row" spacing={4}>
+                    <IconButton
+    edge="start"
+    color="inherit"
+    aria-label="menu"
+    onClick={handleToggleFilters}
+    disableRipple
+    sx={{
+        borderRadius: 0,
+        '&:hover': {
+            backgroundColor: 'transparent',
+        },
+    }}
+>
                              {isSmallScreen && (
-                <TuneIcon />
+                <TuneIcon  sx={{fontSize:'20px', marginLeft:'-2px'}}/>
             )}
+            <Box sx={{marginLeft:'5px',marginRight:'12px'}}>
                             <Typography sx={{
-                                marginRight:'24px',
+                                marginRight:'1px',
                                 fontFamily: "Helvetica,sans-serif",
                                 fontOpticalSizing: 'auto',
-                                fontSize: '.75rem',
+                                fontSize: '14px',
                                 fontWeight: 600,
                                 fontStyle: 'normal',
                                 textAlign: 'center',
-                                color: "green",
-                                marginBottom: '4px',
+                                color: "#111",
+                                marginRight:'12px',
+                              
                                 textTransform: "capitalize",
                             }}>
                                 {isSmallScreen ? 'Filtrar ' : mostrarFiltros ? 'Mostrar Filtros' : 'Ocultar Filtros '}
                             </Typography>
+                            </Box>
                             {!isSmallScreen && (
     <Box sx={{ marginRight: '12px' }}>
         <TuneIcon />
@@ -133,18 +144,25 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                     orientation="vertical"
                                     sx={{
                                         height: '58px',
-                                        backgroundColor: 'black',
+                                        backgroundColor: '#f5f5f5',
                                         display: { xs: 'block', sm: 'none' }
                                     }}
                                 />
                         </IconButton>
 
                         <IconButton
-            color="inherit"
-            aria-label="ordenar"
-            onClick={handleMenuClick}
-            sx={{ borderRadius: 0 }}
-        >
+    edge="start"
+    color="inherit"
+    aria-label="menu"
+    onClick={handleToggleFilters}
+    disableRipple
+    sx={{
+        borderRadius: 0,
+        '&:hover': {
+            backgroundColor: 'transparent',
+        },
+    }}
+>
             <Box sx={{ textAlign: 'center' }}>
             <Typography sx={{
                 marginLeft: '10px',
@@ -278,6 +296,11 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                     </Stack>
                 </Toolbar>
             </AppBar>
+            <Box>
+                <Typography sx={{color:'#111', fontSize:'12px', fontWeight:'600',marginTop:'24px',marginBottom:'-42px',marginLeft:'12px'}}>
+                    10 ARTICULOS
+                </Typography>
+            </Box>
         </Box>
     );
 };

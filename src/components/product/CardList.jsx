@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Box, Grid, Grow, Hidden, Drawer, IconButton, Slide } from '@mui/material';
-import ProductMid from '../Carousel/ProductMid';
 import Header from './Header';
 import FilterPanel from './FilterPanel';
-import { productData } from "../Carousel/MidItem";
+import { productData }  from './SectionProducts/Items'
 import MenuIcon from '@mui/icons-material/Menu';
+
+import Mostrar from './SectionProducts/Mostrar';
 
 function Products() {
     const [products, setProducts] = useState(productData);
@@ -34,14 +35,12 @@ function Products() {
         setShowFilters(!showFilters);
     };
 
-    const productCards = products.map((item, index) => (
-        <Grow in={true} key={index}>
-                <Box sx={{ margin:"0 12px " }}>
-            <Grid item xs={12} sm={6} md={4}>
-        
-                <ProductMid item={item} />
-               
-            </Grid>
+    const productCards = products.map((product, index) => (
+        <Grow in key={index}>
+            <Box sx={{ marginRight: '-6px' }}>
+                <Grid item xs={12} sm={6} md={4}>
+                    <Mostrar item={product} />
+                </Grid>
             </Box>
         </Grow>
     ));
@@ -55,14 +54,12 @@ function Products() {
                 sortByZToA={sortByZToA}
                 toggleFilters={toggleFilters}
             />
-            <Box sx={{ display: 'flex',}}>
+            <Box sx={{ display: 'flex' }}>
                 {/* Utilizar Slide solo en pantallas más grandes que SM */}
                 <Hidden smDown>
                     <Slide direction="right" in={showFilters} mountOnEnter unmountOnExit timeout={500}>
                         <Grid item xs={12} sm={4}>
-                           
                             <FilterPanel />
-                          
                         </Grid>
                     </Slide>
                 </Hidden>
@@ -76,24 +73,14 @@ function Products() {
                         <FilterPanel />
                     </Drawer>
                 </Hidden>
-                <Box>
+                <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={1}>
                         {productCards}
                     </Grid>
                 </Box>
             </Box>
             {/* Mostrar el botón de menú solo en pantallas SM */}
-            <Hidden mdUp>
-                <IconButton
-                    color="inherit"
-                    aria-label="open filters"
-                    edge="end"
-                    onClick={toggleFilters}
-                    sx={{ position: 'fixed', bottom: 16, right: 16 }}
-                >
-                    <MenuIcon />
-                </IconButton>
-            </Hidden>
+           
         </>
     );
 }

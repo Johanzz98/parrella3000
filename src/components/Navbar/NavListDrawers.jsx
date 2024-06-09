@@ -109,7 +109,10 @@ const detalles = {
                                 <img
                                      src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
                                     alt="logo"
-                                    href="/"
+                                    href="/"  onClick={() => {
+                                        setOpen(false); // Close the drawer
+                                        window.location.href = "/"; // Redirect to the home page
+                                    }}
                                     style={{
                                         width: '40%',
                                         height:'100%',

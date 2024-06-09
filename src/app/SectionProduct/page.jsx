@@ -15,6 +15,7 @@ import InfoFinal from '@/components/InfoFinal';
 import Footer from '@/components/Footer/Footer';
 import FooterDown from '@/components/Footer/FooterDown';
 import ShoppingCart from '@/components/Cart/ShoppingCart';
+import { productDataCart } from './ImgDetails';
 
 
 function SectionProduct() {
@@ -74,7 +75,7 @@ function SectionProduct() {
 
           {/* Columna para Info */}
           <Grid item xs={12} md={3}>
-            <Info />
+          <Info product={productDataCart} />
           </Grid>
         </Grid>
        

@@ -91,7 +91,7 @@ const MobileProduct = ({ product, selectedSize, setSelectedSize, sizes }) => {
     if (selectedSize) {
       const productWithFirstImage = {
         ...product,
-        imageurl: [product.imageurl[1]] // Tomar solo la primera imagen del arreglo imageurl
+        imageurl: [product.imageurl[0]] // Tomar solo la primera imagen del arreglo imageurl
       };
       
       dispatch({type: TYPES.ADD_TO_CART, payload: productWithFirstImage}); // Agregar al carrito el producto con la primera imagen

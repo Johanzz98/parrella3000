@@ -18,6 +18,29 @@ export const responsive = {
   };
   
   
+  export const productDataCart = [
+    {
+      id: 1,
+      imageurl:[
+        "../../assets/adidas/1.jpeg",
+      "../../assets/adidas/2.jpeg",
+      "../../assets/adidas/3.jpeg",
+      "../../assets/adidas/4.jpeg",
+      "../../assets/adidas/5.jpeg"
+    
+        ],
+        name: "Detroit Jackets",
+      price: 9.999,
+      description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
+    },
+
+    
+
+    
+  ];
+
+
   export const productData = [
     {
       id: 1,

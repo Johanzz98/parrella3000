@@ -54,7 +54,7 @@ const login = ({ handleChange }) => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [errorMessage, setErrorMessage] = useState("");
   const errorMessageRef = useRef(null);
-
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const notServer = () => {
     toast.error("No server response", {
       position: "bottom-right",
@@ -113,34 +113,43 @@ const login = ({ handleChange }) => {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
+      console.log("Response:", response);
+
       const token = response?.data?.data?.token;
-      const roles = response?.data?.data?.role;
-      console.log(response);
-      // Guarda el token en localStorage
-      if (values.remember) {
-        localStorage.setItem("token", token); // Guarda el token en localStorage
-      } else {
-        sessionStorage.setItem("token", token); // Guarda el token en sessionStorage
+      const role = response?.data?.data?.user?.role;
+
+      console.log("Token:", token);
+      console.log("Role:", role);
+
+      if (!token || !role) {
+        throw new Error("Invalid response structure");
       }
 
-      // Despacha la acción de inicio de sesión con los datos recibidos
+      if (values.remember) {
+        localStorage.setItem("token", token);
+      } else {
+        sessionStorage.setItem("token", token);
+      }
 
-      // Opcionalmente, puedes redirigir al usuario después de despachar la acción
-      setTimeout(() => {
-        props.resetForm();
-        props.setSubmitting(false);
-        window.location.href = "/";
-      }, 3000);
+      if (role === "SUPER_ADMIN") {
+        toast.success("Inicio de sesión exitoso como SUPER_ADMIN");
+        setTimeout(() => {
+          window.location.href = "/DashboardAdmin";
+        }, 3000);
+      } else {
+        toast.success("Inicio de sesión exitoso");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 3000);
+      }
     } catch (err) {
       setLoading(false);
       if (!err?.response) {
         notServer();
       } else if (err.response?.status === 404) {
-        // Manejo específico para 404, asegúrate de que esto sea adecuado
         console.log("Error 404: Recurso no encontrado");
         notFound();
       } else if (err.response?.status === 401) {
-        // Manejo específico para 401
         console.log("Error 401: No autorizado");
         Unauthorized();
       } else {
@@ -151,7 +160,6 @@ const login = ({ handleChange }) => {
       }
     }
   };
-
   return (
     <Grid>
       <ToastContainer

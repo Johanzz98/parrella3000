@@ -181,7 +181,7 @@ const AccountData = ({ openModal }) => {
     <Box textAlign="center" role="presentation" sx={{ backgroundColor: "white", }}>
       <Box sx={cuadrosRellenos}>
           <Box sx={{  display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',position: 'relative' }}>
-      <Box sx={{ marginBottom: '-14px', display: 'flex', marginLeft: 'auto', position: 'relative', zIndex: '9999',top: '-12px', // Mover hacia arriba 20px
+      <Box sx={{ marginBottom: '24px', display: 'flex', marginLeft: 'auto', position: 'relative', zIndex: '9999',top: '-12px', // Mover hacia arriba 20px
      width:'100%',
       left:960,}}>
        

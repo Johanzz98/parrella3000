@@ -1,9 +1,11 @@
-import { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { colors } from "@mui/material";
 
 import "react-pro-sidebar/dist/css/styles.css";
-import { tokens } from "@/components/product/theme"
+
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -17,14 +19,19 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
+import { useSelector } from "react-redux";
+import axios from '@/api/axios';
+
+const AUTH_ME = '/auth/me';
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+
   return (
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: "black",
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -37,15 +44,50 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 
 const Sidebar = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const [fullName, setFullName] = useState('');
+  const token = useSelector((state) => state.auth.token); // Obtener el token del estado de Redux
+
+  const obtenerMiData = async () => {
+    try {
+      if (!token) {
+        console.error('Token no disponible en el estado de Redux');
+        return; // Salir de la función si el token no está disponible en el estado de Redux
+      }
+
+      console.log("Token utilizado para la solicitud:", token); // Agregar esta línea para ver el token utilizado
+
+      const response = await axios.get(AUTH_ME, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      // Actualizar el estado fullName y email con los valores obtenidos de la respuesta
+      setFullName(response.data.data.person.fullName);
+      setEmail(response.data.data.email);
+
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        console.error('Error de autorización: Token no válido');
+        // Manejar el error de autorización, por ejemplo, redireccionar a la página de inicio de sesión
+      } else {
+        console.error('Error al obtener los datos del usuario:', error);
+      }
+    }
+  };
+  useEffect(() => {
+    obtenerMiData();
+  }, [token]); // Ejecutar el efecto cuando el token cambie
+
 
   return (
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          background:"#0d47a1!important",
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -69,7 +111,7 @@ const Sidebar = () => {
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.grey[100],
+              color: "#8e24aa",
             }}
           >
             {!isCollapsed && (
@@ -79,7 +121,7 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
+                <Typography color={colors.grey[100]}>
                   ADMINIS
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -92,25 +134,19 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/user.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
+               
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
+                 
+                  color="white"
+                  fontWeight="500"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Luis comunica
+                 {fullName}
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Admin
+                <Typography variant="h5" color="red">
+                  VP Admin 
                 </Typography>
               </Box>
             </Box>
