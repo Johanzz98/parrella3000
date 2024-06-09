@@ -62,7 +62,7 @@ const mediaStyle = {
 };
 
 const smallMediaStyle = {
-  height: "200px",
+  height: "160px",
   width: "100%",
   objectFit: "cover",
 };
