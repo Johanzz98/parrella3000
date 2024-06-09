@@ -165,7 +165,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
 >
             <Box >
             <Typography sx={{
-               marginLeft:'-6px',
+               marginLeft:'-16px',
                 marginRight: '14px',
                 fontFamily: "Helvetica, sans-serif",
                 fontOpticalSizing: 'auto',
