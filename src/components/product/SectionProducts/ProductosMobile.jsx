@@ -19,7 +19,7 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "140px",
+  width: "150px",
 
   cursor: "pointer",
   fontFamily: "arial",
@@ -62,7 +62,7 @@ const mediaStyle = {
 };
 
 const smallMediaStyle = {
-  height: "160px",
+  height: "180px",
   width: "100%",
   objectFit: "cover",
 };
