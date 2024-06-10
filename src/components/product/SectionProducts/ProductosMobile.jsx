@@ -19,7 +19,7 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "174px",
+  width: "178px",
 marginRight:'6px',
   cursor: "pointer",
   fontFamily: "arial",
@@ -177,7 +177,7 @@ export default function Mostrar(props) {
               <Typography sx={NombreProducto}>{props.item.name}</Typography>
 
               { <Typography sx={descriptionStyle}>
-                {props.item.description}
+                a{props.item.description}
             </Typography>
            }
             </Box>
