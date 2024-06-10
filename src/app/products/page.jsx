@@ -2,7 +2,7 @@
 import "./app.css";
 
 import { ThemeProvider } from "@emotion/react";
-import { CssBaseline, createTheme} from "@mui/material";
+import { CssBaseline, createTheme, useMediaQuery } from "@mui/material";
 import React from "react";
 import CardList from "@/components/product/CardList";
 import { store } from "@/services/store";
@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import Navbar from "@/components/Navbar/Navbar";
 import { AuthProvider } from "@/context/AuthProvider";
 import TopMobile from "@/components/product/TopMobile";
+import Top from "@/components/product/Top";  // Asegúrate de importar el componente Top
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ const theme = createTheme({
 });
 
 const Page = () => {
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <ThemeProvider theme={theme}>
@@ -31,7 +33,7 @@ const Page = () => {
       <AuthProvider>
         <Provider store={store()}>
           <Navbar />
-          <TopMobile/>
+          {isMobile ? <TopMobile /> : <Top />}
           <CardList />
 
           {/* <Grid container spacing={3}>

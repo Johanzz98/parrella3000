@@ -26,7 +26,7 @@ const nombreProductoStyles = {
 
 function Mostrar({ item }) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 'sm' es el breakpoint para pantallas pequeñas
+  const isMobile = useMediaQuery(theme.breakpoints.down('md')); // 'sm' es el breakpoint para pantallas pequeñas
 
   return (
     <Box sx={{ paddingTop: '12px' }}>

@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Box, Checkbox, Menu, MenuItem, Divider, Stack, Link } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { AppBar, Toolbar, IconButton, Typography, Box, Menu, MenuItem, Divider, Stack, useTheme, useMediaQuery } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-
-const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortByZToA, toggleFilters }) => {
+import { productData } from './SectionProducts/Items';
+const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortByZToA, toggleFilters, mostrarFiltros }) => {
+    const [mostrarFiltrosState, setMostrarFiltrosState] = useState(mostrarFiltros);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-    const [mostrarFiltros, setMostrarFiltros] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null); // Estado para el elemento ancla del menú
-
+    const [anchorEl, setAnchorEl] = useState(null);
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const totalProducts = productData.length;
+    useEffect(() => {
+        setMostrarFiltrosState(mostrarFiltros);
+    }, [mostrarFiltros]);
+
+    const handleToggleFilters = () => {
+        toggleFilters();
+        setMostrarFiltrosState(!mostrarFiltrosState);
+    };
 
     const handleMenuClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -41,11 +47,6 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
         }
     };
 
-    const handleToggleFilters = () => {
-        toggleFilters();
-        setMostrarFiltros(!mostrarFiltros);
-    };
-
     return (
         <Box sx={{ marginTop: '160px', marginBottom: '24px' }}>
             <AppBar position="relative" sx={{ marginTop: '12px', boxShadow: '0 2px 4px rgba(12, 12, 255, 0.12)', backgroundColor: 'inherit' }}>
@@ -64,27 +65,29 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 fontFamily: "Helvetica, sans-serif",
                                 fontOpticalSizing: 'auto',
                                 fontSize: '1.2rem',
-                                fontWeight: 1000,
+                                fontWeight: 700,
                                 fontStyle: 'normal',
-                                color: "#111",
+                                color: "orange",
                                 textTransform: "capitalize",
                                 flexGrow: 1,
                             }}
                         >
-                            Todo Parrella
+                            Parrella Clubs
                         </Typography>
                     )}
-                    <Typography sx={{
-                        fontFamily: "Helvetica, sans-serif",
-                        fontOpticalSizing: 'auto',
-                        fontSize: '.75rem',
-                        fontWeight: 650,
-                        marginTop: '6px',
-                        fontStyle: 'normal',
-                        textAlign: 'center',
-                        color: "#111",
-                        textTransform: "capitalize",
-                    }}>Parrella Clubs</Typography>
+                    {isSmallScreen && (
+                        <Typography sx={{
+                            fontFamily: "Helvetica, sans-serif",
+                            fontOpticalSizing: 'auto',
+                            fontSize: '.75rem',
+                            fontWeight: 650,
+                            marginTop: '6px',
+                            fontStyle: 'normal',
+                            textAlign: 'center',
+                            color: "#111",
+                            textTransform: "capitalize",
+                        }}>Parrella Clubs</Typography>
+                    )}
                     <Divider
                         orientation="vertical"
                         sx={{
@@ -107,30 +110,10 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 },
                             }}
                         >
-                            {isSmallScreen && (
-                                <TuneIcon sx={{ fontSize: '20px', marginLeft: '-2px' }} />
-                            )}
-                            <Box>
-                                <Typography sx={{
-                                    marginRight: '1px',
-                                    fontFamily: "Helvetica, sans-serif",
-                                    fontOpticalSizing: 'auto',
-                                    fontSize: '14px',
-                                    fontWeight: 600,
-                                    fontStyle: 'normal',
-                                    textAlign: 'center',
-                                    color: "#111",
-                                    marginRight: '12px',
-                                    textTransform: "capitalize",
-                                }}>
-                                    {isSmallScreen ? 'Filtrar ' : mostrarFiltros ? 'Mostrar Filtros' : 'Ocultar Filtros '}
-                                </Typography>
-                            </Box>
-                            {!isSmallScreen && (
-                                <Box sx={{ marginRight: '12px' }}>
-                                    <TuneIcon />
-                                </Box>
-                            )}
+                            <TuneIcon />
+                            <Typography sx={{ ml: isSmallScreen ? -1 : 1, textTransform: "capitalize" }}>
+                                {isSmallScreen ? 'Filtrar' : mostrarFiltrosState ? 'Mostrar Filtros' : 'Ocultar Filtros'}
+                            </Typography>
                             <Divider
                                 orientation="vertical"
                                 sx={{
@@ -154,22 +137,9 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 },
                             }}
                         >
-                            <Box>
-                                <Typography sx={{
-                                    marginLeft: '-32px',
-                                    marginRight: '6px',
-                                    fontFamily: "Helvetica, sans-serif",
-                                    fontOpticalSizing: 'auto',
-                                    fontSize: '.75rem',
-                                    fontWeight: 600,
-                                    fontStyle: 'normal',
-                                    textAlign: 'center',
-                                    color: "#111",
-                                    textTransform: "capitalize",
-                                }}>
-                                    {(!isSmallScreen && selectedOption) ? `Ordenar por ${selectedOption}` : 'Ordenar por'}
-                                </Typography>
-                            </Box>
+                            <Typography sx={{ mr: 1, textTransform: "capitalize" }}>
+                                {(!isSmallScreen && selectedOption) ? `Ordenar por ${selectedOption}` : 'Ordenar por'}
+                            </Typography>
                             {isMenuOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                         </IconButton>
 
@@ -187,100 +157,24 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             }}
                         >
                             <MenuItem onClick={() => handleOptionSelect("Precio Más Alto")}>
-                                {isSmallScreen && <Checkbox checked={selectedOption === "Precio Más Alto"} sx={{
-                                    '& .MuiSvgIcon-root': {
-                                        color: "#111"
-                                    },
-                                }}
-                                />}
-                                <Typography
-                                    sx={{
-                                        fontFamily: "Helvetica, sans-serif",
-                                        fontOpticalSizing: 'auto',
-                                        fontSize: '.75rem',
-                                        fontWeight: 600,
-                                        textAlign: 'center',
-                                        fontStyle: 'normal',
-                                        color: "#111",
-                                        textTransform: "capitalize",
-                                    }}
-                                >
-                                    Precio Más Alto
-                                </Typography>
+                                <Typography>Precio Más Alto</Typography>
                             </MenuItem>
                             <MenuItem onClick={() => handleOptionSelect("Precio Más Bajo")}>
-                                {isSmallScreen && <Checkbox checked={selectedOption === "Precio Más Bajo"} sx={{
-                                    '& .MuiSvgIcon-root': {
-                                        color: "#111"
-                                    },
-                                }}
-                                />}
-                                <Typography
-                                    sx={{
-                                        fontFamily: "Helvetica, sans-serif",
-                                        fontOpticalSizing: 'auto',
-                                        fontSize: '.75rem',
-                                        fontWeight: 600,
-                                        textAlign: 'center',
-                                        fontStyle: 'normal',
-                                        color: "#111",
-                                        textTransform: "capitalize",
-                                    }}
-                                >
-                                    Precio Más Bajo
-                                </Typography>
+                                <Typography>Precio Más Bajo</Typography>
                             </MenuItem>
                             <MenuItem onClick={() => handleOptionSelect("A-Z")}>
-                                {isSmallScreen && <Checkbox checked={selectedOption === "A-Z"} sx={{
-                                    '& .MuiSvgIcon-root': {
-                                        color: "#111"
-                                    },
-                                }}
-                                />}
-                                <Typography
-                                    sx={{
-                                        fontFamily: "Helvetica, sans-serif",
-                                        fontOpticalSizing: 'auto',
-                                        fontSize: '.75rem',
-                                        fontWeight: 600,
-                                        fontStyle: 'normal',
-                                        textAlign: 'center',
-                                        color: "#111",
-                                        textTransform: "capitalize",
-                                    }}
-                                >
-                                    A-Z
-                                </Typography>
+                                <Typography>A-Z</Typography>
                             </MenuItem>
                             <MenuItem onClick={() => handleOptionSelect("Z-A")}>
-                                {isSmallScreen && <Checkbox checked={selectedOption === "Z-A"} sx={{
-                                    '& .MuiSvgIcon-root': {
-                                        color: "#111"
-                                    },
-                                }}
-                                />}
-                                <Typography
-                                    sx={{
-                                        fontFamily: "Helvetica, sans-serif",
-                                        fontOpticalSizing: 'auto',
-                                        fontSize: '.75rem',
-                                        fontWeight: 600,
-                                        fontStyle: 'normal',
-                                        textAlign: 'center',
-                                        color: "#111",
-                                        textTransform: "capitalize",
-                                    }}
-                                >
-                                    Z-A
-                                </Typography>
+                                <Typography>Z-A</Typography>
                             </MenuItem>
                         </Menu>
                     </Stack>
                 </Toolbar>
             </AppBar>
-            <Box>
-                <Typography sx={{ color: '#111', fontSize: '12px', fontWeight: '600', marginTop: '24px', marginBottom: '-42px', marginLeft: '12px' }}>
-                    10 ARTICULOS
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Typography sx={{ color: '#111', fontSize: '12px', fontWeight: '500', marginTop: '24px', marginBottom: '-42px', marginRight: '64px' }}>
+                Total de productos: {totalProducts}
                 </Typography>
             </Box>
         </Box>

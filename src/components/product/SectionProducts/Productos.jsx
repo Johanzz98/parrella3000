@@ -8,13 +8,14 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 const cardStyle = {
-  width: "370.5px",
+  width: "342px",
   margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: " 12px",
   transition: "transform 0.6s ease",
   position: "relative", // Añadido
+  marginLeft:'24.3px',
 };
 
 const cardStyle2 = {

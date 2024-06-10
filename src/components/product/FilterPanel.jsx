@@ -1,81 +1,153 @@
-import { useState } from "react";
-import { ProSidebar } from "react-pro-sidebar";
-import { Box, Checkbox, Collapse, Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography, useTheme } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Checkbox, Collapse, Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from "@mui/material";
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { ProSidebar } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 
-import { productData } from "../Carousel/MidItem";
+import { productData } from "./SectionProducts/Items";
 
-const Sidebar = () => {
+const helloName = {
+  fontSize: "20px",
+  fontWeight: "500",
+  color: "#111",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontFamily: "Helvetica,sans-serif",
+  fontOpticalSizing: 'auto',
+  marginBottom:'12px',
+  marginTop:'24px',
+};
 
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selectedItems, setSelectedItems] = useState({});
+
+
+const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) => {
+  const [filteredSizes, setFilteredSizes] = useState([]);
+  const [openProductos, setOpenProductos] = useState(false);
   const [openDescuentos, setOpenDescuentos] = useState(false);
-  const [openProductos, setOpenProductos] = useState(false); 
 
-  const handleToggle = (value) => () => {
-    const currentIndex = selectedItems[value];
-    const newSelectedItems = {
-      ...selectedItems,
-      [value]: currentIndex ? false : true,
-    };
+  const sizes = [...new Set(productData.map(product => product.talla).flat())];
+  sizes.sort(); // Ordenar tallas alfabéticamente
 
-    setSelectedItems(newSelectedItems);
+  const handleSizeClick = (size) => {
+    const index = filteredSizes.indexOf(size);
+    let newFilteredSizes;
+
+    if (index === -1) {
+      newFilteredSizes = [...filteredSizes, size];
+    } else {
+      newFilteredSizes = [...filteredSizes];
+      newFilteredSizes.splice(index, 1);
+    }
+
+    setFilteredSizes(newFilteredSizes);
+
+    const selectedProducts = productData.filter(product => product.talla.includes(size));
+    const remainingProducts = productData.filter(product => !product.talla.includes(size));
+
+    // Colocar los productos seleccionados primero
+    const filteredProducts = [...selectedProducts, ...remainingProducts];
+
+    updateFilteredProducts(filteredProducts);
   };
 
-  // Obtener todos los tamaños de los productos
-  const sizes = [...new Set(productData.map(product => product.talla).flat())];
-
-  return (
-    <Box 
-    sx={{ 
-      "& .pro-sidebar-inner": {
-        background: "#ffffff !important",
-      },
-      height: "100%",
-      width: "100%",
-      position: "-webkit-sticky",
-      position: "sticky",
-      top: 0,
-      left: 0,
-      overflowY: "auto",
-      zIndex: 1000,
-    }}
-  >
-
-
-      <ProSidebar >
-        <Box textAlign="center">
-          <Typography
-            variant="h6"
-            color="black"
-            fontWeight="bold"
-            sx={{ m: "10px 0 0 0" }}
-          >
-            Filtros
-          </Typography>
-        </Box>
-        <Divider sx={{ margin: '35px 30px' }} />
-        <Box>
-          <Typography variant="h6" 
+  
+    return (
+        <Box
             sx={{
-              textAlign: 'center',
-              marginBottom: '10px',
-              color:'#111',
+                width: "300px", // Ajustar el ancho del contenedor
+                position: "sticky",
+                top: 0,
+                borderRight: '2px solid orange', // Agregar borde derecho vertical
+                overflowY: "auto",
+                zIndex: 1000,
+                "& .pro-sidebar-inner": {
+                    background: "#ffffff !important",
+                }
             }}
-          >Talla </Typography>
-          <Divider sx={{ margin: '12px 30px' }} />
-          <Grid container spacing={2} alignItems="center" paddingRight="42px" paddingLeft="42px">
-            {sizes.map((size, index) => (
-              <Grid item xs={4} sm={3} md={4} key={index}>
-                <Paper elevation={3} style={{ textAlign: 'center', padding: '5px' }}>
-                  <Typography variant="body2">{size}</Typography>
-                </Paper>
-              </Grid>
-            ))}
+        >
+            <ProSidebar
+                style={{
+                    width: '100%', // Ajustar el ancho del ProSidebar
+                    background: '#ffffff'
+                }}
+            >
+                <Box textAlign="center">
+                    <Typography
+                      sx={helloName}
+                    >
+                        Filtros
+                    </Typography>
+                </Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "center",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                    }}
+                >
+                    <Divider
+                        sx={{
+                            width: "86%",
+                            backgroundColor: '#f5f5f5',
+                            textAlign: "center",
+                            margin: '0 14px 12px',
+                        }}
+                    />
+                </Box>
+                <Box>
+                <Typography
+                      sx={helloName}
+                    >
+                        Talla
+                    </Typography>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "center",
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                        }}
+                    >
+                        <Divider
+                            sx={{
+                                width: "86%",
+                                backgroundColor: '#f5f5f5',
+                                textAlign: "center",
+                                margin: '0 14px 32px',
+                            }}
+                        />
+                    </Box>
+                    <Grid container spacing={1} alignItems="center" paddingRight="12px" paddingLeft="12px" sx={{ marginTop: '-24px', marginBottom: '12px', marginLeft: '12px' }}>
+                        {sizes.map((size, index) => (
+                            <Grid item xs={6} sm={6} md={5.2} key={index} onClick={() => handleSizeClick(size)}>
+                                <Paper sx={{ textAlign: 'center', boxShadow: 'none', border: '1px solid grey', height: '24px', marginTop: '12px', marginRight: '24px', cursor: 'pointer', '&:hover': { color: 'orange' }, }}>
+                                    <Typography sx={{ fontSize: '11px', marginTop: '4px' }}>{size}</Typography>
+                                </Paper>
+                            </Grid>
+                        ))}
           </Grid>
         </Box>
-        <Divider sx={{ margin: '20px 30px' }} />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "center",
+            alignItems: "center",
+            justifyContent: "flex-start",
+         
+          }}
+        >
+          <Divider
+            sx={{
+              width: "86%",
+                backgroundColor: '#f5f5f5',
+              textAlign: "center",
+              margin: '0 14px 32px',
+              marginTop: '12px'
+            }}
+          />
+        </Box>
         <Box>
           <Box
             sx={{
@@ -87,13 +159,13 @@ const Sidebar = () => {
             }}
             onClick={() => setOpenProductos(!openProductos)}
           >
-            <Typography variant="h6" sx={{}} >
+            <Typography  sx={{marginLeft:'13px',fontSize:'16px',marginTop:'-6px'}} >
               Tipo de Productos
             </Typography>
-            {openProductos ? <ExpandLess sx={{ marginRight: '16px' }}/> : <ExpandMore  sx={{ marginRight: '16px' }}/>}
+            {openProductos ? <ExpandLess sx={{ marginRight: '24px'}} /> : <ExpandMore sx={{ marginRight: '24px' }}/>}
           </Box>
           <Collapse in={openProductos} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding sx={{color:'black'}}>
+          <List component="div" disablePadding sx={{color:'black',marginLeft:'14px'}}>
               {['Poleras', 'Poleron ', 'Chaquetas'].map((item, index) => {
                 const labelId = `checkbox-list-label-${index}`;
 
@@ -120,7 +192,25 @@ const Sidebar = () => {
             </List>
           </Collapse>
         </Box>
-        <Divider sx={{ margin: '10px 20px' }} />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "center",
+            alignItems: "center",
+            justifyContent: "flex-start",
+         
+          }}
+        >
+          <Divider
+            sx={{
+              width: "86%",
+                backgroundColor: '#f5f5f5',
+              textAlign: "center",
+              margin: '0 14px 32px',
+              marginTop: '12px'
+            }}
+          />
+        </Box>
         <Box>
           <Box
             sx={{
@@ -132,14 +222,14 @@ const Sidebar = () => {
             }}
             onClick={() => setOpenDescuentos(!openDescuentos)}
           >
-            <Typography variant="h6" style={{ margin: 0 }}>
+            <Typography  sx={{marginLeft:'13px',fontSize:'16px',marginTop:'-6px'}} >
               Pura verga compa
             </Typography>
-            {openDescuentos ? <ExpandLess sx={{ marginRight: '16px' }} /> : <ExpandMore sx={{ marginRight: '16px' }}/>}
+            {openDescuentos ? <ExpandLess sx={{ marginRight: '24px'}} /> : <ExpandMore sx={{ marginRight: '24px' }}/>}
           </Box>
           <Collapse in={openDescuentos} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding sx={{color:'black'}}>
-              {['Hasta %60', 'Hasta &40 ', 'Hasta %40 '].map((item, index) => {
+            <List component="div" disablePadding sx={{color:'black',marginLeft:'14px'}}>
+              {['Hasta ', 'La vista', 'Baby '].map((item, index) => {
                 const labelId = `checkbox-list-label-${index}`;
                 
                 return (
@@ -157,7 +247,6 @@ const Sidebar = () => {
                           },
                         }}
                       />
-                      
                     </ListItemIcon>
                     <ListItemText id={labelId} primary={item} />
                   </ListItem>
@@ -166,11 +255,53 @@ const Sidebar = () => {
             </List>
           </Collapse>
         </Box>
-        <Divider sx={{ margin: '60px 0' }} />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "center",
+            alignItems: "center",
+            justifyContent: "flex-start",
+         
+          }}
+        >
+          <Divider
+            sx={{
+              width: "86%",
+                backgroundColor: '#f5f5f5',
+              textAlign: "center",
+              margin: '0 14px 32px',
+              marginTop: '12px'
+            }}
+          />
+        </Box>
+        <Box >
+          <img
+            src="https://www.cinconoticias.com/wp-content/uploads/anuncios-publicitarios-con-eslogan.jpg"
+            alt="Nike Logo"
+            style={{
+              width: "100%",
+              height: "104%",
+              marginTop:'12px',
+              objectFit:'contain',
+            }} // Ajusta el tamaño según sea necesario
+          />
+        </Box>
+        <Box >
+          <img
+            src="https://i.pinimg.com/564x/97/23/4a/97234a774353a4f8e57ad04165d212f8.jpg"
+            alt="Nike Logo"
+            style={{
+              width: "102%",
+              height: "100%",
+              marginTop:'12px',
+              marginBottom:'-6px',
+            }} // Ajusta el tamaño según sea necesario
+          />
+        </Box>
+       
       </ProSidebar>
-      
     </Box>
   );
 };
 
-export default Sidebar;
+export default FilterPanel;

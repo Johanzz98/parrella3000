@@ -12,9 +12,10 @@ const helloName = {
   fontFamily: "Helvetica,sans-serif",
   fontOpticalSizing: 'auto',
   marginBottom: '12px',
-  marginTop: '24px',
+  marginTop: '60px',
   '&:hover': { color: 'orange' },
   cursor: 'pointer',
+  
 };
 const Title = {
     fontSize: "14px",
@@ -26,27 +27,27 @@ const Title = {
     fontFamily: "Helvetica,sans-serif",
     fontOpticalSizing: 'auto',
     '&:hover': { color: 'orange' },
-    cursor: 'pointer',
-   
+  cursor: 'pointer',
+  
    
   };
   
 
-const TopMobile = () => {
+const Top= () => {
   return (
     <Box sx={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       textAlign: 'center',
-      marginTop: '76px',
-      marginBottom:'-160px',
+      marginTop: '8%',
+      marginBottom:'-180px',
     }}>
       <Box sx={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: '-24px',
+        marginBottom: '-56px',
          marginLeft:'24px'
       }}>
         <Typography sx={Title}>Hombre</Typography>
@@ -58,4 +59,4 @@ const TopMobile = () => {
   );
 };
 
-export default TopMobile;
+export default Top;
