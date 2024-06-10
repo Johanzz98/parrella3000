@@ -35,7 +35,7 @@ const TopMobile = () => {
       flexDirection: 'column',
       alignItems: 'center',
       textAlign: 'center',
-      marginTop: '89px',
+      marginTop: '76px',
       marginBottom:'-160px',
     }}>
       <Box sx={{
@@ -46,7 +46,7 @@ const TopMobile = () => {
          marginLeft:'24px'
       }}>
         <Typography sx={Title}>Hombre</Typography>
-        <KeyboardArrowRightOutlinedIcon sx={{ marginX: '8px' }} />
+        <KeyboardArrowRightOutlinedIcon sx={{ marginX: '8px', fontSize:'12px' }} />
         <Typography sx={Title}>New Arrivals 2024</Typography>
       </Box>
       <Typography sx={helloName}>ROPA DE MODA PARA HOMBRE</Typography>

@@ -20,7 +20,7 @@ const cardStyle = {
 
 const cardStyle2 = {
   width: "172px",
-marginRight:'6px',
+  marginRight: "6px",
   cursor: "pointer",
   fontFamily: "arial",
   boxShadow: "none", // Se corrigió el nombre de la propiedad boxShadow
@@ -120,7 +120,6 @@ export default function Mostrar(props) {
   const addToCart = () => {
     dispatch({ type: TYPES.ADD_TO_CART, payload: props.item });
     dispatch({ type: TYPES.TOTAL });
- 
   };
 
   const handleMouseEnter = () => {
@@ -138,7 +137,7 @@ export default function Mostrar(props) {
       onMouseLeave={handleMouseLeave}
     >
       <Box sx={isSmallScreen ? cardStyle2 : cardStyle}>
-        <div style={{ position: "relative",marginRight:'-12px' }}>
+        <div style={{ position: "relative", marginRight: "-12px" }}>
           <CardMedia
             component="img"
             image={props.item.imageurl}
@@ -149,11 +148,11 @@ export default function Mostrar(props) {
           <Box
             style={{
               position: "absolute",
-              bottom:58,
+              bottom: 58,
               left: 8,
               backgroundColor: "white",
               height: "%40",
-              borderRadius:'12px',
+              borderRadius: "12px",
               transition: "transform 0.3s ease",
               transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
             }}
@@ -176,10 +175,11 @@ export default function Mostrar(props) {
             <Box>
               <Typography sx={NombreProducto}>{props.item.name}</Typography>
 
-              { <Typography sx={descriptionStyle}>
-                a{props.item.description}
-            </Typography>
-           }
+              {
+                <Typography sx={descriptionStyle}>
+                  {props.item.description}
+                </Typography>
+              }
             </Box>
           ) : (
             <CardContent
