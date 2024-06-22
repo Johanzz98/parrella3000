@@ -82,7 +82,7 @@ const SignUp = () => {
   };
   const initialValues = {
     email: "",
-    gender: "",
+  
     password: "",
    
     confirmPassword: "",
@@ -199,10 +199,7 @@ const SignUp = () => {
         "Only .com domains are allowed"
       ),
 
-    gender: Yup.string()
-      .oneOf(["male", "female", "other"], "Required")
-      .required("Required"),
-   
+
     password: Yup.string()
     .required("La contraseña es requerida") // Asegurarse de que la contraseña no esté vacía
     .min(8, "La contraseña debe tener al menos 8 caracteres") // Longitud mínima de la contraseña
