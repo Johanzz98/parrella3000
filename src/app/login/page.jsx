@@ -82,7 +82,7 @@ const login = ({ handleChange }) => {
   };
 
   const notFound = () => {
-    toast.error("Email Incorrecto", {
+    toast.error("The email you entered isn’t connected to an account. Find your account and log in.", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -113,13 +113,11 @@ const login = ({ handleChange }) => {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
-      console.log("Response:", response);
+     
 
       const token = response?.data?.data?.token;
       const role = response?.data?.data?.user?.role;
 
-      console.log("Token:", token);
-      console.log("Role:", role);
 
       if (!token || !role) {
         throw new Error("Invalid response structure");
@@ -130,9 +128,9 @@ const login = ({ handleChange }) => {
       } else {
         sessionStorage.setItem("token", token);
       }
-
-      if (role === "SUPER_ADMIN") {
-        toast.success("Inicio de sesión exitoso como SUPER_ADMIN");
+      if (role === "ADMIN" || role === "SUPER_ADMIN") {
+        const roleText = role === "ADMIN" ? "ADMIN" : "SUPER_ADMIN";
+        toast.success(`Inicio de sesión exitoso como ${roleText}`);
         setTimeout(() => {
           window.location.href = "/DashboardAdmin";
         }, 3000);
@@ -147,10 +145,10 @@ const login = ({ handleChange }) => {
       if (!err?.response) {
         notServer();
       } else if (err.response?.status === 404) {
-        console.log("Error 404: Recurso no encontrado");
+     
         notFound();
       } else if (err.response?.status === 401) {
-        console.log("Error 401: No autorizado");
+      
         Unauthorized();
       } else {
         setErrorMessage("Login failed");
@@ -274,7 +272,7 @@ const login = ({ handleChange }) => {
               >
                 {props.isSubmitting ? "Loading" : "Sign in"}{" "}
               </Button>
-              {console.log(props)}
+            
               {errorMessage && <p ref={errorMessageRef}>{errorMessage}</p>}
             </Form>
           )}

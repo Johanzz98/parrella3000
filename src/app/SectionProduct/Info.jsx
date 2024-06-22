@@ -6,7 +6,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
 import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
-
+import { productDataCart } from './ImgDetails';
 const SidebarStyle = {
   position: 'sticky',
   top: 0,
@@ -101,15 +101,20 @@ const Info = ({ product }) => {
   const [isHoveredStar, setIsHoveredStar] = useState(false);
   const dispatch = useDispatch();
 
-  const addToCart = () => {
-    if (product && product.length > 0) {
-      const productWithFirstImage = {
-        ...product[0], // Accede al primer elemento del array
-        imageurl: [product[0].imageurl[0]] // Tomar solo la primera imagen del primer producto
-      };
-      dispatch({ type: TYPES.ADD_TO_CART, payload: productWithFirstImage });
-      dispatch({ type: TYPES.TOTAL });
-    }
+    const addToCart = () => {
+      // Suponiendo que solo se agrega un producto a la vez
+      const productToAdd = productDataCart[0]; // Obtener el primer producto del arreglo productDataCart
+      
+      dispatch({
+        type: TYPES.ADD_TO_CART,
+        payload: {
+          ...productToAdd,
+          // Asegúrate de que la URL de la imagen se pasa al carrito
+          imageurl: productToAdd.imageurl[0] // Tomar solo la primera imagen del arreglo de imágenes
+        }
+      });
+    dispatch({type: TYPES.TOTAL});
+   
   };
   return (
     <Box sx={SidebarStyle}>

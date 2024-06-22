@@ -12,7 +12,7 @@ export function ShoppingReducers(state = ShoppingInitialState, action) {
 
             let itemInCart = state.cart.find((item) => item.id === action.payload.id)
         
-          console.log(action.payload)
+          
             return itemInCart
            ?
                {
@@ -56,7 +56,7 @@ export function ShoppingReducers(state = ShoppingInitialState, action) {
 
         case TYPES.SET_CART_FROM_STORAGE: {
 
-            console.log(action.payload)
+           
             return {
                 ...state,
                 cart: action.payload, // Establece el carrito desde el almacenamiento local
@@ -83,13 +83,13 @@ export function ShoppingReducers(state = ShoppingInitialState, action) {
            }
            
       case TYPES.TOTAL:{
-        console.log("hola amiguito")
+       
 
         let totalItem= 0;
         state.cart.map((item) => {
             totalItem+= item.quantity * item.price
         })
-        console.log(totalItem)
+       
 
          return{
             ...state,

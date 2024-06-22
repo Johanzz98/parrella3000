@@ -110,11 +110,11 @@ const LoginDrawers = () => {
   const obtenerMiData = async () => {
     try {
       if (!token) {
-        console.error('Token no disponible en el estado de Redux');
+       
         return; // Salir de la función si el token no está disponible en el estado de Redux
       }
 
-      console.log("Token utilizado para la solicitud:", token); // Agregar esta línea para ver el token utilizado
+      
 
       const response = await axios.get(AUTH_ME, {
         headers: {
@@ -128,10 +128,10 @@ const LoginDrawers = () => {
 
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        console.error('Error de autorización: Token no válido');
+        
         // Manejar el error de autorización, por ejemplo, redireccionar a la página de inicio de sesión
       } else {
-        console.error('Error al obtener los datos del usuario:', error);
+        
       }
     }
   };

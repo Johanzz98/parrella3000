@@ -105,10 +105,14 @@ const AccountData = ({ openModal }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredPassword, setIsHoveredPassword] = useState(false);
   const [fullName, setFullName] = useState('');
+  const [codePostal, setcodePostal] = useState('');
+  const [country, setcountry] = useState('');
+  const [phoneNumber, setphoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const token = useSelector((state) => state.auth.token); // Obtener el token del estado de Redux
   const [showPasswordModal, setShowPasswordModal] = useState(false); // State to control the visibility of the password modal
   const [showEmailModal, setShowEmailModal] = useState(false); // State to control the visibility of the email modal
+  
   const [showNameModal, setShowNameModal] = useState(false); // State to control the visibility of the full name modal
   const [showDeleteAccount, setShowDeleteAccount] = useState(false);
   const isMobile = useMediaQuery('(max-width:800px)');
@@ -122,7 +126,7 @@ const AccountData = ({ openModal }) => {
   const obtenerMiData = async () => {
     try {
       if (!token) {
-        console.error('Token no disponible en el estado de Redux');
+        
         return;
       }
 
@@ -133,9 +137,12 @@ const AccountData = ({ openModal }) => {
       });
 
       setFullName(response.data.data.person.fullName);
+      setphoneNumber(response.data.data.person.phoneNumber);
+      setcountry(response.data.data.person.country);
       setEmail(response.data.data.email);
+      setcodePostal(response.data.data.person.codePostal);
     } catch (error) {
-      console.error('Error al obtener los datos del usuario:', error);
+     
     }
   };
 
@@ -178,33 +185,38 @@ const AccountData = ({ openModal }) => {
 
 
   return (
-    <Box textAlign="center" role="presentation" sx={{ backgroundColor: "white", }}>
+    <Box textAlign="center" role="presentation" sx={{ backgroundColor: "white",marginTop:'-54px' }}>
       <Box sx={cuadrosRellenos}>
           <Box sx={{  display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',position: 'relative' }}>
-      <Box sx={{ marginBottom: '24px', display: 'flex', marginLeft: 'auto', position: 'relative', zIndex: '9999',top: '-12px', // Mover hacia arriba 20px
+      <Box sx={{ marginBottom: '24px', display: 'flex', marginLeft: 'auto', position: 'relative', zIndex: '2',top: '42px', // Mover hacia arriba 20px
      width:'100%',
       left:960,}}>
        
-      <Typography sx={{ ...Relleno, color: 'white', 
+    {/* <Typography sx={{ ...Relleno, color: 'white', 
       // Alinear con el borde derecho
-      }} onClick={handleLogout}>Cerrar Sesión</Typography>
+      }} onClick={handleLogout}>Cerrar Sesión</Typography>*/}
       </Box>
       </Box>
-        <Typography sx={helloName}>
+        <Typography sx={{...helloName, marginTop:'42px',marginBottom:'-6px'}}>
           MIS DATOS
         </Typography>
-        <Typography sx={{...detalles,marginBottom:'-27px',marginTop:'6px'}}>
+        <Typography sx={{...detalles,marginBottom:'-18px',marginTop:'6px'}}>
           Modifica tus datos personales a continuación para que tu cuenta esté actualizadas
         </Typography>
       </Box>
 
       <Box sx={cuadrosRellenos}>
-      <Typography sx={{...Detallitos, marginBottom:'-6px'}}>
+      <Typography sx={{...Detallitos, marginBottom:'-12px',marginTop:'-6px'}}>
           Detalles
         </Typography>
         
 
-  <Typography sx={detalles}>{fullName}</Typography>
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <Typography sx={{ ...detalles, marginBottom: '-12px' }}>{fullName}</Typography>
+          <Typography sx={{ ...detalles, marginBottom: '-12px' }}>{country}</Typography>
+          <Typography sx={detalles}>{phoneNumber}</Typography>
+          <Typography sx={detalles}>{codePostal}</Typography>
+        </Box>
  
   <Typography
           sx={{
@@ -224,7 +236,7 @@ const AccountData = ({ openModal }) => {
          Editar
         </Typography>
 <Box sx={cuadrosRellenitos}>
-<Typography sx={{...Detallitos,marginBottom:'-24px',}}>
+<Typography sx={{...Detallitos,marginBottom:'-12px',marginTop:'12px'}}>
 DATOS DE ACCESO
         </Typography>
         <br/>
@@ -289,7 +301,7 @@ DATOS DE ACCESO
           boxShadow: 'none',
           marginBottom:'-12px',
           marginLeft:'42px',
-          marginTop:'12px',
+          
           width: '80%',
           '&:hover': {
             backgroundColor: 'white', color:'red',boxShadow:'none' // Define el color de fondo para el hover
@@ -301,7 +313,7 @@ DATOS DE ACCESO
       </Button>
         <Box>
           <Typography sx={{...helloName,  justifyContent: 'center',
-  alignItems: 'center',marginBottom:'-4px'}}>
+  alignItems: 'center',marginBottom:'-12px',marginTop:'14px'}}>
             
 GESTIONAR CUENTA
           </Typography>
@@ -315,9 +327,9 @@ GESTIONAR CUENTA
     color: 'black',
     border: '1px solid black',
     boxShadow: 'none',
-    marginBottom:'-4px',
+    marginBottom:'2px',
     
-    marginLeft:'104px',
+    marginLeft:'108px',
     width: '60%',
     '&:hover': {
       backgroundColor: 'white', color:'red',boxShadow:'none' // Define el color de fondo para el hover
@@ -357,7 +369,7 @@ GESTIONAR CUENTA
       fontWeight: "600",
       color: "#111",
       display: 'flex',
-      marginTop: '24px',
+      marginTop: '6px',
    
      
       fontFamily: "Helvetica,sans-serif",

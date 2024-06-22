@@ -89,6 +89,9 @@ const AccountDataMobile = ({ openModal }) => {
   const [showNameModal, setShowNameModal] = useState(false); // State to control the visibility of the full name modal
   const [showDeleteAccount, setShowDeleteAccount] = useState(false);
   const [fullName, setFullName] = useState('');
+  const [codePostal, setcodePostal] = useState('');
+  const [country, setcountry] = useState('');
+  const [phoneNumber, setphoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const token = useSelector((state) => state.auth.token); // Get the token from the Redux state
   const { authState } = useAuth(); // Destructure authState from the context
@@ -100,7 +103,7 @@ const AccountDataMobile = ({ openModal }) => {
   const obtenerMiData = async () => {
     try {
       if (!token) {
-        console.error('Token not available in Redux state');
+        
         return;
       }
   
@@ -112,9 +115,12 @@ const AccountDataMobile = ({ openModal }) => {
   
       // Update the fullName state with the value obtained from the response
       setFullName(response.data.data.person.fullName);
+      setphoneNumber(response.data.data.person.phoneNumber);
+      setcountry(response.data.data.person.country);
       setEmail(response.data.data.email);
+      setcodePostal(response.data.data.person.codePostal);
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      
     }
   };
 
@@ -163,7 +169,7 @@ const AccountDataMobile = ({ openModal }) => {
     try {
       // Implement your form submission logic here
     } catch (error) {
-      console.error('Error submitting form:', error);
+      
     }
   };
 
@@ -193,8 +199,13 @@ const AccountDataMobile = ({ openModal }) => {
           Detalles
         </Typography>
         
-        <Typography sx={detalles}>{fullName}</Typography>
- 
+     
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <Typography sx={{ ...detalles, marginBottom: '-12px' }}>{fullName}</Typography>
+          <Typography sx={{ ...detalles, marginBottom: '-12px' }}>{country}</Typography>
+          <Typography sx={detalles}>{phoneNumber}</Typography>
+          <Typography sx={detalles}>{codePostal}</Typography>
+        </Box>
         <Typography
           sx={{
             ...detalles,

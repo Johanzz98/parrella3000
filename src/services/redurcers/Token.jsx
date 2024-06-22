@@ -10,7 +10,7 @@ const Token = () => {
   useEffect(() => {
     const storedToken = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (storedToken) {
-      console.log('Token cargado:', storedToken);
+    
       dispatch({ type: TYPES.SET_TOKEN, payload: { token: storedToken } }); // Usamos el tipo de acción 'SET_TOKEN' del objeto 'TYPES'
     }
   }, [dispatch]);
@@ -18,7 +18,7 @@ const Token = () => {
   useEffect(() => {
     localStorage.setItem('token', token);
     sessionStorage.setItem('token', token);
-    console.log('Token guardado:', token);
+   
   }, [token]);
 
   const handleLogout = () => {

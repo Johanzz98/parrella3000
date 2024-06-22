@@ -7,7 +7,7 @@ const drawerFilter = () => {
         <Drawer
             anchor="left"
             open={mostrarFiltros}
-            onClose={() => console.log("Cerrar Drawer")} // Agrega la lógica para cerrar el Drawer según tu necesidad
+            onClose={() => ("Cerrar Drawer")} // Agrega la lógica para cerrar el Drawer según tu necesidad
         >
             <div>
                 <Typography variant="h6" sx={{ margin: '20px' }}>

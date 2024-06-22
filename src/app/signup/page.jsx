@@ -4,6 +4,8 @@ import {
   Box,
   Button,
   Checkbox,
+  FormGroup,
+  FormLabel,
   Grid,
   Paper,
   TextField,
@@ -14,7 +16,8 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "@/api/axios";
@@ -32,7 +35,7 @@ const paperStyle = {
   padding: 4,
   height: "72vh",
   width: 294,
-  margin: "0 7px 32px",
+  margin: "0 7px 45px",
   boxShadow: "none",
   borderRadius: "24px",
   alignItems: "center",
@@ -43,7 +46,7 @@ const SmallpaperStyle = {
   padding:10,
   maxHeight: "73vh",
   width: 230,
-  margin: "0 auto 46px",
+  margin: "0 auto 60.5px",
   boxShadow: "none",
   borderRadius: "24px",
 };
@@ -52,7 +55,7 @@ const headerStyle = {
   alignItems: "center",
   justifyContent: "center",
 
-  fontSize: "24px",
+  fontSize: "16px",
   color: "#111",
   border: "none",
 
@@ -66,25 +69,72 @@ const marginTop = {
 
 const SignUp = () => {
   const theme = useTheme();
-
+  const isSmallScreen2 = useMediaQuery('(max-width:800px)');
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  
+  const checkboxStyle = {
+    transform: isSmallScreen2? 'scale(0.8)' : 'scale(0.8)',
+    left: isSmallScreen2? 12 : 2,
+    bottom: isSmallScreen2? 10 : 0,
+  };
   const initialValues = {
     email: "",
     gender: "",
     password: "",
-    phoneNumber: "",
+   
     confirmPassword: "",
     termsAndConditions: false,
     person: {
+      phoneNumber: "",
       fullName: "",
-      country: "Venezuela",
-      codePostal: "6160",
+      country: "",
+      codePostal: "",
     },
   };
+
+  const notFound = () => {
+    toast.error("¡Esta cuenta ya existe!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
+  const Unauthorized = () => {
+    toast.error("No Server Response", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
+  const Failed = () => {
+    toast.error("Registration Failed", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
   const onSubmit = async (values, props) => {
-    console.log(values); // Esto imprimirá todos los valores del formulario en la consola antes de enviarlos.
+   
     try {
       const response = await axios.post(
         REGISTER_URL,
@@ -95,6 +145,7 @@ const SignUp = () => {
             fullName: values.person.fullName,
             codePostal: values.person.codePostal,
             country: values.person.country,
+            phoneNumber:values.person.phoneNumber,
           },
         },
         {
@@ -102,29 +153,39 @@ const SignUp = () => {
           withCredentials: true,
         }
       );
-      console.log("Response from server:", response.data);
-      console.log(response.data);
-      console.log(response.data.accessToken);
-      console.log(JSON.stringify(response.data));
+      toast.success("Se ha registrado de manera exitosa");
       props.resetForm();
+      window.location.reload();
     } catch (err) {
       if (!err.response) {
-        console.error("No Server Response");
+        Unauthorized();
       } else if (err.response.status === 409) {
-        console.error("Username Taken");
+        notFound();
       } else {
-        console.error("Registration Failed");
+        Failed();
       }
       props.setSubmitting(false);
     }
   };
 
+  const phoneRegExp =
+  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
   const validationSchema = Yup.object().shape({
     person: Yup.object().shape({
       fullName: Yup.string()
-        .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
-        .min(3, "It's too short")
-        .required("Required"),
+       .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
+       .min(3, "It's too short")
+       .required("Required"),
+      country: Yup.string()
+       .matches(/^[a-zA-Z\s]+$/, "Should contain only letters")
+       .min(3, "It's too short")
+       .required("Required"),
+      codePostal: Yup.number()
+       .min(3, "It's too short")
+       .required("Required"),
+       phoneNumber: Yup.string() // Correctly treating phoneNumber as a string
+       .matches(phoneRegExp, "Phone number is not valid") // Use.matches for string patterns
+       .required("Required"), // Ensure phoneNumber is provided // Ensure phoneNumber is provided
     }),
     email: Yup.string()
       .email("Enter a valid email")
@@ -141,13 +202,13 @@ const SignUp = () => {
     gender: Yup.string()
       .oneOf(["male", "female", "other"], "Required")
       .required("Required"),
-    phoneNumber: Yup.number()
-      .typeError("Enter valid Phone Numer")
-      .required("Required"),
+   
     password: Yup.string()
-      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
-      .min(8, "Password must be at least 8 characters long")
-      .required("Password is required"),
+    .required("La contraseña es requerida") // Asegurarse de que la contraseña no esté vacía
+    .min(8, "La contraseña debe tener al menos 8 caracteres") // Longitud mínima de la contraseña
+    .matches(/(?=.*[a-z])/g, "La contraseña debe contener al menos una letra minúscula") // Letra minúscula
+    .matches(/(?=.*[A-Z])/g, "La contraseña debe contener al menos una letra mayúscula") // Letra mayúscula
+    .matches(/(?=.*\d)/g, "La contraseña debe contener al menos un número"), // Número
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password")], "Password not matched")
       .required("Required"),
@@ -160,7 +221,20 @@ const SignUp = () => {
   return (
     <Grid>
       <Paper style={isSmallScreen ? SmallpaperStyle : paperStyle}>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+        theme="colored"
+        style={{ fontSize: "12px", width: "446px", right: 5 }} // Establece el tamaño y estilo del ToastContainer
+      />
+      
         <Grid align="center">
+          {/*
           <Box>
             <Image
               src="https://nikeclprod.vtexassets.com/assets/vtex/assets-builder/nikeclprod.store/3.0.10/icons/Assets_for_off%20platform/swoosh___33f7ffaf2fc124733c2c4a60a12a1160.svg"
@@ -169,9 +243,11 @@ const SignUp = () => {
               height={32}
               style={{ cursor: "pointer", maxWidth: "100%", marginTop:'-10px' }} // Added maxWidth to ensure responsiveness
             />
+             
           </Box>
+   */}
           <Grid item>
-            <Typography variant="h4" style={headerStyle}>
+            <Typography  style={headerStyle}>
               Create Account
             </Typography>
           </Grid>
@@ -241,7 +317,59 @@ const SignUp = () => {
                   }}
                 />
 
-                <FormControl style={marginTop}>
+<Box
+            
+            sx={{
+              display: 'flex',
+              flexDirection: 'row', // Alinea los elementos horizontalmente
+              gap: 2, // Espacio entre los elementos
+              alignItems: 'center', // Alinea verticalmente los elementos
+            }}
+          >
+            <Field
+              name="person.codePostal"
+              as={TextField}
+              label="Codigo Postal"
+              placeholder="Enter your Codigo Postal"
+              variant="outlined"
+              fullWidth
+              helperText={<ErrorMessage name="person.codePostal" />}
+              FormHelperTextProps={{
+                sx: { fontSize: "0.6rem", color: "#f44336" },
+              }}
+              sx={{
+                "& .MuiInputLabel-root": { fontSize: "0.8rem" }, // Reducir tamaño del label
+                "& .MuiInputBase-root": { fontSize: "0.8rem" }, // Reducir tamaño del input
+                "& .MuiInputBase-root.MuiOutlinedInput-root": {
+                  height: "43px",
+                }, // Ajustar altura del TextField
+                marginTop: "8px",
+              }}
+            />
+           
+            <Field
+              name="person.country"
+              as={TextField}
+              label="Country"
+              placeholder="Enter your Country"
+              variant="outlined"
+              fullWidth
+              helperText={<ErrorMessage name="person.country" />}
+              FormHelperTextProps={{
+                sx: { fontSize: "0.6rem", color: "#f44336", },
+              }}
+              sx={{
+                "& .MuiInputLabel-root": { fontSize: "0.8rem" }, // Reducir tamaño del label
+                "& .MuiInputBase-root": { fontSize: "0.8rem" }, // Reducir tamaño del input
+                "& .MuiInputBase-root.MuiOutlinedInput-root": {
+                  height: "43px",
+                }, // Ajustar altura del TextField
+                marginTop: "8px",
+              }}
+            />
+          </Box>
+
+               {/* <FormControl style={marginTop}>
                   <Field
                     as={RadioGroup}
                     aria-labelledby="demo-radio-buttons-group-label"
@@ -256,8 +384,8 @@ const SignUp = () => {
                       label="Female"
                       sx={{
                         transform: "scale(0.8)",
-                        marginTop: "-8px",
-                        marginBottom: "-14px",
+                        marginTop: "-32px",
+                        marginBottom: "-24px",
                       }}
                     />
                     <FormControlLabel
@@ -266,28 +394,34 @@ const SignUp = () => {
                       label="Male"
                       sx={{
                         transform: "scale(0.8)",
-                        marginTop: "-8px",
-                        marginBottom: "-14px",
+                        marginTop: "-32px",
+                        marginBottom: "-24px",
                       }}
                     />
-                    {/*<FormControlLabel value="other" control={<Radio />} label="Other" /> 3*/}
+                   <FormControlLabel value="other" control={<Radio />} label="Other" /> 
                   </Field>
                   <FormHelperText
                     sx={{
                       fontSize: "0.6rem",
                       color: "#f44336",
+                      marginTop:'-6px',
+                      display: 'flex', // 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      marginBottom:'-12px'
                     }}
                   >
                     <ErrorMessage name="gender" />
                   </FormHelperText>
                 </FormControl>
-
+               */}
                 <Field
                   as={TextField}
                   fullWidth
-                  name="phoneNumber"
+                  placeholder="+56 9 XXXXXXX"
+                  name="person.phoneNumber"
                   label="Phone Number"
-                  helperText={<ErrorMessage name="phoneNumber" />}
+                  helperText={<ErrorMessage name="person.phoneNumber" />}
                   FormHelperTextProps={{
                     sx: { fontSize: "0.6rem", color: "#f44336" },
                   }}
@@ -375,41 +509,55 @@ const SignUp = () => {
                   </IconButton>
                 </div>
 
-                <FormControlLabel
-                  control={
-                    <Field
-                      as={Checkbox}
-                      name="termsAndConditions"
-                      sx={{ transform: "scale(0.8)", marginTop: "-4px" }} // Reducir escala del checkbox
-                      color="primary"
-                    />
-                  }
-                  label={
-                    <Typography
-                      variant="body1"
-                      sx={{ fontSize: "0.8rem", marginTop: "16px" }}
-                    >
-                      I accept the terms and conditions
-                    </Typography> // Reducir tamaño del texto
-                  }
-                />
-                <FormHelperText
-                  sx={{
-                    fontSize: "0.6rem",
-                    color: "#f44336",
-                    textAlign: "center" 
-                  }} // Reducir tamaño y cambiar color del texto de ayuda
-                >
-                  <ErrorMessage name="termsAndConditions" />
-                </FormHelperText>
+                <FormControl component="fieldset">
+
+  <FormGroup row>
+    <FormControlLabel
+      control={
+        <Field
+          as={Checkbox}
+          name="termsAndConditions"
+          sx={checkboxStyle}
+          color="primary"
+        />
+      }
+      label={
+        <Typography
+         
+          sx={{ fontSize: "0.8rem" }}
+        >
+          I accept the terms and conditions
+        </Typography> // Reduce the text size
+      }
+    />
+  </FormGroup>
+  <FormHelperText
+    sx={{
+      fontSize: "0.6rem",
+      color: "#f44336",
+      marginTop: '-2px',
+      textAlign: "center"
+    }} // Reduce the size and change the color of the helper text
+  >
+    <ErrorMessage name="termsAndConditions" />
+  </FormHelperText>
+</FormControl>
                 <Button
                   type="submit"
                   variant="contained"
                   disabled={props.isSubmitting}
-                
+                  sx={{
+                    padding: '4px 12px', // Reduce el padding interno del botón
+                    fontSize: '0.75rem', // Reduce el tamaño de la fuente
+                    minWidth: 'auto', // Ajusta el ancho mínimo para adaptarse al contenido
+                  }}
                 >
                   {props.isSubmitting ? "Loading" : "Sign Up"}
+                 
+                  
+      
                 </Button>
+        
               </Form>
             )}
           </Formik>
