@@ -106,16 +106,20 @@ const Account = () => {
 
     verifyTokenAndRedirect();
   }, []); // Empty dependency array means this effect runs once after initial render
-
   if (loading) {
     return (
-      <div>
-        {/* Replace StyledBackdrop and CircularProgress with actual loading component */}
-        Loading...
-      </div>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <CircularProgress />
+      </Box>
     );
   }
-
   
 
   return (

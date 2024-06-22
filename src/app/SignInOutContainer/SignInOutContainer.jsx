@@ -208,11 +208,19 @@ const SignInOutContainer = () => {
 
   if (loading) {
     return (
-      <StyledBackdrop open={true}>
-        <CircularProgress color="inherit" />
-      </StyledBackdrop>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <CircularProgress />
+      </Box>
     );
   }
+  
   
   
   return (
