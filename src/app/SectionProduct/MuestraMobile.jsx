@@ -1,9 +1,10 @@
+"use client";
 import React, { useState } from "react";
 import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import { CSSTransition } from "react-transition-group";
 import "./transitions.css"; // Asegúrate de que este archivo existe y tiene las definiciones correctas
 
-import { productData } from "./ImgDetails";
+import { productData} from "./ImgDetailsMobile";
 
 // Importaciones de íconos
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";

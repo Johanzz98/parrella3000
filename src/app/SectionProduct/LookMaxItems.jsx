@@ -20,7 +20,7 @@ export const responsive = {
   
   export const productData = [
     {
-      id: 7,
+      id: 1,
       imageurl:
         "https://nikeclprod.vtexassets.com/arquivos/ids/410332-800-800?v=637831353509070000&width=800&height=800&aspect=true",
       name: "Parrella Sweatter Neon Po Blue ",
@@ -29,7 +29,7 @@ export const responsive = {
       talla : ["M", "L", "XL", "XXL"],
     },
     {
-      id: 8,
+      id: 2,
       imageurl:
         "https://i.pinimg.com/564x/49/ab/10/49ab1074f2768ab6c0ca2e06d9d88214.jpg",
       name: "Sport Sweat",
@@ -38,7 +38,7 @@ export const responsive = {
       talla : ["M", "L", "XL", "XXL"],
     },
     {
-      id: 9,
+      id: 3,
       imageurl:
         "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
       name: "Movie Jackets",
@@ -47,7 +47,7 @@ export const responsive = {
       talla : ["M", "L", "XL", "XXL"],
     },
     {
-      id: 10,
+      id: 4,
       imageurl:
         "https://i.pinimg.com/564x/c3/40/a8/c340a8536cb3cfef961efc869c432b0e.jpg",
       name: "Special Jackets",
@@ -56,7 +56,7 @@ export const responsive = {
       talla : ["M", "L", "XL", "XXL"],
     },
     {
-      id: 11,
+      id: 5,
       imageurl:
         "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
       name: "Health Club",
@@ -65,7 +65,7 @@ export const responsive = {
       talla : ["M", "L", "XL", "XXL"],
     },
     {
-      id: 12,
+      id: 6,
       imageurl:
         "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
       name: "Clothes",

@@ -1,17 +1,17 @@
+"use client";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import MobileProduct from "./MobileProduct";
-import { productData, responsive } from "./MobileItem";
+import { productData2, responsive } from "./MobileItem";
 import "./carousel.css";
-import { Button, Grid, Paper } from '@mui/material';
+
 import DeliveryDiningOutlinedIcon from '@mui/icons-material/DeliveryDiningOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 
@@ -102,7 +102,7 @@ function Mobile() {
 
 
   const [selectedSize, setSelectedSize] = useState(null);
-  const sizes = [...new Set(productData.map(product => product.talla).flat())];
+  const sizes = [...new Set(productData2.map(product => product.talla).flat())];
 
     // Función para determinar si una talla está disponible
     const isTallaDisponible = (talla) => {
@@ -123,7 +123,7 @@ function Mobile() {
 </Box>
 <>
 
-      {productData.map((product, index) => (
+      {productData2.map((product, index) => (
         <MobileProduct
           key={index}
           product={product}

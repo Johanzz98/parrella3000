@@ -18,9 +18,9 @@ export const responsive = {
   };
   
   
-  export const productData = [
+  export const productData2 = [
     {
-      id: 1,
+      id: 2,
       imageurl:[
         "../../assets/adidas/1.jpeg",
       "../../assets/adidas/2.jpeg",
