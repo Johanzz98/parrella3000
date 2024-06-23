@@ -212,7 +212,7 @@ const Footer = () => {
         <Container>
           <Grid container justifyContent="space-between">
             <Box>
-              <Typography variant="subtitle1" color="White" gutterBottom>
+              <Typography variaant="subtitle1" color="White" gutterBottom>
                 Ayuda
               </Typography>
               <Box style={fontsMax}>

@@ -8,9 +8,9 @@ import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Box } from "@mui/material";
-
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 const cardStyle = {
-  maxWidth: "600px",
+  width: "240px",
   margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",
@@ -28,31 +28,49 @@ const cardStyle2 = {
   transition: "transform 0.6s ease",
   position: "relative", // Añadido
 };
-
+const NombreProducto = {
+  fontSize: "18px",
+  fontWeight: "550",
+  color: "orange",
+  paddingTop: "8px",
+  display: "flex",
+  justifyContent: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
+  alignItems: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
+  fontFamily: "Helvetica, sans-serif",
+  fontOpticalSizing: "auto",
+  // Añadido para asegurar que el texto no se desborde
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+};
 const mediaStyle = {
+  height: "400px",
   width: "100%",
-  objectFit: 'contain',
+  objectFit: "cover",
 };
 
+
 const smallMediaStyle = {
-  height: "100%",
+  height: "360px",
   width: "100%",
-  objectFit: 'contain',
+  objectFit: ' cover  ',
 };
 
 const priceStyle = {
   color: "#111",
-  fontSize: "22px",
-  textAlign: "center",
-  margin:'2px'
-};
+  fontSize: "14px",
+  margin: "0 8px",
+  fontWeight: "500",
+  display: "flex",
+  justifyContent: "flex-start",
 
-const descriptionStyle={
-  fontSize: "12px",
-  color: "grey",
+  fontFamily: "Helvetica, sans-serif",
+};
+const descriptionStyle = {
+  fontSize: "16px",
+  color: "#111",
   border: "none",
   fontWeight: 600,
-  textAlign: "center",
+  textAlign: "flex-start",
   fontFamily: " 'Helvetica', sans-serif",
   WebkitLineClamp: 2,
   overflow: "hidden",
@@ -60,7 +78,7 @@ const descriptionStyle={
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
   margin: "2px ",
-}
+};
 
 const buttonStyle = {
   border: "none",
@@ -121,10 +139,23 @@ export default function PenultimateCarousel(props) {
               <Typography variant="h5" component="h2">
                 {props.item.name}
               </Typography>
-              <Typography sx={priceStyle}>
-                ${props.item.price}
-              </Typography>
-              <Typography sx={descriptionStyle} variant="body2" color="text.secondary">
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%' }}>
+              <Box
+            style={{
+              position: "absolute",
+              bottom: 162,
+              left: 8,
+              backgroundColor: "white",
+              height: "%40",
+              borderRadius: "12px",
+              transition: "transform 0.3s ease",
+              transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
+            }}
+          >
+            <Typography sx={{...priceStyle,}}>${props.item.price}</Typography>
+          </Box>
+              </Box>
+              <Typography sx={{...descriptionStyle,color:'orange'}} variant="body2" color="text.secondary">
                 {props.item.description}
               </Typography>
               <Button variant="contained" sx={buttonStyle} onClick={addToCart}>
@@ -132,28 +163,58 @@ export default function PenultimateCarousel(props) {
               </Button>
             </CardContent>
           ) : (
+            <Box
+              style={{
+                position: "absolute",
+                bottom: 12,
+                left: 13,
+                backgroundColor: "white",
+                height: "%20",
+                borderRadius:'12px',
+                transition: "transform 0.3s ease",
+                transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
+              }}
+            >
+              <Typography sx={priceStyle}>${props.item.price}</Typography>
+            </Box>
+          )}
+          <Box
+            style={{
+              position: "absolute",
+              top: 12,
+              right: 12,
+            }}
+          >
+            <FavoriteBorderOutlinedIcon
+              sx={{ color: "#f73378", fontSize: "20px" }}
+            />
+          </Box>
+          {/* Contenido adicional que aparece al hacer hover en pantallas grandes */}
+          {!isSmallScreen && (
             <CardContent style={{ 
               position: "absolute", 
               top: 0, 
               left: 0, 
               right: 0, 
               bottom: 0, 
+              cursor:'pointer',
               margin: "auto", 
               background: "rgba(255, 255, 255, 0.9)",
               transition: "opacity 0.3s ease",
               opacity: isHovered? 1 : 0,
               pointerEvents: isHovered? 'auto' : 'none',
             }}>
-              <Typography variant="h5" component="h2">
+              <Typography sx={NombreProducto}>
                 {props.item.name}
               </Typography>
-              <Typography sx={priceStyle}>
-                ${props.item.price}
-              </Typography>
-              <Typography sx={descriptionStyle} variant="body2" color="text.secondary">
+              <Typography
+                sx={descriptionStyle}
+                variant="body2"
+                color="text.secondary"
+              >
                 {props.item.description}
               </Typography>
-              <Button variant="contained" sx={buttonStyle} onClick={addToCart}>
+              <Button variant="contained" sx={{...buttonStyle,  width:'80%',   position: "absolute", bottom:60, left:24}} onClick={addToCart}>
                 Add to Cart
               </Button>
             </CardContent>

@@ -310,6 +310,7 @@ const ResumenDetailsMobile = () => {
                 variant="contained"
                 type="submit"
                 fullWidth
+               
                 disabled={isSubmitting}
                 sx={{
                   backgroundColor: "#000",

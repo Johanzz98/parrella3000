@@ -1,7 +1,7 @@
 export const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
       slidesToSlide:1, // optional, default to 1.
     },
     tablet: {
@@ -25,6 +25,7 @@ export const responsive = {
       name: "Detroit Jackets",
       price: 9.999,
       description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
 
     },
     {
@@ -34,6 +35,7 @@ export const responsive = {
       name: "Sport Sweat",
       price: 9.999,
       description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
    
     },
     {
@@ -43,6 +45,7 @@ export const responsive = {
       name: "Movie Jackets",
       price: 9.999,
       description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
     
     },
     {
@@ -52,6 +55,7 @@ export const responsive = {
       name: "Special Jackets",
       price: 9.999,
       description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
      
     },
     {
@@ -61,6 +65,7 @@ export const responsive = {
       name: "Health Club",
       price: 9.999,
       description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
      
     },
     {
@@ -70,13 +75,13 @@ export const responsive = {
       name: "Clothes",
       price: 9.999,
       description: "Some text about the product..",
+      talla : ["M", "L", "XL", "XXL"],
       
     },
     
   ];
 
-  
-   export const talla = ["M", "L", "XL", "XXL"];
+
  
   
   

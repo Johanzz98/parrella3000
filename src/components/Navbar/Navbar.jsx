@@ -1,5 +1,5 @@
 import NavListDrawers from "./NavListDrawers";
-import { AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography, styled } from "@mui/material";
+import { AppBar, Box, Button, Collapse, Drawer, IconButton, Menu, MenuItem, Toolbar, Typography, styled } from "@mui/material";
 import { useState, useEffect } from 'react';
 import SearchContainer from "./SearchContainer";
 import SearchModal from "./SearchModal";
@@ -18,6 +18,7 @@ import CartDrawersMax from "./CartDrawers.jsx";
 import CartDrawers from "./CartDrawersMax";
 import { useAuth } from "@/context/AuthProvider";
 import { useDispatch } from 'react-redux';
+import CustomMenu from "./CustomMenu";
 
 
 const theme = createTheme({
@@ -166,6 +167,45 @@ export default function Navbar() {
         }
     };
 
+    const [collapseOpen, setCollapseOpen] = useState(false);
+
+    const handleMouseEnter = () => {
+      setCollapseOpen(true);
+    };
+    
+    const handleMouseLeave = () => {
+      setCollapseOpen(false);
+    };
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
+    
+    // Funciones para abrir y cerrar el menú
+    const handleMenuOpen = (event) => {
+      setMenuOpen(true);
+      setAnchorEl(event.currentTarget);
+    };
+    
+    const handleClose = (event) => {
+        // Comprueba si el evento fue disparado fuera del menú
+        if (!anchorEl.contains(event.target)) {
+          setMenuOpen(false);
+          setAnchorEl(null);
+        }
+      };
+
+    const [anchorEl2, setAnchorEl2] = useState(null);
+    const [menuOpen2, setMenuOpen2] = useState(false);
+    
+    // Funciones para abrir y cerrar el menú
+    const handleMenuOpen2 = (event) => {
+      setMenuOpen2(true);
+      setAnchorEl2(event.currentTarget);
+    };
+    
+    const handleClose2 = () => {
+      setMenuOpen2(false);
+      setAnchorEl2(null);
+    };
     return (
         <ThemeProvider theme={theme}>
             <>
@@ -202,59 +242,134 @@ export default function Navbar() {
                     </Toolbar>
                 </SecondAppBar>
 
-                <FirstAppBar position="fixed" sx={{ top: '42px', boxShadow: '0 2px 4px rgba(12, 12, 255, 0.12)'}}> {/* Ajusta la posición para que esté debajo del segundo navbar */}
-                    <Toolbar>
-                        <IconButton
-                            color="inherit"
-                            size="large"
-                            onClick={() => setOpen(true)}
-                            sx={{ display: { xs: "flex", sm: "none" } }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" sx={{ width: '60px', aspectRatio: 'auto 60 / 28.8', height: '28.8px', marginLeft: '42px', cursor: 'pointer' }}>
-                            <NextLink href="/">
-                                <img src={imgPath} alt="Swoosh Icon" />
-                            </NextLink>
-                        </Typography>
-                        <Box sx={{ flexGrow: 1 }} />
-                        {windowWidth > 800 ? (
-                            <SearchContainer >
-                                <SearchIcon />
-                            </SearchContainer>
-                        ) : (
-                            <SearchModal>
-                                <SearchIcon />
-                            </SearchModal>
-                        )}
-                        <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: '0.9rem' }}>
-                            {rightNavLinks.map((item, index) => (
-                                <Box key={index} sx={{ marginRight: index === rightNavLinks.length - 1 ? '0' : '0.5rem' }}>
-                                    <IconButton
-                                        color="inherit"
-                                        component="a"
-                                        href={item.path}
-                                    >
-                                        {item.icon}
-                                    </IconButton>
-                                </Box>
-                            ))}
-                        </Box>
-                        {windowWidth > 600 ? (
-                            <CartDrawers />
-                        ) : (
-                            <CartDrawersMax/>
-                        )}
-                        {isAuthenticated && (
-                            windowWidth > 600 ? (
-                                <LoginDrawers />
-                            ) : (
-                                <LoginDrawerMax />
-                            )
-                        )}
-                    </Toolbar>
-                </FirstAppBar>
-             
+                <FirstAppBar position="fixed" sx={{ top: '42px', boxShadow: '0 2px 4px rgba(12, 12, 255, 0.12)' }}>
+  <Toolbar>
+    <IconButton
+      color="inherit"
+      size="large"
+      onClick={() => setOpen(true)}
+      sx={{ display: { xs: "flex", sm: "none" } }}
+    >
+      <MenuIcon />
+    </IconButton>
+    <Typography variant="h6" sx={{ width: '60px', aspectRatio: 'auto 60 / 28.8', height: '28.8px', marginLeft: '42px', cursor: 'pointer' }}>
+      <NextLink href="/">
+        <img src={imgPath} alt="Swoosh Icon" />
+      </NextLink>
+    </Typography>
+    <Box
+  sx={{
+    display: { xs: "none", sm: "flex" },
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 999, // Asegura que el zIndex sea lo suficientemente alto para estar sobre otros elementos
+  }}
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+>
+  <Typography
+    variant="body1"
+    sx={{
+      cursor: 'pointer',
+  
+      color: '#000',
+      '&:hover': {
+        color: 'orange',
+      },
+    }}
+  >
+    NEW COLLECTION
+
+  
+    {collapseOpen && (
+        
+    
+        <Box sx={{backgroundColor:'#111',   cursor: 'pointer', width:'153px', height:'2px',position:'absolute',top:34,}}>
+            {/* Contenido adicional o simplemente un espacio vacío */}
+          </Box>
+        )}
+      </Typography>
+      <Box sx={{backgroundColor:'transparent',   cursor: 'pointer', width:'160px', height:'36px',position:'absolute',top:24,}}>
+            {/* Contenido adicional o simplemente un espacio vacío */}
+          </Box>
+      <Collapse
+        in={collapseOpen}
+        timeout="auto"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Box
+          sx={{
+            marginTop: '32.7px',
+            overflow: 'visible',
+            maxHeight: '100vh',
+            maxWidth: 'calc(100vw - 16px)',
+            width: '1520px',
+            height: '600px',
+            transformOrigin: 'top center',
+            borderRadius: '0',
+            backgroundColor: '#fff',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+            zIndex: 999,
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            pointerEvents: 'auto',
+            opacity: collapseOpen? 1 : 0,
+            transition: 'opacity 300ms',
+          }}
+        >
+          <CustomMenu />
+        </Box>
+      </Collapse>
+</Box>
+
+{/*  width:'153px', height:'6px'*/}
+
+
+    <Box sx={{ flexGrow: 1 }} />
+    {windowWidth > 800 ? (
+      <SearchContainer >
+        <SearchIcon />
+      </SearchContainer>
+    ) : (
+      <SearchModal>
+        <SearchIcon />
+      </SearchModal>
+    )}
+    <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: '0.9rem' }}>
+      {rightNavLinks.map((item, index) => (
+        <Box key={index} sx={{ marginRight: index === rightNavLinks.length - 1 ? '0' : '0.5rem' }}>
+          <IconButton
+            color="inherit"
+            component="a"
+            href={item.path}
+          >
+            {item.icon}
+          </IconButton>
+        </Box>
+      ))}
+    </Box>
+    {windowWidth > 600 ? (
+      <CartDrawers />
+    ) : (
+      <CartDrawersMax />
+    )}
+    {isAuthenticated && (
+      windowWidth > 600 ? (
+        <LoginDrawers />
+      ) : (
+        <LoginDrawerMax />
+      )
+    )}
+  </Toolbar>
+</FirstAppBar>
+
+
+        
                 <Drawer
                     open={open}
                     anchor="left"

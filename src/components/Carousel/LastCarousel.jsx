@@ -58,12 +58,7 @@ function LastCarousel() {
             <Box sx={{mb:2}}>    
                 <Typography style={setMid}> Fortaleza en todos sus ángulos</Typography>
             </Box>
-            <Box sx={buttonContainerStyle}>
-                <Button variant="contained" sx={buttonStyle}>
-                    Comprar
-                </Button>
-                <Button variant="contained"sx={buttonStyle}> Ver más</Button>
-            </Box>
+     
 
       <Box>
         <Carousel   responsive={ responsive} infinite>

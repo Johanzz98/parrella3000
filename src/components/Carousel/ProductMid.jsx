@@ -10,7 +10,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Box } from "@mui/material";
 
 const cardStyle = {
-  width: "300px",
+  width: "360px",
   margin: "0 auto 24px",
   height:"auto",
   textAlign: "center",
@@ -20,8 +20,8 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "171px",
-  margin: "15px 4px 12px 12px",
+  width: "236px",
+  margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: "12px",
@@ -29,14 +29,15 @@ const cardStyle2 = {
 };
 
 const mediaStyle = {
-  height: "300px",
+  height: "400px",
   width: "100%",
-  objectFit: ' scale-down    ',
+  objectFit: 'cover  ',
 };
 
 const smallMediaStyle = {
   height: "100%",
   width: "100%",
+  cursor:"pointer",
   objectFit: 'contain',
 };
 const descriptionStyle={
