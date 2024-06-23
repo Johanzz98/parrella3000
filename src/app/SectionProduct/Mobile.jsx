@@ -24,7 +24,7 @@ const Titulo = {
   alignItems: 'center',
   fontFamily: "Helvetica,sans-serif",
   fontOpticalSizing: 'auto',
-  
+  marginTop:'-42px',
   width:'46%'
 };
 const NombreProducto = {

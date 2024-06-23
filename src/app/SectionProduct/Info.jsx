@@ -27,6 +27,7 @@ const Titulo = {
   fontFamily: "Helvetica, sans-serif",
   fontOpticalSizing: 'auto',
   marginBottom: '6px',
+  marginTop:'-12px',
 };
 
 const NombreProducto = {

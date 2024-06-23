@@ -42,7 +42,8 @@ const PageCompleta = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box>
+    
+    <Box sx={{ mt: 13.9 }}>
         <Navbar />
         <PageWithWhatsAppButton />
         <div style={{ display: isMd ? 'none' : 'block' }}>
