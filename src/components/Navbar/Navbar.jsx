@@ -44,7 +44,7 @@ const navLinks = [
  
     {
         title: "Lanzamientos",
-        path: "#",
+        path: "/products",
       
     },
     {
