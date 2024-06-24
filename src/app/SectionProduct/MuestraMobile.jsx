@@ -240,69 +240,56 @@ const MuestraMobile = () => {
         classNames="description"
         unmountOnExit
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-          }}
-        >
-          <Box sx={{ flex: "0.5" }}>
-            <Typography
-              sx={{
-                fontSize: "14px",
-                fontWeight: "500",
-                color: "#111",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontFamily: "Helvetica,sans-serif",
-                fontOpticalSizing: "auto",
-                paddingBottom: "24px",
-                lineHeight: "24px",
-              }}
-            >
-              <ul>
-                <li style={{ marginBottom: "5px" }}>Ajuste holgado</li>
-                <li style={{ marginBottom: "5px" }}>
-                  Cierre frontal y cuello alto
-                </li>
-                <li style={{ marginBottom: "5px" }}>
-                  Tejido tricot 100% poliéster reciclado
-                </li>
-                <li style={{ marginBottom: "5px" }}>Bolsillos con cierre</li>
-              </ul>
-            </Typography>
-          </Box>
-          <Box sx={{ flex: "0.5", marginLeft: "24px" }}>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: "500",
-                color: "#111",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontFamily: "Helvetica,sans-serif",
-                fontOpticalSizing: "auto",
-
-                lineHeight: "24px",
-              }}
-            >
-              <ul style={{ marginRight: "24px", padding: "0" }}>
-                <li style={{ marginBottom: "8px", marginTop: "-22px" }}>
-                  Puños y dobladillo acanalados
-                </li>
-                <li style={{ marginBottom: "8px" }}>
-                  Color del artículo: Bold Gold
-                </li>
-                <li style={{ marginBottom: "8px" }}>
-                  Número de artículo: IP0611
-                </li>
-              </ul>
-            </Typography>
-          </Box>
-        </Box>
+    <Box
+  sx={{
+    display: "flex",
+    justifyContent: "center", // Centra horizontalmente
+    alignItems: "center", // Centra verticalmente
+    flexDirection: "column", // Alinear contenido en columna
+    textAlign: "center", // Alinear texto al centro
+    width: "100%", // Ajustar al ancho completo si es necesario
+    padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
+  }}
+>
+  <Box sx={{ flex: "0.5", textAlign: "left" }}>
+    <Typography
+      sx={{
+        fontSize: "14px",
+        fontWeight: "500",
+        color: "#111",
+        fontFamily: "Helvetica, sans-serif",
+        paddingBottom: "24px",
+        lineHeight: "24px",
+      }}
+    >
+      <ul style={{ margin: "0", padding: "0", textAlign: "left" }}>
+        <li style={{ marginBottom: "5px" }}>Ajuste holgado</li>
+        <li style={{ marginBottom: "5px" }}>Cierre frontal y cuello alto</li>
+        <li style={{ marginBottom: "5px" }}>
+          Tejido tricot 100% poliéster reciclado
+        </li>
+        <li style={{ marginBottom: "5px" }}>Bolsillos con cierre</li>
+      </ul>
+    </Typography>
+  </Box>
+  <Box sx={{ marginTop: "24px", textAlign: "left" }}>
+    <Typography
+      sx={{
+        fontSize: "16px",
+        fontWeight: "500",
+        color: "#111",
+        fontFamily: "Helvetica, sans-serif",
+        lineHeight: "24px",
+      }}
+    >
+      <ul style={{ margin: "0", padding: "0", textAlign: "left" }}>
+        <li style={{ marginBottom: "8px" }}>Puños y dobladillo acanalados</li>
+        <li style={{ marginBottom: "8px" }}>Color del artículo: Bold Gold</li>
+        <li style={{ marginBottom: "8px" }}>Número de artículo: IP0611</li>
+      </ul>
+    </Typography>
+  </Box>
+</Box>
       </CSSTransition>
 
       {/* Más contenido del componente */}
@@ -362,13 +349,18 @@ const MuestraMobile = () => {
         classNames="description"
         unmountOnExit
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+      
+            <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center", // Centra horizontalmente
+              alignItems: "center", // Centra verticalmente
+              flexDirection: "column", // Alinear contenido en columna
+              textAlign: "center", // Alinear texto al centro
+              width: "100%", // Ajustar al ancho completo si es necesario
+              padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
+            }}
+          >
           <Box sx={{ flex: 0, paddingLeft: "4px" }}>
             <Typography
               sx={{
@@ -457,12 +449,16 @@ const MuestraMobile = () => {
             </Typography>
           </Box>
           <Box
-            sx={{
-              flex: "0.9",
-
-              alignItems: "center",
-            }}
-          >
+  sx={{
+    display: "flex",
+    justifyContent: "center", // Centra horizontalmente
+    alignItems: "center", // Centra verticalmente
+    flexDirection: "column", // Alinear contenido en columna
+    textAlign: "center", // Alinear texto al centro
+    width: "100%", // Ajustar al ancho completo si es necesario
+    padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
+  }}
+>
             <Typography sx={{ ...NombreProducto, fontWeight: "550" }}>
               {" "}
               INFORMACIÓN ADICIONAL SOBRE EL CUIDADO
@@ -510,6 +506,7 @@ const MuestraMobile = () => {
           justifyContent: "center",
           height: "100%",
           marginTop: "4px",
+          marginBottom:'24px',
         }}
       >
         <Divider
@@ -521,160 +518,9 @@ const MuestraMobile = () => {
         />
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          marginTop: "24px",
-        }}
-      >
-        <Divider
-          sx={{
-            width: "97%",
-            bgcolor: "#f5f5f5",
-            textAlign: "center",
-          }}
-        />
-      </Box>
-      <Button sx={zeldas} onClick={() => setShowLook(!showLook)}>
-        <Typography sx={{ ...detalles, textTransform: "none" }}>
-          Presume tu Look
-        </Typography>
-        {showDetalles ? (
-          <KeyboardArrowUpIcon style={{ color: "black" }} />
-        ) : (
-          <KeyboardArrowDownIcon style={{ color: "black" }} />
-        )}
-      </Button>
+  
 
-      <CSSTransition
-        in={showLook}
-        timeout={300}
-        classNames="description"
-        unmountOnExit
-      >
-        <>
-          <Box
-            sx={{
-              textAlign: "center",
-              justifyContent: "center",
-              marginTop: "20px",
-              width: "100%",
-            }}
-          >
-            <Typography
-              sx={{
-                ...detalles,
-                cursor: "auto",
-                fontWeight: 500,
-                fontSize: "14px",
-              }}
-            >
-              ¿Quieres aparecer en nuestra galería?
-              <br />
-              simplemente menciona la cuenta de @ParrellaCl en tus fotos de
-              instagram y puede ser elegida para que aparezca aquí.
-            </Typography>
-          </Box>
-          <Grid container spacing={1}>
-            {/* Producto de fondo */}
-            <Grid
-              item
-              xs={12}
-              sm={4}
-              style={{
-                textAlign: "center",
-                marginTop: "20px",
-                width: "60%",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              {productWithIdThree && (
-                <img
-                  src={productWithIdThree.imageurl}
-                  alt={productWithIdThree.name}
-                  style={{ width: "360px", height: "369px" }}
-                />
-              )}
-              <div
-                style={{ position: "absolute", top: 20, left: 80, zIndex: 1 }}
-              >
-                <InstagramIcon />
-              </div>
-              {/* Producto encima */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "75%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  zIndex: 1,
-                  border: "1px solid #eceff1",
-                }}
-              >
-                {productWithIdThree && (
-                  <img
-                    src={productWithIdThree.imageurl}
-                    alt={productWithIdThree.name}
-                    style={{
-                      width: "120px",
-                      height: "123px",
-                      border: "1px solid grey",
-                    }}
-                  />
-                )}
-              </div>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography
-                  sx={{
-                    ...detalles,
-                    cursor: "pointer",
-                    marginBottom: "12px",
-                    marginTop: "12px",
-                    textDecoration: "underline",
-                    bgcolor: isHovered ? "black" : "white",
-                    color: isHovered ? "white" : "black",
-                    transition: "background-color 0.3s ease, color 0.1s ease",
-                  }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Ver productos
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </>
-      </CSSTransition>
-
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          marginTop: "1px",
-        }}
-      >
-        <Divider
-          sx={{
-            width: "97%",
-            bgcolor: "#f5f5f5",
-            textAlign: "center",
-          }}
-        />
-      </Box>
+    
     </Box>
   );
 };

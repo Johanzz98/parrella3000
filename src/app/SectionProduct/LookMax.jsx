@@ -46,10 +46,11 @@ function LookMax() {
           }}
         >
           <Divider sx={{
-              width: '103%',
+              width: '98%',
               height: 8,
                 bgcolor: '#eeeeee',
-               color:'red'
+               color:'red',
+               marginBottom:'32px'
           }} />
         </Box>
         

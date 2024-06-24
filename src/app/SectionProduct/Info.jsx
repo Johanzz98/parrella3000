@@ -159,12 +159,12 @@ const Info = ({ product }) => {
        
        
       </Box>
-      <Box sx={{marginTop:'58px'}}>
+      <Box sx={{marginTop:'83px'}}>
             <img
               src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_553,c_limit/262fc583-6160-4703-9d72-1918b8a4ebac/sitio-web-oficial-de-nike.png"
               alt="Nike Logo"
               style={{
-                width: "103%",
+                width: "102.5%",
                 
                 height: "100%",
                 marginLeft:'-12px',

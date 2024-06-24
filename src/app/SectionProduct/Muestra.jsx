@@ -245,7 +245,7 @@ function Muestra() {
         sx={zeldas}
         onClick={() => setShowDetalles(!showDetalles)}
       >
-        <Typography sx={{ ...detalles, marginLeft: "122px" }}>Detalles</Typography>
+        <Typography sx={{ ...detalles, marginLeft: "120px" }}>Detalles</Typography>
         {showDetalles? (
           <KeyboardArrowUpIcon
             style={{
@@ -358,7 +358,7 @@ function Muestra() {
       </Box>
      
       <Button sx={zeldas} onClick={() => setShowCuidados(!showCuidados)}>
-        <Typography sx={{ ...detalles, marginLeft: "126px" }}>Cuidados</Typography>
+        <Typography sx={{ ...detalles, marginLeft: "120px" }}>Cuidados</Typography>
         {showCuidados ? (
           <KeyboardArrowUpIcon
             style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
@@ -558,141 +558,12 @@ function Muestra() {
           }}
         />
       </Box>
-      <Button sx={zeldas} onClick={() => setShowLook(!showLook)}>
-        <Typography sx={{ ...detalles, marginLeft: "142px"}}>
-          Presume Tu Look
-        </Typography>
-        {showLook ? (
-          <KeyboardArrowUpIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
-          />
-        ) : (
-          <KeyboardArrowDownIcon
-            style={{ color: "black", marginLeft: "auto", marginRight: "4%" }}
-          />
-        )}
-      </Button>
-      <CSSTransition
-        in={showLook}
-        timeout={300}
-        classNames="description"
-        unmountOnExit
-      >
-        <>
-          <Box
-            sx={{
-              textAlign: "center",
-              marginTop: "20px",
-              width: "60%",
-              marginLeft: "12%",
-            }}
-          >
-            <Typography sx={{ ...detalles, cursor: "auto" }}>
-              {" "}
-              ¿Quieres aparecer en nuestra galería? simplemente menciona la
-              cuenta de @ParrellaCl en tus fotos de instagram y puede ser
-              elegida para que aparezca aquí.
-            </Typography>
-          </Box>
-          <Grid container spacing={1}>
-            {/* Producto de fondo */}
-            <Grid
-              item
-              xs={12}
-              sm={4}
-              style={{
-                textAlign: "center",
-                marginTop: "20px",
-                width: "60%",
-                marginLeft: "26%",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              {productWithIdThree && (
-                <img
-                  src={productWithIdThree.imageurl}
-                  alt={productWithIdThree.name}
-                  style={{ width: "360px", height: "369px" }}
-                />
-              )}
-              <div
-                style={{ position: "absolute", top: 20, left: 38, zIndex: 1 }}
-              >
-                <InstagramIcon />
-              </div>
-              {/* Producto encima */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "75%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  zIndex: 1,
-                  border: "1px solid #eceff1",
-                }}
-              >
-                {productWithIdThree && (
-                  <img
-                    src={productWithIdThree.imageurl}
-                    alt={productWithIdThree.name}
-                    style={{
-                      width: "120px",
-                      height: "123px",
-                      border: "1px solid grey",
-                    }}
-                  />
-                )}
-              </div>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography
-                  sx={{
-                    ...detalles,
-                    cursor: "pointer",
-                    textDecoration: "underline",
-                    bgcolor: isHovered ? "black" : "white",
-                    color: isHovered ? "white" : "black",
-                    transition: "background-color 0.3s ease, color 0.1s ease",
-                  }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Ver productos
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </>
-    </CSSTransition>
-
-   
+     
     
-    <Box
-        sx={{
-          display: "flex",
-          flexDirection: "center",
-          alignItems: "center",
-          justifyContent: "center",
-          marginLeft:'42px',
-        }}
-      >
-        <Divider
-          sx={{
-            width: "72%",
-            bgcolor: "#eceff1",
-            textAlign: "center",
-          }}
-        />
-      </Box>
+   
 <Box sx={{marginTop:'30%'}}>
       <Grid container spacing={1}>
-          <Grid item xs={12} md={11.5}>
+          <Grid item xs={12} md={12}>
             <LookMax />
           </Grid>
         </Grid>
