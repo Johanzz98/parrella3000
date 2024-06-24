@@ -350,105 +350,7 @@ const MuestraMobile = () => {
         unmountOnExit
       >
       
-            <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center", // Centra horizontalmente
-              alignItems: "center", // Centra verticalmente
-              flexDirection: "column", // Alinear contenido en columna
-              textAlign: "center", // Alinear texto al centro
-              width: "100%", // Ajustar al ancho completo si es necesario
-              padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
-            }}
-          >
-          <Box sx={{ flex: 0, paddingLeft: "4px" }}>
-            <Typography
-              sx={{
-                ...NombreProducto,
-                Display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                fontWeight: "550",
-              }}
-            >
-              {" "}
-              INSTRUCCIONES DE LAVADO
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "12px",
-                fontWeight: "500",
-                color: "#111",
-                display: "flex",
-
-                justifyContent: "center",
-                alignItems: "center",
-                fontFamily: "Helvetica,sans-serif",
-                fontOpticalSizing: "auto",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <ul style={{ margin: 0, padding: 0 }}>
-                  <li style={{ marginBottom: "5px" }}>
-                    No usar blanqueador{" "}
-                    <img
-                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/B1.svg "
-                      alt=""
-                      width="24"
-                      height="24"
-                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
-                    />
-                  </li>
-                  <li style={{ marginBottom: "5px" }}>
-                    No lavar en seco{" "}
-                    <img
-                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/E1.svg "
-                      alt=""
-                      width="24"
-                      height="24"
-                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
-                    />
-                  </li>
-                  <li style={{ marginBottom: "5px" }}>
-                    Lavado a máquina agua tibia{" "}
-                    <img
-                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/A5.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
-                    />
-                  </li>
-
-                  <li style={{ marginBottom: "5px" }}>
-                    Secar a potencia baja{" "}
-                    <img
-                      src=" https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/C2.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
-                    />
-                  </li>
-                  <li style={{ marginBottom: "5px" }}>
-                    Retoque con plancha fría suavemente
-                    <img
-                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/D2.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      style={{
-                        marginLeft: "5px",
-                        marginTop: "-5px",
-                        verticalAlign: "middle",
-                      }}
-                    />
-                  </li>
-                </ul>
-              </div>
-            </Typography>
-          </Box>
-          <Box
+      <Box
   sx={{
     display: "flex",
     justifyContent: "center", // Centra horizontalmente
@@ -459,43 +361,140 @@ const MuestraMobile = () => {
     padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
   }}
 >
-            <Typography sx={{ ...NombreProducto, fontWeight: "550" }}>
-              {" "}
-              INFORMACIÓN ADICIONAL SOBRE EL CUIDADO
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "14px",
-                fontWeight: "500",
-                color: "#111",
-
-                marginBottom: "12px",
-                justifyContent: "center",
-                alignItems: "center",
-                fontFamily: "Helvetica,sans-serif",
-                fontOpticalSizing: "auto",
+<Box sx={{ flex: "0.5", textAlign: "left" }}>
+    <Typography
+      sx={{
+        fontSize: "21px",
+        fontWeight: "550",
+        color: "#111",
+        fontFamily: "Helvetica, sans-serif",
+        paddingBottom: "24px",
+        lineHeight: "24px",
+      }}
+    >
+      INSTRUCCIONES DE LAVADO
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "12px",
+        fontWeight: "500",
+        color: "#111",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "Helvetica,sans-serif",
+        fontOpticalSizing: "auto",
+        textAlign: "center", // Alinear texto a la izquierda
+        margin: "10px 0", // Añadir espacio vertical entre elementos
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <ul style={{ margin: 0, padding: 0, textAlign: "left" }}>
+          <li style={{ marginBottom: "5px" }}>
+            No usar blanqueador{" "}
+            <img
+              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/B1.svg"
+              alt=""
+              width="24"
+              height="24"
+              style={{ marginTop: "-5px", verticalAlign: "middle" }}
+            />
+          </li>
+          <li style={{ marginBottom: "5px" }}>
+            No lavar en seco{" "}
+            <img
+              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/E1.svg"
+              alt=""
+              width="24"
+              height="24"
+              style={{ marginTop: "-5px", verticalAlign: "middle" }}
+            />
+          </li>
+          <li style={{ marginBottom: "5px" }}>
+            Lavado a máquina agua tibia{" "}
+            <img
+              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/A5.svg"
+              alt=""
+              width="24"
+              height="24"
+              style={{ marginTop: "-5px", verticalAlign: "middle" }}
+            />
+          </li>
+          <li style={{ marginBottom: "5px" }}>
+            Secar a potencia baja{" "}
+            <img
+              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/C2.svg"
+              alt=""
+              width="24"
+              height="24"
+              style={{ marginTop: "-5px", verticalAlign: "middle" }}
+            />
+          </li>
+          <li style={{ marginBottom: "5px" }}>
+            Retoque con plancha fría suavemente{" "}
+            <img
+              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/D2.svg"
+              alt=""
+              width="24"
+              height="24"
+              style={{
+                marginLeft: "5px",
+                marginTop: "-5px",
+                verticalAlign: "middle",
               }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <ul style={{ margin: 0, padding: 0 }}>
-                  <li style={{ marginBottom: "5px" }}>
-                    Usar únicamente detergente suave
-                  </li>
-                  <li style={{ marginBottom: "5px" }}>
-                    Lavar con cierres ajustados
-                  </li>
-                  <li style={{ marginBottom: "5px" }}>
-                    Lavar y planchar al revés
-                  </li>
+            />
+          </li>
+        </ul>
+      </div>
+    </Typography>
+  </Box>
+  <Box sx={{ flex: 0, textAlign: "left", marginTop: "20px" }}>
+  <Typography
+      sx={{
+        fontSize: "21px",
+        fontWeight: "550",
+        color: "#111",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "Helvetica,sans-serif",
+        fontOpticalSizing: "auto",
+        textAlign: "center", // Alinear texto a la izquierda
+        margin: "10px 0", // Añadir espacio vertical entre elementos
+       marginBottom:'24px',
+      }}
+    >
+      INFORMACIÓN ADICIONAL SOBRE EL CUIDADO
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "12px",
+        fontWeight: "500",
+        color: "#111",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "Helvetica,sans-serif",
+        fontOpticalSizing: "auto",
+        textAlign: "center", // Alinear texto a la izquierda
+        margin: "10px 0", // Añadir espacio vertical entre elementos
+        marginLeft:'-46px'
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <ul style={{ margin: 0, padding: 0, textAlign: "left" }}>
+          <li style={{ marginBottom: "5px" }}>
+            Usar únicamente detergente suave
+          </li>
+          <li style={{ marginBottom: "5px" }}>Lavar con cierres ajustados</li>
+          <li style={{ marginBottom: "5px" }}>Lavar y planchar al revés</li>
+          <li style={{ marginBottom: "5px" }}>Lavar con colores similares</li>
+        </ul>
+      </div>
+    </Typography>
+  </Box>
+</Box>
 
-                  <li style={{ marginBottom: "5px" }}>
-                    Lavar con colores similares{" "}
-                  </li>
-                </ul>
-              </div>
-            </Typography>
-          </Box>
-        </Box>
       </CSSTransition>
 
       <Box
