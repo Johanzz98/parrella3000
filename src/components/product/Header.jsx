@@ -79,7 +79,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         <Typography sx={{
                             fontFamily: "Helvetica, sans-serif",
                             fontOpticalSizing: 'auto',
-                            fontSize: '.75rem',
+                            fontSize: '13.2px',
                             fontWeight: 650,
                             marginTop: '6px',
                             fontStyle: 'normal',
@@ -119,7 +119,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 sx={{
                                     height: '58px',
                                     backgroundColor: '#f5f5f5',
-                                   marginRight:'-42px',
+                                   marginRight:'-30px',
                                     display: { xs: 'block', sm: 'none' },
                                     marginLeft:'12px',
                                 }}
@@ -175,7 +175,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                 </Toolbar>
             </AppBar>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Typography sx={{ color: '#111', fontSize: '12px', fontWeight: '500', marginTop: '24px', marginBottom: '-42px', marginRight: '64px' }}>
+                <Typography sx={{ color: '#111', fontSize: '12px', fontWeight: '500', marginTop: '24px', marginBottom: '-42px', marginRight: '54px' }}>
                 Total de productos: {totalProducts}
                 </Typography>
             </Box>

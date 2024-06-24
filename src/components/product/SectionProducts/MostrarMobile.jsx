@@ -198,7 +198,7 @@ export default function LookProduct(props) {
               }}
             >
               <Typography variant="h5" component="h2">
-             {props.item.name}
+                {props.item.name}
               </Typography>
               <Typography sx={priceStyle}>ss${props.item.price}</Typography>
               <Typography
