@@ -84,14 +84,14 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             marginTop: '6px',
                             fontStyle: 'normal',
                             textAlign: 'center',
-                            color: "#111",
+                            color: "orange",
                             textTransform: "capitalize",
-                        }}>Parrella Clubs</Typography>
+                        }}>Parrella clothes</Typography>
                     )}
                     <Divider
                         orientation="vertical"
                         sx={{
-                            marginLeft: '42px',
+                           marginLeft:'16px',
                             backgroundColor: '#f5f5f5',
                             display: { xs: 'block', sm: 'none' }
                         }}
@@ -110,7 +110,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 },
                             }}
                         >
-                            <TuneIcon />
+                            <TuneIcon  sx={{marginRight:'16px',fontSize:'20px'}}/>
                             <Typography sx={{ ml: isSmallScreen ? -1 : 1, textTransform: "capitalize" }}>
                                 {isSmallScreen ? 'Filtrar' : mostrarFiltrosState ? 'Mostrar Filtros' : 'Ocultar Filtros'}
                             </Typography>
@@ -119,11 +119,13 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 sx={{
                                     height: '58px',
                                     backgroundColor: '#f5f5f5',
-                                    display: { xs: 'block', sm: 'none' }
+                                   marginRight:'-42px',
+                                    display: { xs: 'block', sm: 'none' },
+                                    marginLeft:'12px',
                                 }}
                             />
                         </IconButton>
-
+                  
                         <IconButton
                             edge="start"
                             color="inherit"

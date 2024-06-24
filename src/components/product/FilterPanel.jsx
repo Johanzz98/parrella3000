@@ -98,9 +98,9 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
                 </Box>
                 <Box>
                 <Typography
-                      sx={helloName}
+                      sx={{...helloName,marginRight:'2px'}}
                     >
-                        Talla
+                        Tallas
                     </Typography>
                     <Box
                         sx={{
@@ -148,7 +148,7 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
             }}
           />
         </Box>
-        <Box>
+      {/*   <Box>
           <Box
             sx={{
               display: 'flex',
@@ -255,6 +255,7 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
             </List>
           </Collapse>
         </Box>
+*/}
         <Box
           sx={{
             display: "flex",
