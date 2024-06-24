@@ -79,7 +79,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         <Typography sx={{
                             fontFamily: "Helvetica, sans-serif",
                             fontOpticalSizing: 'auto',
-                            fontSize: '13.2px',
+                            fontSize: '11.5px',
                             fontWeight: 650,
                             marginTop: '6px',
                             fontStyle: 'normal',
