@@ -58,17 +58,17 @@ function Mid() {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4,
+      items: 3,
       slidesToSlide: 1,
     },
     tablet: {
       breakpoint: { max: 1024, min: 768 },
-      items: 2,
+      items: 1,
       slidesToSlide: 1,
     },
     mobile: {
       breakpoint: { max: 768, min: 0 },
-      items: isMdOrSmaller ? 2 : 3, // Muestra solo una imagen en pantallas md o menores
+      items: isMdOrSmaller ? 1 : 3, // Muestra solo una imagen en pantallas md o menores
       slidesToSlide: 1,
     },
   };

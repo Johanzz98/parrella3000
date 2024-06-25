@@ -10,9 +10,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Box } from "@mui/material";
 
 const cardStyle = {
-  width: "360px",
+  width: "460px",
   margin: "0 auto 24px",
-  height:"auto",
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: " 12px",
@@ -20,18 +19,18 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "236px",
+  width: "480px",
   margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",
-  borderRadius: "12px",
+  borderRadius: "0",
   transition: "transform 0.6s ease",
 };
 
 const mediaStyle = {
-  height: "400px",
+  height: "460px",
   width: "100%",
-  objectFit: 'cover  ',
+  objectFit: 'contain',
 };
 
 const smallMediaStyle = {
@@ -133,7 +132,7 @@ export default function LastCarouselProduct(props) {
           alt="product image"
           sx={isSmallScreen ? smallMediaStyle : mediaStyle}
         />
-       {(isHovered || isSmallScreen) && (
+     {/*}  {(isHovered || isSmallScreen) && (
           <CardContent>
             <Typography variant="h5" component="h2" sx={nameStyle} >
               {props.item.name}
@@ -151,7 +150,7 @@ export default function LastCarouselProduct(props) {
            
           </CardContent>
         )}
-        
+     */}
       </Card>
     </Box>
   );
