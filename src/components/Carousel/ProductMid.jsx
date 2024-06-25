@@ -19,8 +19,9 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "340px",
+  width: "100%",
   margin: "0 auto 32px",
+
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: "0",
@@ -36,6 +37,7 @@ const mediaStyle = {
 const smallMediaStyle = {
   height: "100%",
   width: "100%",
+
   cursor:"pointer",
   objectFit: 'contain',
 };
