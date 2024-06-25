@@ -175,10 +175,19 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                 </Toolbar>
             </AppBar>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Typography sx={{ color: '#111', fontSize: '12px', fontWeight: '500', marginTop: '24px', marginBottom: '-42px', marginRight: '54px' }}>
-                Total de productos: {totalProducts}
-                </Typography>
-            </Box>
+    <Typography
+        sx={{
+            color: '#111',
+            fontSize: '12px',
+            fontWeight: '500',
+            marginTop: '24px',
+            marginBottom: '-42px',
+            marginRight: isSmallScreen ? '16px' : '90px',  // Ajusta el marginRight según el breakpoint MD
+        }}
+    >
+        Total de productos: {totalProducts}
+    </Typography>
+</Box>
         </Box>
     );
 };

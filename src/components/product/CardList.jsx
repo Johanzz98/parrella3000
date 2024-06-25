@@ -109,15 +109,7 @@ function Products() {
                     </Grid>
                 </Box>
             </Box>
-            <Hidden mdUp>
-                <IconButton
-                    color="inherit"
-                    aria-label="open filters"
-                    onClick={toggleFilters}
-                >
-                    <MenuIcon />
-                </IconButton>
-            </Hidden>
+      
         </>
     );
 }
