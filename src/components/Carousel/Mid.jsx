@@ -85,8 +85,8 @@ function Mid() {
 
   const setMidIz = {
     ...baseSetMidIz,
-    fontSize: isMdOrSmaller ? '24px' : '36px', // Ajusta el tamaño de la fuente según el tamaño de la pantalla
-    margin: isMdOrSmaller ? '16px 10px' : '24px 20px', // Ajusta el margen
+    fontSize: isMdOrSmaller ? '21px' : '36px', // Ajusta el tamaño de la fuente según el tamaño de la pantalla
+    margin: isMdOrSmaller ? '16px 10px 24px' : '24px 20px', // Ajusta el margen
   };
 
   return (
