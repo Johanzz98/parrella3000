@@ -77,7 +77,7 @@ const Lanzamientos = ({ open, onClose }) => {
                       alignItems: "center",
                       fontFamily: "Helvetica, sans-serif",
                       cursor: "pointer",
-                      marginTop:'24px',
+                      marginTop:'6px',
                       marginBottom:'24px',
                       "&:hover": {
                         color: "orange",
