@@ -65,13 +65,13 @@ const Lanzamientos = ({ open, onClose }) => {
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <ul style={{ listStyleType: "none", paddingLeft: 30, width: '100%' }}>
               {categories.map((category) => (
-                <li key={category.id} style={{ marginTop: "8px" }}>
+                <li key={category.id}>
                   <Typography
                     onClick={() =>
                       (window.location.href = `/products/${category.id}`)
                     }
                     sx={{
-                      fontSize: "18px",
+                      fontSize: "16px",
                       color: "#111",
                       display: "flex",
                       alignItems: "center",
