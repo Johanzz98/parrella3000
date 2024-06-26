@@ -360,7 +360,7 @@ const Footer = () => {
          Contactanos
         </Link>
         </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  16px" }} />
+        <Divider sx={{ borderColor: "white", margin: "0  8px",marginTop:'22px' }} />
         <Box style={LinkStyle}>
         
         <Link
@@ -373,7 +373,7 @@ const Footer = () => {
         Hazte Miembro
         </Link>
        </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  16px" }} />
+        <Divider sx={{ borderColor: "white", margin: "0  8px",marginTop:'22px' }} />
       </Hidden>
 
       <Hidden mdUp>
@@ -420,8 +420,9 @@ const Footer = () => {
               <br />
             </List>
           </Collapse>
-          <Divider sx={{ borderColor: "white" }} />
+    
         </Box>
+        <Divider sx={{ borderColor: "white", margin: "0  8px",position:"relative",top:-12 }} />
       </Hidden>
 
       <Hidden mdUp>
@@ -435,7 +436,7 @@ const Footer = () => {
             }}
           >
             <span>Acerca de nosotros </span>
-            {openProductos ? (
+            {openProductos2 ? (
               <ExpandLess sx={{ marginLeft: "auto" }} />
             ) : (
               <ExpandMore sx={{ marginLeft: "auto" }} />
@@ -492,8 +493,9 @@ const Footer = () => {
               <br />
             </List>
           </Collapse>
-          <Divider sx={{ borderColor: "white" }} />
+      
         </Box>
+        <Divider sx={{ borderColor: "white", margin: "0  8px",position:"relative",top:-12 }} />
       </Hidden>
       <Hidden mdUp>
         <Box onClick={() => setOpenProductos3(!openProductos3)} >
@@ -554,8 +556,9 @@ const Footer = () => {
               <br />
             </List>
           </Collapse>
-          <Divider sx={{ borderColor: "white" }} />
+  
         </Box>
+        <Divider sx={{ borderColor: "white", margin: "0  8px",position:"relative",top:-12 }} />
       </Hidden>
 
       <Hidden mdUp>
@@ -618,7 +621,7 @@ const Footer = () => {
                   <strong>Sign up for our newsletter</strong>
                 </Typography>
               </Grid>
-              <Grid item xs={8} sm={2}>
+              <Grid item xs={7} sm={2}>
                 <TextField
                   fullWidth
                   label="Email address"
@@ -627,14 +630,16 @@ const Footer = () => {
                   InputProps={{
                     style: { color: "white" },
                   }}
-                  InputLabelProps={{ sx: { color: "white" } }}
+                  InputLabelProps={{ sx: { color: "white",} }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
                         borderColor: "white",
+                       
                       },
                       "&:hover fieldset": {
                         borderColor: "white",
+                        
                       },
                       "&.Mui-focused fieldset": {
                         borderColor: "white",
@@ -664,7 +669,7 @@ const Footer = () => {
                 fontSize: "16px",
                 color: "white",
                 fontWeight: 400,
-                
+                marginLeft:'12px',
                 marginBottom:'-1px',
                 fontFamily: " 'Helvetica', sans-serif",
               }}
