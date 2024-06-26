@@ -11,7 +11,8 @@ import * as Yup from 'yup';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewListIcon from '@mui/icons-material/ViewList';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -44,10 +45,10 @@ const Categories = () => {
       if (response.data.data && response.data.data.length > 0) {
         setCategories(response.data.data);
       } else {
-        console.error('No categories found');
+        toast.error('No categories found');
       }
     } catch (error) {
-      console.error('Error fetching categories', error);
+      toast.error('Error fetching categories', error);
     }
   };
 
@@ -70,7 +71,7 @@ const Categories = () => {
       fetchCategories();
       handleClose();
     } catch (error) {
-      console.error('Error creating category', error);
+      toast.error('Categoria existente', error);
     }
   };
 
@@ -93,7 +94,7 @@ const Categories = () => {
       setEditName('');
       fetchCategories();
     } catch (error) {
-      console.error('Error updating category', error);
+      toast.error('Error updating category', error);
     }
   };
 
@@ -107,7 +108,7 @@ const Categories = () => {
       setDeleteCategory(null);
       fetchCategories();
     } catch (error) {
-      console.error('Error deleting category', error.response ? error.response.data : error.message);
+      toast.error('Error deleting category', error.response ? error.response.data : error.message);
     }
   };
 
@@ -156,6 +157,17 @@ const Categories = () => {
     <Box sx={{ marginLeft: '36px' }}>
         {isSuperAdmin && (
         <>
+          <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              closeOnClick
+              pauseOnHover
+              draggable
+              progress={undefined}
+              theme="colored"
+              style={{ fontSize: "12px", width: "446px", right: 5 }}
+            />
       <Box sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
         <Button variant="outlined" onClick={handleOpen} sx={{
           border: "none",
@@ -295,10 +307,22 @@ const Categories = () => {
                     variant="contained"
                     color="primary"
                     disabled={!isValid}
-                    sx={{ // Añade el estilo aquí
-                      '&:disabled': {
-                        backgroundColor: 'grey', // Cambia el color del botón a gris cuando esté deshabilitado
-                      }
+                    sx={{
+                      border: "none",
+                      outline: "0",
+                      marginTop: '14px',
+                      color: "white",
+                      width:'100%',
+                      backgroundColor: "#000",
+                      textAlign: "center",
+                      cursor: "pointer",
+                      fontSize: "18px",
+                      marginLeft:'auto',
+                      borderRadius:'0',
+                      marginBottom: '12px',
+                      '&:hover': {
+                        backgroundColor: '#ffff', color: '#111', boxShadow: 'none', border:'1px solid black' // Define el color de fondo para el hover
+                      },
                     }}
                   >
                     Create

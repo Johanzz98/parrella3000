@@ -288,11 +288,12 @@ export default function Navbar() {
         
     
         <Box sx={{backgroundColor:'#111',   cursor: 'pointer', width:'153px', height:'2px',position:'absolute',top:34,}}>
-            {/* Contenido adicional o simplemente un espacio vacío */}
+         
           </Box>
+
         )}
       </Typography>
-      <Box sx={{backgroundColor:'transparent',   cursor: 'pointer', width:'160px', height:'36px',position:'absolute',top:24,}}>
+      <Box sx={{backgroundColor:'transparent',   cursor: 'pointer', width:'160px', height:'44px',position:'absolute',top:12,}}>
             {/* Contenido adicional o simplemente un espacio vacío */}
           </Box>
       <Collapse
@@ -311,7 +312,7 @@ export default function Navbar() {
             height: '600px',
             transformOrigin: 'top center',
             borderRadius: '0',
-            backgroundColor: '#fff',
+            backgroundColor: '#f5f5f5',
             boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
             zIndex: 999,
             position: 'absolute',
@@ -320,6 +321,7 @@ export default function Navbar() {
             pointerEvents: 'auto',
             opacity: collapseOpen? 1 : 0,
             transition: 'opacity 300ms',
+            
           }}
         >
           <CustomMenu />

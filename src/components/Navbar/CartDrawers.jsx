@@ -123,7 +123,7 @@ const CartDrawers= () => {
       
       >
         <Box >
-          <Box p={1} sx={{ backgroundColor: "#f5f5f5;" }}>
+          <Box p={1} sx={{ backgroundColor: "#f5f5f5" }}>
             <IconButton
               onClick={handleDrawerClose}
               style={{ position: 'absolute', top: -5, right:8 }}

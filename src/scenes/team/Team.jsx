@@ -1,12 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import { toast } from 'react-toastify';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from '@/api/axios'; // Asegúrate de tener la ruta correcta para tu archivo axios
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Box, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button, Typography } from '@mui/material';
 import RegisterAdmin from '../form/form';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+const notFound = () => {
+  toast.error("Acceso denegado. Solo usuarios con el rol SUPER_ADMIN pueden eliminar usuarios.", {
+    position: "bottom-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
+};
+
+const Unauthorized = () => {
+  toast.error("No tienes permisos para crear una nueva cuenta de administrador.", {
+    position: "bottom-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
+};
+
+
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -28,10 +58,18 @@ const UserList = () => {
     if (isSuperAdmin) {
       setOpen(true);
     } else {
-      alert('No tienes permisos para crear una nueva cuenta de administrador.');
+      Unauthorized ();
     }
   };
-
+  const handleUpdateAdminList = async () => {
+    try {
+      await fetchUsers(); // Llamar a fetchUsers para actualizar la lista de usuarios
+      toast.success('Nuevo administrador creado correctamente.');
+    } catch (error) {
+     toast.error('Error al actualizar la lista de administradores:', error);
+      toast.error('Error al crear el administrador.');
+    }
+  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -74,13 +112,13 @@ const UserList = () => {
     const userRole = token? JSON.parse(atob(token.split('.')[1])).role : null;
 
     if (userRole!== 'SUPER_ADMIN') {
-      alert('Acceso denegado. Solo usuarios con el rol SUPER_ADMIN pueden eliminar usuarios.');
+      notFound();
       return;
     }
 
     const userToDelete = users.find(user => user.realId === realId);
     if (!userToDelete) {
-      alert('Usuario no encontrado.');
+      toast.error('Usuario no encontrado.');
       return;
     }
 
@@ -103,9 +141,9 @@ const UserList = () => {
       if ([200, 202].includes(response.status)) {
         // Llamada a fetchUsers para actualizar la lista de usuarios
         fetchUsers();
-
-        setDeleteUserId(null);
         toast.success('Usuario eliminado correctamente.');
+        setDeleteUserId(null);
+       
       } else {
         throw new Error(`Unexpected response status: ${response.status}`);
       }
@@ -187,7 +225,18 @@ const UserList = () => {
 
   return (
     <Box style={{ height: 400, width: '100%'}}>
-
+    <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+        theme="colored"
+        style={{ fontSize: "12px", width: "446px", right: 5 }} // Establece el tamaño y estilo del ToastContainer
+      />
+      
 <Box>
       <Button
         variant="outlined"
@@ -211,7 +260,7 @@ const UserList = () => {
       >
         Crear una nueva Cuenta Admin
       </Button>
-      <RegisterAdmin open={open} onClose={handleClose} />
+      <RegisterAdmin open={open} onClose={handleClose} onUpdateAdminList={handleUpdateAdminList} />
     </Box>
       <DataGrid
         rows={users}

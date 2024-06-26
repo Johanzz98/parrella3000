@@ -11,6 +11,7 @@ import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import Lanzamientos from "../DrawerCategory/Lanzamientos";
 
 const Titulo= {
     fontSize: "14px",
@@ -82,6 +83,16 @@ const detalles = {
         window.location.reload();
     };
 
+
+    const [LanzamientosOpen, setLanzamientosOpen] = useState(false);
+
+    const handleLanzamientosOpen = () => {
+        setLanzamientosOpen(true);
+    };
+
+    const handleLanzamientosClose = () => {
+        setLanzamientosOpen(false);
+    };
     return (
         <Box sx={{ width: 259 }}>
             <nav>
@@ -142,6 +153,18 @@ const detalles = {
                         </ListItem>
                     ))}
                 </List>
+
+                <List>
+                    <ListItem disablePadding onClick={handleLanzamientosOpen} button>
+                        <ListItemButton sx={{ marginLeft: '-54px' }}>
+                            <ListItemIcon sx={{ color: 'black' }} />
+                            <Typography>Categorías</Typography>
+                            <KeyboardArrowRightIcon style={{ color: 'black', marginLeft: 'auto' }} />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+
+                <Lanzamientos open={LanzamientosOpen} onClose={handleLanzamientosClose} />
                 <Divider sx={{ width: '100%', bgcolor: '#f5f5f5', marginTop: '24px', marginBottom: '12px' }} />
                 <List>
                     {!isAuthenticated && (

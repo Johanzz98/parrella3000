@@ -218,7 +218,7 @@ const LoginDrawers = () => {
             <Typography sx={detalles} onClick={() => window.location.href = "/account"}>
               IR A TU CUENTA
             </Typography>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={() => window.location.href = "/account"}>
               <ArrowRightAltOutlinedIcon style={{ color: 'black' }} />
             </IconButton>
           </Box>

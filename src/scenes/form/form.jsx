@@ -25,6 +25,7 @@ import IconButton from "@mui/material/IconButton";
 import { useSelector } from "react-redux";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";  
+
 const paperStyle = {
   padding: 4,
   height: "72vh",
@@ -59,7 +60,7 @@ const marginTop = {
   marginTop: 5,
 };
 
-const RegisterAdmin = ({ open, onClose }) => {
+const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [showPassword, setShowPassword] = useState(false);
@@ -95,11 +96,12 @@ const RegisterAdmin = ({ open, onClose }) => {
       });
 
       
-      alert("Usuario creado exitosamente");
+      toast.success("Usuario creado exitosamente");
+      onUpdateAdminList();
       onClose();
     } catch (error) {
      
-      alert("Usuario ya Existente");
+      toast.error("Usuario ya Existente");
     } finally {
       setSubmitting(false);
     }
