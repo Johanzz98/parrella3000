@@ -43,8 +43,8 @@ const Lanzamientos = ({ open, onClose }) => {
             </IconButton>
             <Typography
               sx={{
-                fontSize: '20px',
-                fontWeight: '600',
+                fontSize: '18px',
+                fontWeight: '550',
                 color: '#111',
                 fontFamily: 'Helvetica, sans-serif',
                 fontOpticalSizing: 'auto',
