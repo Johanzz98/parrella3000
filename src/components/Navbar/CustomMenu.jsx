@@ -2,7 +2,8 @@ import { Box, Divider, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import axios from '@/api/axios';
 
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const capitalizeFirstLetter = (string) => {
@@ -35,6 +36,17 @@ const CustomMenu = () => {
 
   return (
     <Box>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+        theme="colored"
+        style={{ fontSize: "12px", maxWidth: "446px", right: 5 }} // Establece el tamaño y estilo del ToastContainer
+      />
     <Box sx={{ position: 'absolute', top: 16, bottom: 0, left:96,}}>
             <Typography
              sx={{fontSize: "16px",

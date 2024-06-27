@@ -3,8 +3,9 @@ import { Box, IconButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "@/api/axios";
 import ClearIcon from "@mui/icons-material/Clear";
-import { toast } from "react-toastify"; // Añade la importación de react-toastify si es necesario
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const capitalizeFirstLetter = (string) => {
@@ -33,6 +34,17 @@ const Lanzamientos = ({ open, onClose }) => {
 
   return (
     <Drawer anchor="left" open={open} onClose={onClose}>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+        theme="colored"
+        style={{ fontSize: "12px", maxWidth: "446px", right: 5 }} // Establece el tamaño y estilo del ToastContainer
+      />
       <Box sx={{ width: 300, display: 'flex', flexDirection: 'column', height: '100%' }}>
         {/* Contenido del Drawer */}
         <Box p={2} display="flex" alignItems="center" justifyContent="space-between" sx={{ backgroundColor: "#F7F7F7", borderBottom:'1px solid orange',boxShadow:'none' }}>
