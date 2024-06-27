@@ -53,19 +53,31 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
 
   
     return (
+   
+        
         <Box
-            sx={{
-                width: "300px", // Ajustar el ancho del contenedor
-                position: "sticky",
-                top: 0,
-                borderRight: '2px solid orange', // Agregar borde derecho vertical
-                overflowY: "auto",
-                zIndex: 1000,
-                "& .pro-sidebar-inner": {
-                    background: "#ffffff !important",
-                }
-            }}
-        >
+      sx={{
+        width: "300px", // Ajustar el ancho del contenedor
+        position: "sticky",
+        top: 0,
+        maxHeight: "calc(100vh - 1px)", // Establecer una altura máxima
+        overflowY: "auto", // Habilitar scroll vertical cuando el contenido excede el tamaño del contenedor
+        zIndex: 1000,
+        "& .pro-sidebar-inner": {
+          background: "#ffffff !important",
+        },
+        "&::-webkit-scrollbar": {
+          width: "8px", // Ancho del scrollbar
+          borderRadius: "24px", // Radio de borde para el scrollbar
+          
+        },
+        "&::-webkit-scrollbar-thumb": {
+          background: "#888", // Color de fondo del thumb (barra de scroll)
+          borderRadius: "24px", // Radio de borde para el thumb
+          
+        },
+      }}
+    >
             <ProSidebar
                 style={{
                     width: '100%', // Ajustar el ancho del ProSidebar

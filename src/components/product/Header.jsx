@@ -79,7 +79,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         <Typography sx={{
                             fontFamily: "Helvetica, sans-serif",
                             fontOpticalSizing: 'auto',
-                            fontSize: '11.5px',
+                            fontSize: '14px',
                             fontWeight: 650,
                             marginTop: '6px',
                             fontStyle: 'normal',
@@ -91,7 +91,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                     <Divider
                         orientation="vertical"
                         sx={{
-                           marginLeft:'16px',
+                           marginLeft:'32px',
                             backgroundColor: '#f5f5f5',
                             display: { xs: 'block', sm: 'none' }
                         }}
@@ -110,7 +110,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 },
                             }}
                         >
-                            <TuneIcon  sx={{marginRight:'16px',fontSize:'20px'}}/>
+                            <TuneIcon  sx={{marginRight:'16px',fontSize:  isSmallScreen ? '16px' :'20px'}}/>
                             <Typography sx={{ ml: isSmallScreen ? -1 : 1, textTransform: "capitalize" }}>
                                 {isSmallScreen ? 'Filtrar' : mostrarFiltrosState ? 'Mostrar Filtros' : 'Ocultar Filtros'}
                             </Typography>
@@ -119,9 +119,9 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 sx={{
                                     height: '58px',
                                     backgroundColor: '#f5f5f5',
-                                   marginRight:'-30px',
+                                   marginRight:'-16px',
                                     display: { xs: 'block', sm: 'none' },
-                                    marginLeft:'12px',
+                                    marginLeft:'24px',
                                 }}
                             />
                         </IconButton>
@@ -139,7 +139,16 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 },
                             }}
                         >
-                            <Typography sx={{ mr: 1, textTransform: "capitalize" }}>
+                            <Typography sx={{fontFamily: "Helvetica, sans-serif",
+                            fontOpticalSizing: 'auto',
+                            fontSize:  isSmallScreen ? '14px' :'16px',
+                          
+                           
+                            fontStyle: 'normal',
+                            textAlign: 'center',
+                            color: "#111",
+                            mr:2,
+                            textTransform: "capitalize",}}>
                                 {(!isSmallScreen && selectedOption) ? `Ordenar por ${selectedOption}` : 'Ordenar por'}
                             </Typography>
                             {isMenuOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
