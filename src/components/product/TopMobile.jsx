@@ -40,7 +40,7 @@ const TopMobile = () => {
       alignItems: 'center',
       textAlign: 'center',
       marginTop: '76px',
-      marginBottom:'-160px',
+      marginBottom:'-270px',
     }}>
       <Box sx={{
         display: 'flex',

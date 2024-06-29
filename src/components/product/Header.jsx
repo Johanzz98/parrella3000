@@ -49,7 +49,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
 
     return (
         <Box sx={{ marginTop: '200px'}}>
-            <AppBar position="relative" sx={{ position:'relative', top:55,marginTop: '12px', boxShadow:   isSmallScreen ? '0 2px 4px rgba(12, 12, 255, 0.12)' : '0', backgroundColor: 'inherit'}}>
+            <AppBar position="relative" sx={{ position:'relative', top:isSmallScreen ? 80 : 55,marginTop: '12px', boxShadow:   isSmallScreen ? '0 2px 4px rgba(12, 12, 255, 0.12)' : '0', backgroundColor: 'inherit'}}>
                 <Toolbar
                     sx={{
                         height: '48px',
@@ -57,7 +57,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         backgroundColor: 'inherit',
                         justifyContent: { xs: 'space-between', sm: 'flex-end' },
                         marginRight: isSmallScreen ? '0' : '70px',
-                        marginBottom: isSmallScreen ? '0' : '-24px',
+                        marginBottom: isSmallScreen ? ' ' : '-24px',
                     }}
                 >
                   
@@ -65,15 +65,15 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         <Typography sx={{
                             fontFamily: "Helvetica, sans-serif",
                             fontOpticalSizing: 'auto',
-                            fontSize: '14px',
-                            fontWeight: 650,
-                            marginTop: '6px',
+                            fontSize: '16px',
+                            fontWeight: 550,
+                            
                             fontStyle: 'normal',
                             textAlign: 'center',
-                            color: "orange",
-                             flexGrow: 1,
+                            color: "#111",
+                            
                             textTransform: "capitalize",
-                        }}>Parrella clothes</Typography>
+                        }}>Parrella </Typography>
                     )}
                     <Divider
                         orientation="vertical"
@@ -106,7 +106,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 sx={{
                                     height: '58px',
                                     backgroundColor: '#f5f5f5',
-                                   marginRight:'-16px',
+                                   marginRight:'-6px',
                                     display: { xs: 'block', sm: 'none' },
                                     marginLeft:'24px',
                                 }}
@@ -134,7 +134,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             fontStyle: 'normal',
                             textAlign: 'center',
                             color: "#111",
-                            mr:2,
+                            mr:isSmallScreen ? 0.5:2,
                             textTransform: "capitalize",}}>
                                 {(!isSmallScreen && selectedOption) ? `Ordenar por ${selectedOption}` : 'Ordenar por'}
                             </Typography>
@@ -176,10 +176,10 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
             color: '#111',
             fontSize: '12px',
             fontWeight: '500',
-            marginTop: '24px',
+            marginTop: isSmallScreen ? '-12px':'24px',
             position: isSmallScreen ?'relative' :'relative',
-            top:isSmallScreen ? 80 : 48,
-            right:  isSmallScreen ? 100 : 0,
+            top:isSmallScreen ? 120 : 48,
+            right:  isSmallScreen ? 0 : 0,
             marginBottom: '-42px',
             marginRight: isSmallScreen ? '16px' : '90px',  // Ajusta el marginRight según el breakpoint MD
         }}

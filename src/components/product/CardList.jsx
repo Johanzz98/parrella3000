@@ -7,7 +7,9 @@ import {
   Drawer,
   IconButton,
   Slide,
+  useMediaQuery,
   ClickAwayListener,
+  useTheme,
 } from "@mui/material";
 import Header from "./Header";
 import FilterPanel from "./FilterPanel"; // Importar el componente FilterPanel
@@ -19,6 +21,9 @@ function Products() {
   const [filteredProducts, setFilteredProducts] = useState(productData);
   const [showFilters, setShowFilters] = useState(false);
   const [selectedItems, setSelectedItems] = useState({});
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
 
   const handleToggle = (value) => () => {
     const currentIndex = selectedItems[value];
@@ -73,7 +78,7 @@ function Products() {
 
   const productCards = filteredProducts.map((product, index) => (
     <Grow in key={index}>
-      <Box sx={{ marginRight: "-6px" }}>
+      <Box sx={{ marginRight: "-6px"}}>
         <Grid item xs={12} sm={6} md={12}>
           <Mostrar item={product} />
         </Grid>
@@ -126,9 +131,10 @@ function Products() {
         </Hidden>
         <Box
           sx={{
-            padding: "0 22px",
-            left:-16,
-            right:0,
+            padding: isSmallScreen ? "0" : "0 22px",
+            left:isSmallScreen ?  4:-16,
+            
+            right:isSmallScreen ? 0: 0,
             bottom:0,
             position: "relative",
             top: 100,
