@@ -16,6 +16,7 @@ import FilterPanel from "./FilterPanel"; // Importar el componente FilterPanel
 import Mostrar from "./SectionProducts/Mostrar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { productData } from "./SectionProducts/Items";
+import DrawerPanel from "./DrawerPanel";
 
 function Products() {
   const [filteredProducts, setFilteredProducts] = useState(productData);
@@ -115,16 +116,17 @@ function Products() {
           </Slide>
         </Hidden>
         <Hidden mdUp>
-          <Drawer
+        <Drawer
             anchor="right"
             open={showFilters}
             onClose={() => setShowFilters(false)}
           >
             <ClickAwayListener onClickAway={() => setShowFilters(false)}>
-              <FilterPanel
+              <DrawerPanel
                 handleToggle={handleToggle}
                 selectedItems={selectedItems}
-                updateFilteredProducts={setFilteredProducts} // Pasando la función correctamente
+                updateFilteredProducts={setFilteredProducts}
+                onClose={() => setShowFilters(false)} // Pasar función onClose al DrawerPanel
               />
             </ClickAwayListener>
           </Drawer>
