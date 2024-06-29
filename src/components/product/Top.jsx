@@ -41,7 +41,7 @@ const Top= () => {
       alignItems: 'center',
       textAlign: 'center',
       marginTop: '8%',
-      marginBottom:'-180px',
+      marginBottom:'-240px',
     }}>
       <Box sx={{
         display: 'flex',

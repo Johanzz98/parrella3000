@@ -8,20 +8,18 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 const cardStyle = {
-  width: "356.8px",
-marginTop:'-36px',
+  width: "370px",
+
   textAlign: "center",
-  paddingLeft:'12px',
+  fontFamily: "arial",
   borderRadius: " 12px",
   transition: "transform 0.6s ease",
   position: "relative", // Añadido
-  
-
 };
 
 const cardStyle2 = {
   width: "80px",
- margin:"0 auto",
+  margin: "0 auto",
   cursor: "pointer",
   fontFamily: "arial",
   margin: "0 auto",
@@ -44,13 +42,12 @@ const detalles = {
 };
 
 const NombreProducto = {
-  fontSize: "16px",
+  fontSize: "18px",
   fontWeight: "550",
   color: "orange",
-  marginLeft:'-12px',
-  marginTop:'-12px',
+  paddingTop: "8px",
   display: "flex",
-  justifyContent: "flex-start", // Ajustado para alinear el texto a la izquierda cuando sea largo
+  justifyContent: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
   alignItems: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
   fontFamily: "Helvetica, sans-serif",
   fontOpticalSizing: "auto",
@@ -60,9 +57,8 @@ const NombreProducto = {
 };
 
 const mediaStyle = {
-  height: "420px",
+  height: "100%",
   width: "100%",
-
   objectFit: "cover",
 };
 
@@ -87,14 +83,15 @@ const descriptionStyle = {
   fontSize: "12px",
   color: "grey",
   border: "none",
-  justifyContent: "flex-start", // Ajustado para alinear el texto a la izquierda cuando sea largo
   fontWeight: 600,
-  display: "flex",
-  marginLeft:'-12px',
   textAlign: "center",
   fontFamily: " 'Helvetica', sans-serif",
-
-
+  WebkitLineClamp: 2,
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  WebkitBoxOrient: "vertical",
+  margin: "2px ",
 };
 
 const buttonStyle = {
@@ -117,7 +114,7 @@ const productContainerStyle = {
 
 // Estilos definidos previamente...
 
-export default function Product(props) {
+export default function Productos(props) {
   const isSmallScreen = useMediaQuery("(max-width:800px)");
   const [isHovered, setIsHovered] = useState(false);
 
@@ -152,11 +149,11 @@ export default function Product(props) {
           <Box
             style={{
               position: "absolute",
-              bottom: 90,
-              left: 6,
+              bottom: 12,
+              left: 13,
               backgroundColor: "white",
               height: "%20",
-              borderRadius:'12px',
+              borderRadius: "12px",
               transition: "transform 0.3s ease",
               transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
             }}
@@ -186,12 +183,22 @@ export default function Product(props) {
             </Box>
           ) : (
             <CardContent
-           
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                cursor: "pointer",
+                margin: "auto",
+                background: "rgba(255, 255, 255, 0.9)",
+                transition: "opacity 0.3s ease",
+                opacity: isHovered ? 1 : 0,
+                pointerEvents: isHovered ? "auto" : "none",
+              }}
             >
-              <Typography sx={NombreProducto}>
-                {props.item.name}
-              </Typography>
-            
+              <Typography sx={NombreProducto}>{props.item.name}</Typography>
+
               <Typography
                 sx={descriptionStyle}
                 variant="body2"

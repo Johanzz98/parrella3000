@@ -48,33 +48,19 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
     };
 
     return (
-        <Box sx={{ marginTop: '160px', marginBottom: '24px' }}>
-            <AppBar position="relative" sx={{ marginTop: '12px', boxShadow: '0 2px 4px rgba(12, 12, 255, 0.12)', backgroundColor: 'inherit' }}>
+        <Box sx={{ marginTop: '200px'}}>
+            <AppBar position="relative" sx={{ position:'relative', top:55,marginTop: '12px', boxShadow:   isSmallScreen ? '0 2px 4px rgba(12, 12, 255, 0.12)' : '0', backgroundColor: 'inherit'}}>
                 <Toolbar
                     sx={{
                         height: '48px',
                         boxShadow: '{ xs: 1, sm: 0 }',
                         backgroundColor: 'inherit',
-                        justifyContent: { xs: 'space-between', sm: 'flex-end' }
+                        justifyContent: { xs: 'space-between', sm: 'flex-end' },
+                        marginRight: isSmallScreen ? '0' : '70px',
+                        marginBottom: isSmallScreen ? '0' : '-24px',
                     }}
                 >
-                    {!isSmallScreen && (
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                fontFamily: "Helvetica, sans-serif",
-                                fontOpticalSizing: 'auto',
-                                fontSize: '1.2rem',
-                                fontWeight: 700,
-                                fontStyle: 'normal',
-                                color: "orange",
-                                textTransform: "capitalize",
-                                flexGrow: 1,
-                            }}
-                        >
-                            Parrella Clubs
-                        </Typography>
-                    )}
+                  
                     {isSmallScreen && (
                         <Typography sx={{
                             fontFamily: "Helvetica, sans-serif",
@@ -85,6 +71,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             fontStyle: 'normal',
                             textAlign: 'center',
                             color: "orange",
+                             flexGrow: 1,
                             textTransform: "capitalize",
                         }}>Parrella clothes</Typography>
                     )}
@@ -96,7 +83,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             display: { xs: 'block', sm: 'none' }
                         }}
                     />
-                    <Stack direction="row" spacing={4}>
+                    <Stack direction="row" spacing={1}>
                         <IconButton
                             edge="start"
                             color="inherit"
@@ -110,7 +97,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                                 },
                             }}
                         >
-                            <TuneIcon  sx={{marginRight:'16px',fontSize:  isSmallScreen ? '16px' :'20px'}}/>
+                            <TuneIcon  sx={{marginRight: isSmallScreen ? '16px' :'0',fontSize:  isSmallScreen ? '16px' :'20px'}}/>
                             <Typography sx={{ ml: isSmallScreen ? -1 : 1, textTransform: "capitalize" }}>
                                 {isSmallScreen ? 'Filtrar' : mostrarFiltrosState ? 'Mostrar Filtros' : 'Ocultar Filtros'}
                             </Typography>
@@ -142,7 +129,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                             <Typography sx={{fontFamily: "Helvetica, sans-serif",
                             fontOpticalSizing: 'auto',
                             fontSize:  isSmallScreen ? '14px' :'16px',
-                          
+                           
                            
                             fontStyle: 'normal',
                             textAlign: 'center',
@@ -190,6 +177,9 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
             fontSize: '12px',
             fontWeight: '500',
             marginTop: '24px',
+            position: isSmallScreen ?'relative' :'relative',
+            top:isSmallScreen ? 80 : 48,
+            right:  isSmallScreen ? 100 : 0,
             marginBottom: '-42px',
             marginRight: isSmallScreen ? '16px' : '90px',  // Ajusta el marginRight según el breakpoint MD
         }}

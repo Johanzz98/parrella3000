@@ -1,32 +1,48 @@
 import React, { useState } from "react";
-import { Box, Checkbox, Collapse, Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from "@mui/material";
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import {
+  Box,
+  Checkbox,
+  Collapse,
+  Divider,
+  Grid,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+  Typography,
+} from "@mui/material";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { ProSidebar } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 
 import { productData } from "./SectionProducts/Items";
 
 const helloName = {
-  fontSize: "20px",
+  fontSize: "16px",
   fontWeight: "500",
   color: "#111",
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
   fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',
-  marginBottom:'12px',
-  marginTop:'24px',
+  fontOpticalSizing: "auto",
+  marginBottom: "12px",
+  marginTop: "24px",
 };
 
-
-
-const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) => {
+const FilterPanel = ({
+  handleToggle,
+  selectedItems,
+  updateFilteredProducts,
+}) => {
   const [filteredSizes, setFilteredSizes] = useState([]);
   const [openProductos, setOpenProductos] = useState(false);
   const [openDescuentos, setOpenDescuentos] = useState(false);
 
-  const sizes = [...new Set(productData.map(product => product.talla).flat())];
+  const sizes = [
+    ...new Set(productData.map((product) => product.talla).flat()),
+  ];
   sizes.sort(); // Ordenar tallas alfabéticamente
 
   const handleSizeClick = (size) => {
@@ -42,8 +58,12 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
 
     setFilteredSizes(newFilteredSizes);
 
-    const selectedProducts = productData.filter(product => product.talla.includes(size));
-    const remainingProducts = productData.filter(product => !product.talla.includes(size));
+    const selectedProducts = productData.filter((product) =>
+      product.talla.includes(size)
+    );
+    const remainingProducts = productData.filter(
+      (product) => !product.talla.includes(size)
+    );
 
     // Colocar los productos seleccionados primero
     const filteredProducts = [...selectedProducts, ...remainingProducts];
@@ -51,15 +71,12 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
     updateFilteredProducts(filteredProducts);
   };
 
-  
-    return (
-   
-        
-        <Box
+  return (
+    <Box
       sx={{
-        width: "300px", // Ajustar el ancho del contenedor
+        width: "280px", // Ajustar el ancho del contenedor
         position: "sticky",
-        top: 0,
+      marginTop:'32px',
         maxHeight: "calc(100vh - 1px)", // Establecer una altura máxima
         overflowY: "auto", // Habilitar scroll vertical cuando el contenido excede el tamaño del contenedor
         zIndex: 1000,
@@ -69,77 +86,30 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
         "&::-webkit-scrollbar": {
           width: "8px", // Ancho del scrollbar
           borderRadius: "24px", // Radio de borde para el scrollbar
-          
         },
         "&::-webkit-scrollbar-thumb": {
-          background: "#888", // Color de fondo del thumb (barra de scroll)
+          background: "rgb(208, 208, 208)", // Color de fondo del thumb (barra de scroll)
           borderRadius: "24px", // Radio de borde para el thumb
-          
         },
       }}
     >
-            <ProSidebar
-                style={{
-                    width: '100%', // Ajustar el ancho del ProSidebar
-                    background: '#ffffff'
-                }}
-            >
-                <Box textAlign="center">
-                    <Typography
-                      sx={helloName}
-                    >
-                        Filtros
-                    </Typography>
-                </Box>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "center",
-                        alignItems: "center",
-                        justifyContent: "flex-start",
-                    }}
-                >
-                    <Divider
-                        sx={{
-                            width: "86%",
-                            backgroundColor: '#f5f5f5',
-                            textAlign: "center",
-                            margin: '0 14px 12px',
-                        }}
-                    />
-                </Box>
-                <Box>
-                <Typography
-                      sx={{...helloName,marginRight:'2px'}}
-                    >
-                        Tallas
-                    </Typography>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "center",
-                            alignItems: "center",
-                            justifyContent: "flex-start",
-                        }}
-                    >
-                        <Divider
-                            sx={{
-                                width: "86%",
-                                backgroundColor: '#f5f5f5',
-                                textAlign: "center",
-                                margin: '0 14px 32px',
-                            }}
-                        />
-                    </Box>
-                    <Grid container spacing={1} alignItems="center" paddingRight="12px" paddingLeft="12px" sx={{ marginTop: '-24px', marginBottom: '12px', marginLeft: '12px' }}>
-                        {sizes.map((size, index) => (
-                            <Grid item xs={6} sm={6} md={5.2} key={index} onClick={() => handleSizeClick(size)}>
-                                <Paper sx={{ textAlign: 'center', boxShadow: 'none', border: '1px solid grey', height: '24px', marginTop: '12px', marginRight: '24px', cursor: 'pointer', '&:hover': { color: 'orange' }, }}>
-                                    <Typography sx={{ fontSize: '11px', marginTop: '4px' }}>{size}</Typography>
-                                </Paper>
-                            </Grid>
-                        ))}
-          </Grid>
+      <Typography sx={{    fontFamily: "Helvetica, sans-serif",
+                                fontOpticalSizing: 'auto',
+                                fontSize: '22px',
+                                padding:'0 8px 0',
+                                fontWeight: "520",
+                                color: "#000",
+                                position:'relative',
+                               marginLeft:'-8.2px',
+                                textTransform: "capitalize",}}> Ropa para hombre</Typography>
+      <ProSidebar
+        style={{
+          width: "100%", // Ajustar el ancho del ProSidebar
+          background: "#ffffff",
+        }}
+      >
+        <Box textAlign="center">
+          <Typography sx={helloName}>Filtros</Typography>
         </Box>
         <Box
           sx={{
@@ -147,20 +117,119 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
             flexDirection: "center",
             alignItems: "center",
             justifyContent: "flex-start",
-         
           }}
         >
           <Divider
             sx={{
-              width: "86%",
-                backgroundColor: '#f5f5f5',
+              width: "100%",
+              backgroundColor: "#f5f5f5",
               textAlign: "center",
-              margin: '0 14px 32px',
-              marginTop: '12px'
+              margin: "0 0 12px",
             }}
           />
         </Box>
-      {/*   <Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column", // Cambiado a columna para expandirse hacia abajo
+            cursor: "pointer",
+            color: "black",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            onClick={() => setOpenProductos(!openProductos)}
+          >
+            <Typography>Tallas</Typography>
+            {openProductos ? <ExpandLess /> : <ExpandMore />}
+          </Box>
+          <Collapse in={openProductos} timeout={600} unmountOnExit>
+            <Divider
+              sx={{ backgroundColor: "#f5f5f5", margin: "12px 0 16px" }}
+            />
+            <List component="div" disablePadding sx={{ color: "black" }}>
+              <Grid
+                container
+                spacing={1}
+                alignItems="center"
+                paddingRight="12px"
+                paddingLeft="12px"
+                sx={{
+                  marginTop: "-24px",
+                  marginBottom: "12px",
+                  marginLeft: "12px",
+                }}
+              >
+                {sizes.map((size, index) => (
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    md={5.3}
+                    key={index}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    <Paper
+                      sx={{
+                        textAlign: "center",
+                        boxShadow: "none",
+                        border: "1px solid grey",
+                        height: "24px",
+                        marginTop: "12px",
+                       
+                        cursor: "pointer",
+                        "&:hover": { color: "orange" },
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontWeight: "500",
+                          color: "#111",
+
+                          display: "flex",
+                          justifyContent: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
+                          alignItems: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
+                          fontFamily: "Helvetica, sans-serif",
+                          fontOpticalSizing: "auto",
+                          // Añadido para asegurar que el texto no se desborde
+
+                          textOverflow: "ellipsis",
+                          "&:hover": { color: "orange" },
+                        
+                        }}
+                      >
+                        {size}
+                      </Typography>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </List>
+          </Collapse>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "center",
+            alignItems: "center",
+            justifyContent: "flex-start",
+          }}
+        >
+          <Divider
+            sx={{
+              width: "100%",
+              backgroundColor: "#f5f5f5",
+              textAlign: "center",
+              marginTop:'16px'
+            }}
+          />
+        </Box>
+        {/*   <Box>
           <Box
             sx={{
               display: 'flex',
@@ -268,50 +337,6 @@ const FilterPanel = ({ handleToggle, selectedItems, updateFilteredProducts }) =>
           </Collapse>
         </Box>
 */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "center",
-            alignItems: "center",
-            justifyContent: "flex-start",
-         
-          }}
-        >
-          <Divider
-            sx={{
-              width: "86%",
-                backgroundColor: '#f5f5f5',
-              textAlign: "center",
-              margin: '0 14px 32px',
-              marginTop: '12px'
-            }}
-          />
-        </Box>
-        <Box >
-          <img
-            src="https://www.cinconoticias.com/wp-content/uploads/anuncios-publicitarios-con-eslogan.jpg"
-            alt="Nike Logo"
-            style={{
-              width: "100%",
-              height: "104%",
-              marginTop:'12px',
-              objectFit:'contain',
-            }} // Ajusta el tamaño según sea necesario
-          />
-        </Box>
-        <Box >
-          <img
-            src="https://i.pinimg.com/564x/97/23/4a/97234a774353a4f8e57ad04165d212f8.jpg"
-            alt="Nike Logo"
-            style={{
-              width: "102%",
-              height: "100%",
-              marginTop:'12px',
-              marginBottom:'-6px',
-            }} // Ajusta el tamaño según sea necesario
-          />
-        </Box>
-       
       </ProSidebar>
     </Box>
   );

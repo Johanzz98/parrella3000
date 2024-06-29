@@ -14,6 +14,7 @@ const nombreProductoStyles = {
   fontWeight: "700",
   color: "#00000",
   display: 'flex',
+  
   marginLeft: '8px',
   marginBottom: '18px',
   justifyContent: 'flex-start',
