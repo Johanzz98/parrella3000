@@ -190,6 +190,7 @@ const SignUp = () => {
     email: Yup.string()
       .email("Enter a valid email")
       .required("Required")
+      .max(50, "Email must be at most 50 characters")
       .matches(
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
         "Invalid email format"
