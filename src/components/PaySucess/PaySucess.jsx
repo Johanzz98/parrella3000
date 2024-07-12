@@ -58,7 +58,7 @@ const PaySucess = () => {
       <Typography sx={{  fontSize: "32px",
   fontWeight: "1000",
   color: "#0ebf00",
-  display: 'flex', marginLeft: isSmallScreen ?'12px' : 0,
+  display: 'flex', marginLeft: isSmallScreen ?'24px' : 0,
   justifyContent: 'flex-start',
   alignItems: 'center',
   fontFamily: "Helvetica,sans-serif",
