@@ -204,7 +204,7 @@ const CartItems = ({ data, delFromCart }) => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                borderRadius: "12px",
+                color:'white',
                 border: "1px solid #bdbdbd",
                 position: "relative",
                 left:180,
@@ -212,7 +212,7 @@ const CartItems = ({ data, delFromCart }) => {
               }}
             >
            
-              <Typography sx={{ padding: "2px 8px", fontSize: "12px" }}>
+              <Typography sx={{ padding: "2px 8px", fontSize: "14px",color:'#111' }}>
                 {cantidadSeleccionada}
               </Typography>
         
@@ -264,7 +264,7 @@ const CartItems = ({ data, delFromCart }) => {
        {isSmallScreen && (
         <Divider
           sx={{
-            width: "167%",
+            width: "135%",
             bgcolor: "#f5f5f5",
             textAlign: "flex-start",
             marginBottom: "24px",

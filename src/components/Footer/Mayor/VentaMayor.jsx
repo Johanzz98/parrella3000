@@ -1,6 +1,8 @@
+"use client";
 import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
-
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
     const handleWhatsAppClick = () => {
       // Aquí puedes ajustar el número de WhatsApp al que deseas redirigir
@@ -8,6 +10,8 @@ import React from 'react';
 
     };
 const VentaMayor = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -20,12 +24,12 @@ const VentaMayor = () => {
        
       }}
     >
-        <Box sx={{margin:'0 60px', maxWidth:'45%'}}>
-      <Typography sx={{  fontSize: "32px",
+        <Box sx={{margin:'0 60px',width: isSmallScreen ? "100%":'45%'}}>
+      <Typography sx={{  fontSize:isSmallScreen ? "20px": "32px",
   fontWeight: "1000",
   color: "#111",
   display: 'flex',
-  marginLeft:'12px',
+  marginLeft:isSmallScreen ? '24px':'12px',
   justifyContent: 'flex-start',
   alignItems: 'center',
   marginBottom:'24px',

@@ -68,7 +68,7 @@ const DetailsPay = () => {
               flexDirection: 'column',
               backgroundColor:'#f5f5f5',
               marginTop:'0px',
-              marginTop:'72px',
+              marginTop:'102px',
             height:'460px',
               overflowY: "auto",
               zIndex: 1000,
@@ -90,12 +90,12 @@ const DetailsPay = () => {
               {isSmallScreen && (
         <Divider
           sx={{
-            width: "167%",
+            width: "100%",
             bgcolor: "#111",
             textAlign: "flex-start",
             
             marginTop: "6px",
-            marginLeft:'-142px'
+         
           }}
         />
       )}
@@ -137,7 +137,7 @@ padding:'24px',
 }}>
   <Box sx={{ display: 'flex', justifyContent: 'flex-start', flex: 1 }}>
     <Typography sx={{
-      fontSize: "14px",
+      fontSize:isSmallScreen ? '12px': "14px",
       fontWeight: "550",
       color: "#111",
       display: "inline-flex", // Usa inline-flex para que el texto se alinee correctamente

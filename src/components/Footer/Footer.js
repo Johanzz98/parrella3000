@@ -394,6 +394,7 @@ const Footer = () => {
               display: "flex",
               justifyContent: "space-between",
               margin: "12px",
+              marginBottom:'12px',
             }}
           >
             <span>Ayuda</span>
@@ -451,6 +452,7 @@ const Footer = () => {
               display: "flex",
               justifyContent: "space-between",
               margin: "12px",
+              marginBottom:'12px',
             }}
           >
             <span>Acerca de nosotros </span>
@@ -523,6 +525,7 @@ const Footer = () => {
               display: "flex",
               justifyContent: "space-between",
               margin: "12px",
+              marginBottom:'12px',
             }}
           >
             <span>Cuenta </span>
