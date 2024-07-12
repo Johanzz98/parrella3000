@@ -67,8 +67,8 @@ const DetailsPay = () => {
               display: 'flex',
               flexDirection: 'column',
               backgroundColor:'#f5f5f5',
-              marginTop:'0px',
-              marginTop:'102px',
+         
+              marginTop:'72px',
             height:'460px',
               overflowY: "auto",
               zIndex: 1000,

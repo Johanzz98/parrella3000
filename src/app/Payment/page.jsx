@@ -11,9 +11,13 @@ import ShoppingCart from '@/components/Cart/ShoppingCart';
 import Carrito from '@/components/Payment/Carrito';
 import Example from '@/components/Payment/Example';
 import Payment from '@/components/Payment/Payment';
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "./App.css";
 
 const Page = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <ReduxProvider store={store()}>
       <AuthProvider>
@@ -29,7 +33,7 @@ const Page = () => {
       
         <Grid container spacing={0} justifyContent="space-between" alignItems="start">
               <Grid item xs={12} sm={5.0}>
-                <Box sx={{}}>
+                <Box sx={{marginLeft:  isSmallScreen ?'0':'124px'}}>
                 <Payment />
                 </Box>
               </Grid>

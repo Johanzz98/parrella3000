@@ -274,6 +274,7 @@ fontOpticalSizing: 'auto',}}>Credit Card</Typography>
                     sx: { fontSize: "0.8rem", color: "#f44336",  display: 'flex',
                         justifyContent: 'flex-start', 
                         alignItems: 'center',
+                        marginLeft:'-78px',
                         fontFamily: "Helvetica, sans-serif",},
                   }}
                   InputLabelProps={{
@@ -322,7 +323,7 @@ fontOpticalSizing: 'auto',}}>Credit Card</Typography>
                
                 helperText={<ErrorMessage name="confirmPassword" />}
                 FormHelperTextProps={{
-                    sx: { fontSize: "0.8rem", color: "#f44336",marginLeft:'-1px', alignItems: 'center',
+                    sx: { fontSize: "0.8rem", color: "#f44336",marginLeft:'-42px', alignItems: 'center',
                         fontFamily: "Helvetica, sans-serif",},
                   }}
                   InputLabelProps={{
