@@ -69,12 +69,12 @@ const DetailsPayMobile = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          padding:'12px 62px',
+          padding:'12px 0px',
           backgroundColor: '#ffff',
         }}
       >
           {total > 0 && (
-    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"148%",marginLeft:'-80px',marginBottom:'32px' }}>
+    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"140%",marginLeft:'-80px',marginBottom:'32px' }}>
               <Typography variant="h3" sx={titulo}>MI COMPRA</Typography>
             </Box>
         )}
@@ -87,14 +87,8 @@ const DetailsPayMobile = () => {
           ))}
         </Box>
 
-        {/* Mostrar descripción solo si el carrito no está vacío */}
-        {total > 0 && (
-          <Box>
-            <Typography sx={getDescription}>
-              Los artículos en tu carrito no están reservados. Termina el proceso de compra ahora para hacerte con ellos.
-            </Typography>
-          </Box>
-        )}
+   
+       
       </Box>    
 
       {/* Mostrar mensaje de carrito vacío si total es 0 */}

@@ -1,12 +1,13 @@
 "use client";
-import React, { useState } from 'react';
-import { Box, Button, Divider, Typography } from '@mui/material';
+import React from 'react';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import DeliveryDiningOutlinedIcon from '@mui/icons-material/DeliveryDiningOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
 import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
 import { productDataCart } from './ImgDetails';
+import ChangeCircleOutlinedIcon from '@mui/icons-material/ChangeCircleOutlined';
 const SidebarStyle = {
   position: 'sticky',
   top: 0,
@@ -15,54 +16,39 @@ const SidebarStyle = {
   backgroundColor: 'white',
   zIndex: 1,
   boxSizing: 'border-box', // Asegura que el padding y border sean incluidos en el cálculo de la altura
+
 };
 
 const Titulo = {
   fontSize: "20px",
   fontWeight: "1000",
   color: "#111",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
   fontFamily: "Helvetica, sans-serif",
-  fontOpticalSizing: 'auto',
   marginBottom: '6px',
-  marginTop:'-12px',
+  marginTop: '-12px',
 };
 
 const NombreProducto = {
   fontSize: "20px",
   fontWeight: "600",
   color: "#111",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
   fontFamily: "Helvetica, sans-serif",
-  fontOpticalSizing: 'auto',
 };
 
 const getDescription = {
-  fontSize: "16px",
-  fontWeight: "500",
+  fontSize: "12.8px",
+  
   color: "#111",
   display: 'flex',
-  marginLeft: '12px',
-  paddingTop: '8px',
-  justifyContent: 'flex-start',
   alignItems: 'center',
   fontFamily: "Helvetica, sans-serif",
-  fontOpticalSizing: 'auto',
 };
 
 const detalles = {
   fontSize: "14px",
   fontWeight: "200",
   color: "grey",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
   fontFamily: "Helvetica, sans-serif",
-  fontOpticalSizing: 'auto',
 };
 
 const priceStyle = {
@@ -70,7 +56,6 @@ const priceStyle = {
   fontSize: "16px",
   margin: '2px',
   marginTop: '12px',
-  justifyContent: 'flex-start',
   fontFamily: "Helvetica, sans-serif",
 };
 
@@ -79,6 +64,7 @@ const buttonStyle = {
   outline: "0",
   marginTop: '14px',
   color: "white",
+  borderRadius:'18px',
   backgroundColor: "#000",
   textAlign: "center",
   cursor: "pointer",
@@ -92,90 +78,91 @@ const buttonStyle = {
 const horizontal = {
   display: 'flex',
   alignItems: 'center',
-  margin: '8px auto 0',
 };
 
 const Info = ({ product }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isAddingFavorite, setIsAddingFavorite] = useState(false); // Estado de carga para añadir a favoritos
-  const [isRemovingFavorite, setIsRemovingFavorite] = useState(false); // Estado de carga para quitar de favoritos
-  const [isHoveredStar, setIsHoveredStar] = useState(false);
   const dispatch = useDispatch();
 
-    const addToCart = () => {
-      // Suponiendo que solo se agrega un producto a la vez
-      const productToAdd = productDataCart[0]; // Obtener el primer producto del arreglo productDataCart
-      
-      dispatch({
-        type: TYPES.ADD_TO_CART,
-        payload: {
-          ...productToAdd,
-          // Asegúrate de que la URL de la imagen se pasa al carrito
-          imageurl: productToAdd.imageurl[0] // Tomar solo la primera imagen del arreglo de imágenes
-        }
-      });
-    dispatch({type: TYPES.TOTAL});
-   
+  const addToCart = () => {
+    // Suponiendo que solo se agrega un producto a la vez
+    const productToAdd = productDataCart[0]; // Obtener el primer producto del arreglo productDataCart
+    
+    dispatch({
+      type: TYPES.ADD_TO_CART,
+      payload: {
+        ...productToAdd,
+        // Asegúrate de que la URL de la imagen se pasa al carrito
+        imageurl: productToAdd.imageurl[0] // Tomar solo la primera imagen del arreglo de imágenes
+      }
+    });
+    dispatch({ type: TYPES.TOTAL });
   };
+
   return (
     <Box sx={SidebarStyle}>
       <Box sx={{ backgroundColor: 'white', height: "24px" }}>
-        <Divider orientation="vertical" flexItem sx={{ position: 'absolute', top: 0, bottom: 0, left: -12, height: '104.8%', borderLeft: '1px solid #e0e0e0' }} />
+        <Divider orientation="vertical" flexItem sx={{ position: 'absolute', top: 0, bottom: 0, left: -13.4, height: '38.5%', borderLeft: '1px solid #eceff1' }} />
       </Box>
       <Typography sx={Titulo}>Nombre del Producto</Typography>
       <Box>
         {Array.isArray(product.imageurl) && product.imageurl.map((image, index) => (
-          <img src={image} alt={`Product ${index}`} key={index} />
+          <img src={image} alt={`Product ${index}`} key={index} style={{ width: '100%', marginBottom: '8px' }} />
         ))}
         <Typography sx={NombreProducto}>Parrella Polerón Neon PO Yellow Smoke</Typography>
-  <Typography sx={detalles}>Polerón para Mujeres</Typography>
- 
+        <Typography sx={detalles}>Polerón para Mujeres</Typography>
         <Typography sx={priceStyle}>$59.990</Typography>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-  <Button variant="contained"  sx={{...buttonStyle, width:'100%',marginLeft:'-4px'}}  onClick={addToCart}>
+      </Box>
+
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+      <Button   sx={{...buttonStyle,marginLeft:'-4px',width:'100%'}}  onClick={addToCart}>
     Agregar al Carrito
   </Button>
-  <Button variant="contained" sx={{...buttonStyle, width:'52%', marginLeft:'100px', '&:hover': {
-            backgroundColor: 'black', color:'grey',boxShadow:'none' // Define el color de fondo para el hover
-          }}}>
-    Favorito ♡
-  </Button>
-</Box>
 
-
-<Box sx={horizontal}>
-        <DeliveryDiningOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
-        <Typography sx={getDescription}>Delivery Coordinado (por estos momentos)</Typography>
-        </Box>
-        <Box sx={horizontal}>
-        <LocalMallOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
-        <Typography sx={getDescription}>Entrega a coordinación</Typography>
-        </Box>
-        <Box sx={horizontal}>
-        <BrandingWatermarkOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
-        <Typography sx={getDescription}> Efectivo o Transferencias</Typography>
-        </Box>
-      
-       
-       
       </Box>
-      <Box sx={{marginTop:'83px'}}>
-            <img
-              src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_553,c_limit/262fc583-6160-4703-9d72-1918b8a4ebac/sitio-web-oficial-de-nike.png"
-              alt="Nike Logo"
-              style={{
-                width: "102.5%",
-                
-                height: "100%",
-                marginLeft:'-12px',
-                cursor: "pointer",
-              }} // Ajusta el tamaño según sea necesario
-            />
+
+      <Grid container spacing={2} style={{ marginTop:'-12px',position:'relative', top:24,}}>
+        {/* Primera fila */}
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <DeliveryDiningOutlinedIcon sx={{ marginRight: '8px', color: 'black',marginTop:'-11px' }} />
+            <Typography sx={getDescription}> Envíos gratis sobre $89.990 </Typography>
           </Box>
-         
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <LocalMallOutlinedIcon sx={{ marginRight: '8px', color: 'black'}} />
+            <Typography sx={getDescription}> Retiro presencial gratis </Typography>
+          </Box>
+        </Grid>
+
+        {/* Segunda fila */}
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <BrandingWatermarkOutlinedIcon sx={{ marginRight: '8px', color: 'black',marginTop:'-9px' }} />
+            <Typography sx={getDescription}> Puedes pagar en línea, paga seguro. </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <ChangeCircleOutlinedIcon sx={{ marginRight: '8px', color: 'black',marginTop:'-12px' }} />
+            <Typography sx={getDescription}> Cambios ilimitados sin costo </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+
+      <Box sx={{ marginTop: '84px',marginLeft:'-12px' }}>
+        <img
+          src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_553,c_limit/262fc583-6160-4703-9d72-1918b8a4ebac/sitio-web-oficial-de-nike.png"
+          alt="Nike Logo"
+          style={{
+            width: '100%',
+            cursor: 'pointer',
+            height:'105%'
+          }}
+        />
+      </Box>
     </Box>
   );
 };
 
 export default Info;
-

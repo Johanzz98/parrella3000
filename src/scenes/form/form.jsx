@@ -112,17 +112,23 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
   const validationSchema = Yup.object().shape({
     person: Yup.object().shape({
       fullName: Yup.string()
-        .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
-        .min(3, "It's too short")
-        .required("Required"),
+       .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
+       .max(100, "Nombre must be at most 100 characters")
+       .min(3, "It's too short")
+       .required("Required"),
       country: Yup.string()
-        .matches(/^[a-zA-Z\s]+$/, "Should contain only letters")
-        .min(3, "It's too short")
-        .required("Required"),
-      codePostal: Yup.number().min(3, "It's too short").required("Required"),
-      phoneNumber: Yup.string() // Correctly treating phoneNumber as a string
-        .matches(phoneRegExp, "Phone number is not valid") // Use.matches for string patterns
-        .required("Required"), // Ensure phoneNumber is provided // Ensure phoneNumber is provided
+       .matches(/^[a-zA-Z\s]+$/, "Should contain only letters")
+       .min(3, "It's too short")
+       .max(20, "Country must be at most 20 characters")
+       .required("Required"),
+      codePostal: Yup.number()
+       .min(3, "It's too short")
+       .max(10, "Code Postal must be at most 10 characters")
+       .required("Required"),
+       phoneNumber: Yup.string() // Correctly treating phoneNumber as a string
+       .matches(phoneRegExp, "Phone number is not valid") // Use.matches for string patterns
+       
+       .required("Required"), // Ensure phoneNumber is provided // Ensure phoneNumber is provided
     }),
     email: Yup.string()
       .email("Enter a valid email")
@@ -131,6 +137,7 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
         "Invalid email format"
       )
+      .max(50, "Email must be at most 50 characters")
       .matches(
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$/i,
         "Only .com domains are allowed"

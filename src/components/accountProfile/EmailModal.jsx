@@ -57,6 +57,7 @@ const EmailModal = ({ open, handleClose }) => {
     email: Yup.string()
       .email("Ingrese un correo electrónico válido")
       .required("Campo requerido")
+      .max(50, "Email must be at most 50 characters")
       .matches(
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
         "Formato de correo electrónico inválido"

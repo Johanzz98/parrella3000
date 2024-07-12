@@ -224,7 +224,16 @@ const Footer = () => {
               >
                 Centro de Ayuda
               </Link>
-               
+              <br/>
+              <Link
+                href="/Mayor"
+                color="inherit"
+                display="block"
+                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+              >
+                ¿Quieres ser Mayorista?
+              </Link>
+
               <br/>
               <Link
                 href="#"
@@ -243,12 +252,12 @@ const Footer = () => {
               </Typography>
               <Box style={fontsMax}>
               <Link
-                href="#"
+                href="/AboutUs"
                 color="inherit"
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                About Us
+                Sobre Nosotros 
               </Link>
                <br/>
               <Link
@@ -410,6 +419,15 @@ const Footer = () => {
               </Link>
               <br/>
               <Link
+                href="/Mayor"
+                color="inherit"
+                display="block"
+                sx={{ textDecoration: "none",marginLeft:'-1px',transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+              >
+                ¿Quieres ser Mayorista?
+              </Link>
+              <br/>
+              <Link
                 href="#"
                 color="inherit"
                 display="block"
@@ -447,12 +465,12 @@ const Footer = () => {
           <Collapse in={openProductos2} timeout="auto" unmountOnExit>
             <List component="div" disablePadding sx={{ color: "grey" }}>
               <Link
-                href="#"
+                href="/AboutUs"
                 color="inherit"
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-               About Us
+              Sobre Nosotros
               </Link>
               <br/>
               <Link

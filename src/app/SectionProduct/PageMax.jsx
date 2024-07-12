@@ -10,7 +10,7 @@ import { productDataCart } from "./ImgDetails";
 function PageMax() {
   return (
     <Box>
-      <Grid container spacing={1}>
+      <Grid container spacing={0}>
         {/* Columna para Muestra */}
         <Grid item xs={12} md={9}>
           <Muestra />

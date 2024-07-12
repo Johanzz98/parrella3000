@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 
 const cardStyle = {
   width: "100%",
@@ -89,25 +89,26 @@ const productContainerStyle = {
   margin: "0 10px", 
 };
 
-const nameStyle ={
- 
-  fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',
-  fontSize: '16px',
-  fontWeight: 600,
 
-  marginBottom: '12px',
-  color: "#111",
-  marginBottom: '4px',
-  textTransform: "capitalize",
-  textAlign: "center",
-}
 
 export default function ProductFiltrar(props) {
   const dispatch = useDispatch();
+  const theme = useTheme();
   const isSmallScreen = useMediaQuery('(max-width:800px)');
   const [isHovered, setIsHovered] = useState(false);
-
+  const nameStyle ={
+ 
+    fontFamily: "Helvetica,sans-serif",
+    fontOpticalSizing: 'auto',
+    fontSize: isSmallScreen ? '12': '16px',
+    fontWeight: isSmallScreen ? 540 : 550,
+  
+    marginBottom: '12px',
+    color: "#111",
+    marginBottom: '4px',
+    textTransform: "capitalize",
+    textAlign: "center",
+  }
   const addToCart = () => {
     dispatch({type: TYPES.ADD_TO_CART, payload: props.item});
     dispatch({type: TYPES.TOTAL});

@@ -11,7 +11,7 @@ import { Divider } from '@mui/material';
 const nombreProductoStyles = {
   fontSize: "24px",
   fontWeight: "700",
-  color: "#00000",
+  color: "#111",
   display: 'flex',
   marginLeft:'24px',
   marginBottom:'18px',
@@ -32,7 +32,7 @@ function LookMax() {
   ));
 
   return (
-    <Box sx={{ paddingTop:'12px', marginTop:'-300px'}}>
+    <Box sx={{ paddingTop:'12px', marginTop:'-300px',padding:'20px'}}>
       <Box sx={{marginTop:'24px'}}>
       <Box
           sx={{
@@ -46,7 +46,7 @@ function LookMax() {
           }}
         >
           <Divider sx={{
-              width: '98%',
+              width: '101%',
               height: 8,
                 bgcolor: '#eeeeee',
                color:'red',
@@ -98,7 +98,7 @@ function LookMax() {
                 textAlign: "center", 
           }} />
         </Box>
-      <Box>
+      <Box sx={{marginTop:'12px'}}>
         <Typography sx={nombreProductoStyles}>QUIZÁ TAMBIÉN TE GUSTE...</Typography>
         <Carousel responsive={responsive} className="look-carousel1">
           {product}

@@ -4,13 +4,13 @@ import CardMedia from '@mui/material/CardMedia';
 import { Box, Grid } from "@mui/material";
 
 const cardStyle = {
-  maxWidth: "560px",
+  maxWidth: "563.6px",
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: "0",
   boxShadow:'none',
   marginBottom:'-20px',
-  marginRight:'-18px'
+  marginRight:'-19px'
 };
 
 const cardStyle2 = {

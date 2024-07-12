@@ -224,7 +224,7 @@ const UserList = () => {
   }
 
   return (
-    <Box style={{ height: 400, width: '100%'}}>
+    <Box style={{ height:'400px',marginLeft:'14px'}}>
     <ToastContainer
         position="bottom-right"
         autoClose={5000}

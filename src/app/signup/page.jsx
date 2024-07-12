@@ -174,17 +174,21 @@ const SignUp = () => {
     person: Yup.object().shape({
       fullName: Yup.string()
        .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
+       .max(100, "Nombre must be at most 100 characters")
        .min(3, "It's too short")
        .required("Required"),
       country: Yup.string()
        .matches(/^[a-zA-Z\s]+$/, "Should contain only letters")
        .min(3, "It's too short")
+       .max(20, "Country must be at most 20 characters")
        .required("Required"),
       codePostal: Yup.number()
        .min(3, "It's too short")
+       .max(10, "Code Postal must be at most 10 characters")
        .required("Required"),
        phoneNumber: Yup.string() // Correctly treating phoneNumber as a string
        .matches(phoneRegExp, "Phone number is not valid") // Use.matches for string patterns
+       
        .required("Required"), // Ensure phoneNumber is provided // Ensure phoneNumber is provided
     }),
     email: Yup.string()

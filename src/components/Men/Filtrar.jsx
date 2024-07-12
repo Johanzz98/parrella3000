@@ -19,12 +19,12 @@ import { useMediaQuery } from '@mui/material';
     margin: "24px 20px",
     fontFamily: "Nunito Sans, sans-serif",
     fontOpticalSizing: 'auto',
-    fontWeight: 600,
+    fontWeight: 550,
     fontSize: isSmallScreen ? "24px" : "28px",
  marginBottom: isSmallScreen ? "-12px" :0,
     display: 'flex',
-    alignItems: isSmallScreen ? "center": "flex-start",
-    justifyContent: isSmallScreen ? "center": "flex-start",
+    alignItems: isSmallScreen ? "center": "center",
+    justifyContent: isSmallScreen ? "center": "center",
   };
 
   const product = productData.map((item, index) => (
@@ -37,7 +37,7 @@ import { useMediaQuery } from '@mui/material';
   return (
     <>
       <Box>
-        <Typography style={setMidIz}>NEW COLLECTION</Typography>
+        <Typography style={setMidIz}>Express Yourself</Typography>
       </Box>
 
       <Box sx={{padding:'20px'}}>

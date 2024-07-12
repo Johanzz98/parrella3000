@@ -10,11 +10,12 @@ import Form from '@/scenes/form/form';
 import Bar from '@/scenes/Bar/Bar';
 import PieChart from '@/components/PieChart';
 import LineChart from '@/scenes/LineChart/LineChart';
-import ProductPage from '@/components/dashboardAdmin/ProductPage';
+
 import Categories from '@/components/dashboardAdmin/Categories';
 import Register from '@/components/dashboardAdmin/Register';
 import { useSelector } from 'react-redux';
 import "./app.css";
+import ProductPage from '@/components/dashboardAdmin/ProductPage/ProductPage';
 const Dash = () => {
   const [mainComponent, setMainComponent] = useState(null);
   const [loading, setLoading] = useState(true);

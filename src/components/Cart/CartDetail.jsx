@@ -27,12 +27,12 @@ const styleBox = {
 
 const SmallStylebox = {
   color: "#111",
- maxWidth: "460px",
+
   height: "160px",
   display: "flex",
   alignItems: "center",
   position: "relative",
-  marginLeft: '-32px',
+
   marginBottom: '-12px',
   marginTop: '-16px',
 };
@@ -47,7 +47,8 @@ const cart = {
 const Smallcart = {
   width: "100px",
   height: "120px",
-  objectFit: "cover",
+  marginLeft:'-12px',
+  objectFit: "contain",
 };
 
 const column = {
@@ -107,13 +108,14 @@ const CartItems = ({ data, delFromCart }) => {
 
   const fontName = {
     fontFamily: "Helvetica, sans-serif",
-    fontOpticalSizing: "auto",
+
     fontSize:  isSmallScreen ? "0.85rem": "1rem",
     fontWeight: 600,
     fontStyle: "normal",
     color: "#111",
+   
     marginTop: isSmallScreen ? '46px' : '0px',
-    textTransform: "capitalize",
+   
   };
 
   const fontDescription = {
@@ -121,6 +123,7 @@ const CartItems = ({ data, delFromCart }) => {
     color: "#111",
     marginBottom: "4px",
     border: "none",
+    width:isSmallScreen ? "80%" :"100%",
     fontWeight: 400,
     textTransform: "uppercase",
     fontFamily: "Helvetica, sans-serif",
@@ -135,7 +138,6 @@ const CartItems = ({ data, delFromCart }) => {
     margin: 0,
     fontFamily: "Inter, 'Helvetica', sans-serif",
     fontOpticalSizing: "auto",
-    fontWeight: 600,
     fontSize: "14px",
     lineHeight: "1.6",
     color: "#111",
@@ -159,7 +161,7 @@ const CartItems = ({ data, delFromCart }) => {
     <Box style={{ backgroundColor: isSmallScreen ? "#ffffff" : "#f5f5f5" }}>
       <Box style={isSmallScreen ? SmallStylebox : styleBox}>
         <Grid>
-          <Grid item xs={12} md={4.5}>
+          <Grid item xs={12} md={12}>
             <img
               src={imageurl}
               alt={name}
@@ -168,12 +170,16 @@ const CartItems = ({ data, delFromCart }) => {
           </Grid>
         </Grid>
         <Box style={isSmallScreen ? SmallColumn : column}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '42px', marginTop: '4px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '42px', marginTop: '4px' ,marginLeft: isSmallScreen ? '0':'-8px'}}>
+           <Box sx={{marginTop:isSmallScreen ? '24px': '-4px'}}>
             <Typography sx={fontName}>{name}</Typography>
-            <Typography sx={fontDescription}>{description}</Typography>
-            <Typography sx={{ ...priceStyle, marginTop: '4px' }}>
+            </Box>
+              <Typography sx={fontDescription}> {description}</Typography>
+            <Box >
+            <Typography sx={{ ...priceStyle, position:'relative', top:isSmallScreen ? 8:12, }}>
               ${price}
             </Typography>
+            </Box>
           </Box>
           {/*<Typography sx={fontDescription}> {talla}</Typography>*/}
           <Grid
@@ -200,8 +206,8 @@ const CartItems = ({ data, delFromCart }) => {
                 borderRadius: "12px",
                 border: "1px solid #bdbdbd",
                 position: "relative",
-                
-                bottom: "36px",
+                left:180,
+               bottom: 62
               }}
             >
               <IconButton
@@ -232,14 +238,14 @@ const CartItems = ({ data, delFromCart }) => {
               border: "1px solid #bdbdbd",
               position: "relative",
               bottom: "32px",
-              left: '116px'
+              left: '178px'
             }}
           >
             <IconButton
               onClick={handleDecrement}
               sx={{ width: "24px", height: "32px" }}
             >
-              <RemoveIcon sx={{ fontSize: "16px" }} />
+              <RemoveIcon  sx={{ fontSize: "16px" }} />
             </IconButton>
             <Typography sx={{ padding: "2px 8px", fontSize: "14px" }}>
               {cantidadSeleccionada}
@@ -260,7 +266,7 @@ const CartItems = ({ data, delFromCart }) => {
                 display: "flex",
                 alignItems: "center",
                 position: "absolute",
-                top: 0,
+                top: -4,
                 right: "2px",
               }}
             >
@@ -284,7 +290,7 @@ const CartItems = ({ data, delFromCart }) => {
                 alignItems: "center",
                 position: "absolute",
                 top: 24,
-                right: "2px",
+                right: "-54px",
               }}
             >
               <IconButton sx={{ width: "24px", height: "32px" }}>
@@ -292,7 +298,7 @@ const CartItems = ({ data, delFromCart }) => {
                   variant="contained"
                   color="secondary"
                   onClick={() => delFromCart(id, true)}
-                  sx={{ fontSize: "24px", cursor: "pointer", color: "black" }}
+                  sx={{ fontSize: "24px", cursor: "pointer", color: "#111" }}
                 />
               </IconButton>
             </Box>
@@ -301,7 +307,7 @@ const CartItems = ({ data, delFromCart }) => {
         </Box>
         {isSmallScreen && (
           <Typography sx={SmallpriceStyle}>
-            ${(price * cantidadSeleccionada).toFixed(3)}
+        
           </Typography>
         )}
       </Box>
@@ -319,12 +325,12 @@ const CartItems = ({ data, delFromCart }) => {
        {isSmallScreen && (
         <Divider
           sx={{
-            width: "120%",
+            width: "167%",
             bgcolor: "#f5f5f5",
             textAlign: "flex-start",
             marginBottom: "24px",
             marginTop: "6px",
-            marginLeft:'-42px'
+            marginLeft:'-142px'
           }}
         />
       )}

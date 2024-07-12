@@ -13,6 +13,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import BrandingWatermarkOutlinedIcon from '@mui/icons-material/BrandingWatermarkOutlined';
 
 import 'swiper/css';
+import { Grid } from '@mui/material';
 
 
 const Titulo = {
@@ -136,18 +137,36 @@ function Mobile() {
     
 
   
-        <Box sx={horizontal}>
-        <DeliveryDiningOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
-        <Typography sx={getDescription}>Delivery Coordinado (por estos momentos)</Typography>
-        </Box>
-        <Box sx={horizontal}>
-        <LocalMallOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
-        <Typography sx={getDescription}>Entrega a coordinación</Typography>
-        </Box>
-        <Box sx={horizontal}>
-        <BrandingWatermarkOutlinedIcon sx={{marginLeft:'16px',color:'black'}}/>
-        <Typography sx={getDescription}> Efectivo o Transferencias</Typography>
-        </Box>
+    <Grid container spacing={2} style={{ }}>
+        {/* Primera fila */}
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <DeliveryDiningOutlinedIcon sx={{ marginRight: '-12px', color: 'black' }} />
+            <Typography sx={getDescription}> Envíos gratis sobre $89.990 </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <LocalMallOutlinedIcon sx={{ marginRight: '-12px', color: 'black', }} />
+            <Typography sx={getDescription}> Retiro en presencial gratis </Typography>
+          </Box>
+        </Grid>
+
+        {/* Segunda fila */}
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <BrandingWatermarkOutlinedIcon sx={{ marginRight: '-12px', color: 'black', }} />
+            <Typography sx={getDescription}> Puedes pagar en línea, paga seguro. </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box sx={horizontal}>
+            <BrandingWatermarkOutlinedIcon sx={{ marginRight: '-12px', color: 'black', }} />
+            <Typography sx={getDescription}> Cambios ilimitados sin costo </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+
       
        
        

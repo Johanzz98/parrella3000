@@ -116,83 +116,19 @@ const ResumenDetails = () => {
               textAlign: "center",
               padding: "24px",
               marginTop: "auto",
+              borderRadius:'12px',
               backgroundColor: "#f5f5f5",
               width: "500px",
               marginLeft: "-200px",
-              height: "100vh",
+          
             }}
           >
             <Box>
               <Typography sx={Titulo}>RESUMEN DE COMPRA</Typography>
             </Box>
-            <Box>
-              <Typography sx={description}>
-                <WhatsAppIcon
-                  sx={{ color: "green", marginBottom: "12px", marginRight: "2px" }}
-                />
-                Coordinacion de entrega en Metro (de momento) contactanos por via
-                WhatsApp!
-              </Typography>
-            </Box>
-
-            <Divider
-              sx={{
-                width: "97%",
-                bgcolor: "#f5f5f5",
-                textAlign: "center",
-                marginBottom: "24px",
-                marginTop: "16px",
-              }}
-            />
-            <Box sx={{ marginLeft: "-152px" }}>
-              <Typography
-                sx={{
-                  ...description,
-                }}
-              >
-                <TrainOutlinedIcon
-                  sx={{ marginBottom: "2px", marginRight: "8px" }}
-                />
-                Entrega en todas las estaciones de la RM
-              </Typography>
-            </Box>
-
-            <Divider
-              sx={{
-                width: "97%",
-                bgcolor: "#f5f5f5",
-                textAlign: "center",
-                marginBottom: "24px",
-                marginTop: "16px",
-              }}
-            />
-
-            <Box sx={{ marginLeft: "-204px" }}>
-              <Typography
-                sx={{
-                  ...description,
-                }}
-              >
-                <AccessTimeOutlinedIcon
-                  sx={{ marginBottom: "2px", marginRight: "20px" }}
-                />{" "}
-                ¡Nos organizamos a su tiempo!
-              </Typography>
-            </Box>
-
-            <Divider
-              sx={{
-                width: "97%",
-                bgcolor: "#f5f5f5",
-                textAlign: "center",
-                marginBottom: "24px",
-                marginTop: "16px",
-              }}
-            />
-
             <Divider
               orientation="horizontal"
-              sx={{ backgroundColor: "#000" }}
+              sx={{ backgroundColor: "#000", marginTop: "20px" }}
               flexItem
             />
             <Box sx={{ marginTop: '12px', marginBottom: '16px' }}>
@@ -210,7 +146,7 @@ const ResumenDetails = () => {
 
               <Typography variant="h3" sx={{ ...totalStyle, fontSize: '13px', marginBottom: '12px' }}>
                 <span>Delivery</span>
-                <span>Gratis</span>
+                <span>0</span>
               </Typography>
 
               <Typography variant="h3" sx={totalStyle}>
@@ -218,91 +154,10 @@ const ResumenDetails = () => {
                 <span>${total.toFixed(3)}</span>
               </Typography>
             </Box>
-
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'space-between',
-              }}
-            >
-              <Box sx={{ marginLeft: '-90px', marginRight: '46px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/MACH.svg`}
-                  alt="logo"
-                  style={{
-                    width: '60px',
-                    height: '100%',
-                    marginTop: '4%',
-                    position: 'relative',
-                    marginLeft: '122px',
-                  }}
-                />
-              </Box>
-              <Box sx={{ marginLeft: '12px', marginRight: '34px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/American.svg`}
-                  alt="logo"
-                  style={{
-                    width: '60px',
-                    height: '100%',
-                    marginTop: '4%',
-                    position: 'relative',
-                  }}
-                />
-              </Box>
-              <Box sx={{ marginLeft: '12px', marginRight: '32px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/master.png`}
-                  alt="logo"
-                  style={{
-                    width: '60px',
-                    height: '100%',
-                    marginBottom: '-4px',
-                    position: 'relative',
-                  }}
-                />
-              </Box>
-              <Box sx={{ marginLeft: '32px', marginRight: '32px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/visa.svg`}
-                  alt="logo"
-                  style={{
-                    width: '70px',
-                    height: '100%',
-                    marginBottom: '-12px',
-                    position: 'relative',
-                  }}
-                />
-              </Box>
-            </Box>
-
-          
-
             <Divider
               orientation="horizontal"
               sx={{ backgroundColor: "#000", marginTop: "20px" }}
               flexItem
-            />
-
-<FormControlLabel
-              control={
-                <Field
-                  type="checkbox"
-                  name="termsAndConditions"
-                  as={Checkbox}
-                  sx={{ transform: "scale(0.8)", top: 8 }}
-                  color="primary"
-                />
-              }
-              label={
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "0.8rem", marginTop: "16px" }}
-                >
-                  Acepto los términos y condiciones
-                </Typography>
-              }
             />
             <FormHelperText
               sx={{
@@ -326,7 +181,7 @@ const ResumenDetails = () => {
                   borderRadius: "12px",
                 }}
               >
-                Procesar Compra
+                Continuar
               </Button>
               <Typography sx={Comprando}>
                 Seguir comprando <KeyboardArrowRightIcon sx={arrowIconStyle} />

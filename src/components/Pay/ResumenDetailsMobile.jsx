@@ -117,73 +117,20 @@ const ResumenDetailsMobile = () => {
               padding: "24px",
               marginTop: "auto",
               backgroundColor: "#f5f5f5",
-             
+              borderRadius:'12px',
         
             }}
           >
             <Box>
               <Typography sx={Titulo}>RESUMEN DE COMPRA</Typography>
             </Box>
-            <Box
-  sx={{
-    display: "flex",
-    justifyContent: "flex-start",  // Alineación a la izquierda
-    alignItems: "center",
-    textAlign: "center",
-  }}
->
-  <WhatsAppIcon sx={{ color: "green", marginBottom: "12px" }} />
-  <Typography sx={description}>
-    Coordinacion de entrega en Metro (de momento) contactanos por via WhatsApp!
-  </Typography>
-</Box>
+        
 
-            <Divider
-              sx={{
-                width: "97%",
-                bgcolor: "#f5f5f5",
-                textAlign: "center",
-                marginBottom: "24px",
-                marginTop: "16px",
-              }}
-            />
-            <Box sx={{ marginLeft: "24px", display: "flex", justifyContent: "flex-start" }}>
-  <Typography sx={{ ...description,marginLeft:'32px' }}>
-    <TrainOutlinedIcon sx={{ marginBottom: "2px",marginLeft:'-54px',marginRight:'36px' }} />
-    Entrega en todas las estaciones de la RM
-  </Typography>
-</Box>
-
-            <Divider
-              sx={{
-                width: "97%",
-                bgcolor: "#f5f5f5",
-                textAlign: "center",
-                marginBottom: "24px",
-                marginTop: "16px",
-              }}
-            />
-
-<Box sx={{ display: "flex", justifyContent: "flex-start" }}>
-<Typography sx={{ ...description,marginLeft:'32px' }}>
-    <AccessTimeOutlinedIcon sx={{ marginBottom: "2px",marginLeft:'-24px',marginRight:'32px' }} />
-    ¡Nos organizamos a su tiempo!
-  </Typography>
-</Box>
-
-            <Divider
-              sx={{
-                width: "97%",
-                bgcolor: "#f5f5f5",
-                textAlign: "center",
-                marginBottom: "24px",
-                marginTop: "16px",
-              }}
-            />
+       
 
             <Divider
               orientation="horizontal"
-              sx={{ backgroundColor: "#000" }}
+              sx={{ backgroundColor: "#000",marginTop:'12px' }}
               flexItem
             />
             <Box sx={{ marginTop: '12px', marginBottom: '16px' }}>
@@ -201,7 +148,7 @@ const ResumenDetailsMobile = () => {
 
               <Typography variant="h3" sx={{ ...totalStyle, fontSize: '13px', marginBottom: '12px' }}>
                 <span>Delivery</span>
-                <span>Gratis</span>
+                <span>0</span>
               </Typography>
 
               <Typography variant="h3" sx={totalStyle}>
@@ -210,101 +157,6 @@ const ResumenDetailsMobile = () => {
               </Typography>
             </Box>
 
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'space-between',
-              }}
-            >
-              <Box sx={{ marginLeft: '-90px', marginRight: '46px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/MACH.svg`}
-                  alt="logo"
-                  style={{
-                    width: '60px',
-                    height: '100%',
-                    marginTop: '4%',
-                    position: 'relative',
-                    marginLeft: '122px',
-                  }}
-                />
-              </Box>
-              <Box sx={{ marginLeft: '12px', marginRight: '34px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/American.svg`}
-                  alt="logo"
-                  style={{
-                    width: '60px',
-                    height: '100%',
-                    marginTop: '4%',
-                    position: 'relative',
-                  }}
-                />
-              </Box>
-              <Box sx={{ marginLeft: '12px', marginRight: '32px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/master.png`}
-                  alt="logo"
-                  style={{
-                    width: '60px',
-                    height: '100%',
-                    marginBottom: '-4px',
-                    position: 'relative',
-                  }}
-                />
-              </Box>
-              <Box sx={{ marginLeft: '32px', marginRight: '32px' }}>
-                <img
-                  src={`../../assets/static/CheckOut/visa.svg`}
-                  alt="logo"
-                  style={{
-                    width: '70px',
-                    height: '100%',
-                    marginBottom: '-12px',
-                    position: 'relative',
-                  }}
-                />
-              </Box>
-            </Box>
-
-          
-
-            <Divider
-              orientation="horizontal"
-              sx={{ backgroundColor: "#000", marginTop: "20px" }}
-              flexItem
-            />
-
-<FormControlLabel
-              control={
-                <Field
-                  type="checkbox"
-                  name="termsAndConditions"
-                  as={Checkbox}
-                  sx={{ transform: "scale(0.8)", top: 8 }}
-                  color="primary"
-                />
-              }
-              label={
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "0.8rem", marginTop: "16px" }}
-                >
-                  Acepto los términos y condiciones
-                </Typography>
-              }
-            />
-            <FormHelperText
-              sx={{
-                fontSize: "0.6rem",
-                color: "#f44336",
-                marginTop: '-2px',
-                textAlign: "center"
-              }}
-            >
-              <ErrorMessage name="termsAndConditions" />
-            </FormHelperText>
             <Box mt={2}>
               <Button
                 variant="contained"

@@ -11,6 +11,7 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   email: Yup.string()
   .email("Enter a valid email")
+  .max(50, "Email must be at most 50 characters")
   .required("por favor, introduce un email válido")
   .matches(
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,

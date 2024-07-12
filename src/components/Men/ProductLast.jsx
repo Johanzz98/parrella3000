@@ -20,7 +20,7 @@ const cardStyle = {
 };
 
 const cardStyle2 = {
-  width: "370px",
+  width: "100%",
   margin: "0 auto 12px",
   textAlign: "center",
   fontFamily: "arial",

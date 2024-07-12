@@ -22,7 +22,7 @@ export const responsive = {
     {
       id: 7,
       imageurl:
-        "https://nikeclprod.vtexassets.com/arquivos/ids/410332-800-800?v=637831353509070000&width=800&height=800&aspect=true",
+        "https://i.pinimg.com/564x/41/97/9e/41979ea29c59b6d0134d10feea18313b.jpg",
       name: "Detroit Jackets",
       price: 9.999,
       description: "Some text about the product..",
@@ -31,7 +31,7 @@ export const responsive = {
     {
       id: 8,
       imageurl:
-        "https://i.pinimg.com/564x/49/ab/10/49ab1074f2768ab6c0ca2e06d9d88214.jpg",
+        "https://i.pinimg.com/564x/45/1d/8d/451d8d29b20078ca5f33dce2d64f4f42.jpg",
       name: "Sport Sweat",
       price:9.999,
       description: "Some text about the product..",
@@ -40,7 +40,7 @@ export const responsive = {
     {
       id: 9,
       imageurl:
-        "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
+        "https://i.pinimg.com/564x/d5/1c/b7/d51cb71d53cfafd31f70fd85f437cfd0.jpg",
       name: "Movie Jackets",
       price: 9.999,
       description: "Some text about the product..",
@@ -49,7 +49,7 @@ export const responsive = {
     {
       id: 10,
       imageurl:
-        "https://i.pinimg.com/564x/c3/40/a8/c340a8536cb3cfef961efc869c432b0e.jpg",
+        "https://i.pinimg.com/564x/98/82/ec/9882ec946d711df9b76f4d88dc334fb4.jpg",
       name: "Special Jackets",
       price: 9.999,
       description: "Some text about the product..",
@@ -58,7 +58,7 @@ export const responsive = {
     {
       id: 11,
       imageurl:
-        "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
+        "https://i.pinimg.com/736x/d5/c7/56/d5c756c32ecfec6912ed827d0656ab1f.jpg",
       name: "Health Club",
       price: 9.999,
       description: "Some text about the product..",
@@ -67,7 +67,7 @@ export const responsive = {
     {
       id: 12,
       imageurl:
-        "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
+        "https://i.pinimg.com/564x/d6/a8/38/d6a838bce1c29aefe5f501d15ed4cd37.jpg",
       name: "Clothes",
       price: 9.999,
       description: "Some text about the product..",

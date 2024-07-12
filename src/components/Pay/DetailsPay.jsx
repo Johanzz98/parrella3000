@@ -60,14 +60,14 @@ const DetailsPay = () => {
           display: 'flex',
           flexDirection: 'column',
           paddingLeft: '2px',
-          marginLeft: '80px',
-          width: '860px',
+          
+          width: '960px',
           paddingTop:'24px',
           backgroundColor: '#f5f5f5',
       
         }}
       >
-    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"177.2%",marginLeft:'-100px',marginBottom:'70px', marginTop:'-120px' }}>
+    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"167.1%",marginLeft:'-100px',marginBottom:'70px', marginTop:'-120px' }}>
       <Typography variant="h3" sx={titulo}>MI COMPRA</Typography>
     </Box>
           <Box p={2} >

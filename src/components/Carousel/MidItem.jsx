@@ -4,7 +4,7 @@
     {
       id: 13,
       imageurl:
-        "https://nikeclprod.vtexassets.com/arquivos/ids/999194-800-800?v=638488898350000000&width=800&height=800&aspect=true",
+        "https://i.pinimg.com/564x/fd/2c/6b/fd2c6bb1679a038723b4298882c3eb92.jpg",
       name: "Detroit Jackets",
       price: 2.999,
       description: "Some text about the product..",

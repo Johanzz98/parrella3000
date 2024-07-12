@@ -7,12 +7,12 @@ export const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1,
+    items: 2,
     slidesToSlide: 1 // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 2,
     slidesToSlide: 1 // optional, default to 1.
   }
 };
@@ -22,7 +22,7 @@ export const productData = [
   {
     id: 7,
     imageurl:
-      "https://nikeclprod.vtexassets.com/arquivos/ids/410332-800-800?v=637831353509070000&width=800&height=800&aspect=true",
+      "https://i.pinimg.com/564x/39/78/74/397874b179dbd094bc89146b35ab7725.jpg",
     name: "Running",
     price: 9.999,
     description: "Some text about the product..",
@@ -31,7 +31,7 @@ export const productData = [
   {
     id: 8,
     imageurl:
-      "https://i.pinimg.com/564x/49/ab/10/49ab1074f2768ab6c0ca2e06d9d88214.jpg",
+      "https://i.pinimg.com/564x/bd/1d/4f/bd1d4fa030189fa194a649a521665697.jpg",
     name: "Estilo de Vida",
     price:9.999,
     description: "Some text about the product..",
@@ -40,7 +40,7 @@ export const productData = [
   {
     id: 9,
     imageurl:
-      "https://i.pinimg.com/564x/95/04/8a/95048aafc61bac7a3cf069066b53b4e7.jpg",
+      "https://i.pinimg.com/564x/11/9c/b1/119cb10954b67474f05499964b06a2a0.jpg",
     name: "Living free",
     price: 9.999,
     description: "Some text about the product..",
@@ -49,8 +49,8 @@ export const productData = [
   {
     id: 10,
     imageurl:
-      "https://i.pinimg.com/564x/c3/40/a8/c340a8536cb3cfef961efc869c432b0e.jpg",
-    name: "Ropa para hombre",
+      "https://i.pinimg.com/564x/50/a2/59/50a259095232fb7e7f67cd21b06bf69d.jpg",
+    name: "Ropa Cool",
     price: 9.999,
     description: "Some text about the product..",
     talla : ["M", "L", "XL", "XXL"],

@@ -22,7 +22,14 @@ const Cart = () => {
     <div>
       {/* Mapea los elementos en el carrito y pasa el total como una prop a CartItems */}
       {cartItems.map(item => (
-        <CartItems key={item.id} data={item} delFromCart={removeFromCart} total={total} />
+        <CartItems
+          key={item.id}
+          data={item}
+          delFromCart={removeFromCart}
+          name={item.name} // Pasa el nombre del item como prop
+          price={item.price} // Pasa el nombre del item como prop
+          quantity={item.quantity} // Pasa la cantidad del item como prop
+        />
       ))}
       {/* Muestra el total general */}
       <div>Total General: ${total.toFixed(2)}</div>
@@ -30,4 +37,4 @@ const Cart = () => {
   );
 };
 
-export default Cart
+export default Cart;
