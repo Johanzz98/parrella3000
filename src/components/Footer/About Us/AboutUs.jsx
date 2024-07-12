@@ -164,7 +164,7 @@ const AboutUs = () => {
       >
         <img
               src={`assets/AboutUs/BANNER.png`}
-          alt="logo"
+          alt="Banner"
           style={{
             width: '100%',
             marginTop: '12px',
