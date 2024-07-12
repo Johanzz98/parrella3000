@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Box, Paper, Typography, TextField, Button, useMediaQuery, Modal, IconButton } from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useTheme } from "@mui/material/styles";
+
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 const initialValues = {
@@ -24,6 +26,8 @@ const initialValues = {
 const Payment = () => {
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
     const isMobile = useMediaQuery('(max-width:960px)');
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
     const [loading, setLoading] = useState(false); 
     const [showPassword, setShowPassword] = useState(false);
     const onSubmit = (values, { setSubmitting }) => {
@@ -45,7 +49,7 @@ const Payment = () => {
       alignItems: 'center',
       justifyContent: 'center',
    
-      marginTop: isMobile ? '-24px' : '0px', // Aplica marginTop solo si es tamaño MD
+
       transition: 'margin-top 0.3s ease', // Agrega una transición para suavizar el cambio
     }}
   >
@@ -53,11 +57,12 @@ const Payment = () => {
 
           <Box sx={{borderRadius:'24px', textAlign: 'center', zIndex:1 }}>
           <Typography sx={{fontSize: "32px",
-
+position:isSmallScreen ? 'normal':'relative', 
+left: isSmallScreen ? 0 :420,
 color: '#111',
 display: 'flex',
 fontWeight:'600',
-marginTop:'-12px',
+
 marginBottom:'20px',
 justifyContent: 'center',
 alignItems: 'center',

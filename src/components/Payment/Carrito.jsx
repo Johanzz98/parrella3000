@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
-
+import { useTheme } from "@mui/material/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { TYPES } from '@/actions/ShoppingActions';
 import CartItemsPay from "./Cart/CartItemsPay";
 import { ProSidebar } from "react-pro-sidebar";
-
+import useMediaQuery from "@mui/material/useMediaQuery";
 const titulo = {
   fontSize: '0.9375rem',
   color: '#111',
+  marginBottom:'-12px',
   textAlign: 'center',
   fontWeight: 700,
 };
@@ -33,6 +34,9 @@ const SadStyle = {
 };
 
 const DetailsPay = () => {
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const dispatch = useDispatch();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { cart, total } = useSelector((state) => state.cart);
@@ -64,7 +68,8 @@ const DetailsPay = () => {
               flexDirection: 'column',
               backgroundColor:'#f5f5f5',
               marginTop:'0px',
-           
+              marginTop:'72px',
+            height:'460px',
               overflowY: "auto",
               zIndex: 1000,
               "&::-webkit-scrollbar": {
@@ -82,8 +87,30 @@ const DetailsPay = () => {
                 <Typography sx={{ ...titulo,  fontWeight: 700 }}>PRODUCTOS</Typography>
              
               </Box>
+              {isSmallScreen && (
+        <Divider
+          sx={{
+            width: "167%",
+            bgcolor: "#111",
+            textAlign: "flex-start",
+            
+            marginTop: "6px",
+            marginLeft:'-142px'
+          }}
+        />
+      )}
+              {!isSmallScreen && (
+        <Divider
+          sx={{
+            width: "100%",
+            bgcolor: "#111",
+            textAlign: "flex-start",
+            
+            marginTop: "6px",
            
-        
+          }}
+        />
+      )}
               <ProSidebar>
                 <Box flexGrow={1} p={2}>
                   {cart.map((item, index) => (
@@ -142,9 +169,9 @@ padding:'24px',
         </>
       )}
       {total === 0 && (
-        <Box p={11} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft:'200px'}}>
-          <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px", marginTop: '-4rem', }} />
-          <Typography sx={{ fontFamily: "Helvetica, sans-serif", fontWeight: "400", textTransform: "none", letterSpacing: 0, margin: '24px',  }}>
+        <Box p={11} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',marginTop:isSmallScreen ? 0:'200px'}}>
+          <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px" }} />
+          <Typography sx={{ fontFamily: "Helvetica, sans-serif", fontWeight: "400", textTransform: "none",  }}>
             Tu carrito está vacío <SentimentVeryDissatisfiedIcon sx={SadStyle} />
           </Typography>
         </Box>

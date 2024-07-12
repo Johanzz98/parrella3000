@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 const buttonStyle = {
   border: "none",
   outline: "0",
@@ -18,6 +19,8 @@ const buttonStyle = {
 };
 
 const PaySucess = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -54,7 +57,7 @@ const PaySucess = () => {
       <Typography sx={{  fontSize: "32px",
   fontWeight: "1000",
   color: "#0ebf00",
-  display: 'flex',
+  display: 'flex', marginLeft: isSmallScreen ?'12px' : 0,
   justifyContent: 'flex-start',
   alignItems: 'center',
   fontFamily: "Helvetica,sans-serif",

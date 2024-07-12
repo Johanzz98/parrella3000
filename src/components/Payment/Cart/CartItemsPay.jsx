@@ -170,6 +170,7 @@ const CartItems = ({ data, delFromCart }) => {
           </Grid>
         </Grid>
         <Box style={isSmallScreen ? SmallColumn : column}>
+  
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '42px', marginTop: '4px' ,marginLeft: isSmallScreen ? '0':'-8px'}}>
            <Box sx={{marginTop:isSmallScreen ? '24px': '12px'}}>
             <Typography sx={fontName}>{name}</Typography>
@@ -210,21 +211,11 @@ const CartItems = ({ data, delFromCart }) => {
                bottom: 62
               }}
             >
-              <IconButton
-                onClick={handleDecrement}
-                sx={{ width: "12px", height: "12px" }}
-              >
-                <RemoveIcon sx={{ fontSize: "16px" }} />
-              </IconButton>
+           
               <Typography sx={{ padding: "2px 8px", fontSize: "12px" }}>
                 {cantidadSeleccionada}
               </Typography>
-              <IconButton
-                onClick={handleIncrement}
-                sx={{ width: "12px", height: "12px" }}
-              >
-                <AddIcon sx={{ fontSize: "14px" }} />
-              </IconButton>
+        
             </Box>
           )}
         </Box>
@@ -252,53 +243,7 @@ const CartItems = ({ data, delFromCart }) => {
           
           </Box>
         )}
-        <Box>
-        {!isSmallScreen && (
-          <Box sx={{ position: "static" }}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                position: "absolute",
-                top: -4,
-                right: "2px",
-              }}
-            >
-              <IconButton sx={{ width: "24px", height: "32px" }}>
-                <DeleteOutlinedIcon
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => delFromCart(id, true)}
-                  sx={{ fontSize: "24px", cursor: "pointer", color: "black" }}
-                />
-              </IconButton>
-            </Box>
-          </Box>
-             )}
-        </Box>    <Box>
-        {isSmallScreen && (
-          <Box sx={{ position: "static" }}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                position: "absolute",
-                top: 24,
-                right: "-54px",
-              }}
-            >
-              <IconButton sx={{ width: "24px", height: "32px" }}>
-                <DeleteOutlinedIcon
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => delFromCart(id, true)}
-                  sx={{ fontSize: "24px", cursor: "pointer", color: "#111" }}
-                />
-              </IconButton>
-            </Box>
-          </Box>
-             )}
-        </Box>
+       
         {isSmallScreen && (
           <Typography sx={SmallpriceStyle}>
         
