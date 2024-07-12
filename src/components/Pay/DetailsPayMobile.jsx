@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Box, Typography, IconButton, Divider } from "@mui/material";
+
+import React, { useEffect, useState} from "react";
+import { Box, Typography, IconButton, Divider,CircularProgress  } from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
@@ -46,7 +47,7 @@ const DetailsPayMobile = () => {
   const dispatch = useDispatch();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { cart, total } = useSelector((state) => state.cart);
-
+  const [isLoading, setIsLoading] = useState(true);
   const handleDrawerClose = () => {
     setIsDrawerOpen(false);
   };
@@ -55,6 +56,14 @@ const DetailsPayMobile = () => {
     dispatch({ type: TYPES.CLEAR_CART });
   };
 
+  useEffect(() => {
+    // Simular carga de datos (simplemente para demostración)
+    setTimeout(() => {
+      setIsLoading(false); // Cambiar estado a falso después de un tiempo
+    }, 2000); // Puedes ajustar el tiempo según tus necesidades
+  }, []);
+
+
   const delFromCart = (id, all = false) => {
     if (all) {
       dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
@@ -62,6 +71,14 @@ const DetailsPayMobile = () => {
       dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
     }
   };
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft:'136px' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <>
@@ -94,8 +111,8 @@ const DetailsPayMobile = () => {
       {/* Mostrar mensaje de carrito vacío si total es 0 */}
       {total === 0 && (
         <Box p={11} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px", marginTop: '-4rem' }} />
-          <Typography sx={{ fontFamily: "Helvetica, sans-serif", fontWeight: "400", textTransform: "none", letterSpacing: 0, margin: '24px' }}>
+          <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px"}} />
+          <Typography sx={{ fontFamily: "Helvetica, sans-serif", fontWeight: "400", textTransform: "none", letterSpacing: 0 }}>
             Tu carrito está vacío <SentimentVeryDissatisfiedIcon sx={SadStyle} />
           </Typography>
         </Box>

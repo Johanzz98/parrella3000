@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, Typography, Divider } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Typography, Divider,CircularProgress  } from "@mui/material";
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import CartDetail from "../Cart/CartDetail";
@@ -51,6 +51,21 @@ const DetailsPay = () => {
     }
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Simular carga de datos (simplemente para demostración)
+    setTimeout(() => {
+      setIsLoading(false); // Cambiar estado a falso después de un tiempo
+    }, 2000); // Puedes ajustar el tiempo según tus necesidades
+  }, []);
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft:'320px',height:'60vh' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
   return (
     <>      {total > 0 && (
     
@@ -59,15 +74,15 @@ const DetailsPay = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          paddingLeft: '2px',
-          
+          paddingLeft: '12px',
+         
           width: '960px',
           paddingTop:'24px',
           backgroundColor: '#f5f5f5',
       
         }}
       >
-    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"167.1%",marginLeft:'-100px',marginBottom:'70px', marginTop:'-120px' }}>
+    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"159.3%",marginLeft:'-20px',marginBottom:'70px', marginTop:'-120px' }}>
       <Typography variant="h3" sx={titulo}>MI COMPRA</Typography>
     </Box>
           <Box p={2} >
@@ -95,7 +110,7 @@ const DetailsPay = () => {
       </Box>
  )}
       {total === 0 && (
-        <Box p={11} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent: 'center', marginLeft:'200px'}}>
+        <Box p={11} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent: 'center', marginLeft:'320px'}}>
           <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px", marginTop: '-4rem', }} />
           <Typography sx={{ fontFamily: "Helvetica, sans-serif", fontWeight: "400", textTransform: "none", letterSpacing: 0, margin: '24px',  }}>
             Tu carrito está vacío <SentimentVeryDissatisfiedIcon sx={SadStyle} />
