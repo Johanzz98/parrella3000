@@ -10,7 +10,7 @@ import { TYPES } from '@/actions/ShoppingActions';
 const titulo = {
   fontSize: '0.9375rem',
   color: '#111',
-  width: '100%',
+  
   textAlign: 'center',
   fontWeight: 700,
 };
@@ -74,7 +74,7 @@ const DetailsPayMobile = () => {
         }}
       >
           {total > 0 && (
-    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"140%",marginLeft:'-80px',marginBottom:'32px' }}>
+    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"125%",marginLeft:'-20px',marginBottom:'32px' }}>
               <Typography variant="h3" sx={titulo}>MI COMPRA</Typography>
             </Box>
         )}
