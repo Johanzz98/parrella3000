@@ -163,7 +163,7 @@ const AboutUs = () => {
         }}
       >
         <img
-              src={`../../assets/AboutUs/BANNER.PNG`}
+              src={`../../../../public/assets/AboutUs/BANNER.png`}
           alt="logo"
           style={{
             width: '100%',
