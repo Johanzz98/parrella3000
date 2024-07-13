@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+const [selectedFileUrl, setSelectedFileUrl] = useState(null);
   const [editCategory, setEditCategory] = useState(null);
   const [editFile, setEditFile] = useState(null); // State to manage the edited file
   const [open, setOpen] = useState(false);
@@ -67,7 +68,7 @@ const Categories = () => {
         },
       });
 
-      setSelectedFile(null);
+      setSelectedFileUrl(null);
       fetchCategories();
       handleClose();
     } catch (error) {
@@ -123,6 +124,7 @@ const Categories = () => {
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
+    setSelectedFileUrl(URL.createObjectURL(event.target.files[0])); // Guarda la URL del archivo seleccionado
   };
 
   const handleEditFileChange = (event) => {
@@ -154,7 +156,7 @@ const Categories = () => {
   }
 
   return (
-    <Box sx={{ marginLeft: '36px' }}>
+    <Box sx={{ marginLeft: '36px',marginBottom:'24px' }}>
         {isSuperAdmin && (
         <>
           <ToastContainer
@@ -255,17 +257,17 @@ const Categories = () => {
                   }}
                   onClick={handleIconClick}
                 >
-                  {selectedFile ? (
-                    <img
-                      src={URL.createObjectURL(selectedFile)}
-                      alt="Selected"
-                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                    />
-                  ) : (
-                    <Typography sx={{ textAlign: 'center', marginRight: '36px', marginLeft: '36px' }}>
-                      Agregar Nueva Categoria
-                    </Typography>
-                  )}
+                  {selectedFileUrl ? (
+  <img
+    src={selectedFileUrl}
+    alt="Selected"
+    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+  />
+) : (
+  <Typography sx={{ textAlign: 'center', marginRight: '36px', marginLeft: '36px' }}>
+    Agregar Nueva Categoria
+  </Typography>
+)}
                 </Box>
                 <input
                   id="fileInput"
