@@ -48,7 +48,7 @@ const Top= () => {
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: '-56px',
-         marginLeft:'24px'
+        
       }}>
         <Typography sx={Title}>Hombre</Typography>
         <KeyboardArrowRightOutlinedIcon sx={{ marginX: '8px', fontSize:'12px' }} />

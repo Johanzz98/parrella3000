@@ -10,7 +10,7 @@ const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 };
 
-const CustomMenu = () => {
+const CustomMenuMan = () => {
   const [categories, setCategories] = useState([]);
 
 
@@ -60,16 +60,16 @@ const CustomMenu = () => {
             Samba zabaratucamba</Typography>
         </Box>
         <img
-    src={`../../assets/MenuMujer/Back.jpg`}
+    src={`../../assets/MenuHombre/left.jpg`}
     alt="logo"
     style={{
       width: "100%",
       height: "100%",
-      maxWidth: "280px",
+      maxWidth: "320px",
       height: "auto",
       position: 'absolute',
      top:46,
-       left:40,
+       left:20,
      
     }}
   />
@@ -162,12 +162,12 @@ const CustomMenu = () => {
        You gotta make it rain</Typography>
         </Box>
   <img
-    src={`../../assets/MenuMujer/Gorra.jpg`}
+    src={`../../assets/MenuHombre/right.jpg`}
     alt="logo"
     style={{
       width: "100%",
       height: "100%",
-      maxWidth: "280px",
+      maxWidth: "320px",
       height: "auto",
       position: 'absolute',
      top:46,
@@ -181,4 +181,4 @@ const CustomMenu = () => {
   )
 }
 
-export default CustomMenu
+export default CustomMenuMan

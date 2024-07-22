@@ -99,7 +99,7 @@ const Header = ({ sortByPriceLowToHigh, sortByPriceHighToLow, sortByAToZ, sortBy
                         >
                             <TuneIcon  sx={{marginRight: isSmallScreen ? '16px' :'0',fontSize:  isSmallScreen ? '16px' :'20px'}}/>
                             <Typography sx={{ ml: isSmallScreen ? -1 : 1, textTransform: "capitalize" }}>
-                                {isSmallScreen ? 'Filtrar' : mostrarFiltrosState ? 'Mostrar Filtros' : 'Ocultar Filtros'}
+                                {isSmallScreen ? 'Filtrar' : mostrarFiltrosState ? 'Mostrar Filtros' : ' '}
                             </Typography>
                             <Divider
                                 orientation="vertical"

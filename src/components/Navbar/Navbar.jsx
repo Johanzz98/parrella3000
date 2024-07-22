@@ -19,6 +19,7 @@ import CartDrawers from "./CartDrawersMax";
 import { useAuth } from "@/context/AuthProvider";
 import { useDispatch } from 'react-redux';
 import CustomMenu from "./CustomMenu";
+import CustomMenuMan from "./CustomMenuMan";
 
 
 const theme = createTheme({
@@ -176,6 +177,18 @@ export default function Navbar() {
     const handleMouseLeave = () => {
       setCollapseOpen(false);
     };
+
+
+    const [collapseHombre, setCollapseHombre] = useState(false);
+
+    const handleMouseEnterHombre = () => {
+      setCollapseHombre(true);
+    };
+    
+    const handleMouseHombreLeave = () => {
+      setCollapseHombre(false);
+    };
+
     const [anchorEl, setAnchorEl] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
     
@@ -263,6 +276,81 @@ export default function Navbar() {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
+    left: '44.5%',
+    transform: 'translateX(-50%)',
+    zIndex: 999, // Asegura que el zIndex sea lo suficientemente alto para estar sobre otros elementos
+  }}
+  onMouseEnter={handleMouseEnterHombre}
+  onMouseLeave={handleMouseHombreLeave}
+>
+<Typography
+    component="a"
+    href="/Hombre"
+    sx={{
+      color: '#111',
+      display: 'flex',
+      fontFamily: 'Helvetica, sans-serif',
+      cursor: 'pointer',
+      textDecoration: 'none', // Quitar subrayado del texto del enlace
+      '&:hover': {
+        color: 'orange',
+      },
+    }}
+  >
+    Hombre
+
+  
+    {collapseHombre && (
+        
+    
+        <Box sx={{backgroundColor:'#111',   cursor: 'pointer', width:'58px', height:'2px',position:'absolute',top:34,left:2}}>
+         
+        </Box>
+
+      )}
+    </Typography>
+    <Box sx={{backgroundColor:'transparent',   cursor: 'pointer', width:'46px', height:'44px',position:'absolute',top:24,}}>
+            {/* Contenido adicional o simplemente un espacio vacío */}
+          </Box>
+      <Collapse
+        in={collapseHombre}
+        timeout="auto"
+        onMouseEnter={handleMouseEnterHombre}
+        onMouseLeave={handleMouseHombreLeave}
+      >
+        <Box
+          sx={{
+            marginTop: '32.7px',
+            overflow: 'visible',
+            maxHeight: '100vh',
+            maxWidth: 'calc(100vw - 16px)',
+            width: '1520px',
+            height: '600px',
+            transformOrigin: 'top center',
+            borderRadius: '0',
+            backgroundColor: '#f5f5f5',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+            zIndex: 999,
+            position: 'absolute',
+            left: '180%',
+            transform: 'translateX(-50%)',
+            pointerEvents: 'auto',
+            opacity: collapseHombre? 1 : 0,
+            transition: 'opacity 300ms',
+            
+          }}
+        >
+          <CustomMenuMan />
+        </Box>
+      </Collapse>
+</Box>
+
+    <Box
+  sx={{
+    display: { xs: "none", sm: "flex" },
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
     left: '50%',
     transform: 'translateX(-50%)',
     zIndex: 999, // Asegura que el zIndex sea lo suficientemente alto para estar sobre otros elementos
@@ -270,30 +358,33 @@ export default function Navbar() {
   onMouseEnter={handleMouseEnter}
   onMouseLeave={handleMouseLeave}
 >
-  <Typography
-    variant="body1"
+<Typography
+    component="a"
+    href="/Women"
     sx={{
+      color: '#111',
+      display: 'flex',
+      fontFamily: 'Helvetica, sans-serif',
       cursor: 'pointer',
-  
-      color: '#000',
+      textDecoration: 'none', // Quitar subrayado del texto del enlace
       '&:hover': {
         color: 'orange',
       },
     }}
   >
-    NEW COLLECTION
+    Mujer
 
   
     {collapseOpen && (
         
     
-        <Box sx={{backgroundColor:'#111',   cursor: 'pointer', width:'153px', height:'2px',position:'absolute',top:34,}}>
+        <Box sx={{backgroundColor:'#111',   cursor: 'pointer', width:'46px', height:'2px',position:'absolute',top:34,left:-2}}>
          
           </Box>
 
         )}
       </Typography>
-      <Box sx={{backgroundColor:'transparent',   cursor: 'pointer', width:'160px', height:'44px',position:'absolute',top:12,}}>
+      <Box sx={{backgroundColor:'transparent',   cursor: 'pointer', width:'46px', height:'44px',position:'absolute',top:24,}}>
             {/* Contenido adicional o simplemente un espacio vacío */}
           </Box>
       <Collapse

@@ -79,7 +79,7 @@ function Products() {
 
   const productCards = filteredProducts.map((product, index) => (
     <Grow in key={index}>
-      <Box sx={{ marginRight: "-6px"}}>
+      <Box sx={{ marginRight: "-8px"}}>
         <Grid item xs={12} sm={6} md={12}>
           <Mostrar item={product} />
         </Grid>
@@ -99,21 +99,7 @@ function Products() {
       />
       <Box sx={{ display: "flex" }}>
         <Hidden smDown>
-          <Slide
-            direction="right"
-            in={!showFilters}
-            mountOnEnter
-            unmountOnExit
-            timeout={500}
-          >
-            <Box sx={{ padding: "0 40px" }}>
-              <FilterPanel
-                handleToggle={handleToggle}
-                selectedItems={selectedItems}
-                updateFilteredProducts={setFilteredProducts} // Pasando la función correctamente
-              />
-            </Box>
-          </Slide>
+       
         </Hidden>
         <Hidden mdUp>
         <Drawer
