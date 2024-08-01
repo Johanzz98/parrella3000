@@ -16,8 +16,9 @@ import Register from '@/components/dashboardAdmin/Register';
 import { useSelector } from 'react-redux';
 import "./app.css";
 import ProductPage from '@/components/dashboardAdmin/ProductPage/ProductPage';
+
 const Dash = () => {
-  const [mainComponent, setMainComponent] = useState(null);
+  const [mainComponent, setMainComponent] = useState(<HeaderAdminTop />);
   const [loading, setLoading] = useState(true);
   const token = useSelector((state) => state.auth.token);
   const userRole = token ? JSON.parse(atob(token.split('.')[1])).role : null;
@@ -26,22 +27,8 @@ const Dash = () => {
     const verifyTokenAndRole = async () => {
       try {
         if (userRole === "SUPER_ADMIN" || userRole === "ADMIN") {
-          // Set main component with admin dashboard components
-          setMainComponent(
-            <>
-              <HeaderAdminTop />
-              <Team />
-              <Contacts />
-              <Invoices />
-              <Form />
-              <Bar />
-              <PieChart />
-              <LineChart />
-              <ProductPage />
-              <Categories />
-              <Register />
-            </>
-          );
+          // Ensure HeaderAdminTop is displayed initially
+          setMainComponent(<HeaderAdminTop />);
         } else {
           // Handle unauthorized access
           throw new Error("Access denied");
@@ -55,7 +42,7 @@ const Dash = () => {
         setLoading(false);
       }
     };
-  
+
     if (token) {
       verifyTokenAndRole();
     } else {
@@ -63,7 +50,7 @@ const Dash = () => {
       // Redirect to error page if token is not present
       window.location.href = '/error';
     }
-  }, [token]);
+  }, [token, userRole]);
 
   const handleMenuClick = (menuItem) => {
     switch (menuItem) {
@@ -103,7 +90,7 @@ const Dash = () => {
     }
   };
 
-  if (loading || !mainComponent) {
+  if (loading) {
     return null; // Or show a loading spinner/message
   }
 
