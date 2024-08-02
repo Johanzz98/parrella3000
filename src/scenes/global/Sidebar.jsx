@@ -5,8 +5,9 @@ import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import { colors } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from '@/api/axios';
+import DoorFrontOutlinedIcon from '@mui/icons-material/DoorFrontOutlined';
 import "react-pro-sidebar/dist/css/styles.css";
-
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -219,8 +220,26 @@ const Sidebar = ({ onMenuClick }) => {
               setSelected={setSelected}
               onMenuClick={onMenuClick}
             />
+             <Divider sx={{ borderColor: '#E6E6E6', marginTop:'12px',marginBottom:'16px' }} />
+             <Item
+              title="Home"
+              icon={<DoorFrontOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              onMenuClick={onMenuClick}
+            />
+              <Divider sx={{ borderColor: '#E6E6E6', marginTop:'12px',marginBottom:'16px' }} />
+             <Item
+              title="Logout"
+              icon={<ExitToAppIcon/>}
+              selected={selected}
+              setSelected={setSelected}
+              onMenuClick={onMenuClick}
+            />
           </Box>
+       
         </Menu>
+       
       </ProSidebar>
     </Box>
   );

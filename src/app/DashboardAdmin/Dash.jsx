@@ -10,7 +10,8 @@ import Form from '@/scenes/form/form';
 import Bar from '@/scenes/Bar/Bar';
 import PieChart from '@/components/PieChart';
 import LineChart from '@/scenes/LineChart/LineChart';
-
+import Home from '@/scenes/Home/Home';
+import Logout from '@/scenes/Logout/Logout';
 import Categories from '@/components/dashboardAdmin/Categories';
 import Register from '@/components/dashboardAdmin/Register';
 import { useSelector } from 'react-redux';
@@ -84,6 +85,12 @@ const Dash = () => {
       case "Line Chart":
         setMainComponent(<LineChart />);
         break;
+        case "Home":
+          setMainComponent(<Home/>);
+          break;
+          case "Logout":
+            setMainComponent(<Logout />);
+            break;
       default:
         setMainComponent(<HeaderAdminTop />);
         break;
@@ -99,6 +106,7 @@ const Dash = () => {
       <Sidebar onMenuClick={handleMenuClick} />
       <Box className="main-content">
         <Topbar />
+        
         {mainComponent}
       </Box>
     </Box>

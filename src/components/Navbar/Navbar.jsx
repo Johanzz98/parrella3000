@@ -8,6 +8,7 @@ import LoginDrawerMax from "./LoginDrawerMax"
 import NextLink from 'next/link'; // Importa el componente NextLink
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 /* Icons */
+import DoorFrontOutlinedIcon from '@mui/icons-material/DoorFrontOutlined';
 import InboxIcon from "@mui/icons-material/Inbox";
 import MenuIcon from "@mui/icons-material/Menu";
 import DraftsIcon from "@mui/icons-material/Drafts";
@@ -50,12 +51,12 @@ const navLinks = [
     },
     {
         title: "Hombre",
-        path: "/SectionProduct",
+   
        
     },
     {
         title: "Mujer",
-        path: "#",
+     
         
     },
    

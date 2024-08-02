@@ -108,13 +108,14 @@ const Lanzamientos = ({ open, onClose }) => {
         {/* Imagen */}
         <Box>
           <img
-            src={`../../assets/Menu/Gorra.jpg`}
+       
+            src={`assets/MenuMujer/Gorra.jpg`}
             alt="logo"
             style={{
               width: "100%",
               height: "auto",
             width: "300px",
-            marginTop:'24px',
+            
             marginBottom:'-24px'
             }}
           />
