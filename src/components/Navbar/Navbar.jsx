@@ -139,7 +139,7 @@ export default function Navbar() {
         if (isAuthenticated) {
             return [
                 {
-                    title: "Centro de Ayuda | ",
+                    title: "Centro de Ayuda  | ",
                     path: "#Like",
                     icon: <FavoriteBorderIcon />,
                 },
@@ -155,7 +155,7 @@ export default function Navbar() {
         } else {
             return [
                 {
-                    title: "Centro de Ayuda | ",
+                    title: "Centro de Ayuda ",
                     path: "#Like",
                     icon: <FavoriteBorderIcon />,
                 },

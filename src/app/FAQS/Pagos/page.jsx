@@ -1,5 +1,6 @@
 "use client";
 import Envios from '@/components/Footer/Help/Envios/Envios';
+import Pagos from '@/components/Footer/Help/Pagos/Pagos';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 const titulo = {
@@ -51,27 +52,28 @@ const page = () => {
 
         <Box sx={{ marginLeft: '16px' }}>
         <span>
-        <a href="/FAQS/Pagos" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <a href="/FAQS/Pagos" style={{ textDecoration: 'underline', color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
-        textDecoration: "none",
+        textDecoration: "underline",
         "&:hover": {
-          textDecoration: "underline"
+          textDecoration: "underline",    color:'orange'
+
         }
       }}
     >Pedidos y pagos</Typography>
      </a>
      </span>
      <span>
-     <a href="/FAQS/Envios" style={{  textDecoration: 'underline',color: 'inherit' }}>
+     <a href="/FAQS/Envios" style={{  textDecoration: 'none',color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
-        textDecoration: 'underline',
+        textDecoration: 'none',
         "&:hover": {
           textDecoration: "underline",
-          color:'orange'
+         
         }
       }}
     >Envios</Typography>
@@ -136,7 +138,7 @@ const page = () => {
 
 
 
-    <Envios/> </Box>
+    <Pagos/> </Box>
    </Box>
   );
 };

@@ -1,4 +1,5 @@
 "use client";
+import Cambios from '@/components/Footer/Help/Cambios/Cambios';
 import Envios from '@/components/Footer/Help/Envios/Envios';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
@@ -51,7 +52,7 @@ const page = () => {
 
         <Box sx={{ marginLeft: '16px' }}>
         <span>
-        <a href="/FAQS/Pagos" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <a href="/FAQS/Pagos"style={{ textDecoration: 'none', color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
@@ -64,27 +65,28 @@ const page = () => {
      </a>
      </span>
      <span>
-     <a href="/FAQS/Envios" style={{  textDecoration: 'underline',color: 'inherit' }}>
+     <a href="/FAQS/Envios" style={{  textDecoration: 'none',color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
-        textDecoration: 'underline',
+        textDecoration: 'none',
         "&:hover": {
           textDecoration: "underline",
-          color:'orange'
+        
         }
       }}
     >Envios</Typography>
      </a>
      </span>
      <span>
-     <a href="/FAQS/Cambios"style={{ textDecoration: 'none', color: 'inherit' }}>
+     <a href="/FAQS/Cambios" style={{ textDecoration: 'underline', color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
         textDecoration: "none",
         "&:hover": {
-          textDecoration: "underline"
+          textDecoration: "underline",
+            color:'orange'
         }
       }}
     >Cambios, Devoluciones y reembolsos</Typography>
@@ -136,7 +138,7 @@ const page = () => {
 
 
 
-    <Envios/> </Box>
+    <Cambios/> </Box>
    </Box>
   );
 };
