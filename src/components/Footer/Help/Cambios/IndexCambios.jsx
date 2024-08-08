@@ -1,45 +1,47 @@
+"use client";
+
+import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { Box, Tooltip, Typography } from '@mui/material';
-import FAQS from './FAQS';
-
+import Cambios from './Cambios';
 const titulo = {
-  fontSize: "16px",
-  fontWeight: "1000",
-  color: "#111",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  fontFamily: "Helvetica,sans-serif",
-
-};
-
-const detalles = {
-  fontSize: "16px",
-  fontWeight: "400",
-  color: "#00174f;",
-  margin:'16px 0',
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  fontFamily: "Helvetica,sans-serif",
+    fontSize: "16px",
+    fontWeight: "1000",
+    color: "#111",
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    fontFamily: "Helvetica,sans-serif",
   
-};
-
-const Index = () => {
+  };
+  
+  const detalles = {
+    fontSize: "16px",
+    fontWeight: "400",
+    color: "#00174f;",
+    margin:'16px 0',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    fontFamily: "Helvetica,sans-serif",
+    
+  };
+const IndexCambios = () => {
   return (
+   <Box>
+
     <Box display="flex" sx={{padding:'24px', backgroundColor:'#f9fafb'}}>
       {/* Contenido izquierdo */}
       <Box sx={{ backgroundColor: 'white', border: '1px solid #e5e5e5', padding: '2.5rem', marginTop: '2.5rem',maxWidth:'85%',height:'10%'}}>
         <Typography sx={{...titulo, color:'#00174f'}}>MENU</Typography>
       
       <span>
-        <a href="/FAQS" style={{ textDecoration: 'underline', color: 'inherit' }}>
+        <a href="/FAQS" style={{ textDecoration: 'none', color: 'inherit' }}>
         <Typography 
       
       sx={{...detalles,
         textDecoration: "none",
         "&:hover": {
-          textDecoration: "underline", color:'orange'
+          textDecoration: "underline"
         }
       }}
     >
@@ -63,33 +65,35 @@ const Index = () => {
      </a>
      </span>
      <span>
-     <a href="/FAQS/Envios"style={{ textDecoration: 'none', color: 'inherit' }}>
+     <a href="/FAQS/Envios" style={{  textDecoration: 'none',color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
-        textDecoration: "none",
+        textDecoration: 'none',
         "&:hover": {
-          textDecoration: "underline"
+          textDecoration: "underline",
+        
         }
       }}
-    >Entrega</Typography>
+    >Envios</Typography>
      </a>
      </span>
      <span>
-     <a href="/FAQS/Cambios" style={{ textDecoration: 'none', color: 'inherit' }}>
+     <a href="/FAQS/Cambios" style={{ textDecoration: 'underline', color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
         textDecoration: "none",
         "&:hover": {
-          textDecoration: "underline"
+          textDecoration: "underline",
+            color:'orange'
         }
       }}
     >Cambios, Devoluciones y reembolsos</Typography>
        </a>
        </span>
        <span>
-       <a href="/FAQS/Cambios"style={{ textDecoration: 'none', color: 'inherit' }}>
+       <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Typography 
       
       sx={{...detalles,
@@ -103,7 +107,7 @@ const Index = () => {
       </span>
         </Box>
         <span>
-        <a href="/FAQS/Tallas" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <a href="/FAQS/Tallas"  style={{ textDecoration: 'none', color: 'inherit' }}>
        <Typography 
       
       sx={{...detalles,
@@ -130,10 +134,13 @@ const Index = () => {
       </span>
       </Box>
 
-      {/* Componente FAQS a la derecha */}
-      <FAQS  />
-    </Box>
+
+
+
+
+    <Cambios/> </Box>
+   </Box>
   );
 };
 
-export default Index;
+export default IndexCambios;

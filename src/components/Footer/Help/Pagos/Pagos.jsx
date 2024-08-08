@@ -31,7 +31,7 @@ const Pagos = () => {
     sx={{
         margin: '40px 0px 0px',
         padding: '0px 40px',
-        width: '50%',
+        width: '70%',
         height: '800px',
         overflow: 'auto', // Habilita el scroll cuando sea necesario
 
@@ -92,7 +92,7 @@ const Pagos = () => {
     fontFamily: "Helvetica,sans-serif",
     
   }}>
-        ¿Es seguro pagar en parrella?
+        ¿Es seguro pagar en Parrella?
         </Typography>
     </Box>
     <Box>
@@ -103,29 +103,8 @@ const Pagos = () => {
  El pago mediante tarjeta de crédito es totalmente seguro. La totalidad de la transacción se realiza de forma cifrada a través de un servidor de validación bancaria utilizándose el protocolo de encriptación SSL (Secure Socket Layer), así pues, el número de su tarjeta de crédito y la fecha de la caducidad quedan instantáneamente encriptados en su ordenador antes de ser enviados al protocolo SSL. <br/> <br/>
     </Typography>
     </Box>
-    <Box>
-        <Typography sx={{ 
-    fontSize: "14px",
-    fontWeight: "600",
-    color: "#00174f",
-    margin:'16px 0',
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
+
     
-  }}>
-        ¿Es seguro pagar en parrella?
-        </Typography>
-    </Box>
-    <Box>
-    <Typography sx={detalles}>
-  
-    ¡Sí, pagar en adidas en muy seguro!
- <br/> <br/>
- El pago mediante tarjeta de crédito es totalmente seguro. La totalidad de la transacción se realiza de forma cifrada a través de un servidor de validación bancaria utilizándose el protocolo de encriptación SSL (Secure Socket Layer), así pues, el número de su tarjeta de crédito y la fecha de la caducidad quedan instantáneamente encriptados en su ordenador antes de ser enviados al protocolo SSL. <br/> <br/>
-    </Typography>
-    </Box>
     <Box>
         <Typography sx={{ 
     fontSize: "14px",

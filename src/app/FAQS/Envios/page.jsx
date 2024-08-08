@@ -1,144 +1,59 @@
 "use client";
-import Envios from '@/components/Footer/Help/Envios/Envios';
-import { Box, Typography } from '@mui/material';
 import React from 'react';
-const titulo = {
-    fontSize: "16px",
-    fontWeight: "1000",
-    color: "#111",
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
-  
-  };
-  
-  const detalles = {
-    fontSize: "16px",
-    fontWeight: "400",
-    color: "#00174f;",
-    margin:'16px 0',
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
-    
-  };
-const page = () => {
+import Index from '@/components/Footer/Help/Index';
+import Navbar from '@/components/Navbar/Navbar';
+import Box from '@mui/material/Box';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Footer from '@/components/Footer/Footer';
+import InfoFinal from '@/components/InfoFinal';
+import FooterDown from '@/components/Footer/FooterDown';
+import ShoppingCart from '@/components/Cart/ShoppingCart';
+import { store } from "@/services/store";
+import { Provider as ReduxProvider } from "react-redux";
+import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvider
+import "./App.css";
+import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
+import IndexEnvios from '@/components/Footer/Help/Envios/IndexEnvios';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#fafafa',
+    },
+    secondary: {
+      main: '#212121',  
+    },
+  },
+});
+const Page = () => {
   return (
-   <Box>
-
-    <Box display="flex" sx={{padding:'24px', backgroundColor:'#f9fafb'}}>
-      {/* Contenido izquierdo */}
-      <Box sx={{ backgroundColor: 'white', border: '1px solid #e5e5e5', padding: '2.5rem', marginTop: '2.5rem',maxWidth:'85%',height:'10%'}}>
-        <Typography sx={{...titulo, color:'#00174f'}}>MENU</Typography>
-      
-      <span>
-        <a href="/FAQS" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >
-      FAQS
-    </Typography>
-        </a>
-      </span>
-
-        <Box sx={{ marginLeft: '16px' }}>
-        <span>
-        <a href="/FAQS/Pagos" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Pedidos y pagos</Typography>
-     </a>
-     </span>
-     <span>
-     <a href="/FAQS/Envios" style={{  textDecoration: 'underline',color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: 'underline',
-        "&:hover": {
-          textDecoration: "underline",
-          color:'orange'
-        }
-      }}
-    >Envios</Typography>
-     </a>
-     </span>
-     <span>
-     <a href="/FAQS/Cambios"style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Cambios, Devoluciones y reembolsos</Typography>
-       </a>
-       </span>
-       <span>
-       <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Productos Falsificados</Typography>
-      </a>
-      </span>
-        </Box>
-        <span>
-        <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-       <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Guia de Tallas</Typography>
-        </a>
-      </span>
-      <span>
-      <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-       <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Contactos</Typography>
-        </a>
-      </span>
-      </Box>
 
 
+    <ThemeProvider theme={theme}>
+    <ReduxProvider store={store()}>
+      <AuthProvider>
+      <Box sx={{ mt: 16 }}>
+      <Navbar />
 
-
-
-    <Envios/> </Box>
-   </Box>
+   <PageWithWhatsAppButton/>
+   <IndexEnvios/>
+         {/* Envuelve ShoppingCart en un div invisible */}
+         <div style={{ display: 'none' }}>
+                <ShoppingCart/>
+              </div>
+            
+              <InfoFinal/>
+              <Footer />
+              <FooterDown/>
+    </Box>
+         
+         </AuthProvider>
+         </ReduxProvider>
+       </ThemeProvider>
   );
 };
 
-export default page;
+export default Page;
+
+

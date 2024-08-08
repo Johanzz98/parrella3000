@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Index from '@/components/Footer/Help/Index';
+import Talla from '@/components/Footer/Help/Talla/Talla'
 import Navbar from '@/components/Navbar/Navbar';
 import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -16,6 +16,7 @@ import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
 import IndexEnvios from '@/components/Footer/Help/Envios/IndexEnvios';
 import IndexCambios from '@/components/Footer/Help/Cambios/IndexCambios';
 import IndexPagos from '@/components/Footer/Help/Pagos/IndexPagos';
+import IndexTalla from '@/components/Footer/Help/Talla/IndexTalla';
 
 
 const theme = createTheme({
@@ -35,11 +36,11 @@ const Page = () => {
     <ThemeProvider theme={theme}>
     <ReduxProvider store={store()}>
       <AuthProvider>
-      <Box sx={{ mt: 16 }}>
+      <Box sx={{ mt: 14 }}>
       <Navbar />
 
    <PageWithWhatsAppButton/>
-  <IndexPagos/>
+ <IndexTalla/>
          {/* Envuelve ShoppingCart en un div invisible */}
          <div style={{ display: 'none' }}>
                 <ShoppingCart/>

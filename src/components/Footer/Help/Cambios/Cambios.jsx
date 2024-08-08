@@ -31,7 +31,7 @@ const Cambios = () => {
     sx={{
         margin: '40px 0px 0px',
         padding: '0px 40px',
-        width: '50%',
+        width: '70%',
         height: '800px',
         overflow: 'auto', // Habilita el scroll cuando sea necesario
 

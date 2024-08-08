@@ -213,7 +213,7 @@ const Footer = () => {
           <Grid container justifyContent="space-between">
             <Box>
               <Typography variaant="subtitle1" color="White" gutterBottom>
-                Ayuda
+              AYUDA Y ASISTENCIA
               </Typography>
               <Box style={fontsMax}>
               <Link
@@ -222,7 +222,40 @@ const Footer = () => {
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                Centro de Ayuda
+                Preguntas Frecuentes
+              </Link>
+              <Link
+                href="#"
+                color="inherit"
+                display="block"
+                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+              >
+                Pedidos y pagos
+              </Link>
+
+              <Link
+                href="#"
+                color="inherit"
+                display="block"
+                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+              >
+                Entregas
+              </Link>
+              <Link
+                href="#"
+                color="inherit"
+                display="block"
+                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+              >
+               Cambios y Devoluciones
+              </Link>
+              <Link
+                href="#"
+                color="inherit"
+                display="block"
+                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+              >
+                Guía de tallas
               </Link>
               <br/>
               <Link
@@ -266,7 +299,7 @@ const Footer = () => {
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                Careers
+                Contactanos
               </Link>
                <br/>
               <Link
@@ -275,7 +308,7 @@ const Footer = () => {
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                Deliverys Information
+               Términos y condiciones
               </Link>
                <br/>
               <Link
@@ -284,7 +317,7 @@ const Footer = () => {
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                Privacy Policy
+               Politicas de privacidad y cookies
               </Link>
                <br/>
               <Link
@@ -293,7 +326,7 @@ const Footer = () => {
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                Terms of Service
+                Política de privacidad
               </Link>
                <br/>
               </Box>
@@ -312,15 +345,8 @@ const Footer = () => {
                 Mi cuenta
               </Link>
                <br/>
-              <Link
-                href="#"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Guía de tallas
-              </Link>
-               <br/>
+           
+             
               <Link
                 href="#"
                 color="inherit"
@@ -330,15 +356,8 @@ const Footer = () => {
                 Ver Carro
               </Link>
                <br/>
-              <Link
-                href="#"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                My Wishlist
-              </Link>
-               <br/>
+            
+              
               <Link
                 href="#"
                 color="inherit"
@@ -347,7 +366,7 @@ const Footer = () => {
               >
                 Retiro
               </Link>
-               <br/>
+             
                </Box>
             </Box>
           </Grid>
@@ -397,7 +416,7 @@ const Footer = () => {
               marginBottom:'12px',
             }}
           >
-            <span>Ayuda</span>
+            <span>Ayuda y Asistencia</span>
             {openProductos ? (
               <ExpandLess sx={{ marginLeft: "auto" }} />
             ) : (
@@ -415,8 +434,7 @@ const Footer = () => {
                 display="block"
                 sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
               >
-                Centro de Ayuda
-              
+               Centro de ayuda
               </Link>
               <br/>
               <Link
