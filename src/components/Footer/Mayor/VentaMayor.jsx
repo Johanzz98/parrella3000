@@ -19,7 +19,7 @@ const VentaMayor = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center', // Centra verticalmente
-        textAlign: 'left',     // Alinea el texto a la izquierda
+        textAlign: 'center',     // Alinea el texto a la izquierda
      
        
       }}
@@ -30,72 +30,148 @@ const VentaMayor = () => {
   color: "#111",
   display: 'flex',
   marginLeft:isSmallScreen ? '24px':'12px',
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
   alignItems: 'center',
   marginBottom:'24px',
   fontFamily: "Helvetica,sans-serif",
   fontOpticalSizing: 'auto',}}>
-        ¿CÓMO PUEDO VENDER AL MAYOR?
+       ¿Conoces los beneficios de comprar tus productos con nosotros?
       </Typography>
     
   
-      <Typography sx={{  fontSize: "18px",
-
-  color: "#111",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',}}>
-        ¿Te interesa comprar ROPA por mayor? ¿Quieres emprender junto a PARRELLA? <br/>
-
-        Aquí tienes  una excelente oportunidad para ser distribuidor de la mejor calidad en tela.<br/>
-        <br/>
-
-        Se acabaron las excusas, es tu momento de crear tu propio  emprendimiento y así comenzar a trazar tu camino.
-        <br/><br/>
-        ¡Comunícate con nosotros vía WhatsApp para ofrecerle las mejores ofertas, el momento es ahora, crea tu propio negocio!
-        <br/><br/>
-        Es por eso que te queremos invitar a ser parte de nuestro proyecto que es ventas al mayor, potencia tus ventas con nosotros
-        y se parte de este gran proyecto.
-      </Typography>
-  
-     <Typography sx={{  fontSize: "18px",
-
-  color: "#111",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',}}>
-     <br/><br/>
-        Si quieres más información sobre nuestros precios al mayor, métodos de trabajo y entregas, escríbenos dándole click al icono de WhatsApp y con gusto te atenderemos.
-      </Typography>
       </Box>
-
-      <Divider/>
-
+      <Typography sx={{  fontSize:isSmallScreen ? "20px": "32px",
+  fontWeight: "400",
+  color: "grey",
+  width:'40%',
+  fontSize:'18px',
+  display: 'flex',
+  marginLeft:isSmallScreen ? '24px':'12px',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom:'24px',
+  fontFamily: "Helvetica,sans-serif",
+  fontOpticalSizing: 'auto',}}>
+Empieza a elevar tus ventas, de manera rápida, sencilla y segura,
+en demayoreo puedes encontrar una amplia lista de productos de alta
+calidad para comercializar tu mismo.
+      </Typography>
       <Box
-  sx={{
-    fontSize:'36px',
-    cursor: 'pointer',
-    padding: '10px',
-    marginTop:'54px',
-    backgroundColor: '#111',  fontFamily: "Helvetica,sans-serif",
-    borderRadius: '24px',
-    color:'#fff',
-    boxShadow: 'none', // Solo necesitas definir esto una vez
-    '&:hover': {
-      backgroundColor: '#111',
-      color: 'grey',
-      boxShadow: 'none', // Y aquí también
-    },
-  }}
-  onClick={handleWhatsAppClick} // Asegúrate de que esta función esté definida en tu componente
->
- 
-        Contactanos
-  </Box>
+      sx={{
+        padding: '0 7.5px',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+        width: '100%',
+        flexWrap: 'wrap', // Allow wrapping on smaller screens
+      }}
+    >
+      {[
+        {
+          title: 'Directo de fabricante hasta tu tienda',
+          text: 'La compra de tu inventario debe ser fácil, económico y rápido, por lo que los productos que adquieras en demayoreo.com serán entregados hasta las puertas de tu negocio.',
+          backgroundColor: '#f9676a', // Red color
+        },
+        {
+          title: 'Amplio surtido',
+          text: 'En demayoreo.com podrás elegir los productos que buscas dentro de un amplio stock. Recuerda que contamos con una gran variedad de categorías.',
+          backgroundColor: '#4a90e2', // Blue color
+        },
+        {
+          title: 'Tenemos los mejores precios',
+          text: 'Compra de mayoreo, tenemos los precios más bajos para que así tus ganancias sean mayores.',
+          backgroundColor: '#50e3c2', // Teal color
+        },
+        {
+          title: 'Compras seguras',
+          text: 'Cuida tu dinero, paga de contado directamente por transferencia. Ten la seguridad de que tu pedido llegará directamente a tu hogar.',
+          backgroundColor: '#e94e77', // Pink color
+        },
+        {
+          title: 'Surte tu tienda',
+          text: 'Surte tu tienda en demayoreo comprando productos a un super precio para venderlos y multiplicar tus ganancias y elevar tus ventas.',
+          backgroundColor: '#f5a623', // Orange color
+        }
+      ].map((item, index) => {
+        // Define marginTop based on title
+        let marginTop;
+        switch (item.title) {
+          case 'Tenemos los mejores precios':
+            marginTop = '-64px';
+            break;
+          case 'Amplio surtido':
+            marginTop = '-42px';
+            break;
+          case 'Compras seguras':
+            marginTop = '-46px';
+            break;
+          case 'Surte tu tienda':
+            marginTop = '-46px';
+            break;
+          default:
+            marginTop = '0';
+        }
+
+        return (
+
+          
+          <Box
+            key={index}
+            sx={{
+             
+              width: '15%', // Make sure all boxes are the same width
+              minWidth: '200px', // Ensure a minimum width
+              height: '300px', // Define a fixed height to keep the size consistent
+              borderRadius: '50px',
+              backgroundColor: item.backgroundColor, // Apply dynamic background color
+              paddingTop: '24px',
+              paddingBottom: '46px',
+              paddingLeft: '27px',
+              paddingRight: '27px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'transform 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-10px)',
+              },
+            }}
+          >
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  textAlign: 'center',
+                  fontFamily: 'Helvetica, sans-serif',
+                  fontOpticalSizing: 'auto',
+                  margin: '-6px 0 16px',
+                  marginTop: marginTop, // Apply the dynamic marginTop
+                }}
+              >
+                {item.title}
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                fontSize: '12px',
+                color: '#ffffff',
+                textAlign: 'center',
+                fontFamily: 'Helvetica, sans-serif',
+                fontOpticalSizing: 'auto',
+                lineHeight: '22px',
+              }}
+            >
+              {item.text}
+            </Typography>
+          </Box>
+        );
+      })}
+    </Box>
     </Box>
   );
 }

@@ -14,6 +14,7 @@ import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvide
 import "./App.css";
 import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
 import More from '@/components/Search/More';
+import Two from '@/components/Search/Two';
 const page = () => {
   return (
     <ReduxProvider store={store()}>
@@ -26,6 +27,7 @@ const page = () => {
     
     <SearchNotFound/>
     <ListSearch/>
+    <Two/>
     <PageWithWhatsAppButton/>
   <More/>
     <InfoFinal/>

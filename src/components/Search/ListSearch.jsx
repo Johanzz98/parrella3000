@@ -339,8 +339,6 @@ export const ListSearch = () => {
         </Box>
       </Box>
 
-      {/* Divider */}
-      <Divider sx={{ borderColor: '#9e9e9e', width: '50%', margin: '16px 0',marginBottom:'-12px' }} />
     </Box>
   );
 };

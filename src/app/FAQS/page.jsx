@@ -32,7 +32,7 @@ const Page = () => {
     <ThemeProvider theme={theme}>
     <ReduxProvider store={store()}>
       <AuthProvider>
-      <Box sx={{ mt: 16 }}>
+      <Box sx={{ mt: 13 }}>
       <Navbar />
 
    <PageWithWhatsAppButton/>
@@ -41,8 +41,9 @@ const Page = () => {
          <div style={{ display: 'none' }}>
                 <ShoppingCart/>
               </div>
-            
+            <Box sx={{marginTop:'-54px'}}>
               <InfoFinal/>
+              </Box>
               <Footer />
               <FooterDown/>
     </Box>

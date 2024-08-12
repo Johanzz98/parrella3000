@@ -13,6 +13,10 @@ import { Provider as ReduxProvider } from "react-redux";
 import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvider
 import "./App.css";
 import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
+import LastPhoto from '@/components/Footer/Mayor/LastPhoto';
+import Banner from '@/components/Footer/Mayor/Banner';
+import Detalles from '@/components/Footer/Mayor/Detalles';
+import Venta from '@/components/Footer/Mayor/Venta';
 
 
 const theme = createTheme({
@@ -39,7 +43,10 @@ const page = () => {
     >
              <Navbar />
              <PageWithWhatsAppButton/>
+            <Banner/>
        <VentaMayor/>
+    <Detalles/>
+       <Venta/>
        <div style={{ display: 'none' }}>
                 <ShoppingCart/>
               </div>
