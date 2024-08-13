@@ -11,7 +11,7 @@ import ShoppingCart from '@/components/Cart/ShoppingCart';
 import { store } from "@/services/store";
 import { Provider as ReduxProvider } from "react-redux";
 import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvider
-import "./App.css";
+import "./app.css";
 import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
 
 
