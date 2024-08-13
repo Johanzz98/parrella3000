@@ -31,7 +31,7 @@ const Page = () => {
     <ThemeProvider theme={theme}>
       <ReduxProvider store={store()}>
         <AuthProvider>
-          <Box sx={{ mt: 16 }}>
+          <Box sx={{ mt: 15 }}>
             <Navbar />
             <PageWithWhatsAppButton/>
         
