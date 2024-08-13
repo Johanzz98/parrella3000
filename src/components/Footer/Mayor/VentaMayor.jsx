@@ -29,6 +29,7 @@ const VentaMayor = () => {
   fontWeight: "1000",
   color: "#111",
   display: 'flex',
+  marginTop:'54px',
   marginLeft:isSmallScreen ? '24px':'12px',
   justifyContent: 'center',
   alignItems: 'center',

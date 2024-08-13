@@ -91,28 +91,16 @@ const IndexPoliticaPrivacidad = () => {
     >Cambios, Devoluciones y reembolsos</Typography>
        </a>
        </span>
-       <span>
-       <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Productos Falsificados</Typography>
-      </a>
-      </span>
+    
         </Box>
         <span>
-        <a href="/FAQS/Tallas" style={{ textDecoration: 'underline', color: 'inherit' }}>
+        <a href="/FAQS/Tallas" style={{ textDecoration: 'none', color: 'inherit' }}>
        <Typography 
       
       sx={{...detalles,
         textDecoration: "none",
         "&:hover": {
-          textDecoration: "underline",color:'orange'
+          textDecoration: "underline",
         }
       }}
     >Guia de Tallas</Typography>

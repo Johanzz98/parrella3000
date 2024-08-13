@@ -92,19 +92,7 @@ const IndexCambios = () => {
     >Cambios, Devoluciones y reembolsos</Typography>
        </a>
        </span>
-       <span>
-       <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography 
       
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Productos Falsificados</Typography>
-      </a>
-      </span>
         </Box>
         <span>
         <a href="/FAQS/Tallas"  style={{ textDecoration: 'none', color: 'inherit' }}>
