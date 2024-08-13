@@ -108,6 +108,19 @@ const IndexPagos = () => {
         </a>
       </span>
       <span>
+        <a href="/FAQS/Tallas"  style={{ textDecoration: 'none', color: 'inherit' }}>
+       <Typography 
+      
+      sx={{...detalles,
+        textDecoration: "none",
+        "&:hover": {
+          textDecoration: "underline"
+        }
+      }}
+    >Guia de Talla</Typography>
+        </a>
+      </span>
+      <span>
       <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
        <Typography 
       
