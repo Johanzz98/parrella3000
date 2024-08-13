@@ -104,7 +104,7 @@ const IndexPagos = () => {
           textDecoration: "underline"
         }
       }}
-    >Guia de Tallas</Typography>
+    >Guia de Talla</Typography>
         </a>
       </span>
       <span>
