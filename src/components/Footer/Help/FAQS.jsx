@@ -32,6 +32,7 @@ const FAQS = () => {
         fontSize: isMobile ? '12px':"16px",
          fontWeight: "1000",
          color: "#061853",
+       
          display: 'flex',
          justifyContent: 'flex-start',
          alignItems: 'center',
@@ -43,7 +44,7 @@ const FAQS = () => {
            fontSize: "12px",
            fontWeight: "400",
            color: "#5a5c66;",
-           padding: isMobile ? '16px' :0,
+           padding: isMobile ? '24px' :0,
            display: 'flex',
            justifyContent: 'flex-start',
            alignItems: 'center',
@@ -80,7 +81,7 @@ const FAQS = () => {
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -138,7 +139,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -152,7 +153,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                    <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                         ¿QUÉ OPCIONES DE ENTREGA HAY?
                     </Typography>
                     {showDescription1 ? (
@@ -198,7 +199,7 @@ Puedes hacer tu elección de entrega durante el proceso de check out.
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -256,7 +257,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -270,7 +271,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                     <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                        ¿DÓNDE ESTÁN LAS GUÍAS DE TALLAS?
                     </Typography>
                     {showDescription3 ? (
@@ -313,7 +314,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -327,7 +328,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                     <Typography  sx={{...titulo,marginLeft: isMobile ? '0' : 0, }}>
                         ¿QUÉ HAGO SI RECIBO UN ARTÍCULO ERRÓNEO?
                     </Typography>
                     {showDescription4 ? (
@@ -379,7 +380,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -434,7 +435,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -486,7 +487,7 @@ Si ves los daños después de la entrega, ponte en contacto con el equipo de Ate
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -500,7 +501,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                     <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                     ¿DÓNDE ESTÁ MI PEDIDO?
                     </Typography>
                     {showDescription7 ? (
@@ -567,7 +568,7 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -581,7 +582,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                     <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                         ¿CUÁLES SON LAS FORMAS DE PAGO?
                     </Typography>
                     {showDescription8 ? (
@@ -626,7 +627,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -687,7 +688,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -701,7 +702,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                     <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                     ¿POR QUÉ SE HA CANCELADO MI PEDIDO?
                     </Typography>
                     {showDescription10 ? (
@@ -752,7 +753,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -826,7 +827,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -840,7 +841,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                   <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                     ¿CÓMO CREO UNA CUENTA?
                     </Typography>
                     {showDescription12 ? (
@@ -888,7 +889,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -949,7 +950,7 @@ width:  isMobile ? '380px' : '800px',
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -1009,7 +1010,7 @@ Si quieres modificar tus datos personales, ve a la sección "Tu cuenta" de la we
                 padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-width:  isMobile ? '380px' : '800px',
+width:  isMobile ? '370px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -1023,7 +1024,7 @@ width:  isMobile ? '380px' : '800px',
           },
                     }}
                 >
-                    <Typography sx={titulo}>
+                    <Typography  sx={{...titulo,marginLeft: isMobile ? '18px' : 0, }}>
                     ¿CÓMO RESTABLEZCO MI CONTRASEÑA?
                     </Typography>
                     {showDescription15 ? (

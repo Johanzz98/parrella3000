@@ -34,9 +34,9 @@ const Page = () => {
         <AuthProvider>
           <Box sx={{ mt: 15 }}>
             <Navbar />
-            <Hidden mdDown>
+          
             <PageWithWhatsAppButton/>
-            </Hidden>
+           
             <IndexTerminos/>
             <div style={{ display: 'none' }}>
               <ShoppingCart/>
