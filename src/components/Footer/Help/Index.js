@@ -146,7 +146,7 @@ const Index = () => {
         itemClass="carousel-item"
         swipeable={true}
         draggable={true}
-        customTransition="transform 0.15s ease-in-out"
+        customTransition="transform 0.5s ease-in-out"
         swipeThreshold={0.25}
         shouldResetAfterIdle={false} // Evita que el carrusel vuelva al inicio después de un período de inactividad
       >
@@ -170,7 +170,7 @@ const Index = () => {
             "&:hover": { textDecoration: "underline", color: 'orange' },
           }}
         >
-          FAQS1
+          FAQS2
         </Typography>
       </a>
       </Box>
