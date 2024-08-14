@@ -134,7 +134,7 @@ const Index = () => {
       {/* Contenido izquierdo para pantallas menores a md */}
       <Hidden mdUp>
       
-  <Box sx={{ width: '100%',  padding: '24px 12px 0' }}>
+  <Box sx={{ width: '100%',  padding: '24px 12px 0',marginBottom:'222px' }}>
     <Carousel
       responsive={responsive}
       infinite={false}
@@ -249,7 +249,7 @@ const Index = () => {
     backgroundColor: 'white',
     border: '1px solid #e5e6ed',
     borderRadius: '0',
-    marginLeft:'0',
+    marginLeft:'160px',
     width: '120px',
     height: '40px',
     textTransform: 'capitalize',
