@@ -145,7 +145,7 @@ const Index = () => {
       itemClass="carousel-item"
       swipeable={true}
       draggable={true}
-      customTransition="transform 0.5s ease-in-out"
+      customTransition="transform 0.15s ease-in-out"
     >
   
    <Box
