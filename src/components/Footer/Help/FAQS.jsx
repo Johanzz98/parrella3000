@@ -72,10 +72,10 @@ const FAQS = () => {
             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+               padding:'20px',
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+                width: '380px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
