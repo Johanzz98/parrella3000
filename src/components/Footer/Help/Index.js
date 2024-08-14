@@ -135,18 +135,20 @@ const Index = () => {
       <Hidden mdUp>
       
   <Box sx={{ width: '100%',  padding: '24px 12px 0',marginBottom:'222px' }}>
-  <Carousel
+  <div style={{ touchAction: 'pan-y', height: '100%' }} />
+      <Carousel
         responsive={responsive}
         infinite={false}
         arrows={false}
-        autoPlay={false} // Considera habilitarlo con una velocidad adecuada
-        autoPlaySpeed={5000} // Ajusta según sea necesario
+        autoPlay={false}
+        autoPlaySpeed={5000}
         containerClass="carousel-container"
         itemClass="carousel-item"
         swipeable={true}
         draggable={true}
-        customTransition="transform 0.15s ease-in-out" // Asegura una transición suave
-        swipeThreshold={0.5} // Ajusta la sensibilidad del deslizamiento
+        customTransition="transform 0.15s ease-in-out"
+        swipeThreshold={0.25}
+        shouldResetAfterIdle={false} // Evita que el carrusel vuelva al inicio después de un período de inactividad
       >
   
    <Box
