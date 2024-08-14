@@ -135,18 +135,19 @@ const Index = () => {
       <Hidden mdUp>
       
   <Box sx={{ width: '100%',  padding: '24px 12px 0',marginBottom:'222px' }}>
-    <Carousel
-      responsive={responsive}
-      infinite={false}
-      arrows={false}
-      autoPlay={false}
-      autoPlaySpeed={3000}
-      containerClass="carousel-container"
-      itemClass="carousel-item"
-      swipeable={true}
-      draggable={true}
-      customTransition="transform 0.15s ease-in-out"
-    >
+  <Carousel
+        responsive={responsive}
+        infinite={false}
+        arrows={false}
+        autoPlay={false} // Considera habilitarlo con una velocidad adecuada
+        autoPlaySpeed={5000} // Ajusta según sea necesario
+        containerClass="carousel-container"
+        itemClass="carousel-item"
+        swipeable={true}
+        draggable={true}
+        customTransition="transform 0.15s ease-in-out" // Asegura una transición suave
+        swipeThreshold={0.25} // Ajusta la sensibilidad del deslizamiento
+      >
   
    <Box
   sx={{
