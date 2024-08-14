@@ -13,6 +13,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { AuthProvider } from "@/context/AuthProvider"; // Importa el AuthProvider
 import "./App.css";
 import PageWithWhatsAppButton from '@/PageWithWhatsAppButton';
+import { Hidden } from '@mui/material';
 
 
 const theme = createTheme({
@@ -33,8 +34,9 @@ const Page = () => {
         <AuthProvider>
           <Box sx={{ mt: 15 }}>
             <Navbar />
+            <Hidden mdDown>
             <PageWithWhatsAppButton/>
-        
+            </Hidden>
             <IndexTerminos/>
             <div style={{ display: 'none' }}>
               <ShoppingCart/>

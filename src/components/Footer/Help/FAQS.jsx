@@ -1,34 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Button, Divider, Link, Typography } from "@mui/material";
+import { Box, Button, Divider, Link, Typography, useMediaQuery } from "@mui/material";
 import { CSSTransition } from "react-transition-group";
 
 //icons
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-const titulo = {
-  fontSize: "16px",
-  fontWeight: "1000",
-  color: "#061853",
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  fontFamily: "Helvetica,sans-serif",
 
-};
-
-const detalles = {
-    fontSize: "12px",
-    fontWeight: "400",
-    color: "#5a5c66;",
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
-  
-  };
 
 const FAQS = () => {
+    const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
     const [showDescription, setShowDescription] = useState(false);
     const [showDescription1, setShowDescription1] = useState(false);
     const [showDescription2, setShowDescription2] = useState(false);
@@ -46,8 +27,32 @@ const FAQS = () => {
     const [showDescription14, setShowDescription14] = useState(false);
     const [showDescription15, setShowDescription15] = useState(false);
     
+
+    const titulo = {
+        fontSize: isMobile ? '12px':"16px",
+         fontWeight: "1000",
+         color: "#061853",
+         display: 'flex',
+         justifyContent: 'flex-start',
+         alignItems: 'center',
+         fontFamily: "Helvetica,sans-serif",
+       
+       };
+       
+       const detalles = {
+           fontSize: "12px",
+           fontWeight: "400",
+           color: "#5a5c66;",
+           padding: isMobile ? '16px' :0,
+           display: 'flex',
+           justifyContent: 'flex-start',
+           alignItems: 'center',
+           fontFamily: "Helvetica,sans-serif",
+         
+         };
+       
       return (
-        <Box sx={{ padding: 8}}>
+        <Box sx={{ marginLeft: isMobile ? '-12px':0,padding: 8}}>
             <Typography sx={{  fontSize: "18px",
   fontWeight: "1000",
   color: "#061853",
@@ -59,7 +64,7 @@ const FAQS = () => {
   fontFamily: "Helvetica,sans-serif",}}>
                 PREGUNTAS FRECUENTES
             </Typography>
-            <Typography sx={{   fontSize: "14px",
+            <Typography sx={{   fontSize: isMobile ? '12px': "14px" ,
     fontWeight: "400",
     color: "#5a5c66;",
     display: 'flex',
@@ -72,10 +77,10 @@ const FAQS = () => {
             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-               padding:'20px',
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
                 marginTop: '24px',
-                width: '380px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -127,13 +132,13 @@ const FAQS = () => {
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -187,13 +192,13 @@ Puedes hacer tu elección de entrega durante el proceso de check out.
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -245,13 +250,13 @@ Puedes hacer tu elección de entrega durante el proceso de check out.
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -302,13 +307,13 @@ Puedes hacer tu elección de entrega durante el proceso de check out.
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -368,13 +373,13 @@ Puedes hacer tu elección de entrega durante el proceso de check out.
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -423,13 +428,13 @@ Puedes hacer tu elección de entrega durante el proceso de check out.
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -475,13 +480,13 @@ Si ves los daños después de la entrega, ponte en contacto con el equipo de Ate
                     </Box>
                 </CSSTransition>
             </Box>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -556,13 +561,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
   fontFamily: "Helvetica,sans-serif",}}>
             PEDIDOS Y PAGOS
             </Typography>
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -615,13 +620,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
                 </CSSTransition>
             </Box>
 
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -676,13 +681,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
                 </CSSTransition>
             </Box>
 
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -741,13 +746,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
                 </CSSTransition>
             </Box>
 
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -815,13 +820,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
             </Typography>
 
         
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -877,13 +882,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
             </Box>
 
             
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -938,13 +943,13 @@ Recuerda que si eres miembro también podrás acceder al estado de tu pedido ing
                 </CSSTransition>
             </Box>
             
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
@@ -998,13 +1003,13 @@ Si quieres modificar tus datos personales, ve a la sección "Tu cuenta" de la we
                 </CSSTransition>
             </Box>
             
-            <Box sx={{ 
+             <Box sx={{ 
                 backgroundColor: 'white', 
                 border: '1px solid #e5e5e5', 
-                padding: '24px 32px', 
+                padding: isMobile ? '12px 0' : '24px 32px', 
                 margin: '0px 0px 4px',
-                marginTop: '6px',
-                width: '800px',
+                marginTop: '24px',
+width:  isMobile ? '380px' : '800px',
                 maxWidth:'100%',
                 display: 'flex',
                 flexDirection: 'column'
