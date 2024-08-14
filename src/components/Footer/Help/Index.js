@@ -146,7 +146,7 @@ const Index = () => {
         swipeable={true}
         draggable={true}
         customTransition="transform 0.15s ease-in-out" // Asegura una transición suave
-        swipeThreshold={0.25} // Ajusta la sensibilidad del deslizamiento
+        swipeThreshold={0.5} // Ajusta la sensibilidad del deslizamiento
       >
   
    <Box
@@ -168,7 +168,7 @@ const Index = () => {
             "&:hover": { textDecoration: "underline", color: 'orange' },
           }}
         >
-          FAQS
+          FAQS1
         </Typography>
       </a>
       </Box>
