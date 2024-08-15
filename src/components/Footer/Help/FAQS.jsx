@@ -361,7 +361,7 @@ width:  isMobile ? '360px' : '800px',
                         <Typography sx={{  fontSize: "12px",
     fontWeight: "400",
     color: "#5a5c66;",
-    
+    padding: isMobile ? '12px' :0,
     justifyContent: 'flex-start',
     alignItems: 'center',
     fontFamily: "Helvetica,sans-serif",}}>
@@ -414,12 +414,21 @@ width:  isMobile ? '360px' : '800px',
                     classNames="description"
                     unmountOnExit
                 >
+                    
                     <Box>
                         <Box>
+                        <Divider
+          sx={{
+            marginTop:'-6px',
+            marginBottom:'12px',
+            bgcolor: "#f5f5f5",
+            textAlign: "center",
+          }}
+        />
                             <Typography sx={{ fontSize: "12px",
     fontWeight: "400",
     color: "#5a5c66;",
-    
+    padding: isMobile ? '24px' :0,
     justifyContent: 'flex-start',
     alignItems: 'center',
     fontFamily: "Helvetica,sans-serif",}}>
@@ -470,7 +479,14 @@ width:  isMobile ? '360px' : '800px',
                     unmountOnExit
                 >
                     <Box>
-                        <Box>
+                        <Box>       <Divider
+          sx={{
+            marginTop:'-6px',
+            marginBottom:'12px',
+            bgcolor: "#f5f5f5",
+            textAlign: "center",
+          }}
+        />
                             <Typography sx={detalles}>
                             Cada pedido que sale de nuestra bodega se inspecciona cuidadosamente. Si recibes un paquete dañado, ponte en contacto con nuestro equipo de Atención al Cliente:<br/><br/>
 Antes de aceptar la entrega, revisa la bolsa y el contenido para saber si se ha producido algún daño en el transporte. Si notas que la bolsa ha sido alterada puedes rechazar el pedido. En este caso, ponte en contacto con nosotros inmediatamente.<br/><br/>
@@ -1056,7 +1072,7 @@ width:  isMobile ? '360px' : '800px',
         />
                         <Box>
                             <Typography sx={detalles}>
-                            Para restablecer la contraseña, haz clic en el botón ""Iniciar sesión"" en la parte superior derecha de la página web y después en el enlace ""¿Has olvidado tu contraseña?"" que aparece en la parte inferior de la ventana de inicio.
+                            Para restablecer la contraseña, haz clic en el botón "Iniciar sesión" en la parte superior derecha de la página web y después en el enlace ""¿Has olvidado tu contraseña?"" que aparece en la parte inferior de la ventana de inicio.
                             <br/><br/>
                              Te enviaremos un correo electrónico para restablecer la contraseña en unos pocos clics. Recibirás este correo electrónico en un plazo de 48 horas.
                             </Typography>
