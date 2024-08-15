@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, Typography } from '@mui/material';
+import { Box, CardContent, Grid, Hidden, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -56,13 +56,13 @@ const MenuProps = {
 export default function Talla() {
   const theme = useTheme();
   const [selectedOption, setSelectedOption] = React.useState('Mujer');
-
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const renderTable = (rows, showXXS) => (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{width:isMobile ? '400px' : '100%', marginLeft: isMobile ? '28px':0}}>
       <Table sx={{ minWidth: 750 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -181,7 +181,8 @@ export default function Talla() {
   );
 
   return (
-    <Box sx={{ padding: 12,marginTop:'-24px' }}>
+    <Box sx={{ padding:  isMobile ? 0: 12,marginTop:'-24px' }}>
+      <Hidden mdDown>
       <Box>
         <Typography
           sx={{
@@ -248,6 +249,98 @@ export default function Talla() {
       {/* Renderiza la tabla según la opción seleccionada */}
       {selectedOption === 'Mujer' && renderTable(rowsMujer, true)}
       {selectedOption === 'Hombre' && renderTable(rowsHombre, false)}
+    
+      </Hidden>
+      <Box >
+    
+
+        {/* Para el resto de pantallas, muestra este elemento */}
+        <Hidden mdUp>
+        <Box
+  sx={{
+    display: 'flex',
+    flexDirection: 'column', // Cambia la dirección del flex a columna
+    alignItems: 'flex-start',
+    gap: 2,
+    marginTop:'36px',
+    marginLeft:'44px',
+    marginBottom:'24px',
+  }}
+>
+  <Typography
+    sx={{
+      fontSize: "24px",
+      fontWeight: "1000",
+      color: "#091952",
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      marginBottom: '24px',
+      fontFamily: "Helvetica, sans-serif",
+    }}
+  >
+    GUIA DE TALLAS
+  </Typography>
+
+  <Box
+    sx={{
+
+      width: 300, // Max ancho para mantener el diseño en dispositivos más grandes
+      border: '1px solid #04144c',
+      height: 56,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderRadius: '6px',
+      marginBottom: 2,
+    }}
+  >
+    <Typography sx={{ marginLeft: '13px' }}>
+      Parrella
+    </Typography>
+  </Box>
+
+  <FormControl sx={{ width: '100%', maxWidth: 300 }}>
+    <Select
+      labelId="select-label"
+      id="select"
+      value={selectedOption}
+      onChange={handleChange}
+      MenuProps={MenuProps}
+      sx={{
+        border: '1px solid #04144c',
+      }}
+    > 
+      <MenuItem value="Mujer">Mujer</MenuItem>
+      <MenuItem value="Hombre">Hombre</MenuItem>
+    </Select>
+  </FormControl>
+
+        <Box
+          sx={{
+            width: 300,
+            border: '1px solid #04144c',
+            height: 56,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            borderRadius: '6px',
+          }}
+        >
+          <Typography sx={{ marginLeft: '13px' }}>
+          Polos, Poleras, Camisas y Blusas
+          </Typography>
+        </Box>
+      </Box>
+      {/* Renderiza la tabla según la opción seleccionada */}
+      {selectedOption === 'Mujer' && renderTable(rowsMujer, true)}
+      {selectedOption === 'Hombre' && renderTable(rowsHombre, false)}
+    
+      </Hidden>
+
+      
+        
+      </Box>
     </Box>
   );
 }
