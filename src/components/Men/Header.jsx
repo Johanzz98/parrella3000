@@ -50,7 +50,7 @@ const Header = () => {
   <img
 
   
-    src={`../../assets/Hombre/just.png`}
+     src="/assets/Hombre/just.png"
     alt="logo"
     style={{
       maxWidth: isSmallScreen ?'90%':'100%',      // Ajustar el tamaño máximo de la imagen
@@ -94,7 +94,7 @@ const Header = () => {
             fontFamily: "Helvetica,sans-serif",
             fontOpticalSizing: 'auto',
            }}>
-        Ropas
+        Ropas2
       </Typography>
       <Box
         sx={{
