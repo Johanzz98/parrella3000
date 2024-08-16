@@ -164,6 +164,7 @@ const IndexTalla = () => {
           overflowY: 'hidden', // Oculta cualquier barra de desplazamiento vertical si la hubiera
           whiteSpace: 'nowrap',
           padding: '12px 0',
+          marginTop:'-32px',
 
           // Estilos para ocultar las barras de desplazamiento
           '&::-webkit-scrollbar': {

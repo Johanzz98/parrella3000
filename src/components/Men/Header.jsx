@@ -48,7 +48,8 @@ const Header = () => {
       >
        
   <img
-    src={'../../assets/Hombre/just.png'}  // Ruta de la imagen (ajusta según tu estructura de archivos)
+
+    src={`/assets/Hombre/just.png`}
     alt="logo"
     style={{
       maxWidth: isSmallScreen ?'90%':'100%',      // Ajustar el tamaño máximo de la imagen

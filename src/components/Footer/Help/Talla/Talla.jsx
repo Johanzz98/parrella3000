@@ -308,7 +308,7 @@ export default function Talla() {
       onChange={handleChange}
       MenuProps={MenuProps}
       sx={{
-        border: '1px solid #04144c',
+        border: '1px solid #04144c',marginBottom:'18px',
       }}
     > 
       <MenuItem value="Mujer">Mujer</MenuItem>
