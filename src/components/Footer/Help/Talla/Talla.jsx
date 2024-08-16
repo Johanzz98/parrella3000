@@ -62,7 +62,7 @@ export default function Talla() {
   };
 
   const renderTable = (rows, showXXS) => (
-    <TableContainer component={Paper} sx={{width:isMobile ? '400px' : '100%', marginLeft: isMobile ? '28px':0}}>
+    <TableContainer component={Paper} sx={{width:isMobile ? '380px' : '100%', marginLeft: isMobile ? '42px':0}}>
       <Table sx={{ minWidth: 750 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
