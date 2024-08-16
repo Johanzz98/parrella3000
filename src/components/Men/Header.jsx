@@ -49,7 +49,7 @@ const Header = () => {
        
   <img
 
-    src={`assets/Hombre/just.png`}
+    src="/assets/Hombre/just.png"
     
     alt="logo"
     style={{
