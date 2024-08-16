@@ -49,7 +49,8 @@ const Header = () => {
        
   <img
 
-    src={`/assets/Hombre/just.png`}
+    src={`assets/Hombre/just.png`}
+    
     alt="logo"
     style={{
       maxWidth: isSmallScreen ?'90%':'100%',      // Ajustar el tamaño máximo de la imagen
