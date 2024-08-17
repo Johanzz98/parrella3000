@@ -140,7 +140,7 @@ export default function Navbar() {
             return [
                 {
                     title: "Centro de Ayuda  | ",
-                    path: "#Like",
+                    path: "/FAQS",
                     icon: <FavoriteBorderIcon />,
                 },
                 {
@@ -156,7 +156,7 @@ export default function Navbar() {
             return [
                 {
                     title: "Centro de Ayuda ",
-                    path: "#Like",
+                    path: "/FAQS",
                     icon: <FavoriteBorderIcon />,
                 },
                 {

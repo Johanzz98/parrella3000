@@ -106,6 +106,15 @@ const Index = () => {
                 </Typography>
               </a>
             </span>
+            <span>
+       <a href="/FAQS/Pedidos" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Typography 
+                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" }  }}
+              >
+                Estado de mi Pedido
+              </Typography>
+            </a>
+          </span>
           </Box>
           <span>
             <a href="/FAQS/Tallas" style={{ textDecoration: 'none', color: 'inherit' }}>
