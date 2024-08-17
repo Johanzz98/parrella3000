@@ -44,7 +44,7 @@ const VentaMayor = () => {
       <Typography sx={{  fontSize:isSmallScreen ? "20px": "32px",
   fontWeight: "400",
   color: "grey",
-  width:'40%',
+  width:isSmallScreen ? '100%':'40%',
   fontSize:'18px',
   display: 'flex',
   marginLeft:isSmallScreen ? '24px':'12px',
@@ -54,7 +54,7 @@ const VentaMayor = () => {
   fontFamily: "Helvetica,sans-serif",
   fontOpticalSizing: 'auto',}}>
 Empieza a elevar tus ventas, de manera rápida, sencilla y segura,
-en demayoreo puedes encontrar una amplia lista de productos de alta
+en Parrella puedes encontrar una amplia lista de productos de alta
 calidad para comercializar tu mismo.
       </Typography>
       <Box
@@ -72,12 +72,12 @@ calidad para comercializar tu mismo.
       {[
         {
           title: 'Directo de fabricante hasta tu tienda',
-          text: 'La compra de tu inventario debe ser fácil, económico y rápido, por lo que los productos que adquieras en demayoreo.com serán entregados hasta las puertas de tu negocio.',
+          text: 'La compra de tu inventario debe ser fácil, económico y rápido, por lo que los productos que adquieras en Parrella.com serán entregados hasta las puertas de tu negocio.',
           backgroundColor: '#f9676a', // Red color
         },
         {
           title: 'Amplio surtido',
-          text: 'En demayoreo.com podrás elegir los productos que buscas dentro de un amplio stock. Recuerda que contamos con una gran variedad de categorías.',
+          text: 'En Parrella.com podrás elegir los productos que buscas dentro de un amplio stock. Recuerda que contamos con una gran variedad de categorías.',
           backgroundColor: '#4a90e2', // Blue color
         },
         {
@@ -92,7 +92,7 @@ calidad para comercializar tu mismo.
         },
         {
           title: 'Surte tu tienda',
-          text: 'Surte tu tienda en demayoreo comprando productos a un super precio para venderlos y multiplicar tus ganancias y elevar tus ventas.',
+          text: 'Surte tu tienda en Parrella comprando productos a un super precio para venderlos y multiplicar tus ganancias y elevar tus ventas.',
           backgroundColor: '#f5a623', // Orange color
         }
       ].map((item, index) => {

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
 
 
@@ -26,13 +26,19 @@ const titulo = {
     
   };
 const PoliticaCookies = () => {
+
+
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
   return (
     <Box
     sx={{
+   
         margin: '40px 0px 0px',
         padding: '0px 40px',
-        width: '70%',
-        height: '800px',
+        marginLeft:isMobile ? '6px' : 0,
+        paddingRight: isMobile ? '24px' :0,
+        width:  isMobile ? '95%':'70%',
+        height: isMobile ?  '100%': '800px',
         overflow: 'auto', // Habilita el scroll cuando sea necesario
 
     }}

@@ -116,15 +116,7 @@ const Index = () => {
               </Typography>
             </a>
           </span>
-          <span>
-            <a href="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Typography 
-                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
-              >
-                Contactos
-              </Typography>
-            </a>
-          </span>
+      
         </Box>
            {/* Componente FAQS a la derecha */}
       <FAQS />

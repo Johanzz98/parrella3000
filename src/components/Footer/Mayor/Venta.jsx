@@ -28,7 +28,7 @@ export default function Venta() {
       />
       <Typography  sx={{
           position: 'absolute',
-          bottom: '12%', // Ajusta la posición vertical según sea necesario
+          bottom: '18%', // Ajusta la posición vertical según sea necesario
           left: '10%', // Ajusta la posición horizontal según sea necesario
           backgroundColor: 'transparent',
           color: 'white',
@@ -45,7 +45,7 @@ export default function Venta() {
   href="/Women"
   sx={{
     position: 'absolute',
-    bottom: '5%', // Ajusta la posición vertical según sea necesario
+    bottom: '8%', // Ajusta la posición vertical según sea necesario
     left: '10%', // Ajusta la posición horizontal según sea necesario
     backgroundColor: 'transparent',
     color: 'white',
@@ -82,7 +82,7 @@ export default function Venta() {
       />
       <Typography  sx={{
           position: 'absolute',
-          bottom: '12%', // Ajusta la posición vertical según sea necesario
+          bottom: '18%', // Ajusta la posición vertical según sea necesario
           left: '10%', // Ajusta la posición horizontal según sea necesario
           backgroundColor: 'transparent',
           color: 'white',
@@ -99,7 +99,7 @@ export default function Venta() {
   href="/Hombre"
         sx={{
           position: 'absolute',
-          bottom: '5%', // Ajusta la posición vertical según sea necesario
+          bottom: '8%', // Ajusta la posición vertical según sea necesario
           left: '10%', // Ajusta la posición horizontal según sea necesario
           backgroundColor: 'transparent',
           color: 'white',

@@ -271,14 +271,7 @@ const Footer = () => {
               </Link>
 
               <br/>
-              <Link
-                href="#"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Terminos y Condiciones
-              </Link>
+            
                <br/>
               </Box>
             </Box>
