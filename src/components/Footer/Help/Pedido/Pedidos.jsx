@@ -1,4 +1,4 @@
-import { Box, Typography, useMediaQuery } from '@mui/material'
+import { Box, Link, Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
 
 
@@ -25,28 +25,24 @@ const titulo = {
     fontFamily: "Helvetica,sans-serif",
     
   };
-const Pagos = () => {
-
+const Pedidos = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
-
   return (
     <Box
     sx={{
+   
         margin: '40px 0px 0px',
         padding: '0px 40px',
         marginLeft:isMobile ? '6px' : 0,
         paddingRight: isMobile ? '24px' :0,
-        width:isMobile ? '97%': '70%',
+        width:  isMobile ? '95%':'78%',
         height: isMobile ?  '100%': '800px',
         overflow: 'auto', // Habilita el scroll cuando sea necesario
 
     }}
 >
-
-
-  
     <Typography sx={titulo}>
-    PEDIDOS Y PAGOS
+    Estado de mi Pedido
     </Typography>
     <Box>
         <Typography sx={{ 
@@ -60,12 +56,12 @@ const Pagos = () => {
     fontFamily: "Helvetica,sans-serif",
     
   }}>
-            ¿Qué métodos de pago puedo utilizar para hacer pedidos en Nike?
+            ¿Cómo hago el seguimiento de mi pedido de Parrella?
         </Typography>
     </Box>
     <Box>
     <Typography sx={detalles}>
-    Queremos que la compra por internet de tus productos favoritos de Nike sea una experiencia rápida y sencilla, haciéndola inolvidable. <br/> <br/>
+    Una vez que el pedido sea despachado recibirás un correo electrónico con el número de tracking para hacer el seguimiento de tu compra. <br/> <br/>
     </Typography>
     </Box>
     <Box>
@@ -80,14 +76,27 @@ const Pagos = () => {
     fontFamily: "Helvetica,sans-serif",
     
   }}>
-        ¿Cuáles son las formas de pago?
+       ¿Cómo puedo conocer el courier de mi compra?
         </Typography>
     </Box>
-    <Box>
-    <Typography sx={detalles}>
-    Al hacer una compra online, puedes usar como forma de pago tarjetas de crédito y tarjeta débito. <br/> <br/>
-  </Typography>
-    </Box>
+    <Box sx={{display:'flex', flexDirection: 'column', alignItems: 'start'}}> {/* Ajuste aquí */}
+        <Typography sx={detalles}>
+          Cuando el paquete sea entregado al courier recibirás un correo electrónico donde tendrás los siguientes datos: Operador y número de tracking. <br /><br />
+          El Operador corresponde al courier con el que vas a recibir tu compra y con el número de tracking podrás ingresar al link que corresponda: </Typography>
+          <br /><br />
+          <Box sx={{display:'flex', flexDirection: 'column', alignItems: 'start', marginTop:'-32px'}}> {/* Ajuste aquí */}
+          <Typography>
+          <a href="https://www.starken.cl/seguimiento" target="_blank" rel="noopener noreferrer">Starken</a>
+          </Typography>
+          <Typography sx={detalles}>
+          <a href="https://www.bluexpress.com/track" target="_blank" rel="noopener noreferrer">Bluexpress</a>
+          </Typography>
+
+          <Typography sx={{...detalles,marginTop:'-4px'}}>
+          <a href="https://www.microservicio.com/track" target="_blank" rel="noopener noreferrer">Microservicio</a>
+          </Typography>
+      </Box>
+      </Box>
     <Box>
         <Typography sx={{ 
     fontSize: "14px",
@@ -100,15 +109,13 @@ const Pagos = () => {
     fontFamily: "Helvetica,sans-serif",
     
   }}>
-        ¿Es seguro pagar en Parrella?
+        ¿El importe total de mi pedido Parrella incluye los aranceles y los impuestos?
         </Typography>
     </Box>
     <Box>
     <Typography sx={detalles}>
   
-    ¡Sí, pagar en adidas en muy seguro!
- <br/> <br/>
- El pago mediante tarjeta de crédito es totalmente seguro. La totalidad de la transacción se realiza de forma cifrada a través de un servidor de validación bancaria utilizándose el protocolo de encriptación SSL (Secure Socket Layer), así pues, el número de su tarjeta de crédito y la fecha de la caducidad quedan instantáneamente encriptados en su ordenador antes de ser enviados al protocolo SSL. <br/> <br/>
+    Sí, todos los aranceles o impuestos aplicables se incluyen en el importe total del pedido durante el proceso de compra. Calculamos todos los aranceles e impuestos según las leyes que regulan la entrega. Toma en cuenta que no aceptamos pedidos exentos de impuestos.
     </Typography>
     </Box>
 
@@ -125,12 +132,12 @@ const Pagos = () => {
     fontFamily: "Helvetica,sans-serif",
     
   }}>
-    ¿Puedo pagar con una tarjeta internacional?
+  ¿Puedo cancelar mi pedido Parrella?
         </Typography>
     </Box>
     <Box>
     <Typography sx={detalles}>
-    Sólo aceptamos tarjetas de Chile.
+    En caso de querer cancelar tu pedido podrás avanzar con tu solicitud siempre que no hayan transcurrido más de 24 hs desde realizada la compra.
     <br/><br/>
     <br/><br/>
     </Typography>
@@ -139,4 +146,4 @@ const Pagos = () => {
   )
 }
 
-export default Pagos
+export default Pedidos

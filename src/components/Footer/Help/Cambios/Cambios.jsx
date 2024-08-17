@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
 
 
@@ -26,17 +26,21 @@ const titulo = {
     
   };
 const Cambios = () => {
-  return (
-    <Box
-    sx={{
-        margin: '40px 0px 0px',
-        padding: '0px 40px',
-        width: '70%',
-        height: '800px',
-        overflow: 'auto', // Habilita el scroll cuando sea necesario
-
-    }}
->
+    const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
+    return (
+      <Box
+        sx={{
+          padding: "0px 40px",
+          margin: '40px 0px 0px',
+          width:isMobile ? '97%': '70%',
+          marginLeft:isMobile ? '6px' : 0,
+          paddingRight: isMobile ? '24px' :0,
+          height: isMobile ?  '100%': "800px",
+          overflow: "auto", // Habilita el scroll cuando sea necesario
+   
+        }}
+      >
+ 
     <Typography sx={titulo}>
     CAMBIOS, DEVOLUCIONES Y REEMBOLSOS
     </Typography>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Divider, Link, Typography } from "@mui/material";
+import { Box, Button, Divider, Link, Typography, useMediaQuery } from "@mui/material";
 import { CSSTransition } from "react-transition-group";
 
 //icons
@@ -29,13 +29,15 @@ const detalles = {
 
 const Envios = () => {
   const [showDescription, setShowDescription] = useState(false);
-
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
   return (
     <Box
       sx={{
         padding: "0px 40px",
-        width: "70%",
-        height: "600px",
+        width:isMobile ? '97%': '70%',
+        marginLeft:isMobile ? '6px' : 0,
+        paddingRight: isMobile ? '24px' :0,
+        height: isMobile ?  '100%': "600px",
         overflow: "auto", // Habilita el scroll cuando sea necesario
         padding: 6,
       }}

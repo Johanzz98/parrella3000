@@ -109,7 +109,15 @@ const IndexTalla = () => {
     >Cambios, Devoluciones y reembolsos</Typography>
        </a>
        </span>
-    
+       <span>
+       <a href="/FAQS/Pedidos" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Typography 
+                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" }  }}
+              >
+                Estado de mi Pedido
+              </Typography>
+            </a>
+          </span>
         </Box>
         <span>
         <a href="/FAQS/Tallas" style={{ textDecoration: 'underline', color: 'inherit' }}>
@@ -124,19 +132,7 @@ const IndexTalla = () => {
     >Guia de Tallas</Typography>
         </a>
       </span>
-      <span>
-      <a href="/FAQS/Tallas" style={{ textDecoration: 'none', color: 'inherit' }}>
-       <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Contactos</Typography>
-        </a>
-      </span>
+  
       </Box>
 
 
@@ -252,6 +248,21 @@ const IndexTalla = () => {
             }}
           >
             <Typography sx={detallesMobile}>Guía de Tallas</Typography>
+          </Button>
+          <Button
+            component="a"
+            href="/FAQS/Pedidos"
+            sx={{
+              backgroundColor: 'white',
+              border: '1px solid #e5e6ed',
+              borderRadius: '0',
+              minWidth: '150px',
+              height: '40px',
+              textTransform: 'capitalize',
+              '&:hover': { backgroundColor: '#f0f0f0' },
+            }}
+          >
+            <Typography sx={detallesMobile}>Estado de mi Pedido</Typography>
           </Button>
         </Container>
       </Box>

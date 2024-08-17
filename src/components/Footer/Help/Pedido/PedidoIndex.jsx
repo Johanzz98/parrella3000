@@ -1,146 +1,123 @@
-"use client";
-
-import { Box, Button, Container, Hidden, Typography } from '@mui/material';
 import React from 'react';
-import Cambios from './Cambios';
+import { Box, Typography, Hidden, Grid, Container, Button } from '@mui/material';
+
+import 'react-multi-carousel/lib/styles.css';
+import Pedidos from './Pedidos';
+
 const titulo = {
-    fontSize: "16px",
-    fontWeight: "1000",
-    color: "#111",
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
-  
-  };
-  
-  const detalles = {
-    fontSize: "16px",
-    fontWeight: "400",
-    color: "#00174f;",
-    margin:'16px 0',
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
-    
-  };
+  fontSize: "16px",
+  fontWeight: "1000",
+  color: "#111",
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  fontFamily: "Helvetica,sans-serif",
+};
 
-  const detallesMobile = {
-    fontSize: "12px",
-    fontWeight: "700",
-    color: "#00174f",
-    textAlign: 'right',
-   
-    whiteSpace: 'nowrap',
-    overflowWrap: 'break-word',
-    display: 'flex',
-   lineHeight:'15px',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    fontFamily: "Helvetica,sans-serif",
-    margin: '12px', // Agregar un margen alrededor de cada Box
-  };
-const IndexCambios = () => {
+const detalles = {
+  fontSize: "16px",
+  fontWeight: "400",
+  color: "#00174f",
+  margin: '16px 0',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  fontFamily: "Helvetica,sans-serif",
+};
+
+const detallesMobile = {
+  fontSize: "12px",
+  fontWeight: "700",
+  color: "#00174f",
+  textAlign: 'right',
+ 
+  whiteSpace: 'nowrap',
+  overflowWrap: 'break-word',
+  display: 'flex',
+ lineHeight:'15px',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  fontFamily: "Helvetica,sans-serif",
+  margin: '12px', // Agregar un margen alrededor de cada Box
+};
+
+
+
+const PedidoIndex = () => {
   return (
-   <Box>
-<Hidden mdDown>
-    <Box display="flex" sx={{padding:'24px', backgroundColor:'#f9fafb'}}>
-      {/* Contenido izquierdo */}
-      <Box sx={{ backgroundColor: 'white', border: '1px solid #e5e5e5', padding: '2.5rem', marginTop: '2.5rem',maxWidth:'25%',height:'10%'}}>
-        <Typography sx={{...titulo, color:'#00174f'}}>MENU</Typography>
-      
-      <span>
-        <a href="/FAQS" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >
-      FAQS
-    </Typography>
-        </a>
-      </span>
-
-        <Box sx={{ marginLeft: '16px' }}>
-        <span>
-        <a href="/FAQS/Pagos"style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Pedidos y pagos</Typography>
-     </a>
-     </span>
-     <span>
-     <a href="/FAQS/Envios" style={{  textDecoration: 'none',color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: 'none',
-        "&:hover": {
-          textDecoration: "underline",
-        
-        }
-      }}
-    >Envios</Typography>
-     </a>
-     </span>
-     <span>
-     <a href="/FAQS/Cambios" style={{ textDecoration: 'underline', color: 'inherit' }}>
-          <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline",
-            color:'orange'
-        }
-      }}
-    >Cambios, Devoluciones y reembolsos</Typography>
-       </a>
-       </span>
-       <span>
-       <a href="/FAQS/Pedidos" style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Box display="flex" sx={{ backgroundColor: '#f9fafb' }}>
+      {/* Contenido izquierdo para pantallas mayores a md */}
+      <Hidden mdDown>
+        <Box sx={{display:'flex', padding:'24px'}}>
+        <Box sx={{ backgroundColor: 'white', border: '1px solid #e5e5e5', padding: '2.5rem', marginTop: '2.5rem', maxWidth: '85%', height: '50%' }}>
+          <Typography sx={{ ...titulo, color: '#00174f' }}>MENU</Typography>     
+          <span>
+            <a href="/FAQS" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Typography 
-                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" }  }}
+                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline", color: 'orange' } }}
+              >
+                FAQS
+              </Typography>
+            </a>
+          </span>
+          <Box sx={{ marginLeft: '16px' }}>
+            <span>
+              <a href="/FAQS/Pagos" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Typography 
+                  sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+                >
+                  Pedidos y pagos
+                </Typography>
+              </a>
+            </span>
+            <span>
+              <a href="/FAQS/Envios" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Typography 
+                  sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+                >
+                  Envios
+                </Typography>
+              </a>
+            </span>
+            <span>
+              <a href="/FAQS/Cambios" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Typography 
+                  sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+                >
+                  Cambios, Devoluciones y reembolsos
+                </Typography>
+              </a>
+            </span>
+            <span>
+            <a href="/FAQS/Pedidos" style={{ textDecoration: 'underline', color: 'inherit' }}>
+              <Typography 
+                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline", color: 'orange' }  }}
               >
                 Estado de mi Pedido
               </Typography>
             </a>
           </span>
+          </Box>
+          <span>
+            <a href="/FAQS/Tallas" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Typography 
+                sx={{ ...detalles, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+              >
+                Guia de Tallas
+              </Typography>
+            </a>
+          </span>
+        
+     
+        
         </Box>
-        <span>
-        <a href="/FAQS/Tallas"  style={{ textDecoration: 'none', color: 'inherit' }}>
-       <Typography 
-      
-      sx={{...detalles,
-        textDecoration: "none",
-        "&:hover": {
-          textDecoration: "underline"
-        }
-      }}
-    >Guia de Tallas</Typography>
-        </a>
-      </span>
-  
+           {/* Componente FAQS a la derecha */}
+      <Pedidos/>
       </Box>
+      </Hidden>
 
-
-
-
-
-    <Cambios/> </Box>
-    </Hidden>
-  <Hidden mdUp>
+      {/* Contenido izquierdo para pantallas menores a md */}
+      <Hidden mdUp>
       <Box
       sx={{
         display: 'flex',
@@ -280,7 +257,7 @@ const IndexCambios = () => {
         padding: '-16px', // Añade un poco de relleno para que no esté tan pegado al borde
       }}
     >
-        <Cambios/>
+      <Pedidos/>
     </Box>
   </Box>
       </Hidden>
@@ -290,4 +267,4 @@ const IndexCambios = () => {
   );
 };
 
-export default IndexCambios;
+export default PedidoIndex;
