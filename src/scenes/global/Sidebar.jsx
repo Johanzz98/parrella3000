@@ -197,6 +197,13 @@ const Sidebar = ({ onMenuClick }) => {
               setSelected={setSelected}
               onMenuClick={onMenuClick}
             />
+            <Item
+              title="Edit Product"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              onMenuClick={onMenuClick}
+            />
                  <Divider sx={{ borderColor: '#E6E6E6', marginTop:'12px',marginBottom:'16px' }} />
             <Item
               title="Invoices Balances"
