@@ -17,6 +17,7 @@ import Register from '@/components/dashboardAdmin/Register';
 import { useSelector } from 'react-redux';
 import "./app.css";
 import ProductPage from '@/components/dashboardAdmin/ProductPage/ProductPage';
+import ListProductPage from '@/scenes/ListProductPage/ListProductPage';
 
 const Dash = () => {
   const [mainComponent, setMainComponent] = useState(<HeaderAdminTop />);
@@ -67,6 +68,9 @@ const Dash = () => {
       case "Categories Page":
         setMainComponent(<Categories />);
         break;
+        case "List Product":
+          setMainComponent(<ListProductPage/>)
+          break;
       case "Invoices Balances":
         setMainComponent(<Invoices />);
         break;
