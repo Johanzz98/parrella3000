@@ -19,6 +19,7 @@ import "./app.css";
 import ProductPage from '@/components/dashboardAdmin/ProductPage/ProductPage';
 import ListProductPage from '@/scenes/ListProductPage/ListProductPage';
 import EditPage from '@/scenes/EditPage/EditPage';
+import InvoicesPerfil from '@/scenes/InvoicesPerfil/InvoicesPerfil';
 
 
 const Dash = () => {
@@ -76,6 +77,10 @@ const Dash = () => {
           case "Edit Product":
             setMainComponent(<EditPage/>)
             break; 
+            case "Invoices Perfil":
+              setMainComponent(<InvoicesPerfil/>)
+              break; 
+            
       case "Invoices Balances":
         setMainComponent(<Invoices />);
         break;
