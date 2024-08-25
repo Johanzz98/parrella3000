@@ -1,10 +1,14 @@
 import {
   Box,
+  Button,
   Checkbox,
   Divider,
   FormControlLabel,
   IconButton,
   InputBase,
+  Menu,
+  MenuItem,
+  Modal,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -99,10 +103,47 @@ const Categories = {
   fontFamily: "Helvetica,sans-serif",
 };
 
+const AvailableEdit = {
+  color: "#2ccebe",
+  fontSize: "12px",
+  fontWeight: "500",
+  display: "flex",
+  padding: "14px",
+ 
+  fontFamily: "Helvetica,sans-serif",
+};
+const DisableEdit = {
+  color: "#e75751",
+  fontSize: "12px",
+  fontWeight: "500",
+  display: "flex",
+  padding: "14px",
+  
+marginTop:'-6px',
+marginBottom:'-6px',
+  fontFamily: "Helvetica,sans-serif",
+};
+
+const boxDisable={
+  border: "1px solid #e75751",
+              width: "auto",
+              backgroundColor:'#fff3f4',
+              height: "auto",
+              
+              borderRadius: "12px",
+}
+const boxAvailable={
+border: "1px solid #149285",
+              width: "auto",
+              height: "auto",
+              borderRadius: "12px",
+            }
 const ListProduct = () => {
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState(""); // Estado para el valor de búsqueda
-
+  const [showConfirmModal, setShowConfirmModal] = useState(false); // Estado para el modal
+  const [actionType, setActionType] = useState(""); // Estado para el tipo de acción (Eliminar en este caso)
+  const [status, setStatus] = useState("Available"); // Estado para el estado del producto
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -116,8 +157,40 @@ const ListProduct = () => {
     setChecked(event.target.checked);
   };
 
+
+    const [anchorEl, setAnchorEl] = useState(null);
+  
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleMenu = () => {
+      setAnchorEl(null);
+    };
+  
+
+
+    const handleConfirmDelete = () => {
+      console.log('Producto eliminado');
+      setShowConfirmModal(false);
+    };
+    
+    const handleCancelDelete = () => {
+      setShowConfirmModal(false);
+    };
+    
+    const handleMenuItemClick = (action) => {
+      if (action === 'Eliminar') {
+        setShowConfirmModal(true);
+      } else {
+        setStatus(action);
+        console.log(action)
+        handleMenu();
+      }
+    };
+      
   return (
-    <Box sx={{ padding: "12px", margin: 0,backgroundColor:'#f4f4fc' }}>
+    <Box sx={{ padding: "12px", margin: 0,backgroundColor:'#faf9f2' }}>
       <Box
         sx={{
           display: "flex",
@@ -254,13 +327,13 @@ const ListProduct = () => {
               label={<Typography sx={title}>Product</Typography>}
             />
             <Typography sx={{ ...title, marginLeft: "186px" }}>
-              Price <ImportExportIcon  sx={{color:'red', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
+              Price <ImportExportIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
             </Typography>
             <Typography sx={{ ...title, marginLeft: "32px" }}>
-              Status <ImportExportIcon  sx={{color:'red', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
+              Status <ImportExportIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
             </Typography>
             <Typography sx={{ ...title, marginLeft: "36px" }}>
-              Stock <ImportExportIcon  sx={{color:'red', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
+              Stock <ImportExportIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
             </Typography>
             <Typography sx={{ ...title, marginRight: "62px" }}>
               Total Earning <ImportExportIcon  sx={{color:'red', paddingLeft:'16px', fontSize:'18px',margin:'2px'}}/>
@@ -331,7 +404,14 @@ const ListProduct = () => {
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
-          <IconButton>
+          <IconButton
+  sx={{
+    '&:hover': {
+      backgroundColor: 'transparent', // Evita cambios de fondo en hover
+    },
+
+  }}
+>
             <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
         <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
           </Box>
@@ -389,20 +469,20 @@ const ListProduct = () => {
           </Box>
           <Typography sx={detalles}>$220.99</Typography>
           <Box
-            sx={{
-              border: "1px solid #e75751",
-              width: "auto",
-              backgroundColor:'#fff3f4',
-              height: "auto",
-              
-              borderRadius: "12px",
-            }}
+            sx={boxDisable}
           >
             <Typography sx={Disable}>Disable</Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
-          <IconButton>
+          <IconButton
+  sx={{
+    '&:hover': {
+      backgroundColor: 'transparent', // Evita cambios de fondo en hover
+    },
+
+  }}
+>
             <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
         <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
           </Box>
@@ -460,19 +540,20 @@ const ListProduct = () => {
           </Box>
           <Typography sx={detalles}>$220.99</Typography>
           <Box
-            sx={{
-              border: "1px solid #149285",
-              width: "auto",
-              height: "auto",
-              borderRadius: "12px",
-            
-            }}
+            sx={boxAvailable}
           >
             <Typography sx={{...Available, }}>Available</Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
-          <IconButton>
+          <IconButton
+  sx={{
+    '&:hover': {
+      backgroundColor: 'transparent', // Evita cambios de fondo en hover
+    },
+
+  }}
+>
             <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
         <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
           </Box>
@@ -531,29 +612,114 @@ const ListProduct = () => {
           </Box>
           <Typography sx={detalles}>$220.99</Typography>
           <Box
-            sx={{
-              border: "1px solid #149285",
-              width: "auto",
-              height: "auto",
-              borderRadius: "12px",
-            
-            }}
+            sx={status ==='Available' ? boxAvailable : boxDisable}
           >
-            <Typography sx={{...Available, }}>Available</Typography>
+           
+            <Typography sx={status === "Available" ? Available : Disable}>
+{status}
+</Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
-          <IconButton>
-            <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
-        <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
-          </Box>
-      </IconButton>
-        </Box>
-      
-      </Box>
+          <IconButton
+sx={{
+  backgroundColor: 'transparent',
+  '&:hover': {
+    backgroundColor: 'transparent',
+  },
+  '&:focus': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  '&:active': {
+    backgroundColor: 'transparent',
+  },
+  transition: 'none',
+}}
+onClick={handleClick}
+>
+<Box
+  sx={{
+    backgroundColor: '#ececec',
+    borderRadius: '8px',
+    height: '42px',
+    marginLeft: '-24px',
+  }}
+>
+  <MoreVertIcon sx={{ color: '#111', marginTop: '10px' }} />
+</Box>
+</IconButton>
+
+</Box>
    
+<Menu
+  anchorEl={anchorEl}
+  open={Boolean(anchorEl)}
+  onClose={handleMenu}
+  sx={{
+    boxShadow: 'none',
+    
+    '& .MuiPaper-root': {
+      boxShadow: 'none',
+      border: '1px solid #eeeeee',
+      borderRadius: '12px',
+    },
+    // Adjust menu position
+    transform: 'translateX(-5%) translateY(-2.5%)', // Moves the menu left and up
+   
+  }}
+  anchorOrigin={{
+    vertical: 'top',
+    horizontal: 'left',
+  }}
+  transformOrigin={{
+    vertical: 'top',
+    horizontal: 'left',
+  }}
+>
+  
+  <MenuItem onClick={() => handleMenuItemClick('Available')} sx={AvailableEdit}>Disponible</MenuItem>
+  <MenuItem onClick={() => handleMenuItemClick('Disable')} sx={DisableEdit}>Desactivar</MenuItem>
+  <MenuItem onClick={() => handleMenuItemClick('Eliminar')} sx={DisableEdit}>Eliminar</MenuItem>
+</Menu>
+
+
+      </Box>
+      <Modal
+      open={showConfirmModal}
+      onClose={handleCancelDelete}
+      sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    >
+      <Box
+        sx={{
+          width: '300px',
+          padding: '20px',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+          textAlign: 'center',
+        }}
+      >
+        <Typography variant="h6" gutterBottom>
+          ¿Estás seguro de eliminar?
+        </Typography>
+        <Typography variant="body2" sx={{ marginBottom: '20px' }}>
+          Esta acción no se puede deshacer.
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+          <Button variant="contained" color="error" onClick={handleConfirmDelete}>
+            Eliminar
+          </Button>
+          <Button variant="outlined" onClick={handleCancelDelete}>
+            Cancelar
+          </Button>
+        </Box>
+      </Box>
+    </Modal>
     </Box>
   );
 };
+
+
 
 export default ListProduct;

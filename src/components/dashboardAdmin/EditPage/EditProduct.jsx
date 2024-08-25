@@ -13,7 +13,7 @@ const EditProduct = () => {
       alignItems="flex-start"
       justifyContent="flex-start"
       gap={2} // Añadir un espacio entre el contenedor de imágenes y EditPage
-      sx={{padding: '16px'}} // Añadir un poco de padding si es necesario
+      sx={{padding: '24px',backgroundColor:'white',borderRadius:'24px'}} // Añadir un poco de padding si es necesario
     >
       {/* Contenedor de imágenes */}
       <Box 
@@ -29,12 +29,12 @@ const EditProduct = () => {
             height="auto"
             image={imageUrl}
             alt="Product Image"
-            sx={{borderRadius:'24px', width:'240px', height:'240px', objectFit:'cover'}}
+            sx={{borderRadius:'24px', width:'240px', height:'240px', objectFit:'cover',marginLeft:'70px'}}
           />
         </Box>
 
         {/* Fila con 2 imágenes */}
-        <Box display="flex" justifyContent="center" mb={1}>
+        <Box display="flex" justifyContent="center" mb={1} sx={{marginLeft:'59px'}}>
           <Box display="flex" gap={3}>
             <CardMedia 
               component="img"
@@ -82,7 +82,7 @@ const EditProduct = () => {
       </Box>
 
       {/* Componente EditPage a la derecha */}
-      <Box  display="flex" justifyContent="center" alignItems="flex-start">
+      <Box  display="flex" justifyContent="center" alignItems="flex-start" sx={{marginLeft:'54px'}}>
         <EditPage />
       </Box>
     </Box>

@@ -6,7 +6,7 @@ import SortIcon from '@mui/icons-material/Sort';
 
 const ListProductPage = () => {
   return (
-    <Box sx={{ backgroundColor: '#f4f4fc', padding: '24px' }}>
+    <Box sx={{ backgroundColor: '#faf9f2', padding: '24px' }}>
       <Box
         sx={{
           display: 'flex',

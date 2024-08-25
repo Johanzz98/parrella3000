@@ -7,7 +7,7 @@ import InvoiceLeft from '@/components/dashboardAdmin/Invoce/InvoiceLeft';
 
 const InvoicesPerfil = () => {
   return (
-    <Box sx={{ backgroundColor: '#f4f4fc', padding: '24px' }}>
+    <Box sx={{ backgroundColor: '#faf9f2', padding: '24px' }}>
       <Box
         sx={{
           display: 'flex',
