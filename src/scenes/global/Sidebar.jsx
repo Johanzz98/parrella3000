@@ -183,6 +183,13 @@ const Sidebar = ({ onMenuClick }) => {
               setSelected={setSelected}
               onMenuClick={onMenuClick}
             />
+             <Item
+              title="Order List"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              onMenuClick={onMenuClick}
+            />
             <Item
               title="Product Page"
               icon={<ContactsOutlinedIcon />}

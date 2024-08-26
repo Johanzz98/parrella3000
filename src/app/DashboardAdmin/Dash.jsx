@@ -20,6 +20,7 @@ import ProductPage from '@/components/dashboardAdmin/ProductPage/ProductPage';
 import ListProductPage from '@/scenes/ListProductPage/ListProductPage';
 import EditPage from '@/scenes/EditPage/EditPage';
 import InvoicesPerfil from '@/scenes/InvoicesPerfil/InvoicesPerfil';
+import Order from '@/scenes/Order/Order';
 
 
 const Dash = () => {
@@ -65,6 +66,9 @@ const Dash = () => {
       case "Contacts Information":
         setMainComponent(<Contacts />);
         break;
+        case "Order List":
+          setMainComponent(<Order/>);
+          break;
       case "Product Page":
         setMainComponent(<ProductPage />);
         break;

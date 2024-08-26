@@ -16,6 +16,7 @@ import BarChart from '@/components/BarChart';
 import { colorcito } from '@/app/DashboardAdmin/theme';
 import { useSelector } from "react-redux";
 import axios from '@/api/axios';
+import Contacts from '../Contacts/Contacts';
 const AUTH_ME = '/auth/me';
 const Dashboard = () => {
   const theme = useTheme();
@@ -284,8 +285,9 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-       
+      
       </Box>
+      <Contacts/>
     </Box>
   );
 };
