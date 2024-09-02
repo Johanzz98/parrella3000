@@ -182,8 +182,8 @@ const SignUp = () => {
        .min(3, "It's too short")
        .max(20, "Country must be at most 20 characters")
        .required("Required"),
-      codePostal: Yup.number()
-       .min(3, "It's too short")
+       codePostal: Yup.string()
+       .min(3, "Code Postal must be at least 3 characters")
        .max(10, "Code Postal must be at most 10 characters")
        .required("Required"),
        phoneNumber: Yup.string() // Correctly treating phoneNumber as a string

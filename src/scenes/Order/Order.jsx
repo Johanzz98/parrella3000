@@ -188,7 +188,7 @@ const Order = () => {
               color: 'black',
             }}
           >
-            {params.value}
+            {params.value} Items
           </Typography>
         </Box>
       ),

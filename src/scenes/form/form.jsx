@@ -121,7 +121,7 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
        .min(3, "It's too short")
        .max(20, "Country must be at most 20 characters")
        .required("Required"),
-      codePostal: Yup.number()
+       codePostal: Yup.string()
        .min(3, "It's too short")
        .max(10, "Code Postal must be at most 10 characters")
        .required("Required"),
