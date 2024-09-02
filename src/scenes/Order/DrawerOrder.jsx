@@ -38,7 +38,7 @@ const marginLeftByPaymentStatus = {
 
 // Definir márgenes dinámicos por estado de pedido
 const marginLeftByOrderStatus = {
-  Completed: '-32px',
+  Completed: '-22px',
   InProgress: '10px',
   Failed:'7px',
   Pending: '20px',
@@ -65,13 +65,13 @@ const botones={
 const getPaymentStatusColor = (status) => {
   switch (status) {
     case "Paid":
-      return "green";
+      return "#4CAF50";
     case "UnPaid":
-      return "red";
+      return "#F44336";
     case "InProgress":
-      return "yellow";
+      return "#FFC107";
     case "Cancel":
-      return "gray";
+      return "#9E9E9E";
     default:
       return "black";
   }
@@ -81,13 +81,13 @@ const getPaymentStatusColor = (status) => {
 const getOrderStatusColor = (status) => {
   switch (status) {
     case "Completed":
-      return "blue";
+      return "#2196F3";
     case "InProgress":
-      return "orange";
+      return "#FFC107";
     case "Pending":
-      return "purple";
+      return "#9C27B0";
     case "Cancelled":
-      return "gray";
+      return "#9E9E9E";
     default:
       return "black";
   }
@@ -365,7 +365,7 @@ const DrawerOrder = ({ open, onClose, order, onEditOrder }) => {
       <Button  onClick={onEditOrder}
       sx={botones}    
       >
-        Edit Order
+        VIEW Completed
       </Button>
       </Box>
       </Box>

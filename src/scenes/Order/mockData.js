@@ -6,8 +6,8 @@ export const mockDataContacts = [
     email: 'antonio@gmail.com',
     phone: '+58 1234 1234 23',
     price: 1234,
-    paymentStatus: "InProgress",
-    items: 2,
+    paymentStatus: "Paid",
+    
     itemDetails: [
       { 
         name: "Nike Air Max", 
@@ -26,7 +26,7 @@ export const mockDataContacts = [
         image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSiOxO-rDAQFdimTFL4blt55fUoBuGxWk6rQ-mP6tbJV51ffVztVgled8z4oy8eEqN1UhfZEjtzcfN8dRadDCBmxJmzFE7lPmwpta5IQnJ7kQYakFheJfFs_w&usqp=CAE" 
       }
     ],
-    orderStatus: "Completed",
+    orderStatus: "InProgress",
   },
   {
     orderId: 2,
@@ -36,7 +36,7 @@ export const mockDataContacts = [
     phone: '+58 1234 1234 23',
     price: 1234,
     paymentStatus: "UnPaid",
-    items: 3,
+   
     orderStatus: "Incompleted",
   },
   {
@@ -44,6 +44,7 @@ export const mockDataContacts = [
     created: "Agosto 22, 2024",
     customer: "Johan Cordova",
     email: 'Johan@gmail.com',
+    delivery:'K-1234012',
     rut:'27443980-K',
     BF:"Boleta",
     phone: '+58 1234 1234 23',
@@ -59,7 +60,7 @@ export const mockDataContacts = [
     paymentStatus: "Paid",
    
     category: "shoes",
-    orderStatus: "InProgress",
+    orderStatus: "Completed",
     shippingCost: 8,
     itemDetails: [
       { 
@@ -102,7 +103,6 @@ export const mockDataContacts = [
     phone: '+58 1234 1234 23',
     price: 1234,
     paymentStatus: "Cancel",
-    items: 3,
     orderStatus: "Cancel",
   },
 ];

@@ -61,18 +61,23 @@ const Order = () => {
     return itemTotal + (shippingCost || 0);
   };
 
+  const calculateTotalItems = (items) => {
+    return items.reduce((total, item) => total + item.items, 0);
+  };
+
   const updatedMockDataContacts = mockDataContacts.map(order => ({
     ...order,
-    total: calculateTotal(order.itemDetails || [], order.shippingCost || 0)
+    total: calculateTotal(order.itemDetails || [], order.shippingCost || 0),
+    items: calculateTotalItems(order.itemDetails || []), // Añadido total de items
   }));
 
   const columns = [
-    { field: "orderId", headerName: "Order Id", width: 120, editable: false },
-    { field: "created", headerName: "Created at", width: 180, editable: false },
+    { field: "orderId", headerName: "Order Id", width: 100, editable: false },
+    { field: "created", headerName: "Created at", width: 166, editable: false },
     {
       field: "customer",
       headerName: "Customer",
-      width: 180,
+      width: 166,
       renderCell: (params) => (
         <Box
           sx={{
@@ -85,8 +90,9 @@ const Order = () => {
         >
           <Typography
             sx={{
-              color: "#2ccebe",
+              color: "#111",
               fontSize: "12px",
+              marginTop:'12px',
               fontWeight: "500",
               fontFamily: "Helvetica, sans-serif",
             }}
@@ -99,29 +105,29 @@ const Order = () => {
     {
       field: "total",
       headerName: "Total",
-      width: 180,
-     
+      width: 166,
       editable: false,
       renderCell: (params) => (
         <Box
           sx={{
             display: "flex",
-            justifyContent: "flex-start", // Alinea el contenido a la izquierda
+            justifyContent: "flex-start",
             alignItems: "center",
-            width: '100%', // Ocupa todo el ancho de la celda
-            padding: '0 8px', // Opcional: añade un poco de espacio interior
+            width: '100%',
+            padding: '0 8px',
           }}
         >
           <Typography
             sx={{
               fontSize: "12px",
               fontWeight: "500",
+              marginTop:'12px',
               fontFamily: "Helvetica, sans-serif",
-              textAlign: 'left', // Alinea el texto a la izquierda
-              color: 'black', // Asegúrate de que el color sea visible sobre el fondo
+              textAlign: 'left',
+              color: 'black',
             }}
           >
-            {params.value}
+            {params.value.toFixed(3)} {/* Formatear a dos decimales */}
           </Typography>
         </Box>
       ),
@@ -129,7 +135,7 @@ const Order = () => {
     {
       field: "paymentStatus",
       headerName: "Payment Status",
-      width: 180,
+      width: 166,
       renderCell: (params) => (
         <Box
           sx={{
@@ -139,6 +145,7 @@ const Order = () => {
             width: 'auto',
             backgroundColor: statusColors[params.value] || 'transparent',
             color: 'white',
+          
             borderRadius: '4px',
             padding: '4px 8px',
           }}
@@ -146,6 +153,7 @@ const Order = () => {
           <Typography
             sx={{
               fontSize: "12px",
+            
               fontWeight: "500",
               fontFamily: "Helvetica, sans-serif",
             }}
@@ -155,11 +163,70 @@ const Order = () => {
         </Box>
       ),
     },
-    { field: "items", headerName: "Items", width: 180, editable: false },
+    {
+      field: "items",
+      headerName: "Items",
+      width: 100,
+      editable: false,
+      renderCell: (params) => (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            width: '100%',
+            marginTop:'7px',
+            padding: '0 8px',
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "12px",
+              fontWeight: "500",
+              fontFamily: "Helvetica, sans-serif",
+              textAlign: 'left',
+              color: 'black',
+            }}
+          >
+            {params.value}
+          </Typography>
+        </Box>
+      ),
+    },
+    {
+      field: "delivery",
+      headerName: "Delivery Number",
+      width: 166,
+      editable: false,
+      renderCell: (params) => (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            width: '100%',
+            marginTop:'7px',
+            padding: '0 8px',
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "12px",
+              fontWeight: "500",
+              fontFamily: "Helvetica, sans-serif",
+              textAlign: 'left',
+              color: 'black',
+            }}
+          >
+            {params.value}
+          </Typography>
+        </Box>
+      ),
+    },
     {
       field: "orderStatus",
       headerName: "Order Status",
-      width: 180,
+      width: 166,
       renderCell: (params) => (
         <Box
           sx={{
@@ -169,7 +236,6 @@ const Order = () => {
             width: 'auto',
             backgroundColor: orderStatusColors[params.value] || 'transparent',
             color: 'white',
-        
             borderRadius: '4px',
             padding: '4px 8px',
           }}
@@ -192,50 +258,50 @@ const Order = () => {
     <Box m="20px">
       <Header title="Orders" subtitle="List of orders for future reference" />
       {view === 'orders' && (
-     <Box
-     m="40px 0 0 0"
-     height="75vh"
-     sx={{
-       position: 'relative',
-       "& .MuiDataGrid-root": {
-         border: "none",
-       },
-       "& .MuiDataGrid-cell": {
-         borderBottom: "none",
-         padding: "8px",
-         textAlign: 'left', // Alineación del contenido de la celda
-       },
-       "& .MuiDataGrid-columnHeaders": {
-         backgroundColor: "blue",
-         borderBottom: "none",
-         "& .MuiDataGrid-columnHeaderTitle": {
-           textAlign: 'left', // Alineación del texto en el encabezado de la columna
-         },
-       },
-       "& .MuiDataGrid-virtualScroller": {
-         backgroundColor: "white",
-       },
-       "& .MuiDataGrid-footerContainer": {
-         borderTop: "none",
-         backgroundColor: "purple",
-       },
-       "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-         color: "grey",
-       },
-       "& .MuiDataGrid-columnSeparator": {
-         display: "none",
-       },
-       "& .MuiDataGrid-row": {
-         cursor: 'pointer',
-       },
-       "& .MuiDataGrid-row.Mui-selected": {
-         backgroundColor: 'transparent',
-       },
-       "& .MuiDataGrid-cell:focus": {
-         outline: 'none',
-       },
-     }}
-   >
+        <Box
+          m="40px 0 0 0"
+          height="75vh"
+          sx={{
+            position: 'relative',
+            "& .MuiDataGrid-root": {
+              border: "none",
+            },
+            "& .MuiDataGrid-cell": {
+              borderBottom: "none",
+              padding: "8px",
+              textAlign: 'left',
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: "blue",
+              borderBottom: "none",
+              "& .MuiDataGrid-columnHeaderTitle": {
+                textAlign: 'left',
+              },
+            },
+            "& .MuiDataGrid-virtualScroller": {
+              backgroundColor: "white",
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderTop: "none",
+              backgroundColor: "#fffff",
+            },
+            "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+              color: "grey",
+            },
+            "& .MuiDataGrid-columnSeparator": {
+              display: "none",
+            },
+            "& .MuiDataGrid-row": {
+              cursor: 'pointer',
+            },
+            "& .MuiDataGrid-row.Mui-selected": {
+              backgroundColor: 'transparent',
+            },
+            "& .MuiDataGrid-cell:focus": {
+              outline: 'none',
+            },
+          }}
+        >
           <DataGrid
             rows={updatedMockDataContacts}
             columns={columns}

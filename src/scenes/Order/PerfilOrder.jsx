@@ -100,7 +100,7 @@ const getOrderStatusColor = (status) => {
     case "Completed":
       return "#2196F3";
     case "InProgress":
-      return "#FFC107";
+      return "#FFC107";a
     case "Pending":
       return "#9C27B0";
     case "Cancelled":
