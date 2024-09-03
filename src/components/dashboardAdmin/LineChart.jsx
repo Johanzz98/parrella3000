@@ -10,7 +10,6 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   return (
     <ResponsiveLine
       data={data}
-     
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}

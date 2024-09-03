@@ -4,7 +4,7 @@ import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import { CSSTransition } from "react-transition-group";
 import "./transitions.css"; // Asegúrate de que este archivo existe y tiene las definiciones correctas
 
-import { productData} from "./ImgDetailsMobile";
+import { productData } from "./ImgDetailsMobile";
 
 // Importaciones de íconos
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -69,7 +69,7 @@ const detalles = {
 const MuestraMobile = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(
-    productData.slice(0, 4)
+    productData.slice(0, 4),
   );
   const [showDescription, setShowDescription] = useState(false);
   const [showDetalles, setShowDetalles] = useState(false);
@@ -240,56 +240,64 @@ const MuestraMobile = () => {
         classNames="description"
         unmountOnExit
       >
-    <Box
-  sx={{
-    display: "flex",
-    justifyContent: "center", // Centra horizontalmente
-    alignItems: "center", // Centra verticalmente
-    flexDirection: "column", // Alinear contenido en columna
-    textAlign: "center", // Alinear texto al centro
-    width: "100%", // Ajustar al ancho completo si es necesario
-    padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
-  }}
->
-  <Box sx={{ flex: "0.5", textAlign: "left" }}>
-    <Typography
-      sx={{
-        fontSize: "14px",
-        fontWeight: "500",
-        color: "#111",
-        fontFamily: "Helvetica, sans-serif",
-        paddingBottom: "24px",
-        lineHeight: "24px",
-      }}
-    >
-      <ul style={{ margin: "0", padding: "0", textAlign: "left" }}>
-        <li style={{ marginBottom: "5px" }}>Ajuste holgado</li>
-        <li style={{ marginBottom: "5px" }}>Cierre frontal y cuello alto</li>
-        <li style={{ marginBottom: "5px" }}>
-          Tejido tricot 100% poliéster reciclado
-        </li>
-        <li style={{ marginBottom: "5px" }}>Bolsillos con cierre</li>
-      </ul>
-    </Typography>
-  </Box>
-  <Box sx={{ marginTop: "24px", textAlign: "left" }}>
-    <Typography
-      sx={{
-        fontSize: "16px",
-        fontWeight: "500",
-        color: "#111",
-        fontFamily: "Helvetica, sans-serif",
-        lineHeight: "24px",
-      }}
-    >
-      <ul style={{ margin: "0", padding: "0", textAlign: "left" }}>
-        <li style={{ marginBottom: "8px" }}>Puños y dobladillo acanalados</li>
-        <li style={{ marginBottom: "8px" }}>Color del artículo: Bold Gold</li>
-        <li style={{ marginBottom: "8px" }}>Número de artículo: IP0611</li>
-      </ul>
-    </Typography>
-  </Box>
-</Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center", // Centra horizontalmente
+            alignItems: "center", // Centra verticalmente
+            flexDirection: "column", // Alinear contenido en columna
+            textAlign: "center", // Alinear texto al centro
+            width: "100%", // Ajustar al ancho completo si es necesario
+            padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
+          }}
+        >
+          <Box sx={{ flex: "0.5", textAlign: "left" }}>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                fontWeight: "500",
+                color: "#111",
+                fontFamily: "Helvetica, sans-serif",
+                paddingBottom: "24px",
+                lineHeight: "24px",
+              }}
+            >
+              <ul style={{ margin: "0", padding: "0", textAlign: "left" }}>
+                <li style={{ marginBottom: "5px" }}>Ajuste holgado</li>
+                <li style={{ marginBottom: "5px" }}>
+                  Cierre frontal y cuello alto
+                </li>
+                <li style={{ marginBottom: "5px" }}>
+                  Tejido tricot 100% poliéster reciclado
+                </li>
+                <li style={{ marginBottom: "5px" }}>Bolsillos con cierre</li>
+              </ul>
+            </Typography>
+          </Box>
+          <Box sx={{ marginTop: "24px", textAlign: "left" }}>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                fontWeight: "500",
+                color: "#111",
+                fontFamily: "Helvetica, sans-serif",
+                lineHeight: "24px",
+              }}
+            >
+              <ul style={{ margin: "0", padding: "0", textAlign: "left" }}>
+                <li style={{ marginBottom: "8px" }}>
+                  Puños y dobladillo acanalados
+                </li>
+                <li style={{ marginBottom: "8px" }}>
+                  Color del artículo: Bold Gold
+                </li>
+                <li style={{ marginBottom: "8px" }}>
+                  Número de artículo: IP0611
+                </li>
+              </ul>
+            </Typography>
+          </Box>
+        </Box>
       </CSSTransition>
 
       {/* Más contenido del componente */}
@@ -349,152 +357,156 @@ const MuestraMobile = () => {
         classNames="description"
         unmountOnExit
       >
-      
-      <Box
-  sx={{
-    display: "flex",
-    justifyContent: "center", // Centra horizontalmente
-    alignItems: "center", // Centra verticalmente
-    flexDirection: "column", // Alinear contenido en columna
-    textAlign: "center", // Alinear texto al centro
-    width: "100%", // Ajustar al ancho completo si es necesario
-    padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
-  }}
->
-<Box sx={{ flex: "0.5", textAlign: "left" }}>
-    <Typography
-      sx={{
-        fontSize: "21px",
-        fontWeight: "550",
-        color: "#111",
-        fontFamily: "Helvetica, sans-serif",
-        paddingBottom: "24px",
-        lineHeight: "24px",
-      }}
-    >
-      INSTRUCCIONES DE LAVADO
-    </Typography>
-    <Typography
-      sx={{
-        fontSize: "12px",
-        fontWeight: "500",
-        color: "#111",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontFamily: "Helvetica,sans-serif",
-        fontOpticalSizing: "auto",
-        textAlign: "center", // Alinear texto a la izquierda
-        margin: "10px 0", // Añadir espacio vertical entre elementos
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <ul style={{ margin: 0, padding: 0, textAlign: "left" }}>
-          <li style={{ marginBottom: "5px" }}>
-            No usar blanqueador{" "}
-            <img
-              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/B1.svg"
-              alt=""
-              width="24"
-              height="24"
-              style={{ marginTop: "-5px", verticalAlign: "middle" }}
-            />
-          </li>
-          <li style={{ marginBottom: "5px" }}>
-            No lavar en seco{" "}
-            <img
-              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/E1.svg"
-              alt=""
-              width="24"
-              height="24"
-              style={{ marginTop: "-5px", verticalAlign: "middle" }}
-            />
-          </li>
-          <li style={{ marginBottom: "5px" }}>
-            Lavado a máquina agua tibia{" "}
-            <img
-              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/A5.svg"
-              alt=""
-              width="24"
-              height="24"
-              style={{ marginTop: "-5px", verticalAlign: "middle" }}
-            />
-          </li>
-          <li style={{ marginBottom: "5px" }}>
-            Secar a potencia baja{" "}
-            <img
-              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/C2.svg"
-              alt=""
-              width="24"
-              height="24"
-              style={{ marginTop: "-5px", verticalAlign: "middle" }}
-            />
-          </li>
-          <li style={{ marginBottom: "5px" }}>
-            Retoque con plancha fría suavemente{" "}
-            <img
-              src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/D2.svg"
-              alt=""
-              width="24"
-              height="24"
-              style={{
-                marginLeft: "5px",
-                marginTop: "-5px",
-                verticalAlign: "middle",
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center", // Centra horizontalmente
+            alignItems: "center", // Centra verticalmente
+            flexDirection: "column", // Alinear contenido en columna
+            textAlign: "center", // Alinear texto al centro
+            width: "100%", // Ajustar al ancho completo si es necesario
+            padding: "20px", // Añadir espacio de relleno alrededor del contenido si es necesario
+          }}
+        >
+          <Box sx={{ flex: "0.5", textAlign: "left" }}>
+            <Typography
+              sx={{
+                fontSize: "21px",
+                fontWeight: "550",
+                color: "#111",
+                fontFamily: "Helvetica, sans-serif",
+                paddingBottom: "24px",
+                lineHeight: "24px",
               }}
-            />
-          </li>
-        </ul>
-      </div>
-    </Typography>
-  </Box>
-  <Box sx={{ flex: 0, textAlign: "left", marginTop: "20px" }}>
-  <Typography
-      sx={{
-        fontSize: "21px",
-        fontWeight: "550",
-        color: "#111",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontFamily: "Helvetica,sans-serif",
-        fontOpticalSizing: "auto",
-        textAlign: "center", // Alinear texto a la izquierda
-        margin: "10px 0", // Añadir espacio vertical entre elementos
-       marginBottom:'24px',
-      }}
-    >
-      INFORMACIÓN ADICIONAL SOBRE EL CUIDADO
-    </Typography>
-    <Typography
-      sx={{
-        fontSize: "12px",
-        fontWeight: "500",
-        color: "#111",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontFamily: "Helvetica,sans-serif",
-        fontOpticalSizing: "auto",
-        textAlign: "center", // Alinear texto a la izquierda
-        margin: "10px 0", // Añadir espacio vertical entre elementos
-        marginLeft:'-46px'
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <ul style={{ margin: 0, padding: 0, textAlign: "left" }}>
-          <li style={{ marginBottom: "5px" }}>
-            Usar únicamente detergente suave
-          </li>
-          <li style={{ marginBottom: "5px" }}>Lavar con cierres ajustados</li>
-          <li style={{ marginBottom: "5px" }}>Lavar y planchar al revés</li>
-          <li style={{ marginBottom: "5px" }}>Lavar con colores similares</li>
-        </ul>
-      </div>
-    </Typography>
-  </Box>
-</Box>
-
+            >
+              INSTRUCCIONES DE LAVADO
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "12px",
+                fontWeight: "500",
+                color: "#111",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontFamily: "Helvetica,sans-serif",
+                fontOpticalSizing: "auto",
+                textAlign: "center", // Alinear texto a la izquierda
+                margin: "10px 0", // Añadir espacio vertical entre elementos
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <ul style={{ margin: 0, padding: 0, textAlign: "left" }}>
+                  <li style={{ marginBottom: "5px" }}>
+                    No usar blanqueador{" "}
+                    <img
+                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/B1.svg"
+                      alt=""
+                      width="24"
+                      height="24"
+                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
+                    />
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    No lavar en seco{" "}
+                    <img
+                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/E1.svg"
+                      alt=""
+                      width="24"
+                      height="24"
+                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
+                    />
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    Lavado a máquina agua tibia{" "}
+                    <img
+                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/A5.svg"
+                      alt=""
+                      width="24"
+                      height="24"
+                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
+                    />
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    Secar a potencia baja{" "}
+                    <img
+                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/C2.svg"
+                      alt=""
+                      width="24"
+                      height="24"
+                      style={{ marginTop: "-5px", verticalAlign: "middle" }}
+                    />
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    Retoque con plancha fría suavemente{" "}
+                    <img
+                      src="https://www.adidas.cl/glass/react/8878685/assets/img/washing-instructions/D2.svg"
+                      alt=""
+                      width="24"
+                      height="24"
+                      style={{
+                        marginLeft: "5px",
+                        marginTop: "-5px",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </Typography>
+          </Box>
+          <Box sx={{ flex: 0, textAlign: "left", marginTop: "20px" }}>
+            <Typography
+              sx={{
+                fontSize: "21px",
+                fontWeight: "550",
+                color: "#111",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontFamily: "Helvetica,sans-serif",
+                fontOpticalSizing: "auto",
+                textAlign: "center", // Alinear texto a la izquierda
+                margin: "10px 0", // Añadir espacio vertical entre elementos
+                marginBottom: "24px",
+              }}
+            >
+              INFORMACIÓN ADICIONAL SOBRE EL CUIDADO
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "12px",
+                fontWeight: "500",
+                color: "#111",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontFamily: "Helvetica,sans-serif",
+                fontOpticalSizing: "auto",
+                textAlign: "center", // Alinear texto a la izquierda
+                margin: "10px 0", // Añadir espacio vertical entre elementos
+                marginLeft: "-46px",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <ul style={{ margin: 0, padding: 0, textAlign: "left" }}>
+                  <li style={{ marginBottom: "5px" }}>
+                    Usar únicamente detergente suave
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    Lavar con cierres ajustados
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    Lavar y planchar al revés
+                  </li>
+                  <li style={{ marginBottom: "5px" }}>
+                    Lavar con colores similares
+                  </li>
+                </ul>
+              </div>
+            </Typography>
+          </Box>
+        </Box>
       </CSSTransition>
 
       <Box
@@ -505,7 +517,7 @@ const MuestraMobile = () => {
           justifyContent: "center",
           height: "100%",
           marginTop: "4px",
-          marginBottom:'24px',
+          marginBottom: "24px",
         }}
       >
         <Divider
@@ -516,10 +528,6 @@ const MuestraMobile = () => {
           }}
         />
       </Box>
-
-  
-
-    
     </Box>
   );
 };

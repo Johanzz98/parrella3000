@@ -82,16 +82,19 @@ const login = ({ handleChange }) => {
   };
 
   const notFound = () => {
-    toast.error("The email you entered isn’t connected to an account. Find your account and log in.", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+    toast.error(
+      "The email you entered isn’t connected to an account. Find your account and log in.",
+      {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      },
+    );
   };
   const initialValues = {
     email: "",
@@ -114,11 +117,9 @@ const login = ({ handleChange }) => {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
-     
 
       const token = response?.data?.data?.token;
       const role = response?.data?.data?.user?.role;
-
 
       if (!token || !role) {
         throw new Error("Invalid response structure");
@@ -146,10 +147,8 @@ const login = ({ handleChange }) => {
       if (!err?.response) {
         notServer();
       } else if (err.response?.status === 404) {
-     
         notFound();
       } else if (err.response?.status === 401) {
-      
         Unauthorized();
       } else {
         setErrorMessage("Login failed");
@@ -273,7 +272,7 @@ const login = ({ handleChange }) => {
               >
                 {props.isSubmitting ? "Loading" : "Sign in"}{" "}
               </Button>
-            
+
               {errorMessage && <p ref={errorMessageRef}>{errorMessage}</p>}
             </Form>
           )}

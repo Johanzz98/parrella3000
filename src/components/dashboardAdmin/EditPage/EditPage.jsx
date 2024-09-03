@@ -57,7 +57,7 @@ const PriceStonk = {
 // Validación de Formik
 const validationSchema = Yup.object({
   shippingDescription: Yup.string().required(
-    "Shipping Description is required"
+    "Shipping Description is required",
   ),
   billingAddress: Yup.string().required("Billing Address is required"),
   additionalInfo: Yup.string().required("Additional Information is required"),

@@ -9,19 +9,17 @@ import { Box } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 const cardStyle = {
   width: "356.8px",
-marginTop:'-36px',
+  marginTop: "-36px",
   textAlign: "center",
-  paddingLeft:'12px',
+  paddingLeft: "12px",
   borderRadius: " 12px",
   transition: "transform 0.6s ease",
   position: "relative", // Añadido
-  
-
 };
 
 const cardStyle2 = {
   width: "80px",
- margin:"0 auto",
+  margin: "0 auto",
   cursor: "pointer",
   fontFamily: "arial",
   margin: "0 auto",
@@ -47,8 +45,8 @@ const NombreProducto = {
   fontSize: "16px",
   fontWeight: "550",
   color: "orange",
-  marginLeft:'-12px',
-  marginTop:'-12px',
+  marginLeft: "-12px",
+  marginTop: "-12px",
   display: "flex",
   justifyContent: "flex-start", // Ajustado para alinear el texto a la izquierda cuando sea largo
   alignItems: "center", // Ajustado para alinear el texto a la izquierda cuando sea largo
@@ -90,11 +88,9 @@ const descriptionStyle = {
   justifyContent: "flex-start", // Ajustado para alinear el texto a la izquierda cuando sea largo
   fontWeight: 600,
   display: "flex",
-  marginLeft:'-12px',
+  marginLeft: "-12px",
   textAlign: "center",
   fontFamily: " 'Helvetica', sans-serif",
-
-
 };
 
 const buttonStyle = {
@@ -156,7 +152,7 @@ export default function Product(props) {
               left: 6,
               backgroundColor: "white",
               height: "%20",
-              borderRadius:'12px',
+              borderRadius: "12px",
               transition: "transform 0.3s ease",
               transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
             }}
@@ -185,13 +181,9 @@ export default function Product(props) {
             */}
             </Box>
           ) : (
-            <CardContent
-           
-            >
-              <Typography sx={NombreProducto}>
-                {props.item.name}
-              </Typography>
-            
+            <CardContent>
+              <Typography sx={NombreProducto}>{props.item.name}</Typography>
+
               <Typography
                 sx={descriptionStyle}
                 variant="body2"

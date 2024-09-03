@@ -1,27 +1,27 @@
-import HeaderAdmin from '@/components/HeaderAdmin';
-import { Box, Button, IconButton, Typography, useTheme } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { mockTransactions } from '@/data/mockData';
-import { DownloadOutlined } from '@mui/icons-material';
+import HeaderAdmin from "@/components/HeaderAdmin";
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { mockTransactions } from "@/data/mockData";
+import { DownloadOutlined } from "@mui/icons-material";
 
-import PointOfSaleOutlinedIcon from '@mui/icons-material/PointOfSaleOutlined';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import LineChart from '@/components/LineChart';
+import PointOfSaleOutlinedIcon from "@mui/icons-material/PointOfSaleOutlined";
+import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import TrafficOutlinedIcon from "@mui/icons-material/TrafficOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LineChart from "@/components/LineChart";
 
-import StatBox from '@/components/StatBox';
-import ProgressCircles from '@/components/ProgressCircles';
-import BarChart from '@/components/BarChart';
-import { colorcito } from '@/app/DashboardAdmin/theme';
+import StatBox from "@/components/StatBox";
+import ProgressCircles from "@/components/ProgressCircles";
+import BarChart from "@/components/BarChart";
+import { colorcito } from "@/app/DashboardAdmin/theme";
 import { useSelector } from "react-redux";
-import axios from '@/api/axios';
-import Contacts from '../Contacts/Contacts';
-const AUTH_ME = '/auth/me';
+import axios from "@/api/axios";
+import Contacts from "../Contacts/Contacts";
+const AUTH_ME = "/auth/me";
 const Dashboard = () => {
   const theme = useTheme();
   const colors = colorcito(theme.palette.mode);
-  const [fullName, setFullName] = useState('');
+  const [fullName, setFullName] = useState("");
   const token = useSelector((state) => state.auth.token); // Obtener el token del estado de Redux
   const obtenerMiData = async () => {
     try {
@@ -31,8 +31,8 @@ const Dashboard = () => {
 
       const response = await axios.get(AUTH_ME, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       // Actualizar el estado fullName con el valor obtenido de la respuesta
@@ -46,12 +46,13 @@ const Dashboard = () => {
     obtenerMiData();
   }, [token]); // Ejecutar el efecto cuando el token cambie
 
-  
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <HeaderAdmin   title={`Welcome Back, ${fullName}`} subtitle="Here's what happening with your store today" />
-      
+        <HeaderAdmin
+          title={`Welcome Back, ${fullName}`}
+          subtitle="Here's what happening with your store today"
+        />
       </Box>
 
       <Box
@@ -70,8 +71,6 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
           height="80%"
-         
-       
         >
           <StatBox
             title="12,361"
@@ -82,14 +81,14 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-         gridColumn="span 3"
-         backgroundColor="white"
-         border="2px solid #C4EFFF"
-         borderRadius="12px"
-         display="flex"
-         alignItems="center"
-         justifyContent="center"
-            height="80%"
+          gridColumn="span 3"
+          backgroundColor="white"
+          border="2px solid #C4EFFF"
+          borderRadius="12px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height="80%"
         >
           <StatBox
             title="431,225"
@@ -100,46 +99,43 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-            gridColumn="span 3"
-            backgroundColor="white"
-            border="2px solid #C4EFFF"
-            borderRadius="12px"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-               height="80%"
+          gridColumn="span 3"
+          backgroundColor="white"
+          border="2px solid #C4EFFF"
+          borderRadius="12px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height="80%"
         >
           <StatBox
             title="32,441"
             subtitle="Total Order"
             showThisYearText3={true}
-           less="+5%"
-           
+            less="+5%"
           />
-          
         </Box>
         <Box
-            gridColumn="span 3"
-            backgroundColor="white"
-            border="2px solid #C4EFFF"
-            borderRadius="12px"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-               height="80%"
+          gridColumn="span 3"
+          backgroundColor="white"
+          border="2px solid #C4EFFF"
+          borderRadius="12px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height="80%"
         >
           <StatBox
             title="1,325,134"
             subtitle="Total Sales"
-         
             less="-43%"
             showThisYearText3={true}
           />
         </Box>
 
         {/* Row 2 */}
-         {/* ROW 2 */}
-         <Box
+        {/* ROW 2 */}
+        <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor="white"
@@ -152,37 +148,40 @@ const Dashboard = () => {
             display="flex "
             justifyContent="space-between"
             alignItems="center"
-          
           >
             <Box>
               <Typography
-                sx={{  fontSize: "18px",
+                sx={{
+                  fontSize: "18px",
                   fontWeight: "600",
                   color: "#111",
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  alignItems: 'center',
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
                   fontFamily: "Helvetica, sans-serif",
-                  fontOpticalSizing: 'auto',}}
+                  fontOpticalSizing: "auto",
+                }}
               >
                 Revenue Generated
               </Typography>
               <Typography
-               sx={{  fontSize: "14px",
-                fontWeight: "200",
-                color: "grey",
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                fontFamily: "Helvetica, sans-serif",
-                fontOpticalSizing: 'auto',}}
+                sx={{
+                  fontSize: "14px",
+                  fontWeight: "200",
+                  color: "grey",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  fontFamily: "Helvetica, sans-serif",
+                  fontOpticalSizing: "auto",
+                }}
               >
                 $59,342.32
               </Typography>
             </Box>
             <Box>
               <IconButton>
-                <DownloadOutlined 
+                <DownloadOutlined
                   sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
                 />
               </IconButton>
@@ -242,8 +241,8 @@ const Dashboard = () => {
             </Box>
           ))}
         </Box>
-{/* ROW 3 */}
- <Box
+        {/* ROW 3 */}
+        <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -258,7 +257,7 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-                  <ProgressCircles size="125" />
+            <ProgressCircles size="125" />
             <Typography
               variant="h5"
               color={colors.greenAccent[500]}
@@ -285,9 +284,8 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-      
       </Box>
-      <Contacts/>
+      <Contacts />
     </Box>
   );
 };

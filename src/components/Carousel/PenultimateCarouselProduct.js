@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 const cardStyle = {
@@ -48,11 +48,10 @@ const mediaStyle = {
   objectFit: "cover",
 };
 
-
 const smallMediaStyle = {
   height: "360px",
   width: "100%",
-  objectFit: ' cover  ',
+  objectFit: " cover  ",
 };
 
 const priceStyle = {
@@ -84,31 +83,30 @@ const buttonStyle = {
   border: "none",
   outline: "0",
   padding: "12px",
-  marginTop:'8px',
+  marginTop: "8px",
   color: "white",
-  
+
   backgroundColor: "#000",
   textAlign: "center",
   cursor: "pointer",
   width: "100%",
-  fontSize: "18px"
+  fontSize: "18px",
 };
 
 const productContainerStyle = {
-  margin: "0 10px", 
+  margin: "0 10px",
 };
-
 
 // Estilos definidos previamente...
 
 export default function PenultimateCarousel(props) {
   const dispatch = useDispatch();
-  const isSmallScreen = useMediaQuery('(max-width:800px)');
+  const isSmallScreen = useMediaQuery("(max-width:800px)");
   const [isHovered, setIsHovered] = useState(false);
 
   const addToCart = () => {
-    dispatch({type: TYPES.ADD_TO_CART, payload: props.item});
-    dispatch({type: TYPES.TOTAL});
+    dispatch({ type: TYPES.ADD_TO_CART, payload: props.item });
+    dispatch({ type: TYPES.TOTAL });
   };
 
   const handleMouseEnter = () => {
@@ -125,37 +123,54 @@ export default function PenultimateCarousel(props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Card sx={isSmallScreen? cardStyle2 : cardStyle} style={{ transform: isHovered? "scale(1.03)" : "scale(1)" }}>
+      <Card
+        sx={isSmallScreen ? cardStyle2 : cardStyle}
+        style={{ transform: isHovered ? "scale(1.03)" : "scale(1)" }}
+      >
         <div style={{ position: "relative" }}>
           <CardMedia
             component="img"
             image={props.item.imageurl}
             alt="product image"
-            sx={isSmallScreen? smallMediaStyle : mediaStyle}
+            sx={isSmallScreen ? smallMediaStyle : mediaStyle}
           />
           {/* Seleccionar qué CardContent mostrar basado en el tamaño de la pantalla */}
-          {isSmallScreen? (
+          {isSmallScreen ? (
             <CardContent>
               <Typography variant="h5" component="h2">
                 {props.item.name}
               </Typography>
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%' }}>
               <Box
-            style={{
-              position: "absolute",
-              bottom: 162,
-              left: 8,
-              backgroundColor: "white",
-              height: "%40",
-              borderRadius: "12px",
-              transition: "transform 0.3s ease",
-              transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
-            }}
-          >
-            <Typography sx={{...priceStyle,}}>${props.item.price}</Typography>
-          </Box>
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
+                <Box
+                  style={{
+                    position: "absolute",
+                    bottom: 162,
+                    left: 8,
+                    backgroundColor: "white",
+                    height: "%40",
+                    borderRadius: "12px",
+                    transition: "transform 0.3s ease",
+                    transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
+                  }}
+                >
+                  <Typography sx={{ ...priceStyle }}>
+                    ${props.item.price}
+                  </Typography>
+                </Box>
               </Box>
-              <Typography sx={{...descriptionStyle,color:'orange'}} variant="body2" color="text.secondary">
+              <Typography
+                sx={{ ...descriptionStyle, color: "orange" }}
+                variant="body2"
+                color="text.secondary"
+              >
                 {props.item.description}
               </Typography>
               <Button variant="contained" sx={buttonStyle} onClick={addToCart}>
@@ -170,7 +185,7 @@ export default function PenultimateCarousel(props) {
                 left: 13,
                 backgroundColor: "white",
                 height: "%20",
-                borderRadius:'12px',
+                borderRadius: "12px",
                 transition: "transform 0.3s ease",
                 transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
               }}
@@ -191,22 +206,22 @@ export default function PenultimateCarousel(props) {
           </Box>
           {/* Contenido adicional que aparece al hacer hover en pantallas grandes */}
           {!isSmallScreen && (
-            <CardContent style={{ 
-              position: "absolute", 
-              top: 0, 
-              left: 0, 
-              right: 0, 
-              bottom: 0, 
-              cursor:'pointer',
-              margin: "auto", 
-              background: "rgba(255, 255, 255, 0.9)",
-              transition: "opacity 0.3s ease",
-              opacity: isHovered? 1 : 0,
-              pointerEvents: isHovered? 'auto' : 'none',
-            }}>
-              <Typography sx={NombreProducto}>
-                {props.item.name}
-              </Typography>
+            <CardContent
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                cursor: "pointer",
+                margin: "auto",
+                background: "rgba(255, 255, 255, 0.9)",
+                transition: "opacity 0.3s ease",
+                opacity: isHovered ? 1 : 0,
+                pointerEvents: isHovered ? "auto" : "none",
+              }}
+            >
+              <Typography sx={NombreProducto}>{props.item.name}</Typography>
               <Typography
                 sx={descriptionStyle}
                 variant="body2"
@@ -214,7 +229,17 @@ export default function PenultimateCarousel(props) {
               >
                 {props.item.description}
               </Typography>
-              <Button variant="contained" sx={{...buttonStyle,  width:'80%',   position: "absolute", bottom:60, left:24}} onClick={addToCart}>
+              <Button
+                variant="contained"
+                sx={{
+                  ...buttonStyle,
+                  width: "80%",
+                  position: "absolute",
+                  bottom: 60,
+                  left: 24,
+                }}
+                onClick={addToCart}
+              >
                 Add to Cart
               </Button>
             </CardContent>

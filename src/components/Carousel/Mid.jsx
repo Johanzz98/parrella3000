@@ -1,44 +1,44 @@
-import React from 'react';
-import { Box, Typography, Button, useMediaQuery } from '@mui/material';
-import Carousel from 'react-multi-carousel';
+import React from "react";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./carousel.css";
 import ProductMid from "./ProductMid";
 import { productData } from "./MidItem";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 
 const baseSetMid = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginBottom: '24px',
-  textAlign: 'center',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginBottom: "24px",
+  textAlign: "center",
   fontFamily: "Nunito Sans, sans-serif",
-  fontOpticalSizing: 'auto',
+  fontOpticalSizing: "auto",
   fontWeight: 1000,
   fontSize: "36px",
-  fontStyle: 'normal',
-  fontVariationSettings: '"wdth" 125, "YTLC" 540'
+  fontStyle: "normal",
+  fontVariationSettings: '"wdth" 125, "YTLC" 540',
 };
 
 const baseSetMidIz = {
   margin: "24px 20px",
   fontFamily: "Nunito Sans, sans-serif",
-  fontOpticalSizing: 'auto',
+  fontOpticalSizing: "auto",
   fontWeight: 1000,
   fontSize: "36px",
-  fontStyle: 'normal',
+  fontStyle: "normal",
   fontVariationSettings: '"wdth" 125, "YTLC" 540',
-  display: 'flex',
+  display: "flex",
   alignItems: "center",
   justifyContent: "center",
 };
 
 const buttonContainerStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  gap: '10px',
-  marginBottom: '20px',
+  display: "flex",
+  justifyContent: "center",
+  gap: "10px",
+  marginBottom: "20px",
 };
 
 const buttonStyle = {
@@ -53,7 +53,7 @@ const buttonStyle = {
 
 function Mid() {
   const theme = useTheme();
-  const isMdOrSmaller = useMediaQuery(theme.breakpoints.down('md'));
+  const isMdOrSmaller = useMediaQuery(theme.breakpoints.down("md"));
 
   const responsive = {
     desktop: {
@@ -79,20 +79,20 @@ function Mid() {
 
   const setMid = {
     ...baseSetMid,
-    fontSize: isMdOrSmaller ? '16px' : '36px', // Ajusta el tamaño de la fuente según el tamaño de la pantalla
-    marginBottom: isMdOrSmaller ? '16px' : '24px', // Ajusta el margen inferior
+    fontSize: isMdOrSmaller ? "16px" : "36px", // Ajusta el tamaño de la fuente según el tamaño de la pantalla
+    marginBottom: isMdOrSmaller ? "16px" : "24px", // Ajusta el margen inferior
   };
 
   const setMidIz = {
     ...baseSetMidIz,
-    fontSize: isMdOrSmaller ? '21px' : '36px', // Ajusta el tamaño de la fuente según el tamaño de la pantalla
-    margin: isMdOrSmaller ? '16px 10px 24px' : '24px 20px', // Ajusta el margen
+    fontSize: isMdOrSmaller ? "21px" : "36px", // Ajusta el tamaño de la fuente según el tamaño de la pantalla
+    margin: isMdOrSmaller ? "16px 10px 24px" : "24px 20px", // Ajusta el margen
   };
 
   return (
     <>
       <Box>
-        <Typography sx={{ ...setMid, fontSize: '28px', marginBottom: '-24px' }}>
+        <Typography sx={{ ...setMid, fontSize: "28px", marginBottom: "-24px" }}>
           FEEL THE UNREAL
         </Typography>
       </Box>

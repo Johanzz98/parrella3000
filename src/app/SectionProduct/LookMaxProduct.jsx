@@ -19,7 +19,7 @@ const cardStyle = {
 
 const cardStyle2 = {
   width: "80px",
- margin:"0 auto",
+  margin: "0 auto",
   cursor: "pointer",
   fontFamily: "arial",
   margin: "0 auto",
@@ -153,7 +153,7 @@ export default function LookMaxProduct(props) {
               left: 13,
               backgroundColor: "white",
               height: "%20",
-              borderRadius:'12px',
+              borderRadius: "12px",
               transition: "transform 0.3s ease",
               transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
             }}
@@ -189,7 +189,7 @@ export default function LookMaxProduct(props) {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                cursor:'pointer',
+                cursor: "pointer",
                 margin: "auto",
                 background: "rgba(255, 255, 255, 0.9)",
                 transition: "opacity 0.3s ease",
@@ -197,10 +197,8 @@ export default function LookMaxProduct(props) {
                 pointerEvents: isHovered ? "auto" : "none",
               }}
             >
-              <Typography sx={NombreProducto}>
-                {props.item.name}
-              </Typography>
-            
+              <Typography sx={NombreProducto}>{props.item.name}</Typography>
+
               <Typography
                 sx={descriptionStyle}
                 variant="body2"

@@ -23,8 +23,7 @@ function Products() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedItems, setSelectedItems] = useState({});
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleToggle = (value) => () => {
     const currentIndex = selectedItems[value];
@@ -36,10 +35,10 @@ function Products() {
     setSelectedItems(newSelectedItems);
 
     const selectedSizes = Object.keys(newSelectedItems).filter(
-      (item) => newSelectedItems[item]
+      (item) => newSelectedItems[item],
     );
     const filteredProducts = productData.filter((product) =>
-      selectedSizes.includes(product.talla)
+      selectedSizes.includes(product.talla),
     );
 
     setFilteredProducts(filteredProducts);
@@ -47,28 +46,28 @@ function Products() {
 
   const sortByPriceLowToHigh = () => {
     const sortedProducts = [...filteredProducts].sort(
-      (a, b) => a.price - b.price
+      (a, b) => a.price - b.price,
     );
     setFilteredProducts(sortedProducts);
   };
 
   const sortByPriceHighToLow = () => {
     const sortedProducts = [...filteredProducts].sort(
-      (a, b) => b.price - a.price
+      (a, b) => b.price - a.price,
     );
     setFilteredProducts(sortedProducts);
   };
 
   const sortByAToZ = () => {
     const sortedProducts = [...filteredProducts].sort((a, b) =>
-      a.name.localeCompare(b.name)
+      a.name.localeCompare(b.name),
     );
     setFilteredProducts(sortedProducts);
   };
 
   const sortByZToA = () => {
     const sortedProducts = [...filteredProducts].sort((a, b) =>
-      b.name.localeCompare(a.name)
+      b.name.localeCompare(a.name),
     );
     setFilteredProducts(sortedProducts);
   };
@@ -79,7 +78,7 @@ function Products() {
 
   const productCards = filteredProducts.map((product, index) => (
     <Grow in key={index}>
-      <Box sx={{ marginRight: "-8px"}}>
+      <Box sx={{ marginRight: "-8px" }}>
         <Grid item xs={12} sm={6} md={12}>
           <Mostrar item={product} />
         </Grid>
@@ -98,11 +97,9 @@ function Products() {
         mostrarFiltros={showFilters}
       />
       <Box sx={{ display: "flex" }}>
-        <Hidden smDown>
-       
-        </Hidden>
+        <Hidden smDown></Hidden>
         <Hidden mdUp>
-        <Drawer
+          <Drawer
             anchor="right"
             open={showFilters}
             onClose={() => setShowFilters(false)}
@@ -120,10 +117,10 @@ function Products() {
         <Box
           sx={{
             padding: isSmallScreen ? "0" : "0 22px",
-            left:isSmallScreen ?  4:-16,
-            
-            right:isSmallScreen ? 0: 0,
-            bottom:0,
+            left: isSmallScreen ? 4 : -16,
+
+            right: isSmallScreen ? 0 : 0,
+            bottom: 0,
             position: "relative",
             top: 100,
             display: "flex",

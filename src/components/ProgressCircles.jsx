@@ -1,7 +1,6 @@
 import { colorcito } from "@/app/DashboardAdmin/theme";
 import { Box, useTheme } from "@mui/material";
 
-
 const ProgressCircle = ({ progress = "0.75", size = "40" }) => {
   const theme = useTheme();
   const colors = colorcito(theme.palette.mode);

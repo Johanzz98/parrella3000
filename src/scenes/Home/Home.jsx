@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const Home = () => {
   useEffect(() => {
-    window.location.href = '/'; // Redirige a la página de inicio
+    window.location.href = "/"; // Redirige a la página de inicio
   }, []);
 
   return null; // No se renderiza ningún contenido

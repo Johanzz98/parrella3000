@@ -1,10 +1,9 @@
+import React from "react";
 
-import React from 'react';
-
-import { ResponsiveBar } from '@nivo/bar';
-import { mockBarData as data } from '@/data/mockData';
+import { ResponsiveBar } from "@nivo/bar";
+import { mockBarData as data } from "@/data/mockData";
 import { colorcito } from "@/app/DashboardAdmin/theme";
-import { useTheme } from '@mui/material';
+import { useTheme } from "@mui/material";
 
 const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();

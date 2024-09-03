@@ -15,33 +15,32 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import EditNoteOutlinedIcon from "@mui/icons-material/EditNoteOutlined";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import TuneIcon from '@mui/icons-material/Tune';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import TuneIcon from "@mui/icons-material/Tune";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const inputStyleNav = {
   height: "46px",
   border: "2px",
-  fontSize:'12px',
+  fontSize: "12px",
   borderRadius: 10,
   boxShadow: 4,
   backgroundColor: "#ffffff",
   alignItems: "center",
-  width:'300px',
-  boxShadow:'none',
+  width: "300px",
+  boxShadow: "none",
   borderRadius: "30px",
   padding: "12px 24px 12px 24px",
   margin: "0 10px",
 };
 
-const settings={
+const settings = {
   color: "#7e7e7e",
   fontSize: "10px",
   fontWeight: "550",
   display: "flex",
   padding: "6px 24px",
   fontFamily: "Helvetica,sans-serif",
-
-}
+};
 
 const Items = {
   color: "#7e7e7e",
@@ -58,9 +57,9 @@ const title = {
   fontWeight: "600",
   display: "flex",
   padding: "6px 24px",
-  margin:0,
-  marginLeft:'8px',
-  
+  margin: 0,
+  marginLeft: "8px",
+
   fontFamily: "Helvetica,sans-serif",
 };
 
@@ -69,7 +68,7 @@ const detalles = {
   fontSize: "12px",
   fontWeight: "500",
   display: "flex",
-  marginLeft:'6px',
+  marginLeft: "6px",
   fontFamily: "Helvetica,sans-serif",
 };
 
@@ -79,7 +78,7 @@ const Available = {
   fontWeight: "500",
   display: "flex",
   padding: "8px",
- 
+
   fontFamily: "Helvetica,sans-serif",
 };
 const Disable = {
@@ -88,9 +87,9 @@ const Disable = {
   fontWeight: "500",
   display: "flex",
   padding: "14px",
-  
-marginTop:'-6px',
-marginBottom:'-6px',
+
+  marginTop: "-6px",
+  marginBottom: "-6px",
   fontFamily: "Helvetica,sans-serif",
 };
 
@@ -99,7 +98,7 @@ const Categories = {
   fontSize: "12px",
   fontWeight: "500",
   display: "flex",
-  marginLeft:'6px',
+  marginLeft: "6px",
   fontFamily: "Helvetica,sans-serif",
 };
 
@@ -109,7 +108,7 @@ const AvailableEdit = {
   fontWeight: "500",
   display: "flex",
   padding: "14px",
- 
+
   fontFamily: "Helvetica,sans-serif",
 };
 const DisableEdit = {
@@ -118,26 +117,26 @@ const DisableEdit = {
   fontWeight: "500",
   display: "flex",
   padding: "14px",
-  
-marginTop:'-6px',
-marginBottom:'-6px',
+
+  marginTop: "-6px",
+  marginBottom: "-6px",
   fontFamily: "Helvetica,sans-serif",
 };
 
-const boxDisable={
+const boxDisable = {
   border: "1px solid #e75751",
-              width: "auto",
-              backgroundColor:'#fff3f4',
-              height: "auto",
-              
-              borderRadius: "12px",
-}
-const boxAvailable={
-border: "1px solid #149285",
-              width: "auto",
-              height: "auto",
-              borderRadius: "12px",
-            }
+  width: "auto",
+  backgroundColor: "#fff3f4",
+  height: "auto",
+
+  borderRadius: "12px",
+};
+const boxAvailable = {
+  border: "1px solid #149285",
+  width: "auto",
+  height: "auto",
+  borderRadius: "12px",
+};
 const ListProduct = () => {
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState(""); // Estado para el valor de búsqueda
@@ -157,40 +156,37 @@ const ListProduct = () => {
     setChecked(event.target.checked);
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
 
-    const [anchorEl, setAnchorEl] = useState(null);
-  
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleMenu = () => {
-      setAnchorEl(null);
-    };
-  
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
+  const handleMenu = () => {
+    setAnchorEl(null);
+  };
 
-    const handleConfirmDelete = () => {
-      console.log('Producto eliminado');
-      setShowConfirmModal(false);
-    };
-    
-    const handleCancelDelete = () => {
-      setShowConfirmModal(false);
-    };
-    
-    const handleMenuItemClick = (action) => {
-      if (action === 'Eliminar') {
-        setShowConfirmModal(true);
-      } else {
-        setStatus(action);
-        console.log(action)
-        handleMenu();
-      }
-    };
-      
+  const handleConfirmDelete = () => {
+    console.log("Producto eliminado");
+    setShowConfirmModal(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirmModal(false);
+  };
+
+  const handleMenuItemClick = (action) => {
+    if (action === "Eliminar") {
+      setShowConfirmModal(true);
+    } else {
+      setStatus(action);
+      console.log(action);
+      handleMenu();
+    }
+  };
+
   return (
-    <Box sx={{ padding: "12px", margin: 0,backgroundColor:'#faf9f2' }}>
+    <Box sx={{ padding: "12px", margin: 0, backgroundColor: "#faf9f2" }}>
       <Box
         sx={{
           display: "flex",
@@ -203,11 +199,13 @@ const ListProduct = () => {
         <IconButton onClick={handleOpen} disableRipple>
           <InputBase
             placeholder="Search..."
-            inputProps={{ Roboto: "search",fontSize:'12px' }}
+            inputProps={{ Roboto: "search", fontSize: "12px" }}
             value={searchValue}
             onChange={handleSearchChange}
             sx={inputStyleNav}
-            endAdornment={<SearchIcon sx={{ color: "black",fontSize:'14px' }} />}
+            endAdornment={
+              <SearchIcon sx={{ color: "black", fontSize: "14px" }} />
+            }
           />
         </IconButton>
 
@@ -215,8 +213,8 @@ const ListProduct = () => {
           sx={{
             width: "120px",
             height: "40px",
-            
-            backgroundColor:'#ffff',
+
+            backgroundColor: "#ffff",
             borderRadius: "12px",
             display: "flex",
             alignItems: "center",
@@ -224,15 +222,15 @@ const ListProduct = () => {
           }}
         >
           <Typography sx={settings}>Sort By</Typography>
-          <KeyboardArrowDownIcon/>
+          <KeyboardArrowDownIcon />
         </Box>
 
         <Box
           sx={{
             width: "160px",
-            backgroundColor:'#ffff',
+            backgroundColor: "#ffff",
             height: "40px",
-          
+
             borderRadius: "12px",
             display: "flex",
             alignItems: "center",
@@ -240,69 +238,78 @@ const ListProduct = () => {
           }}
         >
           <Typography sx={settings}>Price Range</Typography>
-          <TuneIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'16px',margin:'2px'}}/>
+          <TuneIcon
+            sx={{
+              color: "#111",
+              paddingLeft: "12px",
+              fontSize: "16px",
+              margin: "2px",
+            }}
+          />
         </Box>
       </Box>
       <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center', // Alinea verticalmente los elementos dentro del contenedor
-        gap: '16px', // Espacio entre el texto y el número
-        padding: '16px', // Padding alrededor del contenedor
-      }}
-    >
-      <Typography sx={{...Items, color: '#157171' }}>All Products</Typography>
-      <Box
-        sx={{...Items,
-          width: '12px',  
-          height: '16px',
-          marginLeft:'-24px',
-          backgroundColor:'#ffff',
-          border: '1px solid #157171',
-          borderRadius: '12px', // Hace que el borde sea circular
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#157171', // Cambia el color del número
+        sx={{
+          display: "flex",
+          alignItems: "center", // Alinea verticalmente los elementos dentro del contenedor
+          gap: "16px", // Espacio entre el texto y el número
+          padding: "16px", // Padding alrededor del contenedor
         }}
       >
-        (120)
-      </Box>
-      <Typography sx={{...Items}}>Available</Typography>
-      <Box
-        sx={{...Items,
-          width: '12px',  
-          height: '16px',
-          marginLeft:'-24px',
-          backgroundColor:'white',
-          border: '1px solid #acacac',
-          borderRadius: '12px', // Hace que el borde sea circular
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          
-        }}
-      >
-        (90)
-      </Box>
-      <Typography sx={{...Items }}>Disable</Typography>
-      <Box
-        sx={{...Items,
-          width: '12px',  
-          height: '16px',
-          marginLeft:'-24px',
-          backgroundColor:'white',
-          border: '1px solid #acacac',
-          borderRadius: '12px', // Hace que el borde sea circular
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          
-        }}
-      >
-        (30)
-      </Box>
-       
+        <Typography sx={{ ...Items, color: "#157171" }}>
+          All Products
+        </Typography>
+        <Box
+          sx={{
+            ...Items,
+            width: "12px",
+            height: "16px",
+            marginLeft: "-24px",
+            backgroundColor: "#ffff",
+            border: "1px solid #157171",
+            borderRadius: "12px", // Hace que el borde sea circular
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#157171", // Cambia el color del número
+          }}
+        >
+          (120)
+        </Box>
+        <Typography sx={{ ...Items }}>Available</Typography>
+        <Box
+          sx={{
+            ...Items,
+            width: "12px",
+            height: "16px",
+            marginLeft: "-24px",
+            backgroundColor: "white",
+            border: "1px solid #acacac",
+            borderRadius: "12px", // Hace que el borde sea circular
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          (90)
+        </Box>
+        <Typography sx={{ ...Items }}>Disable</Typography>
+        <Box
+          sx={{
+            ...Items,
+            width: "12px",
+            height: "16px",
+            marginLeft: "-24px",
+            backgroundColor: "white",
+            border: "1px solid #acacac",
+            borderRadius: "12px", // Hace que el borde sea circular
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          (30)
+        </Box>
       </Box>
       <Box
         sx={{
@@ -327,16 +334,48 @@ const ListProduct = () => {
               label={<Typography sx={title}>Product</Typography>}
             />
             <Typography sx={{ ...title, marginLeft: "186px" }}>
-              Price <ImportExportIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
+              Price{" "}
+              <ImportExportIcon
+                sx={{
+                  color: "#111",
+                  paddingLeft: "12px",
+                  fontSize: "18px",
+                  margin: "2px",
+                }}
+              />
             </Typography>
             <Typography sx={{ ...title, marginLeft: "32px" }}>
-              Status <ImportExportIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
+              Status{" "}
+              <ImportExportIcon
+                sx={{
+                  color: "#111",
+                  paddingLeft: "12px",
+                  fontSize: "18px",
+                  margin: "2px",
+                }}
+              />
             </Typography>
             <Typography sx={{ ...title, marginLeft: "36px" }}>
-              Stock <ImportExportIcon  sx={{color:'#111', paddingLeft:'12px', fontSize:'18px',margin:'2px'}}/>
+              Stock{" "}
+              <ImportExportIcon
+                sx={{
+                  color: "#111",
+                  paddingLeft: "12px",
+                  fontSize: "18px",
+                  margin: "2px",
+                }}
+              />
             </Typography>
             <Typography sx={{ ...title, marginRight: "62px" }}>
-              Total Earning <ImportExportIcon  sx={{color:'red', paddingLeft:'16px', fontSize:'18px',margin:'2px'}}/>
+              Total Earning{" "}
+              <ImportExportIcon
+                sx={{
+                  color: "red",
+                  paddingLeft: "16px",
+                  fontSize: "18px",
+                  margin: "2px",
+                }}
+              />
             </Typography>
           </Box>
           <Divider
@@ -353,7 +392,7 @@ const ListProduct = () => {
             display: "flex",
             justifyContent: "space-between", // Distribuye el espacio de manera uniforme entre los elementos
             alignItems: "center",
-            paddingRight:'12px',
+            paddingRight: "12px",
           }}
         >
           <Box
@@ -397,40 +436,45 @@ const ListProduct = () => {
               width: "auto",
               height: "auto",
               borderRadius: "12px",
-            
             }}
           >
-            <Typography sx={{...Available, }}>Available</Typography>
+            <Typography sx={{ ...Available }}>Available</Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
           <IconButton
-  sx={{
-    '&:hover': {
-      backgroundColor: 'transparent', // Evita cambios de fondo en hover
-    },
-
-  }}
->
-            <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
-        <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
-          </Box>
-      </IconButton>
+            sx={{
+              "&:hover": {
+                backgroundColor: "transparent", // Evita cambios de fondo en hover
+              },
+            }}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#ececec",
+                borderRadius: "8px",
+                height: "42px",
+                marginLeft: "-24px",
+              }}
+            >
+              <MoreVertIcon sx={{ color: "#111", marginTop: "10px" }} />
+            </Box>
+          </IconButton>
         </Box>
         <Divider
-            sx={{
-              width: "100%",
-              bgcolor: "#eeeeee",
-              color: "red",
-            }}
-          />
-      
+          sx={{
+            width: "100%",
+            bgcolor: "#eeeeee",
+            color: "red",
+          }}
+        />
+
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between", // Distribuye el espacio de manera uniforme entre los elementos
             alignItems: "center",
-            paddingRight:'12px',
+            paddingRight: "12px",
           }}
         >
           <Box
@@ -468,40 +512,44 @@ const ListProduct = () => {
             </Box>
           </Box>
           <Typography sx={detalles}>$220.99</Typography>
-          <Box
-            sx={boxDisable}
-          >
+          <Box sx={boxDisable}>
             <Typography sx={Disable}>Disable</Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
           <IconButton
-  sx={{
-    '&:hover': {
-      backgroundColor: 'transparent', // Evita cambios de fondo en hover
-    },
-
-  }}
->
-            <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
-        <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
-          </Box>
-      </IconButton>
+            sx={{
+              "&:hover": {
+                backgroundColor: "transparent", // Evita cambios de fondo en hover
+              },
+            }}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#ececec",
+                borderRadius: "8px",
+                height: "42px",
+                marginLeft: "-24px",
+              }}
+            >
+              <MoreVertIcon sx={{ color: "#111", marginTop: "10px" }} />
+            </Box>
+          </IconButton>
         </Box>
         <Divider
-            sx={{
-              width: "100%",
-              bgcolor: "#eeeeee",
-              color: "red",
-            }}
-          />
-        
+          sx={{
+            width: "100%",
+            bgcolor: "#eeeeee",
+            color: "red",
+          }}
+        />
+
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between", // Distribuye el espacio de manera uniforme entre los elementos
             alignItems: "center",
-            paddingRight:'12px',
+            paddingRight: "12px",
           }}
         >
           <Box
@@ -539,41 +587,44 @@ const ListProduct = () => {
             </Box>
           </Box>
           <Typography sx={detalles}>$220.99</Typography>
-          <Box
-            sx={boxAvailable}
-          >
-            <Typography sx={{...Available, }}>Available</Typography>
+          <Box sx={boxAvailable}>
+            <Typography sx={{ ...Available }}>Available</Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
           <IconButton
-  sx={{
-    '&:hover': {
-      backgroundColor: 'transparent', // Evita cambios de fondo en hover
-    },
-
-  }}
->
-            <Box sx={{backgroundColor:'#ececec',borderRadius:'8px',height:'42px',marginLeft:'-24px'}}>
-        <MoreVertIcon sx={{ color: '#111',marginTop:'10px' }} />
-          </Box>
-      </IconButton>
+            sx={{
+              "&:hover": {
+                backgroundColor: "transparent", // Evita cambios de fondo en hover
+              },
+            }}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#ececec",
+                borderRadius: "8px",
+                height: "42px",
+                marginLeft: "-24px",
+              }}
+            >
+              <MoreVertIcon sx={{ color: "#111", marginTop: "10px" }} />
+            </Box>
+          </IconButton>
         </Box>
         <Divider
-            sx={{
-              width: "100%",
-              bgcolor: "#eeeeee",
-              color: "red",
-            }}
-          />
-  
-      
-      <Box
+          sx={{
+            width: "100%",
+            bgcolor: "#eeeeee",
+            color: "red",
+          }}
+        />
+
+        <Box
           sx={{
             display: "flex",
             justifyContent: "space-between", // Distribuye el espacio de manera uniforme entre los elementos
             alignItems: "center",
-            paddingRight:'12px',
+            paddingRight: "12px",
           }}
         >
           <Box
@@ -611,115 +662,124 @@ const ListProduct = () => {
             </Box>
           </Box>
           <Typography sx={detalles}>$220.99</Typography>
-          <Box
-            sx={status ==='Available' ? boxAvailable : boxDisable}
-          >
-           
+          <Box sx={status === "Available" ? boxAvailable : boxDisable}>
             <Typography sx={status === "Available" ? Available : Disable}>
-{status}
-</Typography>
+              {status}
+            </Typography>
           </Box>
           <Typography sx={detalles}>55pcs</Typography>
           <Typography sx={detalles}>$854.226</Typography>
           <IconButton
-sx={{
-  backgroundColor: 'transparent',
-  '&:hover': {
-    backgroundColor: 'transparent',
-  },
-  '&:focus': {
-    outline: 'none',
-    boxShadow: 'none',
-  },
-  '&:active': {
-    backgroundColor: 'transparent',
-  },
-  transition: 'none',
-}}
-onClick={handleClick}
->
-<Box
-  sx={{
-    backgroundColor: '#ececec',
-    borderRadius: '8px',
-    height: '42px',
-    marginLeft: '-24px',
-  }}
->
-  <MoreVertIcon sx={{ color: '#111', marginTop: '10px' }} />
-</Box>
-</IconButton>
+            sx={{
+              backgroundColor: "transparent",
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+              "&:focus": {
+                outline: "none",
+                boxShadow: "none",
+              },
+              "&:active": {
+                backgroundColor: "transparent",
+              },
+              transition: "none",
+            }}
+            onClick={handleClick}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#ececec",
+                borderRadius: "8px",
+                height: "42px",
+                marginLeft: "-24px",
+              }}
+            >
+              <MoreVertIcon sx={{ color: "#111", marginTop: "10px" }} />
+            </Box>
+          </IconButton>
+        </Box>
 
-</Box>
-   
-<Menu
-  anchorEl={anchorEl}
-  open={Boolean(anchorEl)}
-  onClose={handleMenu}
-  sx={{
-    boxShadow: 'none',
-    
-    '& .MuiPaper-root': {
-      boxShadow: 'none',
-      border: '1px solid #eeeeee',
-      borderRadius: '12px',
-    },
-    // Adjust menu position
-    transform: 'translateX(-5%) translateY(-2.5%)', // Moves the menu left and up
-   
-  }}
-  anchorOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
-  transformOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
->
-  
-  <MenuItem onClick={() => handleMenuItemClick('Available')} sx={AvailableEdit}>Disponible</MenuItem>
-  <MenuItem onClick={() => handleMenuItemClick('Disable')} sx={DisableEdit}>Desactivar</MenuItem>
-  <MenuItem onClick={() => handleMenuItemClick('Eliminar')} sx={DisableEdit}>Eliminar</MenuItem>
-</Menu>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenu}
+          sx={{
+            boxShadow: "none",
 
-
+            "& .MuiPaper-root": {
+              boxShadow: "none",
+              border: "1px solid #eeeeee",
+              borderRadius: "12px",
+            },
+            // Adjust menu position
+            transform: "translateX(-5%) translateY(-2.5%)", // Moves the menu left and up
+          }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          <MenuItem
+            onClick={() => handleMenuItemClick("Available")}
+            sx={AvailableEdit}
+          >
+            Disponible
+          </MenuItem>
+          <MenuItem
+            onClick={() => handleMenuItemClick("Disable")}
+            sx={DisableEdit}
+          >
+            Desactivar
+          </MenuItem>
+          <MenuItem
+            onClick={() => handleMenuItemClick("Eliminar")}
+            sx={DisableEdit}
+          >
+            Eliminar
+          </MenuItem>
+        </Menu>
       </Box>
       <Modal
-      open={showConfirmModal}
-      onClose={handleCancelDelete}
-      sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-    >
-      <Box
-        sx={{
-          width: '300px',
-          padding: '20px',
-          backgroundColor: 'white',
-          borderRadius: '8px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-          textAlign: 'center',
-        }}
+        open={showConfirmModal}
+        onClose={handleCancelDelete}
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <Typography variant="h6" gutterBottom>
-          ¿Estás seguro de eliminar?
-        </Typography>
-        <Typography variant="body2" sx={{ marginBottom: '20px' }}>
-          Esta acción no se puede deshacer.
-        </Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-          <Button variant="contained" color="error" onClick={handleConfirmDelete}>
-            Eliminar
-          </Button>
-          <Button variant="outlined" onClick={handleCancelDelete}>
-            Cancelar
-          </Button>
+        <Box
+          sx={{
+            width: "300px",
+            padding: "20px",
+            backgroundColor: "white",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h6" gutterBottom>
+            ¿Estás seguro de eliminar?
+          </Typography>
+          <Typography variant="body2" sx={{ marginBottom: "20px" }}>
+            Esta acción no se puede deshacer.
+          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={handleConfirmDelete}
+            >
+              Eliminar
+            </Button>
+            <Button variant="outlined" onClick={handleCancelDelete}>
+              Cancelar
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Modal>
+      </Modal>
     </Box>
   );
 };
-
-
 
 export default ListProduct;

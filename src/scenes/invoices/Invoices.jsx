@@ -3,25 +3,28 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { mockDataInvoices } from "@/data/mockData";
 
-import Header from '@/components/HeaderAdmin';
+import Header from "@/components/HeaderAdmin";
 
 const Invoices = () => {
   const columns = [
     { field: "id", headerName: "ID" },
-    { field: "name", headerName: "Name", flex: 1, cellClassName: "name-column--cell" },
+    {
+      field: "name",
+      headerName: "Name",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
     { field: "phone", headerName: "Phone Number", flex: 1 },
     { field: "email", headerName: "Email", flex: 1 },
-    { 
-      field: "cost", 
-      headerName: "Cost", 
-      flex: 1, 
+    {
+      field: "cost",
+      headerName: "Cost",
+      flex: 1,
       renderCell: (params) => (
         <Box display="flex" alignItems="center">
-          <Typography color="green">
-            ${params.row.cost}
-          </Typography>
+          <Typography color="green">${params.row.cost}</Typography>
         </Box>
-      ) 
+      ),
     },
     { field: "date", headerName: "Date", flex: 1 },
   ];
@@ -40,7 +43,7 @@ const Invoices = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: 'green',
+            color: "green",
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: "blue",
@@ -54,8 +57,8 @@ const Invoices = () => {
             backgroundColor: "white",
           },
           "& .MuiCheckbox-root": {
-            color: "purple"
-          }
+            color: "purple",
+          },
         }}
       >
         <DataGrid rows={mockDataInvoices} columns={columns} checkboxSelection />

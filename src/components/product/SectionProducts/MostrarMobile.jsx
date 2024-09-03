@@ -20,7 +20,7 @@ const cardStyle = {
 
 const cardStyle2 = {
   width: "116px",
- margin:"0 auto",
+  margin: "0 auto",
   cursor: "pointer",
   fontFamily: "arial",
   margin: "0 auto",
@@ -121,7 +121,6 @@ export default function LookProduct(props) {
   const addToCart = () => {
     dispatch({ type: TYPES.ADD_TO_CART, payload: props.item });
     dispatch({ type: TYPES.TOTAL });
- 
   };
 
   const handleMouseEnter = () => {
@@ -154,7 +153,7 @@ export default function LookProduct(props) {
               left: 8,
               backgroundColor: "white",
               height: "%20",
-              borderRadius:'12px',
+              borderRadius: "12px",
               transition: "transform 0.3s ease",
               transform: `translateY(${isHovered ? "-10px" : "0"})`, // Movimiento hacia arriba al pasar el mouse
             }}

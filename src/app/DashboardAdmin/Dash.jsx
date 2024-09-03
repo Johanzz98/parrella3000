@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
-import Sidebar from '@/scenes/global/Sidebar';
-import Topbar from '@/scenes/global/Topbar';
-import HeaderAdminTop from '@/scenes/dashboard/HeadersAdminTop';
-import Team from '@/scenes/team/Team';
-import Contacts from '@/scenes/Contacts/Contacts';
-import Invoices from '@/scenes/invoices/Invoices';
-import Form from '@/scenes/form/form';
-import Bar from '@/scenes/Bar/Bar';
-import PieChart from '@/components/PieChart';
-import LineChart from '@/scenes/LineChart/LineChart';
-import Home from '@/scenes/Home/Home';
-import Logout from '@/scenes/Logout/Logout';
-import Categories from '@/components/dashboardAdmin/Categories';
-import Register from '@/components/dashboardAdmin/Register';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { Box } from "@mui/material";
+import Sidebar from "@/scenes/global/Sidebar";
+import Topbar from "@/scenes/global/Topbar";
+import HeaderAdminTop from "@/scenes/dashboard/HeadersAdminTop";
+import Team from "@/scenes/team/Team";
+import Contacts from "@/scenes/Contacts/Contacts";
+import Invoices from "@/scenes/invoices/Invoices";
+import Form from "@/scenes/form/form";
+import Bar from "@/scenes/Bar/Bar";
+import PieChart from "@/components/PieChart";
+import LineChart from "@/scenes/LineChart/LineChart";
+import Home from "@/scenes/Home/Home";
+import Logout from "@/scenes/Logout/Logout";
+import Categories from "@/components/dashboardAdmin/Categories";
+import Register from "@/components/dashboardAdmin/Register";
+import { useSelector } from "react-redux";
 import "./app.css";
-import ProductPage from '@/components/dashboardAdmin/ProductPage/ProductPage';
-import ListProductPage from '@/scenes/ListProductPage/ListProductPage';
-import EditPage from '@/scenes/EditPage/EditPage';
-import InvoicesPerfil from '@/scenes/InvoicesPerfil/InvoicesPerfil';
-import Order from '@/scenes/Order/Order';
-
+import ProductPage from "@/components/dashboardAdmin/ProductPage/ProductPage";
+import ListProductPage from "@/scenes/ListProductPage/ListProductPage";
+import EditPage from "@/scenes/EditPage/EditPage";
+import InvoicesPerfil from "@/scenes/InvoicesPerfil/InvoicesPerfil";
+import Order from "@/scenes/Order/Order";
 
 const Dash = () => {
   const [mainComponent, setMainComponent] = useState(<HeaderAdminTop />);
   const [loading, setLoading] = useState(true);
   const token = useSelector((state) => state.auth.token);
-  const userRole = token ? JSON.parse(atob(token.split('.')[1])).role : null;
+  const userRole = token ? JSON.parse(atob(token.split(".")[1])).role : null;
 
   useEffect(() => {
     const verifyTokenAndRole = async () => {
@@ -40,10 +39,10 @@ const Dash = () => {
           throw new Error("Access denied");
         }
       } catch (error) {
-        console.error('Error verifying token:', error);
+        console.error("Error verifying token:", error);
         setLoading(false);
         // Redirect to error page if unauthorized or error occurs
-        window.location.href = '/error';
+        window.location.href = "/error";
       } finally {
         setLoading(false);
       }
@@ -54,7 +53,7 @@ const Dash = () => {
     } else {
       setLoading(false);
       // Redirect to error page if token is not present
-      window.location.href = '/error';
+      window.location.href = "/error";
     }
   }, [token, userRole]);
 
@@ -66,25 +65,25 @@ const Dash = () => {
       case "Contacts Information":
         setMainComponent(<Contacts />);
         break;
-        case "Order List":
-          setMainComponent(<Order/>);
-          break;
+      case "Order List":
+        setMainComponent(<Order />);
+        break;
       case "Product Page":
         setMainComponent(<ProductPage />);
         break;
       case "Categories Page":
         setMainComponent(<Categories />);
         break;
-        case "List Product":
-          setMainComponent(<ListProductPage/>)
-          break; 
-          case "Edit Product":
-            setMainComponent(<EditPage/>)
-            break; 
-            case "Invoices Perfil":
-              setMainComponent(<InvoicesPerfil/>)
-              break; 
-            
+      case "List Product":
+        setMainComponent(<ListProductPage />);
+        break;
+      case "Edit Product":
+        setMainComponent(<EditPage />);
+        break;
+      case "Invoices Perfil":
+        setMainComponent(<InvoicesPerfil />);
+        break;
+
       case "Invoices Balances":
         setMainComponent(<Invoices />);
         break;
@@ -103,12 +102,12 @@ const Dash = () => {
       case "Line Chart":
         setMainComponent(<LineChart />);
         break;
-        case "Home":
-          setMainComponent(<Home/>);
-          break;
-          case "Logout":
-            setMainComponent(<Logout />);
-            break;
+      case "Home":
+        setMainComponent(<Home />);
+        break;
+      case "Logout":
+        setMainComponent(<Logout />);
+        break;
       default:
         setMainComponent(<HeaderAdminTop />);
         break;
@@ -124,7 +123,7 @@ const Dash = () => {
       <Sidebar onMenuClick={handleMenuClick} />
       <Box className="main-content">
         <Topbar />
-        
+
         {mainComponent}
       </Box>
     </Box>

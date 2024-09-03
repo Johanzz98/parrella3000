@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import Navbar from "@/components/Navbar/Navbar";
 import { AuthProvider } from "@/context/AuthProvider";
 import TopMobile from "@/components/product/TopMobile";
-import Top from "@/components/product/Top";  // Asegúrate de importar el componente Top
+import Top from "@/components/product/Top"; // Asegúrate de importar el componente Top
 
 const theme = createTheme({
   palette: {

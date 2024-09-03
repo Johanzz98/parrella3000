@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import CartItems from './CartItems'; // Asegúrate de importar el componente CartItems
+import React, { useState, useEffect } from "react";
+import CartItems from "./CartItems"; // Asegúrate de importar el componente CartItems
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]); // Estado para los elementos en el carrito
@@ -8,7 +8,7 @@ const Cart = () => {
   // Calcula el total general sumando los precios de todos los elementos en el carrito
   useEffect(() => {
     let totalPrice = 0;
-    cartItems.forEach(item => {
+    cartItems.forEach((item) => {
       totalPrice += item.price * item.quantity;
     });
     setTotal(totalPrice);
@@ -21,7 +21,7 @@ const Cart = () => {
   return (
     <div>
       {/* Mapea los elementos en el carrito y pasa el total como una prop a CartItems */}
-      {cartItems.map(item => (
+      {cartItems.map((item) => (
         <CartItems
           key={item.id}
           data={item}

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Divider,CircularProgress  } from "@mui/material";
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import { Box, Typography, Divider, CircularProgress } from "@mui/material";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import CartDetail from "../Cart/CartDetail";
 import { useSelector, useDispatch } from "react-redux";
-import { TYPES } from '@/actions/ShoppingActions';
+import { TYPES } from "@/actions/ShoppingActions";
 
 const titulo = {
-  fontSize: '0.9375rem',
-  color: '#111',
-  textAlign: 'center',
+  fontSize: "0.9375rem",
+  color: "#111",
+  textAlign: "center",
   fontWeight: 700,
 };
 
@@ -17,15 +17,15 @@ const totalStyle = {
   fontSize: "20px",
   fontWeight: "700",
   color: "#111",
-  display: 'flex',
-  justifyContent: 'center',
+  display: "flex",
+  justifyContent: "center",
   marginBottom: "-12px",
-  alignItems: 'center',
+  alignItems: "center",
   fontFamily: "Helvetica, sans-serif",
 };
 
 const SadStyle = {
-  verticalAlign: 'middle',
+  verticalAlign: "middle",
   fontSize: "20px",
   marginTop: "-2px",
 };
@@ -61,35 +61,69 @@ const DetailsPay = () => {
 
   if (isLoading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft:'320px',height:'60vh' }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginLeft: "320px",
+          height: "60vh",
+        }}
+      >
         <CircularProgress />
       </Box>
     );
   }
   return (
-    <>      {total > 0 && (
-    
+    <>
+      {" "}
+      {total > 0 && (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            paddingLeft: "12px",
 
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          paddingLeft: '12px',
-         
-          width: '960px',
-          paddingTop:'24px',
-          backgroundColor: '#f5f5f5',
-      
-        }}
-      >
-    <Box p={1} sx={{ backgroundColor: "#f5f5f5;", width:"159.3%",marginLeft:'-20px',marginBottom:'70px', marginTop:'-120px' }}>
-      <Typography variant="h3" sx={titulo}>MI COMPRA</Typography>
-    </Box>
-          <Box p={2} >
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography sx={{ ...titulo, marginLeft: '32px', fontWeight: 700 }}>PRODUCTO</Typography>
-              <Typography sx={{ ...titulo, marginLeft: '185px' }}>CANTIDAD</Typography>
-              <Typography sx={{ ...titulo, marginLeft: '-73px', marginRight: '74px' }}>SUBTOTAL</Typography>
+            width: "960px",
+            paddingTop: "24px",
+            backgroundColor: "#f5f5f5",
+          }}
+        >
+          <Box
+            p={1}
+            sx={{
+              backgroundColor: "#f5f5f5;",
+              width: "159.3%",
+              marginLeft: "-20px",
+              marginBottom: "70px",
+              marginTop: "-120px",
+            }}
+          >
+            <Typography variant="h3" sx={titulo}>
+              MI COMPRA
+            </Typography>
+          </Box>
+          <Box p={2}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                sx={{ ...titulo, marginLeft: "32px", fontWeight: 700 }}
+              >
+                PRODUCTO
+              </Typography>
+              <Typography sx={{ ...titulo, marginLeft: "185px" }}>
+                CANTIDAD
+              </Typography>
+              <Typography
+                sx={{ ...titulo, marginLeft: "-73px", marginRight: "74px" }}
+              >
+                SUBTOTAL
+              </Typography>
             </Box>
             <Divider
               sx={{
@@ -106,14 +140,33 @@ const DetailsPay = () => {
               ))}
             </Box>
           </Box>
-       
-      </Box>
- )}
+        </Box>
+      )}
       {total === 0 && (
-        <Box p={11} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent: 'center', marginLeft:'320px'}}>
-          <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px", marginTop: '-4rem', }} />
-          <Typography sx={{ fontFamily: "Helvetica, sans-serif", fontWeight: "400", textTransform: "none", letterSpacing: 0, margin: '24px',  }}>
-            Tu carrito está vacío <SentimentVeryDissatisfiedIcon sx={SadStyle} />
+        <Box
+          p={11}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "320px",
+          }}
+        >
+          <ProductionQuantityLimitsIcon
+            sx={{ width: "54px", height: "54px", marginTop: "-4rem" }}
+          />
+          <Typography
+            sx={{
+              fontFamily: "Helvetica, sans-serif",
+              fontWeight: "400",
+              textTransform: "none",
+              letterSpacing: 0,
+              margin: "24px",
+            }}
+          >
+            Tu carrito está vacío{" "}
+            <SentimentVeryDissatisfiedIcon sx={SadStyle} />
           </Typography>
         </Box>
       )}

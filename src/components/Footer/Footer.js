@@ -36,7 +36,7 @@ const iconButtonStyle = {
 
 const fonts = {
   fontSize: "12px",
-  
+
   marginBottom: "4px",
   border: "none",
   fontWeight: 400,
@@ -51,18 +51,16 @@ const fonts = {
 };
 const fontsMax = {
   fontSize: "12px",
-  justifyContent: 'flex-start',
+  justifyContent: "flex-start",
 
- 
   fontWeight: 400,
   textTransform: "uppercase",
   fontFamily: " 'Helvetica', sans-serif",
- 
+
   overflow: "hidden",
- 
+
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
-  
 };
 
 const fonstDes = {
@@ -81,11 +79,10 @@ const fonstDes = {
   margin: "16px ",
 };
 
-
 const LinkStyle = {
   fontSize: "16px",
-  color:'white',
-  margin: "14px  11px" ,
+  color: "white",
+  margin: "14px  11px",
   border: "none",
   fontWeight: 300,
 
@@ -102,7 +99,6 @@ const Footer = () => {
   const [openProductos, setOpenProductos] = useState(false); // Corrige la declaración de useState
   const [openProductos2, setOpenProductos2] = useState(false); // Corrige la declaración de useState
   const [openProductos3, setOpenProductos3] = useState(false); // Corrige la declaración de useState
-
 
   return (
     <Box
@@ -124,7 +120,8 @@ const Footer = () => {
               href={socialMediaLinks.facebook}
               sx={{
                 ...iconButtonStyle,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -137,7 +134,8 @@ const Footer = () => {
               href={socialMediaLinks.twitter}
               sx={{
                 ...iconButtonStyle,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -150,7 +148,8 @@ const Footer = () => {
               href={socialMediaLinks.instagram}
               sx={{
                 ...iconButtonStyle,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -198,7 +197,12 @@ const Footer = () => {
                 />
               </Grid>
               <Grid item>
-                <Button variant="outlined" color="primary" type="submit" sx={{color:'white', borderColor:'white',height:'41px'}}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  type="submit"
+                  sx={{ color: "white", borderColor: "white", height: "41px" }}
+                >
                   Subscribe
                 </Button>
               </Grid>
@@ -213,66 +217,90 @@ const Footer = () => {
           <Grid container justifyContent="space-between">
             <Box>
               <Typography variaant="subtitle1" color="White" gutterBottom>
-              AYUDA Y ASISTENCIA
+                AYUDA Y ASISTENCIA
               </Typography>
               <Box style={fontsMax}>
-              <Link
-                href="/FAQS"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Preguntas Frecuentes
-              </Link>
-              <br/>
-              <Link
-               href="/FAQS/Pagos"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Pedidos y pagos
-              </Link>
-              <br/>
-              <Link
-                   href="/FAQS/Envios"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Envios
-              </Link>
-              <br/>
-              <Link
-                 href="/FAQS/Cambios"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-               Cambios y Devoluciones
-              </Link>
-              <br/>
-              <Link
-                href="/FAQS/Tallas"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Guía de tallas
-              </Link>
-              <br/>
-              <Link
-                href="/Mayor"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                ¿Quieres ser Mayorista?
-              </Link>
+                <Link
+                  href="/FAQS"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Preguntas Frecuentes
+                </Link>
+                <br />
+                <Link
+                  href="/FAQS/Pagos"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Pedidos y pagos
+                </Link>
+                <br />
+                <Link
+                  href="/FAQS/Envios"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Envios
+                </Link>
+                <br />
+                <Link
+                  href="/FAQS/Cambios"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Cambios y Devoluciones
+                </Link>
+                <br />
+                <Link
+                  href="/FAQS/Tallas"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Guía de tallas
+                </Link>
+                <br />
+                <Link
+                  href="/Mayor"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  ¿Quieres ser Mayorista?
+                </Link>
 
-              <br/>
-            
-               <br/>
+                <br />
+
+                <br />
               </Box>
             </Box>
             <Box>
@@ -280,76 +308,94 @@ const Footer = () => {
                 Acerca de nosotros
               </Typography>
               <Box style={fontsMax}>
-              <Link
-                href="/AboutUs"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Sobre Nosotros 
-              </Link>
+                <Link
+                  href="/AboutUs"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Sobre Nosotros
+                </Link>
 
-              
-              <br/>
-              <Link
-                href="/Terminos"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-               Términos y condiciones
-              </Link>
-               <br/>
-              <Link
-                href=" PoliticaCookies"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-               Politicas de privacidad y cookies
-              </Link>
-               <br/>
-              <Link
-                href="/Privacidad"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Política de privacidad
-              </Link>
-               <br/>
+                <br />
+                <Link
+                  href="/Terminos"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Términos y condiciones
+                </Link>
+                <br />
+                <Link
+                  href=" PoliticaCookies"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Politicas de privacidad y cookies
+                </Link>
+                <br />
+                <Link
+                  href="/Privacidad"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Política de privacidad
+                </Link>
+                <br />
               </Box>
             </Box>
-           <Box>
+            <Box>
               <Typography variant="subtitle1" color="White" gutterBottom>
                 Cuenta
               </Typography>
               <Box style={fontsMax}>
-              <Link
-                href="/account"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Mi cuenta
-              </Link>
-               <br/>
-           
-             
-              <Link
-                href="/PaySection"
-                color="inherit"
-                display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
-              >
-                Ver Carro
-              </Link>
-               <br/>
-            
-              
-             
-             
-               </Box>
+                <Link
+                  href="/account"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Mi cuenta
+                </Link>
+                <br />
+
+                <Link
+                  href="/PaySection"
+                  color="inherit"
+                  display="block"
+                  sx={{
+                    textDecoration: "none",
+                    transition: "color 0.06s ease",
+                    "&:hover": { color: "#ffff" },
+                  }}
+                >
+                  Ver Carro
+                </Link>
+                <br />
+              </Box>
             </Box>
           </Grid>
         </Container>
@@ -359,36 +405,34 @@ const Footer = () => {
       {/* Renderiza el contenido de Ayuda solo en pantallas pequeñas */}
 
       <Hidden mdUp>
-      <Box style={LinkStyle}>
-        
-      
-        </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  8px",marginTop:'22px' }} />
+        <Box style={LinkStyle}></Box>
+        <Divider
+          sx={{ borderColor: "white", margin: "0  8px", marginTop: "22px" }}
+        />
         <Box style={LinkStyle}>
-        
-        <Link
-        href="#"
-        color="inherit"
-        display="block"
-        sx={{ textDecoration: "none",transition: "color 0.06s ease",  }}
-      >
-        
-        Hazte Miembro
-        </Link>
-       </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  8px",marginTop:'22px' }} />
+          <Link
+            href="#"
+            color="inherit"
+            display="block"
+            sx={{ textDecoration: "none", transition: "color 0.06s ease" }}
+          >
+            Hazte Miembro
+          </Link>
+        </Box>
+        <Divider
+          sx={{ borderColor: "white", margin: "0  8px", marginTop: "22px" }}
+        />
       </Hidden>
 
       <Hidden mdUp>
-      
-        <Box onClick={() => setOpenProductos(!openProductos)} >
+        <Box onClick={() => setOpenProductos(!openProductos)}>
           <Typography
             sx={{
               color: "white",
               display: "flex",
               justifyContent: "space-between",
               margin: "12px",
-              marginBottom:'12px',
+              marginBottom: "12px",
             }}
           >
             <span>Ayuda y Asistencia</span>
@@ -398,8 +442,8 @@ const Footer = () => {
               <ExpandMore sx={{ marginLeft: "auto" }} />
             )}
           </Typography>
-          </Box>
-       
+        </Box>
+
         <Box style={fonts}>
           <Collapse in={openProductos} timeout="auto" unmountOnExit>
             <List component="div" disablePadding sx={{ color: "grey" }}>
@@ -407,73 +451,107 @@ const Footer = () => {
                 href="/FAQS"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-              Preguntas Frecuentes 
+                Preguntas Frecuentes
               </Link>
-              <br/>
+              <br />
               <Link
                 href="/FAQS/Pagos"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",marginLeft:'-1px',transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  marginLeft: "-1px",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-              Pedidos y pagos
+                Pedidos y pagos
               </Link>
-              <br/>
+              <br />
               <Link
                 href="/FAQS/Envios"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",marginLeft:'-1px',transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  marginLeft: "-1px",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-               Envios
+                Envios
               </Link>
-              <br/>
+              <br />
               <Link
                 href="/FAQS/Cambios"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",marginLeft:'-1px',transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  marginLeft: "-1px",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
                 Cambios y Devoluciones
               </Link>
-              <br/>
+              <br />
               <Link
                 href="/FAQS/Tallas"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",marginLeft:'-1px',transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  marginLeft: "-1px",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-              Guia de tallas
+                Guia de tallas
               </Link>
-              <br/>
+              <br />
               <Link
                 href="/Mayor"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",marginLeft:'-1px',transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  marginLeft: "-1px",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
                 ¿Quieres ser Mayorista?
               </Link>
-              <br/>
-             
+              <br />
             </List>
           </Collapse>
-    
         </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  8px",position:"relative",top:-12 }} />
+        <Divider
+          sx={{
+            borderColor: "white",
+            margin: "0  8px",
+            position: "relative",
+            top: -12,
+          }}
+        />
       </Hidden>
 
       <Hidden mdUp>
-        <Box onClick={() => setOpenProductos2(!openProductos2)} >
+        <Box onClick={() => setOpenProductos2(!openProductos2)}>
           <Typography
             sx={{
               color: "white",
               display: "flex",
               justifyContent: "space-between",
               margin: "12px",
-              marginBottom:'12px',
+              marginBottom: "12px",
             }}
           >
             <span>Acerca de nosotros </span>
@@ -491,54 +569,75 @@ const Footer = () => {
                 href="/AboutUs"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-              Sobre Nosotros
+                Sobre Nosotros
               </Link>
-              <br/>
+              <br />
               <Link
                 href="/Terminos"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-               Términos y Condiciones
+                Términos y Condiciones
               </Link>
               <br />
               <Link
                 href="PoliticaCookies"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-              Politicas de Privacidad y Cookies
+                Politicas de Privacidad y Cookies
               </Link>
               <br />
               <Link
                 href="/Privacidad"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-              Politica de Privacidad
+                Politica de Privacidad
               </Link>
               <br />
-             
             </List>
           </Collapse>
-      
         </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  8px",position:"relative",top:-12 }} />
+        <Divider
+          sx={{
+            borderColor: "white",
+            margin: "0  8px",
+            position: "relative",
+            top: -12,
+          }}
+        />
       </Hidden>
       <Hidden mdUp>
-        <Box onClick={() => setOpenProductos3(!openProductos3)} >
+        <Box onClick={() => setOpenProductos3(!openProductos3)}>
           <Typography
             sx={{
               color: "white",
               display: "flex",
               justifyContent: "space-between",
               margin: "12px",
-              marginBottom:'12px',
+              marginBottom: "12px",
             }}
           >
             <span>Cuenta </span>
@@ -556,7 +655,11 @@ const Footer = () => {
                 href="/account"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
                 Mi Cuenta
               </Link>
@@ -565,18 +668,26 @@ const Footer = () => {
                 href="/PaySection"
                 color="inherit"
                 display="block"
-                sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+                sx={{
+                  textDecoration: "none",
+                  transition: "color 0.06s ease",
+                  "&:hover": { color: "#ffff" },
+                }}
               >
-               Ver Carro
+                Ver Carro
               </Link>
               <br />
-             
-          
             </List>
           </Collapse>
-  
         </Box>
-        <Divider sx={{ borderColor: "white", margin: "0  8px",position:"relative",top:-12 }} />
+        <Divider
+          sx={{
+            borderColor: "white",
+            margin: "0  8px",
+            position: "relative",
+            top: -12,
+          }}
+        />
       </Hidden>
 
       <Hidden mdUp>
@@ -589,7 +700,8 @@ const Footer = () => {
               href={socialMediaLinks.facebook}
               sx={{
                 ...iconButtonStyle,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -602,7 +714,8 @@ const Footer = () => {
               href={socialMediaLinks.twitter}
               sx={{
                 ...iconButtonStyle,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -615,7 +728,8 @@ const Footer = () => {
               href={socialMediaLinks.instagram}
               sx={{
                 ...iconButtonStyle,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -648,16 +762,14 @@ const Footer = () => {
                   InputProps={{
                     style: { color: "white" },
                   }}
-                  InputLabelProps={{ sx: { color: "white",} }}
+                  InputLabelProps={{ sx: { color: "white" } }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
                         borderColor: "white",
-                       
                       },
                       "&:hover fieldset": {
                         borderColor: "white",
-                        
                       },
                       "&.Mui-focused fieldset": {
                         borderColor: "white",
@@ -667,7 +779,12 @@ const Footer = () => {
                 />
               </Grid>
               <Grid item>
-                <Button variant="outlined" color="primary" type="submit" sx={{color:'white', borderColor:'white',height:'40px'}}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  type="submit"
+                  sx={{ color: "white", borderColor: "white", height: "40px" }}
+                >
                   Subscribe
                 </Button>
               </Grid>
@@ -680,15 +797,19 @@ const Footer = () => {
             href="#"
             color="inherit"
             display="block"
-            sx={{ textDecoration: "none",transition: "color 0.06s ease", "&:hover": { color: "#ffff" } }}
+            sx={{
+              textDecoration: "none",
+              transition: "color 0.06s ease",
+              "&:hover": { color: "#ffff" },
+            }}
           >
             <LocationOnIcon
               sx={{
                 fontSize: "16px",
                 color: "white",
                 fontWeight: 400,
-                marginLeft:'12px',
-                marginBottom:'-1px',
+                marginLeft: "12px",
+                marginBottom: "-1px",
                 fontFamily: " 'Helvetica', sans-serif",
               }}
             />{" "}
@@ -704,7 +825,8 @@ const Footer = () => {
               display="block"
               sx={{
                 ...fonstDes,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -717,7 +839,8 @@ const Footer = () => {
               display="block"
               sx={{
                 ...fonstDes,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >
@@ -730,7 +853,8 @@ const Footer = () => {
               display="block"
               sx={{
                 ...fonstDes,
-                textDecoration: "none",transition: "color 0.06s ease",
+                textDecoration: "none",
+                transition: "color 0.06s ease",
                 "&:hover": { color: "#ffff" },
               }}
             >

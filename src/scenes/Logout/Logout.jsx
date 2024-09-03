@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -9,12 +9,12 @@ const Logout = () => {
     const performLogout = async () => {
       // Ejecutar la acción de cierre de sesión
       await new Promise((resolve) => {
-        dispatch({ type: 'LOGOUT' });
+        dispatch({ type: "LOGOUT" });
         resolve(); // Resolver la promesa una vez que la acción se haya despachado
       });
 
       // Redirigir a la página principal
-      window.location.href = '/';
+      window.location.href = "/";
     };
 
     performLogout();

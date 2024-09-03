@@ -1,27 +1,24 @@
 "use client";
-import React from 'react';
-import {ThemeProvider } from '@mui/material';
+import React from "react";
+import { ThemeProvider } from "@mui/material";
 
+import { useTheme } from "@mui/material/styles";
 
-import { useTheme } from '@mui/material/styles';
+import { Provider } from "react-redux";
+import { store } from "@/services/store";
 
-import { Provider } from 'react-redux';
-import { store } from "@/services/store"
+import { AuthProvider } from "@/context/AuthProvider";
 
-import { AuthProvider } from '@/context/AuthProvider';
-
-import Account from './Account';
+import Account from "./Account";
 const Page = () => {
   const theme = useTheme();
 
-  return ( 
-     
-      
+  return (
     <ThemeProvider theme={theme}>
       <AuthProvider>
-      <Provider store={store()}>
-     <Account/>
-     </Provider>
+        <Provider store={store()}>
+          <Account />
+        </Provider>
       </AuthProvider>
     </ThemeProvider>
   );

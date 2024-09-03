@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 import "./App.css";
-import { Box } from '@mui/material';
-import PaySucess from '@/components/PaySucess/PaySucess';
+import { Box } from "@mui/material";
+import PaySucess from "@/components/PaySucess/PaySucess";
 const page = () => {
   return (
     <Box>
-        <PaySucess/>
+      <PaySucess />
     </Box>
-  )
-}
+  );
+};
 
-export default page
+export default page;

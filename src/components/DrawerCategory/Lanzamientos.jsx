@@ -6,7 +6,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
@@ -45,21 +45,40 @@ const Lanzamientos = ({ open, onClose }) => {
         theme="colored"
         style={{ fontSize: "12px", maxWidth: "446px", right: 5 }} // Establece el tamaño y estilo del ToastContainer
       />
-      <Box sx={{ width: 300, display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <Box
+        sx={{
+          width: 300,
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+        }}
+      >
         {/* Contenido del Drawer */}
-        <Box p={2} display="flex" alignItems="center" justifyContent="space-between" sx={{ backgroundColor: "#F7F7F7", borderBottom:'1px solid orange',boxShadow:'none' }}>
+        <Box
+          p={2}
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{
+            backgroundColor: "#F7F7F7",
+            borderBottom: "1px solid orange",
+            boxShadow: "none",
+          }}
+        >
           {/* Contenedor izquierdo */}
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <IconButton onClick={onClose}>
-              <ArrowBackIosIcon sx={{ color: 'black', fontSize: '20px', marginLeft: '-6px' }} />
+              <ArrowBackIosIcon
+                sx={{ color: "black", fontSize: "20px", marginLeft: "-6px" }}
+              />
             </IconButton>
             <Typography
               sx={{
-                fontSize: '18px',
-                fontWeight: '550',
-                color: '#111',
-                fontFamily: 'Helvetica, sans-serif',
-                fontOpticalSizing: 'auto',
+                fontSize: "18px",
+                fontWeight: "550",
+                color: "#111",
+                fontFamily: "Helvetica, sans-serif",
+                fontOpticalSizing: "auto",
               }}
             >
               Categorías
@@ -68,14 +87,16 @@ const Lanzamientos = ({ open, onClose }) => {
 
           {/* Contenedor derecho */}
           <IconButton onClick={onClose}>
-            <ClearIcon sx={{ color: 'black', fontSize: '24px' }} />
+            <ClearIcon sx={{ color: "black", fontSize: "24px" }} />
           </IconButton>
         </Box>
 
         {/* Contenido de categorías */}
         <Box p={2} flexGrow={1}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <ul style={{ listStyleType: "none", paddingLeft: 30, width: '100%' }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <ul
+              style={{ listStyleType: "none", paddingLeft: 30, width: "100%" }}
+            >
               {categories.map((category) => (
                 <li key={category.id}>
                   <Typography
@@ -89,8 +110,8 @@ const Lanzamientos = ({ open, onClose }) => {
                       alignItems: "center",
                       fontFamily: "Helvetica, sans-serif",
                       cursor: "pointer",
-                      marginTop:'6px',
-                      marginBottom:'24px',
+                      marginTop: "6px",
+                      marginBottom: "24px",
                       "&:hover": {
                         color: "orange",
                         textDecoration: "underline",
@@ -108,15 +129,14 @@ const Lanzamientos = ({ open, onClose }) => {
         {/* Imagen */}
         <Box>
           <img
-       
             src={`assets/MenuMujer/Gorra.jpg`}
             alt="logo"
             style={{
               width: "100%",
               height: "auto",
-            width: "300px",
-            
-            marginBottom:'-24px'
+              width: "300px",
+
+              marginBottom: "-24px",
             }}
           />
         </Box>

@@ -16,7 +16,7 @@ import {
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { ProSidebar } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import ClearIcon from '@mui/icons-material/Clear';
+import ClearIcon from "@mui/icons-material/Clear";
 import { productData } from "./SectionProducts/Items";
 
 const helloName = {
@@ -63,10 +63,10 @@ const DrawerPanel = ({
     setFilteredSizes(newFilteredSizes);
 
     const selectedProducts = productData.filter((product) =>
-      product.talla.includes(size)
+      product.talla.includes(size),
     );
     const remainingProducts = productData.filter(
-      (product) => !product.talla.includes(size)
+      (product) => !product.talla.includes(size),
     );
 
     // Colocar los productos seleccionados primero
@@ -80,9 +80,9 @@ const DrawerPanel = ({
       sx={{
         width: "375px", // Ajustar el ancho del contenedor
         position: "sticky",
-    
-        padding:'16px',
-        marginTop:'24px',
+
+        padding: "16px",
+        marginTop: "24px",
         maxHeight: "calc(100vh - 1px)", // Establecer una altura máxima
         overflowY: "auto", // Habilitar scroll vertical cuando el contenido excede el tamaño del contenedor
         zIndex: 1000,
@@ -100,23 +100,35 @@ const DrawerPanel = ({
       }}
     >
       <Box textAlign="center" role="presentation">
-  <Box display="flex" alignItems="center" justifyContent="space-between" sx={{marginBottom:'-2px'}}>
-    <Typography sx={{ ...helloName, marginTop: '-24px' }}>Filtros</Typography>
-    <IconButton
-      onClick={handleDrawerClose}
-     
-    >
-      <ClearIcon sx={{ color: 'black',marginTop:'-12px', position:'relative', bottom:12, fontSize:'20px',left:6,}} />
-    </IconButton>
-  </Box>
-</Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ marginBottom: "-2px" }}
+        >
+          <Typography sx={{ ...helloName, marginTop: "-24px" }}>
+            Filtros
+          </Typography>
+          <IconButton onClick={handleDrawerClose}>
+            <ClearIcon
+              sx={{
+                color: "black",
+                marginTop: "-12px",
+                position: "relative",
+                bottom: 12,
+                fontSize: "20px",
+                left: 6,
+              }}
+            />
+          </IconButton>
+        </Box>
+      </Box>
       <ProSidebar
         style={{
           width: "100%", // Ajustar el ancho del ProSidebar
           background: "#ffffff",
         }}
       >
-     
         <Box
           sx={{
             display: "flex",
@@ -130,7 +142,6 @@ const DrawerPanel = ({
               width: "100%",
               backgroundColor: "#f5f5f5",
               textAlign: "center",
-            
             }}
           />
         </Box>
@@ -147,7 +158,7 @@ const DrawerPanel = ({
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginTop:'12px',
+              marginTop: "12px",
             }}
             onClick={() => setOpenProductos(!openProductos)}
           >
@@ -155,9 +166,7 @@ const DrawerPanel = ({
             {openProductos ? <ExpandLess /> : <ExpandMore />}
           </Box>
           <Collapse in={openProductos} timeout={600} unmountOnExit>
-            <Divider
-              sx={{ backgroundColor: "#f5f5f5", margin: "24px 0 0" }}
-            />
+            <Divider sx={{ backgroundColor: "#f5f5f5", margin: "24px 0 0" }} />
             <List component="div" disablePadding sx={{ color: "black" }}>
               <Grid
                 container
@@ -168,7 +177,7 @@ const DrawerPanel = ({
                 sx={{
                   marginTop: "2px",
                   marginBottom: "12px",
-                 marginLeft:'-24px'
+                  marginLeft: "-24px",
                 }}
               >
                 {sizes.map((size, index) => (
@@ -187,7 +196,7 @@ const DrawerPanel = ({
                         border: "1px solid grey",
                         height: "24px",
                         marginTop: "12px",
-                       
+
                         cursor: "pointer",
                         "&:hover": { color: "orange" },
                       }}
@@ -207,7 +216,6 @@ const DrawerPanel = ({
 
                           textOverflow: "ellipsis",
                           "&:hover": { color: "orange" },
-                        
                         }}
                       >
                         {size}
@@ -232,7 +240,7 @@ const DrawerPanel = ({
               width: "100%",
               backgroundColor: "#f5f5f5",
               textAlign: "center",
-              marginTop:'16px'
+              marginTop: "16px",
             }}
           />
         </Box>

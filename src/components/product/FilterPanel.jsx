@@ -59,10 +59,10 @@ const FilterPanel = ({
     setFilteredSizes(newFilteredSizes);
 
     const selectedProducts = productData.filter((product) =>
-      product.talla.includes(size)
+      product.talla.includes(size),
     );
     const remainingProducts = productData.filter(
-      (product) => !product.talla.includes(size)
+      (product) => !product.talla.includes(size),
     );
 
     // Colocar los productos seleccionados primero
@@ -76,7 +76,7 @@ const FilterPanel = ({
       sx={{
         width: "280px", // Ajustar el ancho del contenedor
         position: "sticky",
-      marginTop:'32px',
+        marginTop: "32px",
         maxHeight: "calc(100vh - 1px)", // Establecer una altura máxima
         overflowY: "auto", // Habilitar scroll vertical cuando el contenido excede el tamaño del contenedor
         zIndex: 1000,
@@ -93,15 +93,22 @@ const FilterPanel = ({
         },
       }}
     >
-      <Typography sx={{    fontFamily: "Helvetica, sans-serif",
-                                fontOpticalSizing: 'auto',
-                                fontSize: '22px',
-                                padding:'0 8px 0',
-                                fontWeight: "520",
-                                color: "#000",
-                                position:'relative',
-                               marginLeft:'-8.2px',
-                                textTransform: "capitalize",}}> Ropa para hombre</Typography>
+      <Typography
+        sx={{
+          fontFamily: "Helvetica, sans-serif",
+          fontOpticalSizing: "auto",
+          fontSize: "22px",
+          padding: "0 8px 0",
+          fontWeight: "520",
+          color: "#000",
+          position: "relative",
+          marginLeft: "-8.2px",
+          textTransform: "capitalize",
+        }}
+      >
+        {" "}
+        Ropa para hombre
+      </Typography>
       <ProSidebar
         style={{
           width: "100%", // Ajustar el ancho del ProSidebar
@@ -180,7 +187,7 @@ const FilterPanel = ({
                         border: "1px solid grey",
                         height: "24px",
                         marginTop: "12px",
-                       
+
                         cursor: "pointer",
                         "&:hover": { color: "orange" },
                       }}
@@ -200,7 +207,6 @@ const FilterPanel = ({
 
                           textOverflow: "ellipsis",
                           "&:hover": { color: "orange" },
-                        
                         }}
                       >
                         {size}
@@ -225,7 +231,7 @@ const FilterPanel = ({
               width: "100%",
               backgroundColor: "#f5f5f5",
               textAlign: "center",
-              marginTop:'16px'
+              marginTop: "16px",
             }}
           />
         </Box>

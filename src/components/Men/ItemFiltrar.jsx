@@ -2,21 +2,20 @@ export const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 4,
-    slidesToSlide: 1 ,// optional, default to 1.
-    paritialVisibilityGutter: 60 // Used only for partial visibility of items
+    slidesToSlide: 1, // optional, default to 1.
+    paritialVisibilityGutter: 60, // Used only for partial visibility of items
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 2,
-    slidesToSlide: 1 // optional, default to 1.
+    slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 2,
-    slidesToSlide: 1 // optional, default to 1.
-  }
+    slidesToSlide: 1, // optional, default to 1.
+  },
 };
-
 
 export const productData = [
   {
@@ -26,16 +25,16 @@ export const productData = [
     name: "Running",
     price: 9.999,
     description: "Some text about the product..",
-    talla : ["M", "L", "XL", "XXL"],
+    talla: ["M", "L", "XL", "XXL"],
   },
   {
     id: 8,
     imageurl:
       "https://i.pinimg.com/564x/bd/1d/4f/bd1d4fa030189fa194a649a521665697.jpg",
     name: "Estilo de Vida",
-    price:9.999,
+    price: 9.999,
     description: "Some text about the product..",
-    talla : ["M", "L", "XL", "XXL"],
+    talla: ["M", "L", "XL", "XXL"],
   },
   {
     id: 9,
@@ -44,7 +43,7 @@ export const productData = [
     name: "Living free",
     price: 9.999,
     description: "Some text about the product..",
-    talla : ["M", "L", "XL", "XXL"],
+    talla: ["M", "L", "XL", "XXL"],
   },
   {
     id: 10,
@@ -53,9 +52,6 @@ export const productData = [
     name: "Ropa Cool",
     price: 9.999,
     description: "Some text about the product..",
-    talla : ["M", "L", "XL", "XXL"],
+    talla: ["M", "L", "XL", "XXL"],
   },
- 
-  
 ];
-

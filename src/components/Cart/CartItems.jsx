@@ -152,7 +152,6 @@ const CartItems = ({ data, delFromCart }) => {
     delFromCart(id, true);
   };
 
-
   return (
     <Box style={isSmallScreen ? SmallStylebox : styleBox}>
       <Grid>
@@ -167,7 +166,7 @@ const CartItems = ({ data, delFromCart }) => {
       <Box style={isSmallScreen ? SmallColumn : column}>
         <Typography sx={fontName}>{name}</Typography>
         <Typography sx={fontDescription}>{description}</Typography>
-       {/*<Typography sx={fontDescription}> {talla}</Typography>*/}
+        {/*<Typography sx={fontDescription}> {talla}</Typography>*/}
         <Grid
           item
           xs={12}

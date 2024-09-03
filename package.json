@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "format": "prettier --write \"src/**/*{.js, .jsx}\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -47,6 +48,9 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "^9.4.0"
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3"
   }
 }

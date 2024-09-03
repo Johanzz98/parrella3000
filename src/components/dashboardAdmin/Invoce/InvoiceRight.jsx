@@ -97,11 +97,16 @@ const InvoiceRight = () => {
               backgroundColor: "#fafafa",
               border: "1px solid #eeeeee",
               marginTop: "-5px",
-              marginRight:'-12px'
+              marginRight: "-12px",
             }}
           >
-              <EditRoadOutlinedIcon
-              sx={{ fontSize: "20px", color: "#777777", marginLeft: "12px", paddingRight:'2px' }}
+            <EditRoadOutlinedIcon
+              sx={{
+                fontSize: "20px",
+                color: "#777777",
+                marginLeft: "12px",
+                paddingRight: "2px",
+              }}
             />
             <Typography sx={Edit}>Edit</Typography>
           </Box>
@@ -190,11 +195,16 @@ const InvoiceRight = () => {
               backgroundColor: "#fafafa",
               border: "1px solid #eeeeee",
               marginTop: "-5px",
-              marginRight:'-12px'
+              marginRight: "-12px",
             }}
           >
             <EditRoadOutlinedIcon
-              sx={{ fontSize: "20px", color: "#777777", marginLeft: "12px", paddingRight:'2px' }}
+              sx={{
+                fontSize: "20px",
+                color: "#777777",
+                marginLeft: "12px",
+                paddingRight: "2px",
+              }}
             />
             <Typography sx={Edit}>Edit</Typography>
           </Box>
@@ -243,7 +253,12 @@ const InvoiceRight = () => {
           alignItems="flex-start" // Cambiado a flex-start
           marginBottom="16px"
         >
-          <Box display="flex" alignItems="center" justifyContent="flex-start" sx={{marginBottom:'12px',marginLeft:'12px'}}>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-start"
+            sx={{ marginBottom: "12px", marginLeft: "12px" }}
+          >
             <Typography sx={Header}>Send Invoices</Typography>
           </Box>
 

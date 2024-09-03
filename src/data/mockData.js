@@ -1,5 +1,3 @@
-
-
 export const mockDataTeam = [
   {
     id: 1,
@@ -542,7 +540,7 @@ export const mockLineData = [
   {
     id: "us",
     color: "black",
-  
+
     data: [
       {
         x: "plane",

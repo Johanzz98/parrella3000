@@ -19,7 +19,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import InvoiceRight from "./InvoiceRight";
 import { Field, Form, Formik } from "formik";
 
-import EditRoadOutlinedIcon from '@mui/icons-material/EditRoadOutlined';
+import EditRoadOutlinedIcon from "@mui/icons-material/EditRoadOutlined";
 
 const BoxPrincipal = {
   width: "355px",
@@ -33,8 +33,7 @@ const Container = {
   display: "flex",
   justifyContent: "space-between", // Aligns items horizontally with space between them
   gap: 1, // Space between the boxes
-  width:'720px',
-
+  width: "720px",
 };
 
 const Header = {
@@ -48,12 +47,11 @@ const Header = {
 const Header2 = {
   color: "#111",
   fontSize: "14px",
-fontWeight:540,
+  fontWeight: 540,
   display: "flex",
   padding: "6px 0",
   fontFamily: "Helvetica,sans-serif",
 };
-
 
 const title = {
   color: "#111",
@@ -97,16 +95,16 @@ const Detail = {
   fontSize: "12px",
 
   display: "flex",
-  
+
   fontFamily: "Helvetica,sans-serif",
 };
 
 const Edit = {
   color: "#777777",
   fontSize: "12px",
-padding:'6px',
+  padding: "6px",
   display: "flex",
-  fontWeight:550,
+  fontWeight: 550,
   fontFamily: "Helvetica,sans-serif",
 };
 
@@ -118,34 +116,35 @@ const InvoiceLeft = () => {
       alignItems="flex-start"
       justifyContent="flex-start"
       gap={2} // Añadir un espacio entre el contenedor de imágenes y EditPage
-      sx={{ padding: "16px", width: "300px", }} // Añadir un poco de padding si es necesario
+      sx={{ padding: "16px", width: "300px" }} // Añadir un poco de padding si es necesario
     >
       <Box
         display="flex"
         flexDirection="column"
         alignItems="flex-start"
         gap={2} // Añadir espacio entre las filas de imágenes
-       
       >
         <Box sx={Container}>
-          <Box sx={{...BoxPrincipal,backgroundColor:'#44a6e9'}}>
+          <Box sx={{ ...BoxPrincipal, backgroundColor: "#44a6e9" }}>
             <Typography sx={Header}>Invoice Number</Typography>
             <Typography sx={Header}>No:#6541234</Typography>
             <Typography sx={Header}>Issued Date: AGOST 28,2024</Typography>
             <Typography sx={Header}>Due Date: Apr 02, 2024</Typography>
           </Box>
-          <Box sx={{...BoxPrincipal,backgroundColor:'#fec600'}}>
-             <Typography sx={Header2}>Invoice to</Typography>
-             <Typography sx={Header2}>Cumana-Sucre</Typography>
-             <Typography sx={Header2}>Calle la florida n°52, Sector la Copita</Typography>
-             <Typography sx={Header2}>6101 Sucre</Typography>
+          <Box sx={{ ...BoxPrincipal, backgroundColor: "#fec600" }}>
+            <Typography sx={Header2}>Invoice to</Typography>
+            <Typography sx={Header2}>Cumana-Sucre</Typography>
+            <Typography sx={Header2}>
+              Calle la florida n°52, Sector la Copita
+            </Typography>
+            <Typography sx={Header2}>6101 Sucre</Typography>
           </Box>
         </Box>
         <Box
           sx={{
             width: "720px",
             height: "auto",
-          
+
             borderRadius: "24px",
             backgroundColor: "#ffff",
             borderRadius: "16px",
@@ -157,22 +156,36 @@ const InvoiceLeft = () => {
             justifyContent: "space-between", // Distribuye el espacio entre los elementos
           }}
         >
-          <Box display="flex" alignItems="center"   sx={{...
-              Container,padding:'16px'}}
+          <Box
+            display="flex"
+            alignItems="center"
+            sx={{ ...Container, padding: "16px" }}
           >
             <Typography sx={title}>Item Detail</Typography>
-            <Box display="flex" alignItems="center"  sx={{margin:0,width:'86px',height:'32px', borderRadius:'16px',backgroundColor:'#fafafa',border:'1px solid #eeeeee'}}> 
-              <EditRoadOutlinedIcon sx={{fontSize:'20px', color:'#777777',marginLeft:'12px'}}/>
-            <Typography sx={Edit}> Edit</Typography>
+            <Box
+              display="flex"
+              alignItems="center"
+              sx={{
+                margin: 0,
+                width: "86px",
+                height: "32px",
+                borderRadius: "16px",
+                backgroundColor: "#fafafa",
+                border: "1px solid #eeeeee",
+              }}
+            >
+              <EditRoadOutlinedIcon
+                sx={{ fontSize: "20px", color: "#777777", marginLeft: "12px" }}
+              />
+              <Typography sx={Edit}> Edit</Typography>
             </Box>
           </Box>
-        
-         
+
           <Box
             sx={{
               width: "720px",
               height: "auto ",
-              
+
               borderRadius: "24px",
               backgroundColor: "#ffff",
             }}
@@ -180,11 +193,11 @@ const InvoiceLeft = () => {
             <Box
               sx={{ width: "100%", height: "auto", backgroundColor: "#fffff" }}
             >
-                <Divider
+              <Divider
                 sx={{
                   width: "100%",
                   bgcolor: "#eeeeee",
-                  marginTop:'-12px',
+                  marginTop: "-12px",
                   color: "red",
                 }}
               />
@@ -196,7 +209,6 @@ const InvoiceLeft = () => {
                   padding: "16px", // Padding alrededor del contenedor
                 }}
               >
-                
                 <Typography sx={title}>Product</Typography>
                 <Typography sx={{ ...title, marginLeft: "164px" }}>
                   Price{" "}
@@ -448,7 +460,6 @@ const InvoiceLeft = () => {
               </Typography>
               <Box
                 sx={{
-                
                   width: "auto",
                   height: "auto",
                   borderRadius: "12px",
@@ -527,7 +538,6 @@ const InvoiceLeft = () => {
               </Typography>
               <Box
                 sx={{
-                 
                   width: "auto",
                   height: "auto",
                   borderRadius: "12px",
@@ -554,107 +564,144 @@ const InvoiceLeft = () => {
               </IconButton>
             </Box>
             <Divider
-                sx={{
-                  width: "100%",
-                  bgcolor: "#eeeeee",
-                  color: "red",
-                }}
-              />
-          </Box>
-     
-        <Box
-          display="flex"
-          flexDirection="row"
-          alignItems="flex-start"
-          justifyContent="space-between"
-          sx={{padding:'12px',backgroundColor: "white",borderRadius:'16px',width:'695px'}}
-        >
-          {/* Comment Section */}
-          <Box
-    display="flex"
-    flexDirection="column"
-    alignItems="flex-start" // Cambiado a flex-start
-    marginBottom="16px"
-  >
-            <Box display="flex" alignItems="center" justifyContent="flex-start">
-          <Typography sx={title}>Comment</Typography>
-        </Box>
-         
-          
-            <Formik
-              initialValues={{ notes: "" }}
-              onSubmit={(values) => console.log(values)}
-            >
-              {() => (
-                <Form>
-                  <Field
-                    as={TextField}
-                    multiline
-                    name="notes"
-                    placeholder="Add a Note. This is a small Note section that only the seller can see."
-                    FormHelperTextProps={{
-                      sx: { fontSize: "0.6rem", color: "#f44336" },
-                    }}
-                    sx={{
-                      "& .MuiInputLabel-root": { fontSize: "0.8rem" },
-                      "& .MuiInputBase-root": {
-                        fontSize: "0.8rem",
-                        height: "120px",
-                        width: "360px", // Ajusta el ancho aquí
-                        display: "flex",
-                        borderRadius: "12px",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                      },
-                      marginTop: "8px",
-                    }}
-                  />
-                </Form>
-              )}
-            </Formik>
+              sx={{
+                width: "100%",
+                bgcolor: "#eeeeee",
+                color: "red",
+              }}
+            />
           </Box>
 
-          {/* Totals Section */}
           <Box
             display="flex"
-            flexDirection="column"
-            alignItems="flex-end"
-            width="360px"
-            padding="24px"
-            mt="24px"
+            flexDirection="row"
+            alignItems="flex-start"
+            justifyContent="space-between"
+            sx={{
+              padding: "12px",
+              backgroundColor: "white",
+              borderRadius: "16px",
+              width: "695px",
+            }}
           >
+            {/* Comment Section */}
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start" // Cambiado a flex-start
+              marginBottom="16px"
+            >
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="flex-start"
+              >
+                <Typography sx={title}>Comment</Typography>
+              </Box>
+
+              <Formik
+                initialValues={{ notes: "" }}
+                onSubmit={(values) => console.log(values)}
+              >
+                {() => (
+                  <Form>
+                    <Field
+                      as={TextField}
+                      multiline
+                      name="notes"
+                      placeholder="Add a Note. This is a small Note section that only the seller can see."
+                      FormHelperTextProps={{
+                        sx: { fontSize: "0.6rem", color: "#f44336" },
+                      }}
+                      sx={{
+                        "& .MuiInputLabel-root": { fontSize: "0.8rem" },
+                        "& .MuiInputBase-root": {
+                          fontSize: "0.8rem",
+                          height: "120px",
+                          width: "360px", // Ajusta el ancho aquí
+                          display: "flex",
+                          borderRadius: "12px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        },
+                        marginTop: "8px",
+                      }}
+                    />
+                  </Form>
+                )}
+              </Formik>
+            </Box>
+
+            {/* Totals Section */}
             <Box
               display="flex"
               flexDirection="column"
               alignItems="flex-end"
-              width="100%"
+              width="360px"
+              padding="24px"
+              mt="24px"
             >
-              <Box display="flex" justifyContent="space-between" width="100%" sx={{marginBottom:'4px'}}>
-                <Typography sx={Detail}>SUBTOTAL:</Typography>
-                <Typography sx={total}>$772.90</Typography>
-              </Box>
-              <Box display="flex" justifyContent="space-between" width="100%" sx={{marginBottom:'4px'}}>
-              <Typography sx={Detail}>Discount:</Typography>
-              <Typography sx={total}>$60.00</Typography>
-              </Box>
-              <Box display="flex" justifyContent="space-between" width="100%" sx={{marginBottom:'4px'}}>
-              <Typography sx={Detail}>Shipping Charge:</Typography>
-              <Typography sx={total}>$15.00</Typography>
-              </Box>
-              <Box display="flex" justifyContent="space-between" width="100%" sx={{marginBottom:'4px'}}>
-              <Typography sx={Detail}>ESTIMATED TAX:</Typography>
-              <Typography sx={total}>$00.00</Typography>
-              </Box>
-              <Box display="flex" justifyContent="space-between" width="100%" sx={{marginBottom:'4px'}}>
-                <Typography sx={{...total,fontWeight:'550',}}>TOTAL(USD):</Typography>
-                <Typography  sx={{...total,fontWeight:'550',}}>$638.99</Typography>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-end"
+                width="100%"
+              >
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  width="100%"
+                  sx={{ marginBottom: "4px" }}
+                >
+                  <Typography sx={Detail}>SUBTOTAL:</Typography>
+                  <Typography sx={total}>$772.90</Typography>
+                </Box>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  width="100%"
+                  sx={{ marginBottom: "4px" }}
+                >
+                  <Typography sx={Detail}>Discount:</Typography>
+                  <Typography sx={total}>$60.00</Typography>
+                </Box>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  width="100%"
+                  sx={{ marginBottom: "4px" }}
+                >
+                  <Typography sx={Detail}>Shipping Charge:</Typography>
+                  <Typography sx={total}>$15.00</Typography>
+                </Box>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  width="100%"
+                  sx={{ marginBottom: "4px" }}
+                >
+                  <Typography sx={Detail}>ESTIMATED TAX:</Typography>
+                  <Typography sx={total}>$00.00</Typography>
+                </Box>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  width="100%"
+                  sx={{ marginBottom: "4px" }}
+                >
+                  <Typography sx={{ ...total, fontWeight: "550" }}>
+                    TOTAL(USD):
+                  </Typography>
+                  <Typography sx={{ ...total, fontWeight: "550" }}>
+                    $638.99
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Box>
         </Box>
       </Box>
-      </Box>
-     
+
       <Box
         display="flex"
         justifyContent="flex-end" // Alinea InvoiceRight a la derecha

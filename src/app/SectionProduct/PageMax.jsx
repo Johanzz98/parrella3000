@@ -15,7 +15,7 @@ function PageMax() {
         <Grid item xs={12} md={9}>
           <Muestra />
         </Grid>
-      
+
         {/* Columna para Info */}
         <Grid item xs={12} md={3}>
           <Info product={productDataCart} />

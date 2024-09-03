@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { mockDataContacts } from "./mockData";
-import Header from '@/components/HeaderAdmin';
-import DrawerOrder from './DrawerOrder';
-import PerfilOrder from './PerfilOrder'; // Asegúrate de tener este componente
+import Header from "@/components/HeaderAdmin";
+import DrawerOrder from "./DrawerOrder";
+import PerfilOrder from "./PerfilOrder"; // Asegúrate de tener este componente
 
 const Order = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  const [view, setView] = useState('orders'); // 'orders' para la lista, 'perfil' para el perfil
+  const [view, setView] = useState("orders"); // 'orders' para la lista, 'perfil' para el perfil
 
   const handleRowClick = (params) => {
     setSelectedOrder(params.row);
@@ -23,41 +23,46 @@ const Order = () => {
 
   const handleEditOrder = () => {
     setDrawerOpen(false);
-    setView('perfil');
+    setView("perfil");
   };
 
   const handleBackToOrders = () => {
-    setView('orders');
+    setView("orders");
   };
 
-  const overlayStyle = drawerOpen ? {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    backdropFilter: 'blur(2px)',
-    zIndex: 1200,
-    pointerEvents: 'none',
-  } : {};
+  const overlayStyle = drawerOpen
+    ? {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
+        backdropFilter: "blur(2px)",
+        zIndex: 1200,
+        pointerEvents: "none",
+      }
+    : {};
 
   const statusColors = {
-    InProgress: '#FFC107',
-    UnPaid: '#F44336',
-    Paid: '#4CAF50',
-    Cancel: '#9E9E9E',
+    InProgress: "#FFC107",
+    UnPaid: "#F44336",
+    Paid: "#4CAF50",
+    Cancel: "#9E9E9E",
   };
 
   const orderStatusColors = {
-    Completed: '#2196F3',
-    Incompleted: '#F44336',
-    InProgress: '#FFC107',
-    Cancel: '#9E9E9E',
+    Completed: "#2196F3",
+    Incompleted: "#F44336",
+    InProgress: "#FFC107",
+    Cancel: "#9E9E9E",
   };
 
   const calculateTotal = (items, shippingCost) => {
-    const itemTotal = items.reduce((total, item) => total + item.items * item.price, 0);
+    const itemTotal = items.reduce(
+      (total, item) => total + item.items * item.price,
+      0,
+    );
     return itemTotal + (shippingCost || 0);
   };
 
@@ -65,7 +70,7 @@ const Order = () => {
     return items.reduce((total, item) => total + item.items, 0);
   };
 
-  const updatedMockDataContacts = mockDataContacts.map(order => ({
+  const updatedMockDataContacts = mockDataContacts.map((order) => ({
     ...order,
     total: calculateTotal(order.itemDetails || [], order.shippingCost || 0),
     items: calculateTotalItems(order.itemDetails || []), // Añadido total de items
@@ -84,15 +89,15 @@ const Order = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            width: 'auto',
-            pointerEvents: 'none',
+            width: "auto",
+            pointerEvents: "none",
           }}
         >
           <Typography
             sx={{
               color: "#111",
               fontSize: "12px",
-              marginTop:'12px',
+              marginTop: "12px",
               fontWeight: "500",
               fontFamily: "Helvetica, sans-serif",
             }}
@@ -113,18 +118,18 @@ const Order = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            width: '100%',
-            padding: '0 8px',
+            width: "100%",
+            padding: "0 8px",
           }}
         >
           <Typography
             sx={{
               fontSize: "12px",
               fontWeight: "500",
-              marginTop:'12px',
+              marginTop: "12px",
               fontFamily: "Helvetica, sans-serif",
-              textAlign: 'left',
-              color: 'black',
+              textAlign: "left",
+              color: "black",
             }}
           >
             {params.value.toFixed(3)} {/* Formatear a dos decimales */}
@@ -142,18 +147,18 @@ const Order = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: 'auto',
-            backgroundColor: statusColors[params.value] || 'transparent',
-            color: 'white',
-          
-            borderRadius: '4px',
-            padding: '4px 8px',
+            width: "auto",
+            backgroundColor: statusColors[params.value] || "transparent",
+            color: "white",
+
+            borderRadius: "4px",
+            padding: "4px 8px",
           }}
         >
           <Typography
             sx={{
               fontSize: "12px",
-            
+
               fontWeight: "500",
               fontFamily: "Helvetica, sans-serif",
             }}
@@ -174,9 +179,9 @@ const Order = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            width: '100%',
-            marginTop:'7px',
-            padding: '0 8px',
+            width: "100%",
+            marginTop: "7px",
+            padding: "0 8px",
           }}
         >
           <Typography
@@ -184,8 +189,8 @@ const Order = () => {
               fontSize: "12px",
               fontWeight: "500",
               fontFamily: "Helvetica, sans-serif",
-              textAlign: 'left',
-              color: 'black',
+              textAlign: "left",
+              color: "black",
             }}
           >
             {params.value} Items
@@ -204,9 +209,9 @@ const Order = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            width: '100%',
-            marginTop:'7px',
-            padding: '0 8px',
+            width: "100%",
+            marginTop: "7px",
+            padding: "0 8px",
           }}
         >
           <Typography
@@ -214,8 +219,8 @@ const Order = () => {
               fontSize: "12px",
               fontWeight: "500",
               fontFamily: "Helvetica, sans-serif",
-              textAlign: 'left',
-              color: 'black',
+              textAlign: "left",
+              color: "black",
             }}
           >
             {params.value}
@@ -233,11 +238,11 @@ const Order = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: 'auto',
-            backgroundColor: orderStatusColors[params.value] || 'transparent',
-            color: 'white',
-            borderRadius: '4px',
-            padding: '4px 8px',
+            width: "auto",
+            backgroundColor: orderStatusColors[params.value] || "transparent",
+            color: "white",
+            borderRadius: "4px",
+            padding: "4px 8px",
           }}
         >
           <Typography
@@ -257,25 +262,25 @@ const Order = () => {
   return (
     <Box m="20px">
       <Header title="Orders" subtitle="List of orders for future reference" />
-      {view === 'orders' && (
+      {view === "orders" && (
         <Box
           m="40px 0 0 0"
           height="75vh"
           sx={{
-            position: 'relative',
+            position: "relative",
             "& .MuiDataGrid-root": {
               border: "none",
             },
             "& .MuiDataGrid-cell": {
               borderBottom: "none",
               padding: "8px",
-              textAlign: 'left',
+              textAlign: "left",
             },
             "& .MuiDataGrid-columnHeaders": {
               backgroundColor: "blue",
               borderBottom: "none",
               "& .MuiDataGrid-columnHeaderTitle": {
-                textAlign: 'left',
+                textAlign: "left",
               },
             },
             "& .MuiDataGrid-virtualScroller": {
@@ -292,13 +297,13 @@ const Order = () => {
               display: "none",
             },
             "& .MuiDataGrid-row": {
-              cursor: 'pointer',
+              cursor: "pointer",
             },
             "& .MuiDataGrid-row.Mui-selected": {
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
             },
             "& .MuiDataGrid-cell:focus": {
-              outline: 'none',
+              outline: "none",
             },
           }}
         >
@@ -314,11 +319,8 @@ const Order = () => {
         </Box>
       )}
 
-      {view === 'perfil' && (
-        <PerfilOrder
-          order={selectedOrder}
-          onBackClick={handleBackToOrders}
-        />
+      {view === "perfil" && (
+        <PerfilOrder order={selectedOrder} onBackClick={handleBackToOrders} />
       )}
 
       {drawerOpen && (

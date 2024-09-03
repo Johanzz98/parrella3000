@@ -1,53 +1,52 @@
-import React, {useState } from "react";
-import { Drawer, Box, Typography, IconButton,} from "@mui/material";
-import Button from '@mui/material/Button';
-import CasesIcon from '@mui/icons-material/Cases';
+import React, { useState } from "react";
+import { Drawer, Box, Typography, IconButton } from "@mui/material";
+import Button from "@mui/material/Button";
+import CasesIcon from "@mui/icons-material/Cases";
 import CartItems from "../Cart/CartItems";
-import { TYPES } from '@/actions/ShoppingActions';
+import { TYPES } from "@/actions/ShoppingActions";
 import { useSelector, useDispatch } from "react-redux";
-import ClearIcon from '@mui/icons-material/Clear';
-import Badge from '@mui/material/Badge';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import Divider from '@mui/material/Divider';
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import ClearIcon from "@mui/icons-material/Clear";
+import Badge from "@mui/material/Badge";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import Divider from "@mui/material/Divider";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 const titulo = {
- fontSize: '0.9375rem',
- color: '#111',
- width: '100%',
- textAlign: 'center',
- fontWeight: 700,
+  fontSize: "0.9375rem",
+  color: "#111",
+  width: "100%",
+  textAlign: "center",
+  fontWeight: 700,
 };
 
-const totalStyle ={
+const totalStyle = {
   fontSize: "20px",
   fontWeight: "700",
   color: "#111",
-  display: 'flex', 
-  justifyContent: 'space-between',
-  alignItems: 'center', 
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
   fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',
-}
+  fontOpticalSizing: "auto",
+};
 
-
-const detalleStyle ={
+const detalleStyle = {
   fontSize: "13px",
   fontWeight: "500",
   color: "#757575",
-  display: 'flex', 
-  justifyContent: 'space-between',
-  alignItems: 'center', 
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
   fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',
+  fontOpticalSizing: "auto",
   textDecoration: "none",
-  '&:hover': { color: 'black' },
-  cursor:'pointer',
-  margin:"8px 0"
-}
+  "&:hover": { color: "black" },
+  cursor: "pointer",
+  margin: "8px 0",
+};
 
-const Comprando={
+const Comprando = {
   display: "block",
   fontFamily: "Helvetica,sans-serif",
   width: "210px",
@@ -57,53 +56,51 @@ const Comprando={
   color: "#757575",
   padding: 0,
   textDecoration: "none",
-  '&:hover': { color: 'black' },
-  cursor:'pointer',
-  marginTop:'0.75rem'
+  "&:hover": { color: "black" },
+  cursor: "pointer",
+  marginTop: "0.75rem",
 };
 
 const arrowIconStyle = {
-  verticalAlign: 'middle', // Alinear verticalmente con el texto
+  verticalAlign: "middle", // Alinear verticalmente con el texto
   fontSize: "16px",
 };
 
 const SadStyle = {
-  verticalAlign: 'middle', // Alinear verticalmente con el texto
+  verticalAlign: "middle", // Alinear verticalmente con el texto
   fontSize: "20px", // Ajustar tamaño de la carita
-  marginTop: "-2px" // Ajustar margen inferior para mejorar la alineación vertical
+  marginTop: "-2px", // Ajustar margen inferior para mejorar la alineación vertical
 };
 
 const CartDrawersMax = () => {
- const dispatch = useDispatch();
- const [isDrawerOpen, setIsDrawerOpen] = useState(false);
- const { cart, total } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { cart, total } = useSelector((state) => state.cart);
 
- const handleDrawerOpen = () => {
+  const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
- };
+  };
 
- const handleDrawerClose = () => {
+  const handleDrawerClose = () => {
     setIsDrawerOpen(false);
- };
+  };
 
- const clearCart = () => {
+  const clearCart = () => {
     dispatch({ type: TYPES.CLEAR_CART });
-    dispatch({ type:TYPES.TOTAL})
- };
+    dispatch({ type: TYPES.TOTAL });
+  };
 
- const delFromCart = (id, all = false) => {
+  const delFromCart = (id, all = false) => {
     if (all) {
       dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
     } else {
       dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
     }
-    dispatch({ type:TYPES.TOTAL})
- };
+    dispatch({ type: TYPES.TOTAL });
+  };
 
- return (
-    <> 
-
- 
+  return (
+    <>
       <IconButton
         size="large"
         edge="start"
@@ -112,7 +109,7 @@ const CartDrawersMax = () => {
         onClick={handleDrawerOpen}
       >
         <Badge badgeContent={cart.length} color="secondary">
-        <CasesIcon /> 
+          <CasesIcon />
         </Badge>
       </IconButton>
       <Drawer
@@ -123,18 +120,19 @@ const CartDrawersMax = () => {
         ModalProps={{
           keepMounted: true,
         }}
-      
       >
-        <Box >
+        <Box>
           <Box p={1} sx={{ backgroundColor: "#f5f5f5;" }}>
             <IconButton
               onClick={handleDrawerClose}
-              style={{ position: 'absolute', top: -5, right:8 }}
+              style={{ position: "absolute", top: -5, right: 8 }}
             >
               <ClearIcon />
             </IconButton>
             <Box>
-              <Typography variant="h3" sx={titulo}>MI COMPRA</Typography>
+              <Typography variant="h3" sx={titulo}>
+                MI COMPRA
+              </Typography>
             </Box>
           </Box>
           <Box flexGrow={1} p={2}>
@@ -143,54 +141,75 @@ const CartDrawersMax = () => {
             ))}
           </Box>
         </Box>
-       
-  {total === 0 ? 
-    <Box p={11}  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <ProductionQuantityLimitsIcon sx={{ width: "54px", height: "54px", marginTop: '-4rem' }} />
-      <Typography sx={{ fontFamily: "Helvetica,sans-serif", fontWeight: "400", textTransform: "none", letterSpacing: 0, margin:'24px' }}>Tu carrito está vacío  <SentimentVeryDissatisfiedIcon sx={SadStyle}/></Typography>
-    </Box>
-    :
-    <>
-   <Box sx={{ textAlign: 'center',padding: '16px', marginTop:'auto' }}>
-      <Divider orientation="horizontal" sx={{ backgroundColor: '#000' }} flexItem />
-      <Typography variant="body1" sx={detalleStyle}>Ver detalles +</Typography>
-      <Typography variant="h3" sx={totalStyle}>
-        <span>Total </span>
-        <span>${total.toFixed(3)}</span>
-      </Typography>
-      {/* Agrega cualquier otra tipografía o elementos que desees mostrar */}
-      
-      <Box mt={2}>
 
-        
-      <Button
-  variant="contained"
-  href="/PaySection"
-  fullWidth 
-  sx={{ 
-    backgroundColor: '#000',
-    color: '#fff',
-    borderRadius: '12px',
-  }}
->
-  Procesar Compra
-</Button>
-<Typography sx={Comprando} onClick={handleDrawerClose}>
-  Seguir comprando <KeyboardArrowRightIcon sx={arrowIconStyle} />
-</Typography>
-       
-           
-      </Box>
-      </Box>
-    </>
-  }
+        {total === 0 ? (
+          <Box
+            p={11}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <ProductionQuantityLimitsIcon
+              sx={{ width: "54px", height: "54px", marginTop: "-4rem" }}
+            />
+            <Typography
+              sx={{
+                fontFamily: "Helvetica,sans-serif",
+                fontWeight: "400",
+                textTransform: "none",
+                letterSpacing: 0,
+                margin: "24px",
+              }}
+            >
+              Tu carrito está vacío{" "}
+              <SentimentVeryDissatisfiedIcon sx={SadStyle} />
+            </Typography>
+          </Box>
+        ) : (
+          <>
+            <Box
+              sx={{ textAlign: "center", padding: "16px", marginTop: "auto" }}
+            >
+              <Divider
+                orientation="horizontal"
+                sx={{ backgroundColor: "#000" }}
+                flexItem
+              />
+              <Typography variant="body1" sx={detalleStyle}>
+                Ver detalles +
+              </Typography>
+              <Typography variant="h3" sx={totalStyle}>
+                <span>Total </span>
+                <span>${total.toFixed(3)}</span>
+              </Typography>
+              {/* Agrega cualquier otra tipografía o elementos que desees mostrar */}
 
-
+              <Box mt={2}>
+                <Button
+                  variant="contained"
+                  href="/PaySection"
+                  fullWidth
+                  sx={{
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    borderRadius: "12px",
+                  }}
+                >
+                  Procesar Compra
+                </Button>
+                <Typography sx={Comprando} onClick={handleDrawerClose}>
+                  Seguir comprando{" "}
+                  <KeyboardArrowRightIcon sx={arrowIconStyle} />
+                </Typography>
+              </Box>
+            </Box>
+          </>
+        )}
       </Drawer>
     </>
- );
+  );
 };
 
 export default CartDrawersMax;
-
-

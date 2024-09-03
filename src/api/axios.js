@@ -1,6 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default axios.create({
-    baseURL: 'https://e-commerce-nestjs.onrender.com/api',
-    
+  baseURL: "https://e-commerce-nestjs.onrender.com/api",
 });

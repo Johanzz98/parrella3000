@@ -24,7 +24,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import IconButton from "@mui/material/IconButton";
 import { useSelector } from "react-redux";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";  
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 const paperStyle = {
   padding: 4,
@@ -95,12 +95,10 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
         },
       });
 
-      
       toast.success("Usuario creado exitosamente");
       onUpdateAdminList();
       onClose();
     } catch (error) {
-     
       toast.error("Usuario ya Existente");
     } finally {
       setSubmitting(false);
@@ -112,35 +110,35 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
   const validationSchema = Yup.object().shape({
     person: Yup.object().shape({
       fullName: Yup.string()
-       .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
-       .max(100, "Nombre must be at most 100 characters")
-       .min(3, "It's too short")
-       .required("Required"),
+        .matches(/^[a-zA-Z\s]+$/, "Name should contain only letters")
+        .max(100, "Nombre must be at most 100 characters")
+        .min(3, "It's too short")
+        .required("Required"),
       country: Yup.string()
-       .matches(/^[a-zA-Z\s]+$/, "Should contain only letters")
-       .min(3, "It's too short")
-       .max(20, "Country must be at most 20 characters")
-       .required("Required"),
-       codePostal: Yup.string()
-       .min(3, "It's too short")
-       .max(10, "Code Postal must be at most 10 characters")
-       .required("Required"),
-       phoneNumber: Yup.string() // Correctly treating phoneNumber as a string
-       .matches(phoneRegExp, "Phone number is not valid") // Use.matches for string patterns
-       
-       .required("Required"), // Ensure phoneNumber is provided // Ensure phoneNumber is provided
+        .matches(/^[a-zA-Z\s]+$/, "Should contain only letters")
+        .min(3, "It's too short")
+        .max(20, "Country must be at most 20 characters")
+        .required("Required"),
+      codePostal: Yup.string()
+        .min(3, "It's too short")
+        .max(10, "Code Postal must be at most 10 characters")
+        .required("Required"),
+      phoneNumber: Yup.string() // Correctly treating phoneNumber as a string
+        .matches(phoneRegExp, "Phone number is not valid") // Use.matches for string patterns
+
+        .required("Required"), // Ensure phoneNumber is provided // Ensure phoneNumber is provided
     }),
     email: Yup.string()
       .email("Enter a valid email")
       .required("Required")
       .matches(
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
-        "Invalid email format"
+        "Invalid email format",
       )
       .max(50, "Email must be at most 50 characters")
       .matches(
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$/i,
-        "Only .com domains are allowed"
+        "Only .com domains are allowed",
       )
       .matches(/@admin\.com$/, "Email must end with @admin.com"),
 
@@ -149,11 +147,11 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
       .min(8, "La contraseña debe tener al menos 8 caracteres") // Longitud mínima de la contraseña
       .matches(
         /(?=.*[a-z])/g,
-        "La contraseña debe contener al menos una letra minúscula"
+        "La contraseña debe contener al menos una letra minúscula",
       ) // Letra minúscula
       .matches(
         /(?=.*[A-Z])/g,
-        "La contraseña debe contener al menos una letra mayúscula"
+        "La contraseña debe contener al menos una letra mayúscula",
       ) // Letra mayúscula
       .matches(/(?=.*\d)/g, "La contraseña debe contener al menos un número"), // Número
     confirmPassword: Yup.string()
@@ -161,7 +159,7 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
       .required("Required"),
     termsAndConditions: Yup.string().oneOf(
       ["true"],
-      "Accept terms & conditions"
+      "Accept terms & conditions",
     ),
   });
 
@@ -410,11 +408,7 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
                     <FormGroup>
                       <FormControlLabel
                         control={
-                          <Field
-                            as={Checkbox}
-                            name="termsAndConditions"
-                       
-                          />
+                          <Field as={Checkbox} name="termsAndConditions" />
                         }
                         label={
                           <Typography
@@ -435,14 +429,14 @@ const RegisterAdmin = ({ open, onClose, onUpdateAdminList }) => {
                     </FormGroup>
 
                     <Button
-                type="submit"
-                variant="contained"
-                disabled={props.isSubmitting}
-                sx={{ marginTop: "16px", marginLeft:'auto'}}
-              >
-                {props.isSubmitting ? "Loading" : "Sign Up"}
-              </Button>
-            </Form>
+                      type="submit"
+                      variant="contained"
+                      disabled={props.isSubmitting}
+                      sx={{ marginTop: "16px", marginLeft: "auto" }}
+                    >
+                      {props.isSubmitting ? "Loading" : "Sign Up"}
+                    </Button>
+                  </Form>
                 )}
               </Formik>
             </Grid>

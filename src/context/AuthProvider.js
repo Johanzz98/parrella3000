@@ -1,7 +1,9 @@
 // AuthProvider.js
-import { authInitialState, authReducer } from '@/services/redurcers/authInitialState';
-import React, { createContext, useContext, useReducer } from 'react';
-
+import {
+  authInitialState,
+  authReducer,
+} from "@/services/redurcers/authInitialState";
+import React, { createContext, useContext, useReducer } from "react";
 
 export const AuthContext = createContext();
 

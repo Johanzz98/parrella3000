@@ -6,9 +6,13 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Topbar = () => {
-
   return (
-    <Box display="flex" justifyContent="space-between" p={1} sx={{marginLeft:'24px'}}>
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      p={1}
+      sx={{ marginLeft: "24px" }}
+    >
       {/* SEARCH BAR */}
       <Box
         display="flex"
@@ -24,7 +28,6 @@ const Topbar = () => {
 
       {/* ICONS */}
       <Box display="flex">
-      
         <IconButton>
           <NotificationsOutlinedIcon />
         </IconButton>

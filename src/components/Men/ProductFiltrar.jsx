@@ -1,13 +1,12 @@
-
 import React, { useState } from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box, useTheme } from "@mui/material";
 
 const cardStyle = {
@@ -15,15 +14,15 @@ const cardStyle = {
   margin: "0 auto 32px",
   textAlign: "center",
   fontFamily: "arial",
- boxShadow:0,
+  boxShadow: 0,
   transition: "transform 0.6s ease",
 };
 
 const cardStyle2 = {
   width: "100%",
   margin: "0 auto 32px",
-  boxShadow:'0',
-  marginBottom:'-24px',
+  boxShadow: "0",
+  marginBottom: "-24px",
   textAlign: "center",
   fontFamily: "arial",
   borderRadius: "0",
@@ -33,20 +32,20 @@ const cardStyle2 = {
 const mediaStyle = {
   height: "400px",
   width: "100%",
-  objectFit: 'cover',
+  objectFit: "cover",
 };
 
 const smallMediaStyle = {
   height: "100%",
   width: "100%",
 
-  cursor:"pointer",
-  objectFit: 'contain',
+  cursor: "pointer",
+  objectFit: "contain",
 };
-const descriptionStyle={
+const descriptionStyle = {
   fontSize: "12px",
   color: "grey",
- 
+
   border: "none",
   fontWeight: 600,
   textAlign: "center",
@@ -57,17 +56,16 @@ const descriptionStyle={
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
   margin: "2px ",
-}
+};
 const priceStyle = {
-
   fontFamily: "Helvetica,sans-serif",
-  fontOpticalSizing: 'auto',
-  fontSize: '1rem',
+  fontOpticalSizing: "auto",
+  fontSize: "1rem",
   fontWeight: 600,
-  fontStyle: 'normal',
-  marginBottom: '12px',
+  fontStyle: "normal",
+  marginBottom: "12px",
   color: "#111",
-  marginBottom: '4px',
+  marginBottom: "4px",
   textTransform: "capitalize",
   textAlign: "center",
 };
@@ -75,43 +73,40 @@ const priceStyle = {
 const buttonStyle = {
   border: "none",
   outline: "0",
-  
-  marginTop:'8px',
+
+  marginTop: "8px",
   color: "white",
   backgroundColor: "#000",
   textAlign: "center",
   cursor: "pointer",
   width: "100%",
-  fontSize: "12px"
+  fontSize: "12px",
 };
 
 const productContainerStyle = {
-  margin: "0 10px", 
+  margin: "0 10px",
 };
-
-
 
 export default function ProductFiltrar(props) {
   const dispatch = useDispatch();
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery('(max-width:800px)');
+  const isSmallScreen = useMediaQuery("(max-width:800px)");
   const [isHovered, setIsHovered] = useState(false);
-  const nameStyle ={
- 
+  const nameStyle = {
     fontFamily: "Helvetica,sans-serif",
-    fontOpticalSizing: 'auto',
-    fontSize: isSmallScreen ? '12': '16px',
+    fontOpticalSizing: "auto",
+    fontSize: isSmallScreen ? "12" : "16px",
     fontWeight: isSmallScreen ? 540 : 550,
-  
-    marginBottom: '12px',
+
+    marginBottom: "12px",
     color: "#111",
-    marginBottom: '4px',
+    marginBottom: "4px",
     textTransform: "capitalize",
     textAlign: "center",
-  }
+  };
   const addToCart = () => {
-    dispatch({type: TYPES.ADD_TO_CART, payload: props.item});
-    dispatch({type: TYPES.TOTAL});
+    dispatch({ type: TYPES.ADD_TO_CART, payload: props.item });
+    dispatch({ type: TYPES.TOTAL });
   };
 
   const handleMouseEnter = () => {
@@ -130,23 +125,20 @@ export default function ProductFiltrar(props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Card sx={isSmallScreen ? cardStyle2 : cardStyle} style={{ transform: isHovered ? "scale(1.03)" : "scale(1)" }}>
+      <Card
+        sx={isSmallScreen ? cardStyle2 : cardStyle}
+        style={{ transform: isHovered ? "scale(1.03)" : "scale(1)" }}
+      >
         <CardMedia
           component="img"
           image={props.item.imageurl}
           alt="product image"
           sx={isSmallScreen ? smallMediaStyle : mediaStyle}
         />
-   
-          <CardContent >
-            <Typography  sx={nameStyle} >
-              {props.item.name}
-            </Typography>
-  
-           
-          </CardContent>
-     
-     
+
+        <CardContent>
+          <Typography sx={nameStyle}>{props.item.name}</Typography>
+        </CardContent>
       </Card>
     </Box>
   );

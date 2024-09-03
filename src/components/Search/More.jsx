@@ -29,9 +29,8 @@ function More() {
   ));
 
   return (
-    <Box sx={{ paddingTop: "12px"}}>
+    <Box sx={{ paddingTop: "12px" }}>
       <Box sx={{ marginTop: "24px" }}>
-    
         <Box
           sx={{
             display: "flex",
@@ -40,7 +39,6 @@ function More() {
             justifyContent: "center",
             height: "100%", // Ajusta la altura según sea necesario
             width: "100%", // Ajusta el ancho según sea necesario
-           
           }}
         >
           {/* Divisor Vertical */}
@@ -59,7 +57,7 @@ function More() {
           {product}
         </Carousel>
       </Box>
-            <Box sx={{marginBottom:'-46px'}}/>
+      <Box sx={{ marginBottom: "-46px" }} />
     </Box>
   );
 }

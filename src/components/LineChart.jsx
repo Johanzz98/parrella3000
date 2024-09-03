@@ -1,12 +1,12 @@
-import React from 'react'
-import { ResponsiveLine } from '@nivo/line'
-import { mockLineData as data } from '@/data/mockData'
+import React from "react";
+import { ResponsiveLine } from "@nivo/line";
+import { mockLineData as data } from "@/data/mockData";
 
-const LineChart = ( {isDashboard = false}) => {
+const LineChart = ({ isDashboard = false }) => {
   return (
     <ResponsiveLine
-        data={data}
-        colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
+      data={data}
+      colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{

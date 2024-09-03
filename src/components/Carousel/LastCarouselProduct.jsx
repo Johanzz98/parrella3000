@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/material";
 
 const cardStyle = {
@@ -30,16 +30,16 @@ const cardStyle2 = {
 const mediaStyle = {
   height: "400px",
   width: "100%",
-  objectFit: 'cover',
+  objectFit: "cover",
 };
 
 const smallMediaStyle = {
   height: "400px",
   width: "100%",
-  objectFit: ' cover  ',
+  objectFit: " cover  ",
 };
 
-const descriptionStyle={
+const descriptionStyle = {
   fontSize: "12px",
   color: "grey",
   border: "none",
@@ -52,19 +52,19 @@ const descriptionStyle={
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
   margin: "2px",
-}
+};
 
 const priceStyle = {
   color: "#111",
   fontSize: "22px",
   textAlign: "center",
-  margin: '2px',
+  margin: "2px",
 };
 
 const buttonStyle = {
   border: "none",
   outline: "0",
-  marginTop: '14px',
+  marginTop: "14px",
   color: "white",
   backgroundColor: "#000",
   textAlign: "center",
@@ -74,17 +74,17 @@ const buttonStyle = {
 };
 
 const productContainerStyle = {
-  margin: "0 10px", 
+  margin: "0 10px",
 };
 
 export default function LastCarouselProduct(props) {
   const dispatch = useDispatch();
-  const isSmallScreen = useMediaQuery('(max-width:800px)');
+  const isSmallScreen = useMediaQuery("(max-width:800px)");
   const [isHovered, setIsHovered] = useState(false);
 
   const addToCart = () => {
-    dispatch({type: TYPES.ADD_TO_CART, payload: props.item});
-    dispatch({type: TYPES.TOTAL});
+    dispatch({ type: TYPES.ADD_TO_CART, payload: props.item });
+    dispatch({ type: TYPES.TOTAL });
   };
 
   const handleMouseEnter = () => {
@@ -103,32 +103,35 @@ export default function LastCarouselProduct(props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Card sx={isSmallScreen ? cardStyle2 : cardStyle} style={{ transform: isHovered ? "scale(1.03)" : "scale(1)" }}>
+      <Card
+        sx={isSmallScreen ? cardStyle2 : cardStyle}
+        style={{ transform: isHovered ? "scale(1.03)" : "scale(1)" }}
+      >
         <CardMedia
           component="img"
           image={props.item.imageurl}
           alt="product image"
           sx={isSmallScreen ? smallMediaStyle : mediaStyle}
         />
-       {(isHovered || isSmallScreen) && (
+        {(isHovered || isSmallScreen) && (
           <CardContent>
-            <Typography variant="h5" component="h2" >
+            <Typography variant="h5" component="h2">
               {props.item.name}
             </Typography>
-            <Typography sx={priceStyle}>
-              ${props.item.price}
-            </Typography>
-            <Typography sx={descriptionStyle} variant="body2" color="text.secondary">
+            <Typography sx={priceStyle}>${props.item.price}</Typography>
+            <Typography
+              sx={descriptionStyle}
+              variant="body2"
+              color="text.secondary"
+            >
               {props.item.description}
             </Typography>
-         
-              <Button variant="contained" sx={buttonStyle} onClick={addToCart}>
-                Add to Cart
-              </Button>
-           
+
+            <Button variant="contained" sx={buttonStyle} onClick={addToCart}>
+              Add to Cart
+            </Button>
           </CardContent>
         )}
-        
       </Card>
     </Box>
   );
