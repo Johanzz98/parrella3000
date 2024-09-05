@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, Modal, Typography } from "@mui/material";
 import DeliveryDiningOutlinedIcon from "@mui/icons-material/DeliveryDiningOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import BrandingWatermarkOutlinedIcon from "@mui/icons-material/BrandingWatermarkOutlined";
@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { TYPES } from "@/actions/ShoppingActions";
 import { productDataCart } from "./ImgDetails";
 import ChangeCircleOutlinedIcon from "@mui/icons-material/ChangeCircleOutlined";
+import { useState } from "react";
+import ModalMax from "./ModalMax";
 const SidebarStyle = {
   position: "sticky",
   top: 0,
@@ -99,6 +101,11 @@ const Info = ({ product }) => {
     dispatch({ type: TYPES.TOTAL });
   };
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box sx={SidebarStyle}>
       <Box sx={{ backgroundColor: "white", height: "24px" }}>
@@ -132,7 +139,12 @@ const Info = ({ product }) => {
         <Typography sx={detalles}>Polerón para Mujeres</Typography>
         <Typography sx={priceStyle}>$59.990</Typography>
       </Box>
-
+      <Box>
+        <Typography onClick={handleOpen} style={{ cursor: 'pointer', color: 'blue' }}>
+          Guia de Tallas
+        </Typography>
+      </Box>
+      <ModalMax open={open} handleClose={handleClose} />
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Button
           sx={{ ...buttonStyle, marginLeft: "-4px", width: "100%" }}
@@ -140,8 +152,10 @@ const Info = ({ product }) => {
         >
           Agregar al Carrito
         </Button>
+      
       </Box>
 
+        
       <Grid
         container
         spacing={2}
