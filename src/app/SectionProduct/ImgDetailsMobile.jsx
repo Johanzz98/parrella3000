@@ -19,7 +19,7 @@ export const responsive = {
 
 export const productDataCartMobile = [
   {
-    id: 2,
+    id: 1,
     imageurl: [
       "../../assets/adidas/2.jpeg",
       "../../assets/adidas/3.jpeg",

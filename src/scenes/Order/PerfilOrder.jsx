@@ -62,7 +62,7 @@ const detalles = {
 const marginLeftByPaymentStatus = {
   Paid: "0",
   UnPaid: "10px",
-  InProgress: "0",
+
   Cancel: "-26px",
   default: "0px",
 };
@@ -85,8 +85,6 @@ const getPaymentStatusColor = (status) => {
       return "#4CAF50";
     case "UnPaid":
       return "#F44336";
-    case "InProgress":
-      return "#FFC107";
     case "Cancel":
       return "#9E9E9E";
     default:
@@ -124,7 +122,7 @@ const getStatusColor = (status) => {
 };
 const gradientDividerStyle = {
   background: "linear-gradient(to right, yellow 50%, #424242 50%)",
-  width: "160px",
+  width: "200px",
   height: "6px",
   borderRadius: "24px",
 };
@@ -133,8 +131,7 @@ const getProgressStatusStyles = (status) => {
   switch (status) {
     case "Ready":
       return Ready;
-    case "Packing":
-      return Packing;
+
     default:
       return {}; // Estilo por defecto si el estado no es 'ready' ni 'packing'
   }
@@ -150,16 +147,7 @@ const Ready = {
   cursor: "pointer", // Cambia el cursor para indicar que es clickeable
 };
 
-const Packing = {
-  color: "#ffffff",
-  fontSize: "12px",
-  fontWeight: "500",
-  display: "flex",
-  padding: "8px",
 
-  fontFamily: "Helvetica, sans-serif",
-  cursor: "pointer", // Cambia el cursor para indicar que es clickeable
-};
 
 const Eliminar = {
   color: "#f44336",
@@ -175,20 +163,13 @@ const getBoxStyle = (status) => {
   switch (status) {
     case "Ready":
       return boxReady;
-    case "Packing":
-      return boxPacking;
+
     default:
       return {}; // Estilo por defecto si el estado no es 'ready' ni 'packing'
   }
 };
 
-const boxPacking = {
-  border: "1px solid #ffffff",
-  width: "auto",
-  height: "auto",
 
-  borderRadius: "12px",
-};
 const boxReady = {
   border: "1px solid #149285",
   width: "auto",
@@ -246,7 +227,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
     handleClose();
   };
 
-  const [item, setItem] = useState({ status: "Packing" });
+  const [item, setItem] = useState({ status: " " });
   const timeLine = order.timeLine || [];
   const itemDetails = order.itemDetails || [];
   const category = order.category || "N/A";
@@ -280,9 +261,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
   const handleCloseShip = () => setOpenShip(false);
 
   const handleMenuItemClick = (action) => {
-    if (action === "Eliminar") {
-      setShowConfirmModal(true);
-    } else {
+{
       setStatus(action);
       console.log(action);
       handleMenu();
@@ -454,7 +433,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
             <Divider
               sx={{
                 backgroundColor: "green",
-                width: "160px",
+                width: "200px",
                 height: "6px",
                 borderRadius: "24px",
               }}
@@ -482,7 +461,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
             <Divider
               sx={{
                 backgroundColor: "green",
-                width: "160px",
+                width: "200px",
                 height: "6px",
                 borderRadius: "24px",
               }}
@@ -517,7 +496,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
                 mt: 1, // Añade un margen superior si necesitas separar el Divider de la Typography
               }}
             >
-              <Typography sx={title}>Processing</Typography>
+              <Typography sx={title}>Shipping</Typography>
             </Box>
           </Box>
           {/* Cuarto bloque de Divider y Typography */}
@@ -528,54 +507,9 @@ const PerfilOrder = ({ order, onBackClick }) => {
               alignItems: "center",
             }}
           >
-            <Divider
-              sx={{
-                backgroundColor: "#424242",
-                width: "160px",
-                height: "6px",
-                borderRadius: "24px",
-              }}
-            />
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start", // Alinea la Typography al inicio del contenedor
-                width: "100%", // Asegura que el contenedor interno ocupe el ancho completo
-                mt: 1, // Añade un margen superior si necesitas separar el Divider de la Typography
-              }}
-            >
-              <Typography sx={title}>Shipping</Typography>
-            </Box>
+        
           </Box>
-          {/* Quinto bloque de Divider y Typography */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Divider
-              sx={{
-                backgroundColor: "#424242",
-                width: "160px",
-                height: "6px",
-                borderRadius: "24px",
-              }}
-            />
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start", // Alinea la Typography al inicio del contenedor
-                width: "100%", // Asegura que el contenedor interno ocupe el ancho completo
-                mt: 1, // Añade un margen superior si necesitas separar el Divider de la Typography
-              }}
-            >
-              <Typography sx={title}>Delivered</Typography>
-            </Box>
-          </Box>
+
         </Box>
         <Box
           sx={{
@@ -623,16 +557,16 @@ const PerfilOrder = ({ order, onBackClick }) => {
               paddingRight: "20px",
             }}
           >
-            <Box sx={{ flex: 0.53 }}>
+            <Box sx={{ flex: 0.71 }}>
               <Typography sx={detalles}>Created at</Typography>
             </Box>
-            <Box sx={{ flex: 0.35 }}>
+            <Box sx={{ flex: 0.5,marginLeft:'16px'}}>
               <Typography sx={detalles}>Status</Typography>
             </Box>
-            <Box sx={{ flex: 0.5, marginRight: "-24px" }}>
-              <Typography sx={detalles}>Payment Status</Typography>
+            <Box sx={{ flex: 0.59,marginLeft:'16px'}}>
+              <Typography sx={detalles}>Items</Typography>
             </Box>
-            <Box sx={{ flex: 0.4, marginRight: "-12px" }}>
+            <Box sx={{ flex: 0.4, marginRight: "56px" }}>
               <Typography sx={detalles}>Price</Typography>
             </Box>
           </Box>
@@ -769,60 +703,10 @@ const PerfilOrder = ({ order, onBackClick }) => {
               }}
             >
               <MenuItem sx={Ready}>Ready</MenuItem>
-              <MenuItem sx={Packing}>Packing</MenuItem>
-              <MenuItem
-                onClick={() => handleMenuItemClick("Eliminar")}
-                sx={Eliminar}
-              >
-                Eliminar
-              </MenuItem>
+          
+          
             </Menu>
 
-            <Modal
-              open={showConfirmModal}
-              onClose={handleCancelDelete}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  width: "300px",
-                  padding: "20px",
-                  backgroundColor: "white",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                  textAlign: "center",
-                }}
-              >
-                <Typography variant="h6" gutterBottom>
-                  ¿Estás seguro de eliminar?
-                </Typography>
-                <Typography variant="body2" sx={{ marginBottom: "20px" }}>
-                  Esta acción no se puede deshacer.
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={handleConfirmDelete}
-                  >
-                    Eliminar
-                  </Button>
-                  <Button variant="outlined" onClick={handleCancelDelete}>
-                    Cancelar
-                  </Button>
-                </Box>
-              </Box>
-            </Modal>
           </Box>
 
           <Divider sx={{ marginY: "16px", backgroundColor: "#757575" }} />

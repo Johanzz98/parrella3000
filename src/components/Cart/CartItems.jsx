@@ -20,6 +20,7 @@ const styleBox = {
   display: "flex",
   alignItems: "center",
   position: "relative",
+  marginBottom: "24px",
 };
 
 const SmallStylebox = {
@@ -76,7 +77,7 @@ const column = {
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
-  margin: "0 12px 0",
+  margin: "0 6px 0",
 };
 
 const SmallColumn = {
@@ -95,7 +96,7 @@ const priceStyle = {
   color: "#111",
   letterSpacing: "0.0075em",
 
-  marginTop: "1.2rem",
+  marginBottom: "0.2rem",
 };
 
 const SmallpriceStyle = {
@@ -108,7 +109,7 @@ const SmallpriceStyle = {
   color: "#111",
   letterSpacing: "0.0075em",
 
-  marginBottom: "-4rem",
+  marginBottom: "-1rem",
 };
 
 const CartItems = ({ data, delFromCart }) => {
@@ -166,7 +167,7 @@ const CartItems = ({ data, delFromCart }) => {
       <Box style={isSmallScreen ? SmallColumn : column}>
         <Typography sx={fontName}>{name}</Typography>
         <Typography sx={fontDescription}>{description}</Typography>
-        {/*<Typography sx={fontDescription}> {talla}</Typography>*/}
+        <Typography sx={fontDescription}>Talla: {talla}</Typography>
         <Grid
           item
           xs={12}
@@ -176,41 +177,20 @@ const CartItems = ({ data, delFromCart }) => {
             visibility: !isSmallScreen ? "visible" : "hidden",
           }}
         >
+           
           <Box sx={{ position: "relative", bottom: "2px" }}>
             <Typography sx={priceStyle}>
               ${(price * cantidadSeleccionada).toFixed(3)}
             </Typography>
           </Box>
+          
         </Grid>
-
         {isSmallScreen && (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              borderRadius: "12px",
-              border: "1px solid #bdbdbd",
-              position: "relative",
-              top: "14px",
-            }}
-          >
-            <IconButton
-              onClick={handleDecrement}
-              sx={{ width: "24px", height: "12px" }}
-            >
-              <RemoveIcon sx={{ fontSize: "16px" }} />
-            </IconButton>
-            <Typography sx={{ padding: "2px 8px", fontSize: "14px" }}>
-              {cantidadSeleccionada}
-            </Typography>
-            <IconButton
-              onClick={handleIncrement}
-              sx={{ width: "24px", height: "12px" }}
-            >
-              <AddIcon sx={{ fontSize: "16px" }} />
-            </IconButton>
-          </Box>
-        )}
+        <Typography sx={SmallpriceStyle}>
+          ${(price * cantidadSeleccionada).toFixed(3)}
+        </Typography>
+      )}
+       
       </Box>
 
       {!isSmallScreen && (
@@ -221,7 +201,7 @@ const CartItems = ({ data, delFromCart }) => {
             borderRadius: "10px",
             border: "1px solid #bdbdbd",
             position: "relative",
-            top: "32px",
+            top: "28px",
           }}
         >
           <IconButton
@@ -263,11 +243,36 @@ const CartItems = ({ data, delFromCart }) => {
           </Box>
         </Box>
       </Box>
-      {isSmallScreen && (
-        <Typography sx={SmallpriceStyle}>
-          ${(price * cantidadSeleccionada).toFixed(3)}
-        </Typography>
-      )}
+     
+
+{isSmallScreen && (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              borderRadius: "12px",
+              border: "1px solid #bdbdbd",
+              position: "relative",
+              top: "36px",
+            }}
+          >
+            <IconButton
+              onClick={handleDecrement}
+              sx={{ width: "24px", height: "12px" }}
+            >
+              <RemoveIcon sx={{ fontSize: "16px" }} />
+            </IconButton>
+            <Typography sx={{ padding: "2px 8px", fontSize: "14px" }}>
+              {cantidadSeleccionada}
+            </Typography>
+            <IconButton
+              onClick={handleIncrement}
+              sx={{ width: "24px", height: "12px" }}
+            >
+              <AddIcon sx={{ fontSize: "16px" }} />
+            </IconButton>
+          </Box>
+        )}
     </Box>
   );
 };

@@ -45,7 +45,7 @@ const Order = () => {
     : {};
 
   const statusColors = {
-    InProgress: "#FFC107",
+
     UnPaid: "#F44336",
     Paid: "#4CAF50",
     Cancel: "#9E9E9E",

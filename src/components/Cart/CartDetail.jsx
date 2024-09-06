@@ -195,7 +195,7 @@ const CartItems = ({ data, delFromCart }) => {
               </Typography>
             </Box>
           </Box>
-          {/*<Typography sx={fontDescription}> {talla}</Typography>*/}
+          <Typography sx={fontDescription}> {talla}</Typography>
           <Grid
             item
             xs={12}

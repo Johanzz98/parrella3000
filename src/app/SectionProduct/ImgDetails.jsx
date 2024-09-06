@@ -30,19 +30,19 @@ export const productDataCart = [
     name: "Detroit Jackets",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
 ];
 
 export const productData = [
   {
-    id: 1,
+    id: 2,
     imageurl:
       "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5f83c097145d4a9faeac6d34b30490e2_9366/Chaqueta_Deportiva_Adicolor_Classics_Firebird_Holgada_Amarillo_IP0611_21_model.jpg",
     name: "Detroit Jackets",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ export const productData = [
     name: "Sport Sweat",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ export const productData = [
     name: "Movie Jackets",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ export const productData = [
     name: "Special Jackets",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
   {
     id: 5,
@@ -78,7 +78,7 @@ export const productData = [
     name: "Health Club",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
   {
     id: 6,
@@ -87,6 +87,6 @@ export const productData = [
     name: "Clothes",
     price: 9.999,
     description: "Some text about the product..",
-    talla: ["M", "L", "XL", "XXL"],
+    sizes: ["XS","S","M", "L", "XL"],
   },
 ];

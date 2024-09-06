@@ -81,7 +81,7 @@ export const mockDataContacts = [
         name: "Polera Smooth Parrella",
         items: 1,
         price: 233,
-        status: "Packing",
+        status: " ",
         category: "Polera",
         size: "Xl",
         image:

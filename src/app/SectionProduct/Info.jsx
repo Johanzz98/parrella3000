@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Button, Divider, Grid, Modal, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, Modal, Paper, Typography } from "@mui/material";
 import DeliveryDiningOutlinedIcon from "@mui/icons-material/DeliveryDiningOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import BrandingWatermarkOutlinedIcon from "@mui/icons-material/BrandingWatermarkOutlined";
@@ -53,8 +53,9 @@ const detalles = {
 };
 
 const priceStyle = {
-  color: "red",
+  color: "#111",
   fontSize: "16px",
+  fontWeight:600,
   margin: "2px",
   marginTop: "12px",
   fontFamily: "Helvetica, sans-serif",
@@ -62,18 +63,28 @@ const priceStyle = {
 
 const buttonStyle = {
   border: "none",
-  outline: "0",
-  marginTop: "14px",
   color: "white",
-  borderRadius: "18px",
-  backgroundColor: "#000",
-  textAlign: "center",
   cursor: "pointer",
-  fontSize: "18px",
-  marginBottom: "12px",
+  fontSize: "14px",
+  marginTop:'12px',
+  marginBottom:'6px',
+  backgroundColor: "black",
+  width:'82%',
+  height:'46px',
+  fontFamily: "Helvetica, sans-serif",
+  boxShadow: "none",
+  textTransform: 'none',
+  borderRadius:'24px',
+  "&:focus": {
+    outline: "none",
+    boxShadow: "none",
+  },
+  "&:active": {
+    boxShadow: "none",
+  },
   "&:hover": {
-    backgroundColor: "black",
-    color: "grey",
+    backgroundColor: "grey",
+    color: "#ffffff",
     boxShadow: "none", // Define el color de fondo para el hover
   },
 };
@@ -85,26 +96,48 @@ const horizontal = {
 
 const Info = ({ product }) => {
   const dispatch = useDispatch();
-
-  const addToCart = () => {
-    // Suponiendo que solo se agrega un producto a la vez
-    const productToAdd = productDataCart[0]; // Obtener el primer producto del arreglo productDataCart
-
-    dispatch({
-      type: TYPES.ADD_TO_CART,
-      payload: {
-        ...productToAdd,
-        // Asegúrate de que la URL de la imagen se pasa al carrito
-        imageurl: productToAdd.imageurl[0], // Tomar solo la primera imagen del arreglo de imágenes
-      },
-    });
-    dispatch({ type: TYPES.TOTAL });
-  };
-
+  const [selectedSize, setSelectedSize] = useState("");
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
+
+  const addToCart = () => {
+    if (selectedSize && product.length > 0) {
+      const productToAdd = product[0]; // Obtener el primer producto del arreglo productDataCart
+
+      dispatch({
+        type: TYPES.ADD_TO_CART,
+        payload: {
+          ...productToAdd,
+          imageurl: productToAdd.imageurl[0], // Tomar solo la primera imagen del arreglo de imágenes
+          selectedSize, // Añadir la talla seleccionada
+        },
+      });
+      dispatch({ type: TYPES.TOTAL });
+      dispatch({
+        type: TYPES.ADD_TALLA,
+        payload: { id: productToAdd.id, talla: selectedSize },
+      });
+      console.log("Talla añadida:", selectedSize);
+    } else {
+      console.log("Selecciona una talla antes de agregar al carrito");
+    }
+  };
+
+  // Tallas disponibles del producto
+  const allSizes = product.length > 0 ? product[0].sizes : [];
+
+  // Tallas que se pueden seleccionar
+  const selectableSizes = ["M", "L"];
+
+  const isTallaDisponible = (size) => {
+    return selectableSizes.includes(size); // Solo M y L están disponibles para selección
+  };
 
   return (
     <Box sx={SidebarStyle}>
@@ -117,42 +150,117 @@ const Info = ({ product }) => {
             top: 0,
             bottom: 0,
             left: -13.4,
-            height: "38.5%",
+            height: "58.5%",
             borderLeft: "1px solid #eceff1",
           }}
         />
       </Box>
-      <Typography sx={Titulo}>Nombre del Producto</Typography>
       <Box>
-        {Array.isArray(product.imageurl) &&
-          product.imageurl.map((image, index) => (
-            <img
-              src={image}
-              alt={`Product ${index}`}
-              key={index}
-              style={{ width: "100%", marginBottom: "8px" }}
-            />
-          ))}
         <Typography sx={NombreProducto}>
           Parrella Polerón Neon PO Yellow Smoke
         </Typography>
         <Typography sx={detalles}>Polerón para Mujeres</Typography>
         <Typography sx={priceStyle}>$59.990</Typography>
       </Box>
-      <Box>
-        <Typography onClick={handleOpen} style={{ cursor: 'pointer', color: 'blue' }}>
-          Guia de Tallas
-        </Typography>
-      </Box>
+
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',padding:'12px 32px 6px 0'  }}>
+  <Typography sx={{...detalles,color:'#111',fontWeight:600}}>
+    Selecciona tu talla
+  </Typography>
+  <Typography onClick={handleOpen} sx={{...detalles,cursor:'pointer',textDecoration: 'underline' }}>
+    Guia de Tallas
+  </Typography>
+</Box>
       <ModalMax open={open} handleClose={handleClose} />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Button
-          sx={{ ...buttonStyle, marginLeft: "-4px", width: "100%" }}
-          onClick={addToCart}
+
+      {/* Grid de tallas */}
+      <Grid
+  container
+  spacing={1}
+  justifyContent="center"
+  sx={{ paddingBottom: "12px", paddingTop: "12px" }}
+>
+  {allSizes.map((size, index) => (
+    <Grid item xs={1} sm={2} md={2.4} key={index}>
+      <Paper
+        elevation={2}
+        sx={{
+          textAlign: "center",
+          padding: "5px",
+          boxShadow: "none",
+          borderRadius: "7px",
+          border:
+            selectedSize === size
+              ? "1px solid #111"
+              : "1px solid #eeeeee",
+          backgroundColor: !isTallaDisponible(size)
+            ? "#ccc"
+            : "transparent",
+          pointerEvents: !isTallaDisponible(size)
+            ? "none"
+            : "auto",
+          cursor: isTallaDisponible(size) ? "pointer" : "not-allowed",
+          transition: "background-color 0.3s, color 0.3s",
+          "&:hover": {
+            backgroundColor: isTallaDisponible(size) ? "grey" : "transparent",
+            color: isTallaDisponible(size) ? "#ffffff" : "inherit",
+            boxShadow: "none",
+          },
+        }}
+        onClick={() => {
+          if (!isTallaDisponible(size)) {
+            console.log("Esta talla no está disponible");
+            return;
+          }
+          setSelectedSize(size);
+        }}
+      >
+        <Typography
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingTop: "4px",
+            fontSize: "14px",
+            fontWeight: "500",
+            color: "black",
+            fontFamily: "Helvetica, sans-serif",
+            height: "100%", // Asegura que el Typography cubra todo el Paper
+          }}
         >
-          Agregar al Carrito
+          {size}
+        </Typography>
+      </Paper>
+    </Grid>
+  ))}
+</Grid>
+
+
+      {/* Botón "Señala tu talla" o "Agregar al Carrito" */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Button
+
+          sx={
+buttonStyle
+         
+          }
+          onClick={() => {
+            if (selectedSize) {
+              addToCart(); // Agrega al carrito solo si se ha seleccionado una talla
+            } else {
+              console.log("Selecciona una talla antes de agregar al carrito");
+            }
+          }}
+        >
+          {selectedSize ? "Agregar al Carrito" : "Señala tu talla"}
         </Button>
-      
       </Box>
 
         
