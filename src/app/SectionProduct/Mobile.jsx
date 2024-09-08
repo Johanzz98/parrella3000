@@ -32,7 +32,7 @@ const NombreProducto = {
   fontWeight: "500",
   color: "#111",
   display: "flex",
-
+  marginTop:'6px',
   justifyContent: "flex-start",
   alignItems: "center",
   fontFamily: "Helvetica,sans-serif",
@@ -45,7 +45,7 @@ const detalles = {
   fontWeight: "200",
   color: "grey",
   display: "flex",
-
+  marginTop:'6px',
   justifyContent: "flex-start",
   alignItems: "center",
   fontFamily: "Helvetica, sans-serif",
@@ -66,10 +66,10 @@ const buttonStyle = {
   fontSize: "18px",
 };
 const priceStyle = {
-  color: "red",
+  color: "#111",
   fontSize: "16px",
-  margin: "2px",
-
+  marginTop: "12px",
+  marginBottom:'16px',
   justifyContent: "flex-start",
   fontFamily: "Helvetica, sans-serif",
 };
@@ -137,7 +137,7 @@ function Mobile() {
         ))}
       </>
 
-      <Grid container spacing={2} style={{}}>
+      <Grid container spacing={1} sx={{padding:'6px',marginLeft:'1px',marginTop:'12px'}}>
         {/* Primera fila */}
         <Grid item xs={12} sm={6}>
           <Box sx={horizontal}>

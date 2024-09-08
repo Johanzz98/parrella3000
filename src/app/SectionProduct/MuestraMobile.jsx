@@ -54,7 +54,7 @@ const zeldas = {
 };
 
 const detalles = {
-  fontSize: "18px",
+  fontSize: "16px",
   fontWeight: "600",
   color: "black",
   display: "flex",
@@ -106,6 +106,7 @@ const MuestraMobile = () => {
       sx={{
         justifyContent: "center", // Modificado aquí
         alignItems: "center",
+        padding:'12px',
       }}
     >
       {/* Componente para mostrar descripción */}

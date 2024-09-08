@@ -9,7 +9,7 @@ import "./carouselInfo.css";
 import { Divider } from "@mui/material";
 
 const nombreProductoStyles = {
-  fontSize: "24px",
+  fontSize: "16px",
   fontWeight: "700",
   color: "#00000",
   display: "flex",
@@ -29,7 +29,7 @@ function Look() {
   ));
 
   return (
-    <Box sx={{ paddingTop: "12px" }}>
+    <Box sx={{ padding: "6px" }}>
       <Box sx={{ marginTop: "24px" }}>
         <Box
           sx={{
@@ -73,7 +73,7 @@ function Look() {
       </Box>
       <Box>
         <Typography sx={nombreProductoStyles}>
-          QUIZÁ TAMBIÉN TE GUSTE...
+          Quizá tambien te guste...
         </Typography>
         <Carousel responsive={responsive} className="look-carousel">
           {product}
@@ -99,7 +99,7 @@ function Look() {
       </Box>
       <Box>
         <Typography sx={nombreProductoStyles}>
-          OTROS TAMBIÉN COMPRARON
+          Otros también compraron
         </Typography>
         <Carousel responsive={responsive} className="look-carousel">
           {product}

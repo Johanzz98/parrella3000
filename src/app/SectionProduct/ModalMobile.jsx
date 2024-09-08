@@ -192,6 +192,7 @@ const ModalMobile = ({ open, handleClose }) => {
   fontWeight: "500",
   color: "#091952",
   display: "flex",
+  marginTop:'8px',
   justifyContent: "flex-start",
   alignItems: "center",
   fontFamily: "Helvetica, sans-serif",
