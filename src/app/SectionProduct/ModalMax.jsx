@@ -130,7 +130,9 @@ const ModalMax = ({ open, handleClose }) => {
           overflowY: 'auto',
         }}
       >
+
         <Button onClick={handleClose} sx={{ float: 'right' }}><ClearIcon sx={{color:'#111'}}/></Button>
+
         <Box >
           <Typography sx={{
               fontSize: "20px",

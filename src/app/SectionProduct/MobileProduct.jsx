@@ -10,6 +10,7 @@ import { TYPES } from "@/actions/ShoppingActions";
 import { productData, responsive } from "./MobileItem";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import ModalMobile from "./ModalMobile";
 
 const cardStyle = {
   maxWidth: "600px",
@@ -85,6 +86,11 @@ const MobileProduct = ({ product, selectedSize, setSelectedSize, sizes }) => {
     return tallasDisponibles.includes(talla);
   };
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const addToCart = () => {
     if (selectedSize) {
       const productWithFirstImage = {
@@ -130,15 +136,28 @@ const MobileProduct = ({ product, selectedSize, setSelectedSize, sizes }) => {
       </Card>
       <Box
         sx={{
+          display:'flex',
           alignItems: "center",
-          justifyContent: "center",
-          marginLeft: "20px",
-          paddingTop: "12px",
+          justifyContent: "space-between",
+          padding:'4px 16px 0',
+          marginBottom:'6px',
+          marginRight:'12px',
         }}
       >
-        <Typography sx={{ ...NombreProducto }}>Selecciona Tu talla</Typography>
-      </Box>
+        <Typography sx={{fontSize: "16px",
+  fontWeight: "200",
+  color: "#111",
+  fontFamily: "Helvetica, sans-serif",marginLeft:'12px' }}>Selecciona Tu talla</Typography>
+        <Typography onClick={handleOpen} sx={{  fontSize: "14px",
+  fontWeight: "200",
+  color: "grey",
+  fontFamily: "Helvetica, sans-serif",cursor:'pointer',textDecoration: 'underline' }}>
+    Guia de Tallas
+  </Typography>
 
+       
+      </Box>
+      <ModalMobile open={open} handleClose={handleClose}/>
       {/* Grid de tallas */}
       <Grid
         container
