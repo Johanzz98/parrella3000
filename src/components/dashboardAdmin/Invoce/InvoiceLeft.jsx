@@ -584,54 +584,7 @@ const InvoiceLeft = () => {
               width: "695px",
             }}
           >
-            {/* Comment Section */}
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="flex-start" // Cambiado a flex-start
-              marginBottom="16px"
-            >
-              <Box
-                display="flex"
-                alignItems="center"
-                justifyContent="flex-start"
-              >
-                <Typography sx={title}>Comment</Typography>
-              </Box>
-
-              <Formik
-                initialValues={{ notes: "" }}
-                onSubmit={(values) => console.log(values)}
-              >
-                {() => (
-                  <Form>
-                    <Field
-                      as={TextField}
-                      multiline
-                      name="notes"
-                      placeholder="Add a Note. This is a small Note section that only the seller can see."
-                      FormHelperTextProps={{
-                        sx: { fontSize: "0.6rem", color: "#f44336" },
-                      }}
-                      sx={{
-                        "& .MuiInputLabel-root": { fontSize: "0.8rem" },
-                        "& .MuiInputBase-root": {
-                          fontSize: "0.8rem",
-                          height: "120px",
-                          width: "360px", // Ajusta el ancho aquí
-                          display: "flex",
-                          borderRadius: "12px",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        },
-                        marginTop: "8px",
-                      }}
-                    />
-                  </Form>
-                )}
-              </Formik>
-            </Box>
-
+          
             {/* Totals Section */}
             <Box
               display="flex"

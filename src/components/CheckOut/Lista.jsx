@@ -576,42 +576,7 @@ const Lista = () => {
                     ))}
                   </Select>
                 </FormControl>
-                <Typography>Notas del pedido para regalo (Opcional)</Typography>
-                <Field
-                  as={TextField}
-                  fullWidth
-                  multiline // Habilitar multiline
-                  name="notes"
-                  placeholder="Notas sobre tu pedido, por ejemplo notas especiales para la entrega."
-                  helperText={<ErrorMessage name="notes" />}
-                  FormHelperTextProps={{
-                    sx: { fontSize: "0.6rem", color: "#f44336" },
-                  }}
-                  InputProps={{
-                    style: { fontSize: "0.8rem" },
-
-                    classes: {
-                      root: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                      },
-                    },
-                  }}
-                  sx={{
-                    "& .MuiInputLabel-root": { fontSize: "0.8rem" },
-                    "& .MuiInputBase-root": {
-                      fontSize: "0.8rem",
-                    },
-                    "& .MuiInputBase-root.MuiOutlinedInput-root": {
-                      height: "80px", // Altura deseada
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    },
-                    marginTop: "8px",
-                  }}
-                />
+              
 
                 <Box
                   sx={{

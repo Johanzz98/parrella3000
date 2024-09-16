@@ -237,7 +237,7 @@ color: "#111",
 
           <Box
             sx={{
-              width:isMdUp ? "720px" : '100%',
+              width:isMdUp ? "720px" : '720px',
               height: "auto ",
 
               borderRadius: "24px",
@@ -257,7 +257,7 @@ color: "#111",
                 }}
               >
                 <Typography sx={title}>Product</Typography>
-                <Typography sx={{ ...title, marginLeft:isMdUp? "102px" :'92px' }}>
+                <Typography sx={{ ...title, marginLeft:isMdUp? "112px" :'28px' }}>
                   Price{" "}
                 
                 </Typography>
@@ -581,35 +581,8 @@ color: "#111",
             }}
           >
             {/* Comment Section */}
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="flex-start" // Cambiado a flex-start
+          
              
-            >
-              <Box
-                display="flex"
-                alignItems="center"
-                justifyContent="flex-start"
-                sx={{marginTop:'-12px', marginBottom:'12px', padding: isMdUp ?'0' :"6px",}}
-              >
-                <Typography sx={title}>Comment</Typography>
-              
-              </Box>
-              <Box sx={{
-  height: '120px',
-  width: '360px',
-  display: 'flex',
-  alignItems: 'flex-start', // Cambia la alineación vertical a la parte superior
-  justifyContent: 'flex-start', // Cambia la alineación horizontal a la izquierda
-  border: '1px solid #D7D7D7',
-  borderRadius: '12px',
-  padding: isMdUp ? '16px' :'12px',
-  boxSizing: 'border-box', // Asegura que el padding no afecte las dimensiones totales
-}}>
-  <Typography sx={Detail}>Un regalo para alguien especial en una cartica, bello y precioso</Typography>
-</Box>
-              </Box>
 
             {/* Totals Section */}
             <Box
@@ -617,12 +590,12 @@ color: "#111",
               flexDirection="column"
               
               width="360px"
-            
-              mt="24px"
+
             sx=
             {
               {
-                padding: isMdUp ?'24px' :"8px",
+                marginTop:'-12px',
+                padding: isMdUp ?'8px' :"8px",
               }
             }
             >
@@ -687,7 +660,7 @@ color: "#111",
 
     width: '100%',
     mt: isMdUp ? 0 : 16,
-    mr: isMdUp ?  0: 3.5,
+    mr: isMdUp ?  0: 12,
     mb: isMdUp ? 0 : 12
   }}
 >

@@ -858,22 +858,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
                 <Typography sx={title}>${total}</Typography>
               </Box>
             </Box>
-            <Box
-              sx={{
-                flex: 1, // Hace que este Box ocupe el espacio disponible
-                display: "flex",
-                flexDirection: "column",
-                gap: "16px",
-                padding: "12px",
-                border: "2px solid #424242",
-                borderRadius: "16px",
-              }}
-            >
-              <Typography sx={detalles}>
-                Notas sobre el pedido, por ejemplo, notas especiales para la
-                entrega:
-              </Typography>
-              <Typography sx={title}> {order.note}</Typography>
+          
               {/*<Paper elevation={3} sx={{ padding: '20px', textAlign: 'center', backgroundColor:'transparent',boxShadow:'none'  }}>
           <Formik
             initialValues={initialValues}
@@ -902,7 +887,7 @@ const PerfilOrder = ({ order, onBackClick }) => {
             )}
           </Formik>
         </Paper>*/}
-            </Box>
+         
           </Box>
         </Box>
         <Divider sx={{ marginY: "16px", backgroundColor: "#757575" }} />

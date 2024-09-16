@@ -247,7 +247,7 @@ color: "#111",
                 }}
               >
                 <Typography sx={title}>Product</Typography>
-                <Typography sx={{ ...title, marginLeft:isMdUp? "102px" :'92px' }}>
+                <Typography sx={{ ...title, marginLeft:isMdUp? "112px" :'28px' }}>
                   Price{" "}
                 
                 </Typography>
@@ -321,7 +321,7 @@ color: "#111",
     flex:isMdUp ? 0.7: 1,
         }}
       >
-        <Typography sx={{ ...detalles, marginLeft: "4px" }}>
+        <Typography sx={{ ...detalles, marginLeft: "82px" }}>
           $220.99
         </Typography>
 
@@ -393,10 +393,9 @@ color: "#111",
     flex:isMdUp ? 0.7: 1,
         }}
       >
-        <Typography sx={{ ...detalles, marginLeft: "4px" }}>
+       <Typography sx={{ ...detalles, marginLeft: "82px" }}>
           $220.99
         </Typography>
-
         <Typography sx={{ ...detalles,marginRight:isMdUp ? "18px"  :'18px'}}>
           55pcs
         </Typography>
@@ -465,7 +464,7 @@ color: "#111",
     flex:isMdUp ? 0.7: 1,
         }}
       >
-        <Typography sx={{ ...detalles, marginLeft: "4px" }}>
+        <Typography sx={{ ...detalles, marginLeft: "82px" }}>
           $220.99
         </Typography>
 
@@ -537,7 +536,7 @@ color: "#111",
     flex:isMdUp ? 0.7: 1,
         }}
       >
-        <Typography sx={{ ...detalles, marginLeft: "4px" }}>
+        <Typography sx={{ ...detalles, marginLeft: "82px" }}>
           $220.99
         </Typography>
 
@@ -568,47 +567,18 @@ color: "#111",
               
             }}
           >
-  {/* Comment Section */}
-  <Box
-    display="flex"
-    flexDirection="column"
-    alignItems="flex-start" // Cambiado a flex-start
-    sx={{ marginBottom: "24px" }} // Añadido margen para separar las secciones
-  >
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="flex-start"
-      sx={{ marginTop: '-12px', marginBottom: '12px', padding: isMdUp ? '0' : '6px' }}
-    >
-      <Typography sx={title}>Comment</Typography>
-    </Box>
-    <Box
-      sx={{
-        height: '120px',
-        width: '360px',
-        display: 'flex',
-        alignItems: 'flex-start', // Cambia la alineación vertical a la parte superior
-        justifyContent: 'flex-start', // Cambia la alineación horizontal a la izquierda
-        border: '1px solid #D7D7D7',
-        borderRadius: '12px',
-        padding: isMdUp ? '16px' : '12px',
-        boxSizing: 'border-box', // Asegura que el padding no afecte las dimensiones totales
-      }}
-    >
-      <Typography sx={Detail}>Un regalo para alguien especial en una cartica, bello y precioso</Typography>
-    </Box>
-  </Box>
 
-  <Box
+<Box
               display="flex"
               flexDirection="column"
+              
               width="360px"
 
             sx=
             {
               {
-                padding: isMdUp ?'24px' :"8px",
+                marginTop:'-12px',
+                padding: isMdUp ?'8px' :"8px",
               }
             }
             >

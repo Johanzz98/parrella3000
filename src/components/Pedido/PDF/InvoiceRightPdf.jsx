@@ -70,7 +70,7 @@ const InvoiceRightPdf = forwardRef((props, ref) => {
         padding: isMdUp ? '12px' : '0',
         margin: isSmUp ? (isMdUp ? 0 : '0') : 0,
         marginTop:'122px',
-       marginLeft:'212px',
+       marginLeft:'180px',
         
         
       }}

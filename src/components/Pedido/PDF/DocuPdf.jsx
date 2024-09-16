@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from 'react';
 import { Box, Button } from '@mui/material';
-import html2pdf from 'html2pdf.js'; // Asegúrate de que esta importación es correcta
+import html2pdf from 'html2pdf.js';
 import InvoiceContainer from './InvoiceContainer';
 
 const DocuPdf = () => {
@@ -13,15 +13,18 @@ const DocuPdf = () => {
 
       // Opciones para html2pdf
       const opt = {
-        margin: 0.5,
+        margin: [0.5, 0.5, 0.5, 0.5], // Asegúrate de que los márgenes no oculten el contenido
         filename: 'invoice.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
+        image: { type: 'jpeg', quality: 1.0 }, // Aumentar la calidad de la imagen
+        html2canvas: {
+          scale: 2, // Aumentar la escala para mejorar la calidad de la imagen
+          useCORS: true, // Habilitar CORS para imágenes externas
+          logging: true // Habilitar logging para depuración
+        },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
 
       try {
-        // Generar y descargar el PDF
         html2pdf().from(element).set(opt).save().then(() => {
           console.log('PDF generated and downloaded successfully.');
         }).catch(error => {

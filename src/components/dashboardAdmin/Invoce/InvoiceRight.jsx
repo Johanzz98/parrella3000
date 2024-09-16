@@ -243,57 +243,11 @@ const InvoiceRight = () => {
           display: "flex",
           flexDirection: "column", // Cambiado a columna para alinear verticalmente los elementos
           gap: "16px", // Espacio entre los elementos
-          backgroundColor: "white",
+          
         }}
       >
         {/* Comment Section */}
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="flex-start" // Cambiado a flex-start
-          marginBottom="16px"
-        >
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="flex-start"
-            sx={{ marginBottom: "12px", marginLeft: "12px" }}
-          >
-            <Typography sx={Header}>Send Invoices</Typography>
-          </Box>
-
-          <Formik
-            initialValues={{ notes: "" }}
-            onSubmit={(values) => console.log(values)}
-          >
-            {() => (
-              <Form>
-                <Field
-                  as={TextField}
-                  multiline
-                  name="notes"
-                  placeholder="Thank you for your Order! Payment Is Expected Within 31 days. Please Process This Invoice Within That Time"
-                  FormHelperTextProps={{
-                    sx: { fontSize: "0.6rem", color: "#f44336" },
-                  }}
-                  sx={{
-                    "& .MuiInputLabel-root": { fontSize: "0.8rem" },
-                    "& .MuiInputBase-root": {
-                      fontSize: "0.8rem",
-                      height: "160px",
-                      width: "380px", // Ajusta el ancho aquí
-                      display: "flex",
-                      borderRadius: "12px",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    },
-                    marginTop: "8px",
-                  }}
-                />
-              </Form>
-            )}
-          </Formik>
-        </Box>
+    
 
         <Box>
           <Button
