@@ -220,8 +220,9 @@ const LoginDrawersMax = () => {
             </IconButton>
           </Box>
           <Box sx={cuadros}>
-            <Typography sx={detalles}>PEDIDOS</Typography>
-            <IconButton onClick={handleDrawerClose}>
+            <Typography sx={detalles} onClick={() => (window.location.href = "/Pedidos")}
+            >PEDIDOS</Typography>
+            <IconButton onClick={() => (window.location.href = "/Pedidos")}>
               <ArrowRightAltOutlinedIcon style={{ color: "black" }} />
             </IconButton>
           </Box>
