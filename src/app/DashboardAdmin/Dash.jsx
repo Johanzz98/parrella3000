@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import Sidebar from "@/scenes/global/Sidebar";
 import Topbar from "@/scenes/global/Topbar";
 import HeaderAdminTop from "@/scenes/dashboard/HeadersAdminTop";
@@ -31,29 +31,33 @@ const Dash = () => {
   useEffect(() => {
     const verifyTokenAndRole = async () => {
       try {
-        if (userRole === "SUPER_ADMIN" || userRole === "ADMIN") {
-          // Ensure HeaderAdminTop is displayed initially
-          setMainComponent(<HeaderAdminTop />);
-        } else {
-          // Handle unauthorized access
-          throw new Error("Access denied");
+        // Si el token no está presente o el rol no es válido, redirigimos al error
+        if (!token || (userRole !== "SUPER_ADMIN" && userRole !== "ADMIN")) {
+          window.location.href = "/error";  // Redirige al error de inmediato
+          return;
         }
+
+        // Si el token es válido, mostramos el contenido principal después de la verificación
+        setMainComponent(<HeaderAdminTop />);
+        setLoading(false);  // Termina la animación de carga
+
       } catch (error) {
         console.error("Error verifying token:", error);
         setLoading(false);
-        // Redirect to error page if unauthorized or error occurs
-        window.location.href = "/error";
-      } finally {
-        setLoading(false);
+        window.location.href = "/error";  // Redirige a error si hay un error al verificar el token
       }
     };
 
     if (token) {
-      verifyTokenAndRole();
+      // Simula un retraso de 2 segundos para mostrar la animación de carga
+      setTimeout(() => {
+        verifyTokenAndRole();
+      }, 2000); // 2 segundos de retraso
     } else {
-      setLoading(false);
-      // Redirect to error page if token is not present
-      window.location.href = "/error";
+      // Si no hay token, redirige al error inmediatamente
+      setTimeout(() => {
+        window.location.href = "/error";
+      }, 2000); // 2 segundos de retraso antes de redirigir
     }
   }, [token, userRole]);
 
@@ -83,7 +87,6 @@ const Dash = () => {
       case "Invoices Perfil":
         setMainComponent(<InvoicesPerfil />);
         break;
-
       case "Invoices Balances":
         setMainComponent(<Invoices />);
         break;
@@ -114,8 +117,22 @@ const Dash = () => {
     }
   };
 
+  // Mostramos la animación de carga mientras verificamos el token
   if (loading) {
-    return null; // Or show a loading spinner/message
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh"
+        flexDirection="column"
+      >
+        <CircularProgress color="primary" size={60} />
+        <Typography variant="h6" sx={{ marginTop: 2 }}>
+          Verificando tu acceso...
+        </Typography>
+      </Box>
+    );
   }
 
   return (
@@ -123,7 +140,6 @@ const Dash = () => {
       <Sidebar onMenuClick={handleMenuClick} />
       <Box className="main-content">
         <Topbar />
-
         {mainComponent}
       </Box>
     </Box>

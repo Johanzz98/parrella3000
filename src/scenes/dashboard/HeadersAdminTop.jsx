@@ -22,29 +22,7 @@ const Dashboard = () => {
   const theme = useTheme();
   const colors = colorcito(theme.palette.mode);
   const [fullName, setFullName] = useState("");
-  const token = useSelector((state) => state.auth.token); // Obtener el token del estado de Redux
-  const obtenerMiData = async () => {
-    try {
-      if (!token) {
-        return; // Salir de la función si el token no está disponible en el estado de Redux
-      }
-
-      const response = await axios.get(AUTH_ME, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      // Actualizar el estado fullName con el valor obtenido de la respuesta
-      setFullName(response.data.data.person.fullName);
-    } catch (error) {
-      console.error("Error al obtener datos del usuario:", error);
-    }
-  };
-
-  useEffect(() => {
-    obtenerMiData();
-  }, [token]); // Ejecutar el efecto cuando el token cambie
+ 
 
   return (
     <Box m="20px">
