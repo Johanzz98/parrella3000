@@ -142,7 +142,7 @@ const ProductPage = () => {
   return (
     <Grid
       container
-      spacing={3}
+      spacing={2}
       sx={{
         backgroundColor: "#f1f4fa",
         padding: "24px",
@@ -541,7 +541,7 @@ const ProductPage = () => {
                     >
                       Detalles
                     </Typography>
-
+                    
                     <Field
                       as={TextField}
                       fullWidth
@@ -595,7 +595,7 @@ const ProductPage = () => {
                     >
                       Cuidados
                     </Typography>
-
+                      
                     <Field
                       as={TextField}
                       fullWidth

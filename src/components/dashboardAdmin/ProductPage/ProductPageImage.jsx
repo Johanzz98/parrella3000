@@ -41,35 +41,40 @@ const ProductPageImage = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [isFocused, setIsFocused] = useState(false);
   const [selectedSizes, setSelectedSizes] = useState([]);
-
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [stock, setStock] = useState({
+    XS: 0,
+    S: 0,
+    M: 0,
+    L: 0,
+    XL: 0,
+  });
 
   const handleSizeClick = (size) => {
-    // Clona el array de tallas seleccionadas
     let newSelectedSizes = [...selectedSizes];
-
-    // Verifica si la talla ya está seleccionada
     const index = newSelectedSizes.indexOf(size);
 
-    // Si no está seleccionada, agrégala; de lo contrario, quítala
     if (index === -1) {
       newSelectedSizes.push(size);
+      setStock((prevStock) => ({ ...prevStock, [size]: prevStock[size] || 0 }));
     } else {
       newSelectedSizes.splice(index, 1);
+      setStock((prevStock) => ({ ...prevStock, [size]: 0 }));
     }
 
-    // Actualiza el estado con el nuevo array de tallas seleccionadas
     setSelectedSizes(newSelectedSizes);
   };
 
-  const isSizeSelected = (size) => {
-    // Verifica si una talla está seleccionada
-    return selectedSizes.includes(size);
+  const handleStockChange = (size, value) => {
+    setStock((prevStock) => ({
+      ...prevStock,
+      [size]: value,
+    }));
   };
+
+  const isSizeSelected = (size) => selectedSizes.includes(size);
 
   const getPaperStyle = (size) => ({
     textAlign: "center",
-
     boxShadow: "none",
     border: isSizeSelected(size) ? "2px solid #f1f4fa" : "1px solid #6c8cac",
     height: "24px",
@@ -79,22 +84,6 @@ const ProductPageImage = () => {
     cursor: "pointer",
     "&:hover": { color: "orange" },
   });
-
-  const handleFileChange = (event, index, setFieldValue) => {
-    const file = event.currentTarget.files[0];
-    const newSelectedFiles = [...selectedFiles];
-    newSelectedFiles[index] = file;
-    setSelectedFiles(newSelectedFiles);
-    setFieldValue(`file${index}`, file); // Usamos setFieldValue directamente aquí
-  };
-
-  const onClickFileInput = (index) => {
-    const inputId = `fileInput${index}`;
-    const fileInput = document.getElementById(inputId);
-    if (fileInput) {
-      fileInput.click();
-    }
-  };
 
   const validationSchema = Yup.object().shape({
     file0: Yup.mixed().required("Required"),
@@ -114,52 +103,67 @@ const ProductPageImage = () => {
     file5: "",
   };
 
-  const onSubmit = (values, { setSubmitting }) => {
-    console.log(values);
-    console.log("Selected Files:", selectedFiles);
-    toast.success("Form submitted successfully!");
-    setSubmitting(false);
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      const formData = new FormData();
+
+      selectedFiles.forEach((file, index) => {
+        if (file) {
+          formData.append(`file${index}`, file);
+        }
+      });
+
+      formData.append("sizes", JSON.stringify(selectedSizes));
+      formData.append("stock", JSON.stringify(stock));
+
+      toast.success("Form submitted successfully!");
+      setSubmitting(false);
+    } catch (error) {
+      toast.error("An error occurred while submitting the form.");
+      setSubmitting(false);
+    }
   };
 
+  // Maneja el cambio de archivo
+  const handleFileChange = (event, index) => {
+    const file = event.target.files[0];
+    const newSelectedFiles = [...selectedFiles];
+    newSelectedFiles[index] = file;
+    setSelectedFiles(newSelectedFiles);
+  };
+
+  // Maneja el drop de archivos
+  const handleDrop = (event, index) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      const newSelectedFiles = [...selectedFiles];
+      newSelectedFiles[index] = file;
+      setSelectedFiles(newSelectedFiles);
+    }
+  };
+
+  // Prevenir el comportamiento predeterminado de drag over para permitir el drop
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  // Eliminar una imagen
+  const handleRemoveImage = (index) => {
+    const newSelectedFiles = [...selectedFiles];
+    newSelectedFiles[index] = null; // Eliminar el archivo
+    setSelectedFiles(newSelectedFiles);
+  };
   return (
     <Grid container justifyContent="center">
-      <Paper style={isSmallScreen ? SmallpaperStyle : paperStyle}>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          closeOnClick
-          pauseOnHover
-          draggable
-          progress={undefined}
-          theme="colored"
-          style={{ fontSize: "12px", width: "446px", right: 5 }}
-        />
-
-        <Typography
-          sx={{
-            fontSize: "16px",
-
-            fontWeight: "1000",
-            color: "#4c5c7e",
-
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            fontFamily: "Helvetica,sans-serif",
-            fontOpticalSizing: "auto",
-            marginBottom: "12px",
-          }}
-        >
+      <Paper style={isSmallScreen ? { padding: 10, boxShadow: "none", borderRadius: "24px" } : { padding: 24, boxShadow: "none", borderRadius: "8px", height: "1232px", alignItems: "center", marginLeft: "-14px", marginTop: "34px", justifyContent: "center" }}>
+        <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover draggable progress={undefined} theme="colored" style={{ fontSize: "12px", width: "446px", right: 5 }} />
+        
+        <Typography sx={{ fontSize: "16px", fontWeight: "1000", color: "#4c5c7e", display: "flex", justifyContent: "flex-start", alignItems: "center", fontFamily: "Helvetica,sans-serif", fontOpticalSizing: "auto", marginBottom: "12px" }}>
           Product Images
         </Typography>
-        <Box
-          sx={{
-            border: "1px solid #e7e9ee",
-            borderRadius: "12px",
-            padding: "20px",
-          }}
-        >
+        
+        <Box sx={{ border: "1px solid #e7e9ee", borderRadius: "12px", padding: "20px" }}>
           <Grid container spacing={2}>
             {[...Array(6)].map((_, index) => (
               <Grid item key={index} xs={4} sm={4}>
@@ -175,43 +179,43 @@ const ProductPageImage = () => {
                     cursor: "pointer",
                     position: "relative",
                     overflow: "hidden",
-
-                    "&:hover": {
-                      backgroundColor: "#f5f5f5",
-                    },
+                    "&:hover": { backgroundColor: "#f5f5f5" },
                   }}
-                  onClick={() => onClickFileInput(index)}
+                  onClick={() => document.getElementById(`fileInput${index}`).click()}
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(e, index)} // Manejar el evento drop
                 >
                   {selectedFiles[index] ? (
-                    <img
-                      src={URL.createObjectURL(selectedFiles[index])}
-                      alt={`Selected ${index}`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "container",
-                      }}
-                    />
+                    <>
+                      <CloseOutlinedIcon
+                        onClick={(e) => {
+                          e.stopPropagation(); // Evita que se active el evento de clic en la caja
+                          handleRemoveImage(index);
+                        }}
+                        sx={{
+                          position: "absolute",
+                          top: "8px",
+                          right: "8px",
+                          padding:'4px',
+                          cursor: "pointer",
+                          fontSize:'14px',
+                          color: "#eeeeeee",
+                          backgroundColor:'#f1f4fa',
+                          borderRadius:'24px',
+                        }}
+                      />
+                      <img
+                        src={URL.createObjectURL(selectedFiles[index])}
+                        alt={`Selected ${index}`}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                        }}
+                      />
+                    </>
                   ) : (
-                    <Typography
-                      sx={{
-                        textAlign: "center",
-                        display: "flex",
-                        flexDirection: "column", // Organiza los elementos en columnas
-                        justifyContent: "center",
-                        alignItems: "center",
-                        color: "#111",
-                        fontFamily: "Helvetica, sans-serif",
-                        fontOpticalSizing: "auto",
-                        fontSize: "12px",
-                        "& span": {
-                          color: "blue", // Cambiar el color de "click to browse" a rojo
-                          margin: 0, // Eliminar margen
-                          padding: 0, // Eliminar relleno
-                          whiteSpace: "nowrap", // Evitar que el texto se envuelva a la siguiente línea
-                        },
-                      }}
-                    >
+                    <Typography sx={{ textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", color: "#111", fontFamily: "Helvetica, sans-serif", fontSize: "12px" }}>
                       <img
                         src="../../assets/img/inmg.png"
                         loading="lazy"
@@ -220,30 +224,24 @@ const ProductPageImage = () => {
                           width: "100px",
                           height: "auto",
                           objectFit: "contain",
-                        }} // Asegura que la imagen se ajuste al contenedor
+                        }}
                       />
                       Drop your images or
                       <span>
-                        {" "}
                         <span>click to browse</span>
                       </span>
                     </Typography>
                   )}
-                  <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit}
-                  >
-                    {(props) => (
+
+                  <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                    {() => (
                       <Form>
                         <input
-                          id={`fileInput${index}`} // Cambia el ID de manera dinámica para cada elemento
+                          id={`fileInput${index}`}
                           type="file"
                           accept="image/*"
                           style={{ display: "none" }}
-                          onChange={(event) =>
-                            handleFileChange(event, index, props.setFieldValue)
-                          }
+                          onChange={(event) => handleFileChange(event, index)}
                         />
                       </Form>
                     )}
@@ -253,7 +251,7 @@ const ProductPageImage = () => {
             ))}
           </Grid>
         </Box>
-        <Box sx={{ marginTop: "12px", marginBottom: "-12px" }}>
+        <Box sx={{ marginTop: "12px", marginBottom: "12px" }}>
           <Typography
             sx={{
               fontSize: "16px",
@@ -275,25 +273,29 @@ const ProductPageImage = () => {
               <Box
                 sx={{
                   padding: "20px",
-                  marginTop: "24px",
                   border: "1px solid #e7e9ee",
                   borderRadius: "12px",
                   backgroundColor: "white",
                   marginBottom: "20px",
                   display: "flex",
-
-                  flexDirection: "row",
+                  flexDirection: "row", // Aseguramos que los elementos estén en fila
                   alignItems: "center",
                 }}
               >
+                {/* Columna de Tamaños */}
                 <Grid
                   container
                   spacing={2}
                   alignItems="center"
                   sx={{ flexGrow: 1 }}
                 >
-                  {/* Columna de Tamaños */}
-                  <Grid item xs={6} sm={6} md={5} sx={{ marginRight: 2 }}>
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    md={5}
+                    sx={{ marginRight: 2, position: "relative" }}
+                  >
                     <Typography
                       sx={{
                         fontSize: "16px",
@@ -306,291 +308,135 @@ const ProductPageImage = () => {
                       Add Size
                     </Typography>
                     <Grid container spacing={1} alignItems="center">
-                      <Grid
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        onClick={() => handleSizeClick("XS")}
-                      >
-                        <Paper sx={getPaperStyle("XS")}>
-                          {isSizeSelected("XS") && (
-                            <CloseOutlinedIcon
+                      {["XS", "S", "M", "L", "XL"].map((size) => (
+                        <Grid
+                          item
+                          xs={6}
+                          sm={6}
+                          md={4}
+                          key={size}
+                          onClick={() => handleSizeClick(size)}
+                        >
+                          <Paper sx={getPaperStyle(size)}>
+                            {isSizeSelected(size) && (
+                              <CloseOutlinedIcon
+                                sx={{
+                                  position: "absolute",
+                                  top: "-8px",
+                                  right: "-8px",
+                                  backgroundColor: "#2c548c",
+                                  padding: "2px",
+                                  color: "white",
+                                  borderRadius: "50%",
+                                  fontSize: "12px",
+                                }}
+                              />
+                            )}
+                            <Typography
                               sx={{
-                                position: "absolute",
-                                top: "-8px",
-                                right: "-8px",
-                                backgroundColor: "#2c548c",
-                                padding: "2px",
-                                color: "white",
-                                borderRadius: "50%",
-                                fontSize: "12px",
+                                fontSize: "14px",
+                                color: isSizeSelected(size) ? "#111" : "#333",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                fontFamily: "Helvetica, sans-serif",
+                                "&:hover": { color: "orange" },
                               }}
-                            />
-                          )}
-                          <Typography
-                            sx={{
-                              fontSize: "14px",
-                              color: isSizeSelected("XS") ? "#111" : "#333",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              fontFamily: "Helvetica, sans-serif",
-                              "&:hover": { color: "orange" },
-                            }}
-                          >
-                            XS
-                          </Typography>
-                        </Paper>
-                      </Grid>
-
-                      <Grid
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        onClick={() => handleSizeClick("S")}
-                      >
-                        <Paper sx={getPaperStyle("S")}>
-                          {isSizeSelected("S") && (
-                            <CloseOutlinedIcon
-                              sx={{
-                                position: "absolute",
-                                top: "-8px",
-                                right: "-8px",
-                                backgroundColor: "#2c548c",
-                                padding: "2px",
-                                color: "white",
-                                borderRadius: "50%",
-                                fontSize: "12px",
-                              }}
-                            />
-                          )}
-                          <Typography
-                            sx={{
-                              fontSize: "14px",
-                              color: isSizeSelected("S") ? "#111" : "#333",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              fontFamily: "Helvetica, sans-serif",
-                              "&:hover": { color: "orange" },
-                            }}
-                          >
-                            S
-                          </Typography>
-                        </Paper>
-                      </Grid>
-
-                      <Grid
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        onClick={() => handleSizeClick("M")}
-                      >
-                        <Paper sx={getPaperStyle("M")}>
-                          {isSizeSelected("M") && (
-                            <CloseOutlinedIcon
-                              sx={{
-                                position: "absolute",
-                                top: "-8px",
-                                right: "-8px",
-                                backgroundColor: "#2c548c",
-                                padding: "2px",
-                                color: "white",
-                                borderRadius: "50%",
-                                fontSize: "12px",
-                              }}
-                            />
-                          )}
-                          <Typography
-                            sx={{
-                              fontSize: "14px",
-                              color: isSizeSelected("M") ? "#111" : "#333",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              fontFamily: "Helvetica, sans-serif",
-                              "&:hover": { color: "orange" },
-                            }}
-                          >
-                            M
-                          </Typography>
-                        </Paper>
-                      </Grid>
-
-                      <Grid
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        onClick={() => handleSizeClick("L")}
-                      >
-                        <Paper sx={getPaperStyle("L")}>
-                          {isSizeSelected("L") && (
-                            <CloseOutlinedIcon
-                              sx={{
-                                position: "absolute",
-                                top: "-8px",
-                                right: "-8px",
-                                backgroundColor: "#2c548c",
-                                padding: "2px",
-                                color: "white",
-                                borderRadius: "50%",
-                                fontSize: "12px",
-                              }}
-                            />
-                          )}
-                          <Typography
-                            sx={{
-                              fontSize: "14px",
-                              color: isSizeSelected("L") ? "#111" : "#333",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              fontFamily: "Helvetica, sans-serif",
-                              "&:hover": { color: "orange" },
-                            }}
-                          >
-                            L
-                          </Typography>
-                        </Paper>
-                      </Grid>
-
-                      <Grid
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        onClick={() => handleSizeClick("XL")}
-                        sx={{ marginLeft: "71px" }}
-                      >
-                        <Paper sx={getPaperStyle("XL")}>
-                          {isSizeSelected("XL") && (
-                            <CloseOutlinedIcon
-                              sx={{
-                                position: "absolute",
-                                top: "-8px",
-                                right: "-8px",
-                                backgroundColor: "#2c548c",
-                                padding: "2px",
-                                color: "white",
-                                borderRadius: "50%",
-                                fontSize: "12px",
-                              }}
-                            />
-                          )}
-                          <Typography
-                            sx={{
-                              fontSize: "14px",
-                              color: isSizeSelected("XL") ? "#111" : "#333",
-                              display: "flex",
-                              justifyContent: "center",
-
-                              alignItems: "center",
-                              fontFamily: "Helvetica, sans-serif",
-                              "&:hover": { color: "orange" },
-                            }}
-                          >
-                            XL
-                          </Typography>
-                        </Paper>
-                      </Grid>
+                            >
+                              {size}
+                            </Typography>
+                          </Paper>
+                        </Grid>
+                      ))}
                     </Grid>
                   </Grid>
 
-                  {/* Columna de Fecha */}
+                  {/* Columna de Stock */}
                   <Grid item xs={6} sm={6} md={6}>
-                    <Typography
-                      sx={{
-                        position: "relative",
-                        bottom: 56,
-                        fontSize: "16px",
-                        fontWeight: "600",
-                        color: "#687692",
-                        marginLeft: "36px",
-                        fontFamily: "Helvetica, sans-serif",
-                      }}
-                    >
-                      Price
-                    </Typography>
-                    <Grid container alignItems="center">
-                      <Grid
-                        item
-                        xs={12}
-                        sm={12}
-                        md={6}
-                        sx={{ marginTop: "-56px", marginLeft: "36px" }}
-                      >
-                        <Field
-                          as={TextField}
-                          fullWidth
-                          placeholder="$19.990"
-                          name="person.phoneNumber"
-                          helperText={
-                            <ErrorMessage name="person.phoneNumber" />
-                          }
-                          FormHelperTextProps={{
-                            sx: { fontSize: "0.6rem", color: "#f44336" },
-                          }}
-                          sx={{
-                            "& .MuiInputLabel-root": { fontSize: "0.8rem" }, // Reducir tamaño del label
-                            "& .MuiInputBase-root": { fontSize: "0.8rem" }, // Reducir tamaño del input
-                            "& .MuiInputBase-root.MuiOutlinedInput-root": {
-                              height: "43px",
-                              width: "200px",
-                            }, // Ajustar altura del TextField
-                            marginTop: "8px",
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  <Typography
-                    sx={{
-                      position: "relative",
-                      bottom: 46,
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      color: "#687692",
-                      marginLeft: "290px",
-                      fontFamily: "Helvetica, sans-serif",
-                    }}
-                  >
-                    Stock
-                  </Typography>
-                  <Grid container alignItems="center">
                     <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={6}
-                      sx={{ marginTop: "-46px", marginLeft: "290px" }}
+                      container
+                      spacing={1}
+                      alignItems="center"
+                      direction="row"
                     >
-                      <Field
-                        as={TextField}
-                        fullWidth
-                        placeholder="24"
-                        name="person.phoneNumber"
-                        helperText={<ErrorMessage name="person.phoneNumber" />}
-                        FormHelperTextProps={{
-                          sx: { fontSize: "0.6rem", color: "#f44336" },
-                        }}
-                        sx={{
-                          "& .MuiInputLabel-root": { fontSize: "0.8rem" }, // Reducir tamaño del label
-                          "& .MuiInputBase-root": { fontSize: "0.8rem" }, // Reducir tamaño del input
-                          "& .MuiInputBase-root.MuiOutlinedInput-root": {
-                            height: "43px",
-                            width: "200px",
-                          }, // Ajustar altura del TextField
-                          marginTop: "8px",
-                        }}
-                      />
+                      {["XS", "S", "M", "L", "XL"].map((size) => (
+                        <Grid item xs={6} sm={6} md={4} key={size}>
+                          {/* Campo de Stock solo visible cuando el tamaño está seleccionado */}
+                          {isSizeSelected(size) && (
+                            <TextField
+                              type="number"
+                              label={`${size} Stock`} // Aquí se indica la talla
+                              value={stock[size] || 0}
+                              onChange={(e) =>
+                                handleStockChange(size, e.target.value)
+                              }
+                              sx={{
+                                width: "80px",
+                                borderRadius: "4px",
+                                fontSize: "14px",
+                                textAlign: "center",
+                              }}
+                              inputProps={{
+                                min: 0,
+                              }}
+                            />
+                          )}
+                        </Grid>
+                      ))}
                     </Grid>
                   </Grid>
                 </Grid>
               </Box>
+              <Box
+                sx={{
+                  padding: "20px",
+                  border: "1px solid #e7e9ee",
+                  borderRadius: "12px",
+                  backgroundColor: "white",
+                  display: "grid",
+                  gap: "16px",
+                  gridTemplateColumns: "repeat(2, 1fr)", // Dos columnas con igual tamaño
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "16px",
+
+                    fontWeight: "800",
+                    color: "#4c5c7e",
+
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    fontFamily: "Helvetica,sans-serif",
+                    fontOpticalSizing: "auto",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Price
+                </Typography>
+                <Grid container alignItems="center">
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{ marginTop: "-16px" }}
+                  >
+                    <TextField
+                      fullWidth
+                      placeholder="$19.990"
+                      variant="outlined"
+                      sx={{
+                        "& .MuiInputLabel-root": { fontSize: "0.8rem" },
+                        "& .MuiInputBase-root": { fontSize: "0.8rem" },
+                        marginTop: "8px",
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+
               <Box sx={{ marginTop: "24px", marginBottom: "6px" }}>
                 <Typography
                   sx={{
