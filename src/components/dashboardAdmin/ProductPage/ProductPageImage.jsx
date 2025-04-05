@@ -699,11 +699,14 @@ const ProductPageImage = () => {
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "flex-end",
-                  marginTop: "16px",
+                  justifyContent: "flex-start",
+                  marginLeft:'-560px',
+                  marginTop:'-40px',
+                
+                 
                 }}
               >
-                <Box sx={{ height: "30px", backgroundColor: "#ffff" }} />
+                <Box sx={{ height: "30px", backgroundColor: "#ffff",}} />
 
                 <Button
                   type="submit"
@@ -713,7 +716,7 @@ const ProductPageImage = () => {
                   sx={{
                     backgroundColor: "#3575af",
                     color: "white",
-                    width: "50%",
+                    width: "40%",
 
                     boxShadow: "none",
                     "&:hover": {

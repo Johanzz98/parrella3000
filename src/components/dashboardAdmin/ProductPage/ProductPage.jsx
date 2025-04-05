@@ -488,6 +488,7 @@ const ProductPage = () => {
                     >
                       Descripción
                     </Typography>
+                 
                     <Field
                       as={TextField}
                       fullWidth
@@ -524,7 +525,7 @@ const ProductPage = () => {
                         marginTop: "8px",
                         borderColor: isFocused ? "#428fd5" : undefined, // Cambia el color del borde aquí
                       }}
-                    />
+                    /> {/*
                     <Typography
                       sx={{
                         color: "#687692",
@@ -579,6 +580,7 @@ const ProductPage = () => {
                         borderColor: isFocused ? "#428fd5" : undefined, // Cambia el color del borde aquí
                       }}
                     />
+                      
                     <Typography
                       sx={{
                         color: "#687692",
@@ -633,6 +635,7 @@ const ProductPage = () => {
                         borderColor: isFocused ? "#428fd5" : undefined, // Cambia el color del borde aquí
                       }}
                     />
+                    */}
                   </Box>
                 </Form>
               )}
